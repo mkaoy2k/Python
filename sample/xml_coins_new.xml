@@ -1,0 +1,11 @@
+<crypto coin="DoggyCoin" launched="2022-01-07">
+    <investor id="1">Elon Musk<purchased date="2022-01-07">10</purchased></investor>
+    <investor id="2">Jeff Bezos<purchased date="2022-01-07">20</purchased></investor>
+    <investor id="3">George Soros<purchased date="2022-01-07">30</purchased></investor>
+    <investor id="4">Bill Gates<purchased date="2022-01-07">40</purchased></investor>
+    <investor id="5">Warren Buffett<purchased date="2022-01-07">50</purchased></investor>
+    <investor id="6">Richard Branson<purchased date="2022-01-07">60</purchased></investor>
+    <investor id="7">Michael Kao<purchased date="2022-01-07">70</purchased></investor>
+    <investor id="8">Olisan Hotdog<purchased date="2022-01-07">80</purchased></investor>
+    <investor id="9">Ambuger Justdog<purchased date="2022-01-07">90</purchased></investor>
+<investor>Henry Kao<purchased date="2021-02-19">1428.57</purchased><sold date="2022-03-15">28.57</sold></investor><investor>Christine Kao<purchased date="2021-03-31">1000</purchased><sold date="2022-04-30">500</sold></investor></crypto>
