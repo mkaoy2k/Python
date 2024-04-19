@@ -1,0 +1,5053 @@
+{
+  "success": "true",
+  "result": {
+    "resource_id": "E-A0016-001",
+    "fields": [
+      {
+        "id": "ReportType",
+        "type": "String"
+      },
+      {
+        "id": "EarthquakeNo",
+        "type": "Integer"
+      },
+      {
+        "id": "ReportContent",
+        "type": "String"
+      },
+      {
+        "id": "ReportColor",
+        "type": "String"
+      },
+      {
+        "id": "Web",
+        "type": "String"
+      },
+      {
+        "id": "ReportImageURI",
+        "type": "String"
+      },
+      {
+        "id": "OriginTime",
+        "type": "Timestamp"
+      },
+      {
+        "id": "FocalDepth",
+        "type": "Float"
+      },
+      {
+        "id": "Location",
+        "type": "String"
+      },
+      {
+        "id": "EpicenterLatitude",
+        "type": "Float"
+      },
+      {
+        "id": "EpicenterLongitude",
+        "type": "Float"
+      },
+      {
+        "id": "AreaIntensity",
+        "type": "String"
+      },
+      {
+        "id": "IntScaleValue",
+        "type": "Float"
+      },
+      {
+        "id": "IntScaleValue",
+        "type": "Float"
+      },
+      {
+        "id": "IntScaleValue",
+        "type": "String"
+      },
+      {
+        "id": "IntScaleValue",
+        "type": "Float"
+      },
+      {
+        "id": "IntScaleValue",
+        "type": "Float"
+      },
+      {
+        "id": "unit",
+        "type": "String"
+      },
+      {
+        "id": "MagnitudeType",
+        "type": "String"
+      },
+      {
+        "id": "MagnitudeValue",
+        "type": "Float"
+      },
+      {
+        "id": "Source",
+        "type": "String"
+      },
+      {
+        "id": "AreaDesc",
+        "type": "String"
+      },
+      {
+        "id": "CountyName",
+        "type": "String"
+      },
+      {
+        "id": "InfoStatus",
+        "type": "String"
+      },
+      {
+        "id": "StationName",
+        "type": "String"
+      },
+      {
+        "id": "StationID",
+        "type": "String"
+      },
+      {
+        "id": "VComponent",
+        "type": "String"
+      },
+      {
+        "id": "NSComponent",
+        "type": "String"
+      },
+      {
+        "id": "EWComponent",
+        "type": "String"
+      },
+      {
+        "id": "IntScaleValue",
+        "type": "String"
+      },
+      {
+        "id": "ReportRemark",
+        "type": "String"
+      }
+    ]
+  },
+  "records": {
+    "datasetDescription": "\u5730\u9707\u5831\u544a",
+    "Earthquake": [
+      {
+        "EarthquakeNo": 112000,
+        "ReportType": "\u5730\u9707\u5831\u544a",
+        "ReportColor": "\u7da0\u8272",
+        "ReportContent": "04/23-06:17\u81fa\u5357\u5e02\u6771\u5c71\u5340\u767c\u751f\u898f\u6a213.2\u6709\u611f\u5730\u9707\uff0c\u6700\u5927\u9707\u5ea6\u81fa\u5357\u5e02\u767d\u6cb33\u7d1a\u3002",
+        "ReportImageURI": "https://scweb.cwb.gov.tw/webdata/OLDEQ/202304/2023042306172632_H.png",
+        "ReportRemark": "\u672c\u5831\u544a\u4fc2\u4e2d\u592e\u6c23\u8c61\u5c40\u5730\u9707\u89c0\u6e2c\u7db2\u5373\u6642\u5730\u9707\u8cc7\u6599\u5730\u9707\u901f\u5831\u4e4b\u7d50\u679c\u3002",
+        "Web": "https://scweb.cwb.gov.tw/zh-tw/earthquake/details/2023042306172632",
+        "EarthquakeInfo": {
+          "OriginTime": "2023-04-23 06:17:26",
+          "Source": "\u4e2d\u592e\u6c23\u8c61\u5c40",
+          "FocalDepth": 12.9,
+          "Epicenter": {
+            "Location": "\u81fa\u5357\u5e02\u653f\u5e9c\u5317\u5317\u6771\u65b9  42.7  \u516c\u91cc (\u4f4d\u65bc\u81fa\u5357\u5e02\u6771\u5c71\u5340)",
+            "EpicenterLatitude": 23.32,
+            "EpicenterLongitude": 120.4
+          },
+          "EarthquakeMagnitude": {
+            "MagnitudeType": "\u82ae\u6c0f\u898f\u6a21",
+            "MagnitudeValue": 3.2
+          }
+        },
+        "Intensity": {
+          "ShakingArea": [
+            {
+              "AreaDesc": "\u6700\u5927\u9707\u5ea63\u7d1a\u5730\u5340",
+              "CountyName": "\u81fa\u5357\u5e02",
+              "AreaIntensity": "3\u7d1a",
+              "EqStation": []
+            },
+            {
+              "AreaDesc": "\u81fa\u5357\u5e02\u5730\u5340",
+              "CountyName": "\u81fa\u5357\u5e02",
+              "InfoStatus": "observe",
+              "AreaIntensity": "3\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 10.49,
+                    "NSComponent": 12.85,
+                    "VComponent": 5.36,
+                    "IntScaleValue": 8.64
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.17,
+                    "NSComponent": 0.21,
+                    "VComponent": 0.11,
+                    "IntScaleValue": 0.21
+                  },
+                  "StationName": "\u767d\u6cb3",
+                  "StationID": "C015",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 201.06,
+                  "EpicenterDistance": 3.72,
+                  "SeismicIntensity": "3\u7d1a",
+                  "StationLatitude": 23.353,
+                  "StationLongitude": 120.414
+                }
+              ]
+            },
+            {
+              "AreaDesc": "\u96f2\u6797\u7e23\u5730\u5340",
+              "CountyName": "\u96f2\u6797\u7e23",
+              "InfoStatus": "observe",
+              "AreaIntensity": "1\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 0.86,
+                    "NSComponent": 1.13,
+                    "VComponent": 0.69,
+                    "IntScaleValue": 0.81
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.02,
+                    "NSComponent": 0.02,
+                    "VComponent": 0.01,
+                    "IntScaleValue": 0.03
+                  },
+                  "StationName": "\u6c34\u6797",
+                  "StationID": "WSL",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 141.54,
+                  "EpicenterDistance": 28.51,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.523,
+                  "StationLongitude": 120.228
+                }
+              ]
+            },
+            {
+              "AreaDesc": "\u6700\u5927\u9707\u5ea62\u7d1a\u5730\u5340",
+              "CountyName": "\u5609\u7fa9\u7e23",
+              "AreaIntensity": "2\u7d1a",
+              "EqStation": []
+            },
+            {
+              "AreaDesc": "\u6700\u5927\u9707\u5ea61\u7d1a\u5730\u5340",
+              "CountyName": "\u5609\u7fa9\u5e02\u3001\u96f2\u6797\u7e23",
+              "AreaIntensity": "1\u7d1a",
+              "EqStation": []
+            },
+            {
+              "AreaDesc": "\u5609\u7fa9\u7e23\u5730\u5340",
+              "CountyName": "\u5609\u7fa9\u7e23",
+              "InfoStatus": "observe",
+              "AreaIntensity": "2\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 3.37,
+                    "NSComponent": 2.68,
+                    "VComponent": 1.61,
+                    "IntScaleValue": 3.38
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.06,
+                    "NSComponent": 0.06,
+                    "VComponent": 0.03,
+                    "IntScaleValue": 0.08
+                  },
+                  "StationName": "\u592a\u4fdd\u5e02",
+                  "StationID": "CHY1",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 143.89,
+                  "EpicenterDistance": 18.63,
+                  "SeismicIntensity": "2\u7d1a",
+                  "StationLatitude": 23.457,
+                  "StationLongitude": 120.294
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.3,
+                    "NSComponent": 1.05,
+                    "VComponent": 0.79,
+                    "IntScaleValue": 0.83
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.02,
+                    "NSComponent": 0.02,
+                    "VComponent": 0.01,
+                    "IntScaleValue": 0.02
+                  },
+                  "StationName": "\u7fa9\u7af9",
+                  "StationID": "CHN8",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 98.96,
+                  "EpicenterDistance": 18.49,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.347,
+                  "StationLongitude": 120.223
+                }
+              ]
+            },
+            {
+              "AreaDesc": "\u5609\u7fa9\u5e02\u5730\u5340",
+              "CountyName": "\u5609\u7fa9\u5e02",
+              "InfoStatus": "observe",
+              "AreaIntensity": "1\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 0.97,
+                    "NSComponent": 0.63,
+                    "VComponent": 0.25,
+                    "IntScaleValue": 1.02
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.03,
+                    "NSComponent": 0.02,
+                    "VComponent": 0.01,
+                    "IntScaleValue": 0.04
+                  },
+                  "StationName": "\u5609\u7fa9\u5e02",
+                  "StationID": "CHY",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 189.38,
+                  "EpicenterDistance": 19.67,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.496,
+                  "StationLongitude": 120.433
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "EarthquakeNo": 112000,
+        "ReportType": "\u5730\u9707\u5831\u544a",
+        "ReportColor": "\u7da0\u8272",
+        "ReportContent": "04/22-23:30\u5b9c\u862d\u7e23\u5357\u6fb3\u9109\u767c\u751f\u898f\u6a213.0\u6709\u611f\u5730\u9707\uff0c\u6700\u5927\u9707\u5ea6\u5b9c\u862d\u7e23\u5357\u6fb34\u7d1a\u3002",
+        "ReportImageURI": "https://scweb.cwb.gov.tw/webdata/OLDEQ/202304/2023042223305130_H.png",
+        "ReportRemark": "\u672c\u5831\u544a\u4fc2\u4e2d\u592e\u6c23\u8c61\u5c40\u5730\u9707\u89c0\u6e2c\u7db2\u5373\u6642\u5730\u9707\u8cc7\u6599\u5730\u9707\u901f\u5831\u4e4b\u7d50\u679c\u3002",
+        "Web": "https://scweb.cwb.gov.tw/zh-tw/earthquake/details/2023042223305130",
+        "EarthquakeInfo": {
+          "OriginTime": "2023-04-22 23:30:51",
+          "Source": "\u4e2d\u592e\u6c23\u8c61\u5c40",
+          "FocalDepth": 6.4,
+          "Epicenter": {
+            "Location": "\u5b9c\u862d\u7e23\u653f\u5e9c\u5357\u65b9  38.6  \u516c\u91cc (\u4f4d\u65bc\u5b9c\u862d\u7e23\u5357\u6fb3\u9109)",
+            "EpicenterLatitude": 24.38,
+            "EpicenterLongitude": 121.75
+          },
+          "EarthquakeMagnitude": {
+            "MagnitudeType": "\u82ae\u6c0f\u898f\u6a21",
+            "MagnitudeValue": 3.0
+          }
+        },
+        "Intensity": {
+          "ShakingArea": [
+            {
+              "AreaDesc": "\u6700\u5927\u9707\u5ea64\u7d1a\u5730\u5340",
+              "CountyName": "\u5b9c\u862d\u7e23",
+              "AreaIntensity": "4\u7d1a",
+              "EqStation": []
+            },
+            {
+              "AreaDesc": "\u6700\u5927\u9707\u5ea61\u7d1a\u5730\u5340",
+              "CountyName": "\u82b1\u84ee\u7e23",
+              "AreaIntensity": "1\u7d1a",
+              "EqStation": []
+            },
+            {
+              "AreaDesc": "\u82b1\u84ee\u7e23\u5730\u5340",
+              "CountyName": "\u82b1\u84ee\u7e23",
+              "InfoStatus": "observe",
+              "AreaIntensity": "1\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 2.56,
+                    "NSComponent": 1.98,
+                    "VComponent": 1.59,
+                    "IntScaleValue": 2.13
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.05,
+                    "NSComponent": 0.06,
+                    "VComponent": 0.03,
+                    "IntScaleValue": 0.06
+                  },
+                  "StationName": "\u548c\u5e73",
+                  "StationID": "EHP",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 3.06,
+                  "EpicenterDistance": 8.13,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 24.309,
+                  "StationLongitude": 121.749
+                }
+              ]
+            },
+            {
+              "AreaDesc": "\u5b9c\u862d\u7e23\u5730\u5340",
+              "CountyName": "\u5b9c\u862d\u7e23",
+              "InfoStatus": "observe",
+              "AreaIntensity": "4\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 65.99,
+                    "NSComponent": 62.78,
+                    "VComponent": 17.6,
+                    "IntScaleValue": 26.25
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.64,
+                    "NSComponent": 0.77,
+                    "VComponent": 0.18,
+                    "IntScaleValue": 0.91
+                  },
+                  "StationName": "\u5357\u6fb3",
+                  "StationID": "ENA",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 174.43,
+                  "EpicenterDistance": 4.88,
+                  "SeismicIntensity": "4\u7d1a",
+                  "StationLatitude": 24.426,
+                  "StationLongitude": 121.749
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 26.26,
+                    "NSComponent": 39.53,
+                    "VComponent": 12.89,
+                    "IntScaleValue": 10.69
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.29,
+                    "NSComponent": 0.28,
+                    "VComponent": 0.12,
+                    "IntScaleValue": 0.31
+                  },
+                  "StationName": "\u6b66\u5854",
+                  "StationID": "EWT",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 199.71,
+                  "EpicenterDistance": 7.41,
+                  "SeismicIntensity": "3\u7d1a",
+                  "StationLatitude": 24.445,
+                  "StationLongitude": 121.778
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 2.19,
+                    "NSComponent": 1.9,
+                    "VComponent": 1.43,
+                    "IntScaleValue": 1.26
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.03,
+                    "NSComponent": 0.03,
+                    "VComponent": 0.02,
+                    "IntScaleValue": 0.04
+                  },
+                  "StationName": "\u6fb3\u82b1",
+                  "StationID": "EAH",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 13.95,
+                  "EpicenterDistance": 6.04,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 24.329,
+                  "StationLongitude": 121.739
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.28,
+                    "NSComponent": 0.82,
+                    "VComponent": 0.68,
+                    "IntScaleValue": 0.89
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.02,
+                    "NSComponent": 0.01,
+                    "VComponent": 0.01,
+                    "IntScaleValue": 0.02
+                  },
+                  "StationName": "\u51ac\u5c71",
+                  "StationID": "NDS",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 172.38,
+                  "EpicenterDistance": 28.19,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 24.634,
+                  "StationLongitude": 121.717
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "EarthquakeNo": 112000,
+        "ReportType": "\u5730\u9707\u5831\u544a",
+        "ReportColor": "\u7da0\u8272",
+        "ReportContent": "04/22-22:10\u5b9c\u862d\u7e23\u8fd1\u6d77\u767c\u751f\u898f\u6a213.0\u6709\u611f\u5730\u9707\uff0c\u6700\u5927\u9707\u5ea6\u82b1\u84ee\u7e23\u548c\u5e73\u3001\u5b9c\u862d\u7e23\u6fb3\u82b12\u7d1a\u3002",
+        "ReportImageURI": "https://scweb.cwb.gov.tw/webdata/OLDEQ/202304/2023042222100430_H.png",
+        "ReportRemark": "\u672c\u5831\u544a\u4fc2\u4e2d\u592e\u6c23\u8c61\u5c40\u5730\u9707\u89c0\u6e2c\u7db2\u5373\u6642\u5730\u9707\u8cc7\u6599\u5730\u9707\u901f\u5831\u4e4b\u7d50\u679c\u3002",
+        "Web": "https://scweb.cwb.gov.tw/zh-tw/earthquake/details/2023042222100430",
+        "EarthquakeInfo": {
+          "OriginTime": "2023-04-22 22:10:04",
+          "Source": "\u4e2d\u592e\u6c23\u8c61\u5c40",
+          "FocalDepth": 7.4,
+          "Epicenter": {
+            "Location": "\u5b9c\u862d\u7e23\u653f\u5e9c\u5357\u65b9  43.9  \u516c\u91cc (\u4f4d\u65bc\u5b9c\u862d\u7e23\u8fd1\u6d77)",
+            "EpicenterLatitude": 24.34,
+            "EpicenterLongitude": 121.79
+          },
+          "EarthquakeMagnitude": {
+            "MagnitudeType": "\u82ae\u6c0f\u898f\u6a21",
+            "MagnitudeValue": 3.0
+          }
+        },
+        "Intensity": {
+          "ShakingArea": [
+            {
+              "AreaDesc": "\u6700\u5927\u9707\u5ea62\u7d1a\u5730\u5340",
+              "CountyName": "\u82b1\u84ee\u7e23\u3001\u5b9c\u862d\u7e23",
+              "AreaIntensity": "2\u7d1a",
+              "EqStation": []
+            },
+            {
+              "AreaDesc": "\u82b1\u84ee\u7e23\u5730\u5340",
+              "CountyName": "\u82b1\u84ee\u7e23",
+              "InfoStatus": "observe",
+              "AreaIntensity": "2\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 14.93,
+                    "NSComponent": 17.38,
+                    "VComponent": 13.24,
+                    "IntScaleValue": 6.33
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.15,
+                    "NSComponent": 0.2,
+                    "VComponent": 0.13,
+                    "IntScaleValue": 0.23
+                  },
+                  "StationName": "\u548c\u5e73",
+                  "StationID": "EHP",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 55.8,
+                  "EpicenterDistance": 5.17,
+                  "SeismicIntensity": "2\u7d1a",
+                  "StationLatitude": 24.309,
+                  "StationLongitude": 121.749
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 4.92,
+                    "NSComponent": 3.27,
+                    "VComponent": 1.49,
+                    "IntScaleValue": 1.13
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.03,
+                    "NSComponent": 0.04,
+                    "VComponent": 0.01,
+                    "IntScaleValue": 0.04
+                  },
+                  "StationName": "\u592a\u9b6f\u95a3",
+                  "StationID": "ETL",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 41.16,
+                  "EpicenterDistance": 26.01,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 24.159,
+                  "StationLongitude": 121.623
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 2.24,
+                    "NSComponent": 2.49,
+                    "VComponent": 1.41,
+                    "IntScaleValue": 0.82
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.02,
+                    "NSComponent": 0.02,
+                    "VComponent": 0.01,
+                    "IntScaleValue": 0.03
+                  },
+                  "StationName": "\u897f\u5bf6",
+                  "StationID": "ETLH",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 65.63,
+                  "EpicenterDistance": 34.52,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 24.207,
+                  "StationLongitude": 121.482
+                }
+              ]
+            },
+            {
+              "AreaDesc": "\u5b9c\u862d\u7e23\u5730\u5340",
+              "CountyName": "\u5b9c\u862d\u7e23",
+              "InfoStatus": "observe",
+              "AreaIntensity": "2\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 15.49,
+                    "NSComponent": 13.74,
+                    "VComponent": 10.05,
+                    "IntScaleValue": 5.2
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.13,
+                    "NSComponent": 0.26,
+                    "VComponent": 0.12,
+                    "IntScaleValue": 0.28
+                  },
+                  "StationName": "\u6fb3\u82b1",
+                  "StationID": "EAH",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 82.99,
+                  "EpicenterDistance": 5.34,
+                  "SeismicIntensity": "2\u7d1a",
+                  "StationLatitude": 24.329,
+                  "StationLongitude": 121.739
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 24.77,
+                    "NSComponent": 27.46,
+                    "VComponent": 8.55,
+                    "IntScaleValue": 5.73
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.23,
+                    "NSComponent": 0.22,
+                    "VComponent": 0.06,
+                    "IntScaleValue": 0.25
+                  },
+                  "StationName": "\u5357\u6fb3",
+                  "StationID": "ENA",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 156.82,
+                  "EpicenterDistance": 10.95,
+                  "SeismicIntensity": "2\u7d1a",
+                  "StationLatitude": 24.426,
+                  "StationLongitude": 121.749
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 7.22,
+                    "NSComponent": 5.8,
+                    "VComponent": 3.61,
+                    "IntScaleValue": 2.76
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.08,
+                    "NSComponent": 0.09,
+                    "VComponent": 0.04,
+                    "IntScaleValue": 0.11
+                  },
+                  "StationName": "\u6b66\u5854",
+                  "StationID": "EWT",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 173.73,
+                  "EpicenterDistance": 12.26,
+                  "SeismicIntensity": "2\u7d1a",
+                  "StationLatitude": 24.445,
+                  "StationLongitude": 121.778
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "EarthquakeNo": 112000,
+        "ReportType": "\u5730\u9707\u5831\u544a",
+        "ReportColor": "\u7da0\u8272",
+        "ReportContent": "04/22-16:03\u5b9c\u862d\u7e23\u5357\u6fb3\u9109\u767c\u751f\u898f\u6a213.9\u6709\u611f\u5730\u9707\uff0c\u6700\u5927\u9707\u5ea6\u5b9c\u862d\u7e23\u5357\u6fb3\u3001\u82b1\u84ee\u7e23\u548c\u5e733\u7d1a\u3002",
+        "ReportImageURI": "https://scweb.cwb.gov.tw/webdata/OLDEQ/202304/2023042216034739_H.png",
+        "ReportRemark": "\u672c\u5831\u544a\u4fc2\u4e2d\u592e\u6c23\u8c61\u5c40\u5730\u9707\u89c0\u6e2c\u7db2\u5373\u6642\u5730\u9707\u8cc7\u6599\u5730\u9707\u901f\u5831\u4e4b\u7d50\u679c\u3002",
+        "Web": "https://scweb.cwb.gov.tw/zh-tw/earthquake/details/2023042216034739",
+        "EarthquakeInfo": {
+          "OriginTime": "2023-04-22 16:03:47",
+          "Source": "\u4e2d\u592e\u6c23\u8c61\u5c40",
+          "FocalDepth": 6.8,
+          "Epicenter": {
+            "Location": "\u5b9c\u862d\u7e23\u653f\u5e9c\u5357\u65b9  38.7  \u516c\u91cc (\u4f4d\u65bc\u5b9c\u862d\u7e23\u5357\u6fb3\u9109)",
+            "EpicenterLatitude": 24.38,
+            "EpicenterLongitude": 121.75
+          },
+          "EarthquakeMagnitude": {
+            "MagnitudeType": "\u82ae\u6c0f\u898f\u6a21",
+            "MagnitudeValue": 3.9
+          }
+        },
+        "Intensity": {
+          "ShakingArea": [
+            {
+              "AreaDesc": "\u6700\u5927\u9707\u5ea61\u7d1a\u5730\u5340",
+              "CountyName": "\u6843\u5712\u5e02\u3001\u81fa\u4e2d\u5e02",
+              "AreaIntensity": "1\u7d1a",
+              "EqStation": []
+            },
+            {
+              "AreaDesc": "\u6843\u5712\u5e02\u5730\u5340",
+              "CountyName": "\u6843\u5712\u5e02",
+              "InfoStatus": "observe",
+              "AreaIntensity": "1\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 0.96,
+                    "NSComponent": 1.36,
+                    "VComponent": 0.29,
+                    "IntScaleValue": 0.8
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.02,
+                    "NSComponent": 0.02,
+                    "VComponent": 0.01,
+                    "IntScaleValue": 0.02
+                  },
+                  "StationName": "\u4e09\u5149",
+                  "StationID": "NSK",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 130.09,
+                  "EpicenterDistance": 50.32,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 24.674,
+                  "StationLongitude": 121.367
+                }
+              ]
+            },
+            {
+              "AreaDesc": "\u81fa\u4e2d\u5e02\u5730\u5340",
+              "CountyName": "\u81fa\u4e2d\u5e02",
+              "InfoStatus": "observe",
+              "AreaIntensity": "1\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.04,
+                    "NSComponent": 1.48,
+                    "VComponent": 0.48,
+                    "IntScaleValue": 1.59
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.02,
+                    "NSComponent": 0.04,
+                    "VComponent": 0.01,
+                    "IntScaleValue": 0.04
+                  },
+                  "StationName": "\u68a8\u5c71",
+                  "StationID": "FUSS",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 73.74,
+                  "EpicenterDistance": 53.16,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 24.248,
+                  "StationLongitude": 121.244
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 0.78,
+                    "NSComponent": 1.18,
+                    "VComponent": 0.52,
+                    "IntScaleValue": 1.09
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.02,
+                    "NSComponent": 0.03,
+                    "VComponent": 0.01,
+                    "IntScaleValue": 0.03
+                  },
+                  "StationName": "\u5fb7\u57fa",
+                  "StationID": "TWT",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 76.12,
+                  "EpicenterDistance": 61.13,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 24.25,
+                  "StationLongitude": 121.162
+                }
+              ]
+            },
+            {
+              "AreaDesc": "\u6700\u5927\u9707\u5ea63\u7d1a\u5730\u5340",
+              "CountyName": "\u5b9c\u862d\u7e23\u3001\u82b1\u84ee\u7e23",
+              "AreaIntensity": "3\u7d1a",
+              "EqStation": []
+            },
+            {
+              "AreaDesc": "\u82b1\u84ee\u7e23\u5730\u5340",
+              "CountyName": "\u82b1\u84ee\u7e23",
+              "InfoStatus": "observe",
+              "AreaIntensity": "3\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 13.9,
+                    "NSComponent": 19.52,
+                    "VComponent": 10.77,
+                    "IntScaleValue": 14.09
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.38,
+                    "NSComponent": 0.5,
+                    "VComponent": 0.21,
+                    "IntScaleValue": 0.54
+                  },
+                  "StationName": "\u548c\u5e73",
+                  "StationID": "EHP",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 357.91,
+                  "EpicenterDistance": 8.07,
+                  "SeismicIntensity": "3\u7d1a",
+                  "StationLatitude": 24.309,
+                  "StationLongitude": 121.749
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 16.0,
+                    "NSComponent": 13.05,
+                    "VComponent": 8.06,
+                    "IntScaleValue": 4.87
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.17,
+                    "NSComponent": 0.13,
+                    "VComponent": 0.07,
+                    "IntScaleValue": 0.18
+                  },
+                  "StationName": "\u592a\u9b6f\u95a3",
+                  "StationID": "ETL",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 26.89,
+                  "EpicenterDistance": 27.74,
+                  "SeismicIntensity": "2\u7d1a",
+                  "StationLatitude": 24.159,
+                  "StationLongitude": 121.623
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 8.87,
+                    "NSComponent": 9.48,
+                    "VComponent": 6.07,
+                    "IntScaleValue": 4.68
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.11,
+                    "NSComponent": 0.12,
+                    "VComponent": 0.07,
+                    "IntScaleValue": 0.13
+                  },
+                  "StationName": "\u897f\u5bf6",
+                  "StationID": "ETLH",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 54.17,
+                  "EpicenterDistance": 33.14,
+                  "SeismicIntensity": "2\u7d1a",
+                  "StationLatitude": 24.207,
+                  "StationLongitude": 121.482
+                }
+              ]
+            },
+            {
+              "AreaDesc": "\u5b9c\u862d\u7e23\u5730\u5340",
+              "CountyName": "\u5b9c\u862d\u7e23",
+              "InfoStatus": "observe",
+              "AreaIntensity": "3\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 40.17,
+                    "NSComponent": 74.69,
+                    "VComponent": 17.14,
+                    "IntScaleValue": 16.85
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.57,
+                    "NSComponent": 0.77,
+                    "VComponent": 0.28,
+                    "IntScaleValue": 0.83
+                  },
+                  "StationName": "\u5357\u6fb3",
+                  "StationID": "ENA",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 182.96,
+                  "EpicenterDistance": 4.91,
+                  "SeismicIntensity": "3\u7d1a",
+                  "StationLatitude": 24.426,
+                  "StationLongitude": 121.749
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 12.39,
+                    "NSComponent": 12.65,
+                    "VComponent": 7.99,
+                    "IntScaleValue": 8.76
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.32,
+                    "NSComponent": 0.23,
+                    "VComponent": 0.19,
+                    "IntScaleValue": 0.35
+                  },
+                  "StationName": "\u6fb3\u82b1",
+                  "StationID": "EAH",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 7.16,
+                  "EpicenterDistance": 5.86,
+                  "SeismicIntensity": "3\u7d1a",
+                  "StationLatitude": 24.329,
+                  "StationLongitude": 121.739
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 19.57,
+                    "NSComponent": 15.57,
+                    "VComponent": 9.06,
+                    "IntScaleValue": 9.73
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.45,
+                    "NSComponent": 0.3,
+                    "VComponent": 0.17,
+                    "IntScaleValue": 0.46
+                  },
+                  "StationName": "\u6b66\u5854",
+                  "StationID": "EWT",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 204.65,
+                  "EpicenterDistance": 7.73,
+                  "SeismicIntensity": "3\u7d1a",
+                  "StationLatitude": 24.445,
+                  "StationLongitude": 121.778
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 5.04,
+                    "NSComponent": 4.57,
+                    "VComponent": 1.52,
+                    "IntScaleValue": 3.73
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.08,
+                    "NSComponent": 0.08,
+                    "VComponent": 0.03,
+                    "IntScaleValue": 0.09
+                  },
+                  "StationName": "\u725b\u9b25",
+                  "StationID": "ENT",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 148.36,
+                  "EpicenterDistance": 33.38,
+                  "SeismicIntensity": "2\u7d1a",
+                  "StationLatitude": 24.638,
+                  "StationLongitude": 121.574
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 5.93,
+                    "NSComponent": 7.43,
+                    "VComponent": 1.41,
+                    "IntScaleValue": 5.3
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.11,
+                    "NSComponent": 0.15,
+                    "VComponent": 0.03,
+                    "IntScaleValue": 0.15
+                  },
+                  "StationName": "\u5357\u5c71",
+                  "StationID": "NNS",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 99.48,
+                  "EpicenterDistance": 37.55,
+                  "SeismicIntensity": "2\u7d1a",
+                  "StationLatitude": 24.437,
+                  "StationLongitude": 121.381
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.84,
+                    "NSComponent": 1.3,
+                    "VComponent": 1.08,
+                    "IntScaleValue": 1.67
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.05,
+                    "NSComponent": 0.04,
+                    "VComponent": 0.03,
+                    "IntScaleValue": 0.05
+                  },
+                  "StationName": "\u51ac\u5c71",
+                  "StationID": "NDS",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 173.86,
+                  "EpicenterDistance": 28.16,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 24.634,
+                  "StationLongitude": 121.717
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.04,
+                    "NSComponent": 1.15,
+                    "VComponent": 1.26,
+                    "IntScaleValue": 1.07
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.03,
+                    "NSComponent": 0.03,
+                    "VComponent": 0.03,
+                    "IntScaleValue": 0.03
+                  },
+                  "StationName": "\u5927\u540c",
+                  "StationID": "NDT",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 135.97,
+                  "EpicenterDistance": 34.08,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 24.603,
+                  "StationLongitude": 121.513
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "EarthquakeNo": 112000,
+        "ReportType": "\u5730\u9707\u5831\u544a",
+        "ReportColor": "\u7da0\u8272",
+        "ReportContent": "04/22-08:20\u81fa\u6771\u7e23\u6d77\u7aef\u9109\u767c\u751f\u898f\u6a213.6\u6709\u611f\u5730\u9707\uff0c\u6700\u5927\u9707\u5ea6\u81fa\u6771\u7e23\u5229\u7a3b3\u7d1a\u3002",
+        "ReportImageURI": "https://scweb.cwb.gov.tw/webdata/OLDEQ/202304/2023042208204636_H.png",
+        "ReportRemark": "\u672c\u5831\u544a\u4fc2\u4e2d\u592e\u6c23\u8c61\u5c40\u5730\u9707\u89c0\u6e2c\u7db2\u5373\u6642\u5730\u9707\u8cc7\u6599\u5730\u9707\u901f\u5831\u4e4b\u7d50\u679c\u3002",
+        "Web": "https://scweb.cwb.gov.tw/zh-tw/earthquake/details/2023042208204636",
+        "EarthquakeInfo": {
+          "OriginTime": "2023-04-22 08:20:46",
+          "Source": "\u4e2d\u592e\u6c23\u8c61\u5c40",
+          "FocalDepth": 5.0,
+          "Epicenter": {
+            "Location": "\u81fa\u6771\u7e23\u653f\u5e9c\u5317\u5317\u897f\u65b9  59.1  \u516c\u91cc (\u4f4d\u65bc\u81fa\u6771\u7e23\u6d77\u7aef\u9109)",
+            "EpicenterLatitude": 23.26,
+            "EpicenterLongitude": 120.97
+          },
+          "EarthquakeMagnitude": {
+            "MagnitudeType": "\u82ae\u6c0f\u898f\u6a21",
+            "MagnitudeValue": 3.6
+          }
+        },
+        "Intensity": {
+          "ShakingArea": [
+            {
+              "AreaDesc": "\u5357\u6295\u7e23\u5730\u5340",
+              "CountyName": "\u5357\u6295\u7e23",
+              "InfoStatus": "observe",
+              "AreaIntensity": "2\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 4.24,
+                    "NSComponent": 3.4,
+                    "VComponent": 2.6,
+                    "IntScaleValue": 3.99
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.12,
+                    "NSComponent": 0.11,
+                    "VComponent": 0.05,
+                    "IntScaleValue": 0.13
+                  },
+                  "StationName": "\u7389\u5c71",
+                  "StationID": "YUS",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 176.57,
+                  "EpicenterDistance": 24.97,
+                  "SeismicIntensity": "2\u7d1a",
+                  "StationLatitude": 23.487,
+                  "StationLongitude": 120.959
+                }
+              ]
+            },
+            {
+              "AreaDesc": "\u6700\u5927\u9707\u5ea62\u7d1a\u5730\u5340",
+              "CountyName": "\u9ad8\u96c4\u5e02\u3001\u5357\u6295\u7e23",
+              "AreaIntensity": "2\u7d1a",
+              "EqStation": []
+            },
+            {
+              "AreaDesc": "\u9ad8\u96c4\u5e02\u5730\u5340",
+              "CountyName": "\u9ad8\u96c4\u5e02",
+              "InfoStatus": "observe",
+              "AreaIntensity": "2\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 5.24,
+                    "NSComponent": 4.73,
+                    "VComponent": 2.54,
+                    "IntScaleValue": 5.36
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.12,
+                    "NSComponent": 0.1,
+                    "VComponent": 0.05,
+                    "IntScaleValue": 0.16
+                  },
+                  "StationName": "\u6843\u6e90",
+                  "StationID": "STYH",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 64.92,
+                  "EpicenterDistance": 21.8,
+                  "SeismicIntensity": "2\u7d1a",
+                  "StationLatitude": 23.179,
+                  "StationLongitude": 120.781
+                }
+              ]
+            },
+            {
+              "AreaDesc": "\u96f2\u6797\u7e23\u5730\u5340",
+              "CountyName": "\u96f2\u6797\u7e23",
+              "InfoStatus": "observe",
+              "AreaIntensity": "1\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 0.8,
+                    "NSComponent": 0.58,
+                    "VComponent": 0.3,
+                    "IntScaleValue": 0.88
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.03,
+                    "NSComponent": 0.02,
+                    "VComponent": 0.01,
+                    "IntScaleValue": 0.03
+                  },
+                  "StationName": "\u8349\u5dba",
+                  "StationID": "CHN5",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 140.72,
+                  "EpicenterDistance": 47.95,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.597,
+                  "StationLongitude": 120.677
+                }
+              ]
+            },
+            {
+              "AreaDesc": "\u6700\u5927\u9707\u5ea63\u7d1a\u5730\u5340",
+              "CountyName": "\u81fa\u6771\u7e23",
+              "AreaIntensity": "3\u7d1a",
+              "EqStation": []
+            },
+            {
+              "AreaDesc": "\u5609\u7fa9\u7e23\u5730\u5340",
+              "CountyName": "\u5609\u7fa9\u7e23",
+              "InfoStatus": "observe",
+              "AreaIntensity": "1\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.41,
+                    "NSComponent": 1.16,
+                    "VComponent": 0.69,
+                    "IntScaleValue": 1.13
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.06,
+                    "NSComponent": 0.04,
+                    "VComponent": 0.02,
+                    "IntScaleValue": 0.06
+                  },
+                  "StationName": "\u963f\u91cc\u5c71",
+                  "StationID": "ALS",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 148.95,
+                  "EpicenterDistance": 31.82,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.508,
+                  "StationLongitude": 120.813
+                }
+              ]
+            },
+            {
+              "AreaDesc": "\u82b1\u84ee\u7e23\u5730\u5340",
+              "CountyName": "\u82b1\u84ee\u7e23",
+              "InfoStatus": "observe",
+              "AreaIntensity": "1\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 0.93,
+                    "NSComponent": 1.49,
+                    "VComponent": 0.44,
+                    "IntScaleValue": 1.4
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.02,
+                    "NSComponent": 0.05,
+                    "VComponent": 0.02,
+                    "IntScaleValue": 0.05
+                  },
+                  "StationName": "\u7389\u91cc",
+                  "StationID": "EYUL",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 255.12,
+                  "EpicenterDistance": 36.52,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.347,
+                  "StationLongitude": 121.319
+                }
+              ]
+            },
+            {
+              "AreaDesc": "\u6700\u5927\u9707\u5ea61\u7d1a\u5730\u5340",
+              "CountyName": "\u5609\u7fa9\u7e23\u3001\u82b1\u84ee\u7e23\u3001\u96f2\u6797\u7e23",
+              "AreaIntensity": "1\u7d1a",
+              "EqStation": []
+            },
+            {
+              "AreaDesc": "\u81fa\u6771\u7e23\u5730\u5340",
+              "CountyName": "\u81fa\u6771\u7e23",
+              "InfoStatus": "observe",
+              "AreaIntensity": "3\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 25.0,
+                    "NSComponent": 22.44,
+                    "VComponent": 6.95,
+                    "IntScaleValue": 13.59
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.35,
+                    "NSComponent": 0.28,
+                    "VComponent": 0.18,
+                    "IntScaleValue": 0.38
+                  },
+                  "StationName": "\u5229\u7a3b",
+                  "StationID": "ELD",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 328.04,
+                  "EpicenterDistance": 9.88,
+                  "SeismicIntensity": "3\u7d1a",
+                  "StationLatitude": 23.187,
+                  "StationLongitude": 121.025
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "EarthquakeNo": 112000,
+        "ReportType": "\u5730\u9707\u5831\u544a",
+        "ReportColor": "\u7da0\u8272",
+        "ReportContent": "04/21-19:44\u82b1\u84ee\u7e23\u8fd1\u6d77\u767c\u751f\u898f\u6a214.5\u6709\u611f\u5730\u9707\uff0c\u6700\u5927\u9707\u5ea6\u82b1\u84ee\u7e23\u5149\u5fa93\u7d1a\u3002",
+        "ReportImageURI": "https://scweb.cwb.gov.tw/webdata/OLDEQ/202304/2023042119444445_H.png",
+        "ReportRemark": "\u672c\u5831\u544a\u4fc2\u4e2d\u592e\u6c23\u8c61\u5c40\u5730\u9707\u89c0\u6e2c\u7db2\u5373\u6642\u5730\u9707\u8cc7\u6599\u5730\u9707\u901f\u5831\u4e4b\u7d50\u679c\u3002",
+        "Web": "https://scweb.cwb.gov.tw/zh-tw/earthquake/details/2023042119444445",
+        "EarthquakeInfo": {
+          "OriginTime": "2023-04-21 19:44:44",
+          "Source": "\u4e2d\u592e\u6c23\u8c61\u5c40",
+          "FocalDepth": 17.0,
+          "Epicenter": {
+            "Location": "\u82b1\u84ee\u7e23\u653f\u5e9c\u5357\u5357\u897f\u65b9  54.7  \u516c\u91cc (\u4f4d\u65bc\u82b1\u84ee\u7e23\u8fd1\u6d77)",
+            "EpicenterLatitude": 23.51,
+            "EpicenterLongitude": 121.51
+          },
+          "EarthquakeMagnitude": {
+            "MagnitudeType": "\u82ae\u6c0f\u898f\u6a21",
+            "MagnitudeValue": 4.5
+          }
+        },
+        "Intensity": {
+          "ShakingArea": [
+            {
+              "AreaDesc": "\u5357\u6295\u7e23\u5730\u5340",
+              "CountyName": "\u5357\u6295\u7e23",
+              "InfoStatus": "observe",
+              "AreaIntensity": "1\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.5,
+                    "NSComponent": 1.46,
+                    "VComponent": 0.78,
+                    "IntScaleValue": 1.59
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.06,
+                    "NSComponent": 0.05,
+                    "VComponent": 0.02,
+                    "IntScaleValue": 0.08
+                  },
+                  "StationName": "\u7389\u5c71",
+                  "StationID": "YUS",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 87.71,
+                  "EpicenterDistance": 56.14,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.487,
+                  "StationLongitude": 120.959
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.61,
+                    "NSComponent": 1.51,
+                    "VComponent": 1.17,
+                    "IntScaleValue": 1.36
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.03,
+                    "NSComponent": 0.03,
+                    "VComponent": 0.02,
+                    "IntScaleValue": 0.04
+                  },
+                  "StationName": "\u5967\u842c\u5927",
+                  "StationID": "OWD",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 145.63,
+                  "EpicenterDistance": 60.09,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.955,
+                  "StationLongitude": 121.176
+                },
+                {
+                  "StationName": "\u5408\u6b61\u5c71",
+                  "StationID": "WHF",
+                  "BackAzimuth": 161.17,
+                  "EpicenterDistance": 74.54,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 24.143,
+                  "StationLongitude": 121.273
+                }
+              ]
+            },
+            {
+              "AreaDesc": "\u6700\u5927\u9707\u5ea63\u7d1a\u5730\u5340",
+              "CountyName": "\u82b1\u84ee\u7e23",
+              "AreaIntensity": "3\u7d1a",
+              "EqStation": []
+            },
+            {
+              "AreaDesc": "\u6700\u5927\u9707\u5ea61\u7d1a\u5730\u5340",
+              "CountyName": "\u5357\u6295\u7e23\u3001\u96f2\u6797\u7e23\u3001\u5609\u7fa9\u7e23\u3001\u5f70\u5316\u7e23",
+              "AreaIntensity": "1\u7d1a",
+              "EqStation": []
+            },
+            {
+              "AreaDesc": "\u96f2\u6797\u7e23\u5730\u5340",
+              "CountyName": "\u96f2\u6797\u7e23",
+              "InfoStatus": "observe",
+              "AreaIntensity": "1\u7d1a",
+              "EqStation": [
+                {
+                  "StationName": "\u8349\u5dba",
+                  "StationID": "CHN5",
+                  "BackAzimuth": 96.68,
+                  "EpicenterDistance": 85.49,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.597,
+                  "StationLongitude": 120.677
+                }
+              ]
+            },
+            {
+              "AreaDesc": "\u5f70\u5316\u7e23\u5730\u5340",
+              "CountyName": "\u5f70\u5316\u7e23",
+              "InfoStatus": "observe",
+              "AreaIntensity": "1\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 0.55,
+                    "NSComponent": 0.68,
+                    "VComponent": 0.61,
+                    "IntScaleValue": 0.87
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.02,
+                    "NSComponent": 0.02,
+                    "VComponent": 0.02,
+                    "IntScaleValue": 0.03
+                  },
+                  "StationName": "\u54e1\u6797",
+                  "StationID": "WYL",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 117.96,
+                  "EpicenterDistance": 107.2,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.961,
+                  "StationLongitude": 120.58
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.93,
+                    "NSComponent": 1.19,
+                    "VComponent": 0.57,
+                    "IntScaleValue": 1.89
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.05,
+                    "NSComponent": 0.03,
+                    "VComponent": 0.01,
+                    "IntScaleValue": 0.06
+                  },
+                  "StationName": "\u5f70\u5316\u5e02",
+                  "StationID": "WCHH",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 123.23,
+                  "EpicenterDistance": 115.78,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 24.079,
+                  "StationLongitude": 120.558
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 0.98,
+                    "NSComponent": 1.31,
+                    "VComponent": 0.48,
+                    "IntScaleValue": 1.26
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.03,
+                    "NSComponent": 0.04,
+                    "VComponent": 0.01,
+                    "IntScaleValue": 0.05
+                  },
+                  "StationName": "\u9e7f\u6e2f",
+                  "StationID": "B112",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 118.94,
+                  "EpicenterDistance": 125.58,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 24.055,
+                  "StationLongitude": 120.43
+                }
+              ]
+            },
+            {
+              "AreaDesc": "\u6700\u5927\u9707\u5ea62\u7d1a\u5730\u5340",
+              "CountyName": "\u81fa\u6771\u7e23",
+              "AreaIntensity": "2\u7d1a",
+              "EqStation": []
+            },
+            {
+              "AreaDesc": "\u5609\u7fa9\u7e23\u5730\u5340",
+              "CountyName": "\u5609\u7fa9\u7e23",
+              "InfoStatus": "observe",
+              "AreaIntensity": "1\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 0.84,
+                    "NSComponent": 0.73,
+                    "VComponent": 0.4,
+                    "IntScaleValue": 1.03
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.04,
+                    "NSComponent": 0.03,
+                    "VComponent": 0.01,
+                    "IntScaleValue": 0.05
+                  },
+                  "StationName": "\u756a\u8def",
+                  "StationID": "WCKO",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 85.26,
+                  "EpicenterDistance": 92.65,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.439,
+                  "StationLongitude": 120.605
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.0,
+                    "NSComponent": 0.89,
+                    "VComponent": 0.46,
+                    "IntScaleValue": 0.98
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.05,
+                    "NSComponent": 0.03,
+                    "VComponent": 0.02,
+                    "IntScaleValue": 0.05
+                  },
+                  "StationName": "\u6c11\u96c4",
+                  "StationID": "CHN2",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 91.47,
+                  "EpicenterDistance": 105.64,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.532,
+                  "StationLongitude": 120.474
+                }
+              ]
+            },
+            {
+              "AreaDesc": "\u82b1\u84ee\u7e23\u5730\u5340",
+              "CountyName": "\u82b1\u84ee\u7e23",
+              "InfoStatus": "observe",
+              "AreaIntensity": "3\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 6.08,
+                    "NSComponent": 9.68,
+                    "VComponent": 5.0,
+                    "IntScaleValue": 8.94
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.19,
+                    "NSComponent": 0.27,
+                    "VComponent": 0.09,
+                    "IntScaleValue": 0.28
+                  },
+                  "StationName": "\u5149\u5fa9",
+                  "StationID": "EGFH",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 155.17,
+                  "EpicenterDistance": 19.73,
+                  "SeismicIntensity": "3\u7d1a",
+                  "StationLatitude": 23.669,
+                  "StationLongitude": 121.428
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 4.99,
+                    "NSComponent": 5.31,
+                    "VComponent": 2.01,
+                    "IntScaleValue": 2.87
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.09,
+                    "NSComponent": 0.13,
+                    "VComponent": 0.06,
+                    "IntScaleValue": 0.16
+                  },
+                  "StationName": "\u7d05\u8449",
+                  "StationID": "EHY",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 88.71,
+                  "EpicenterDistance": 18.26,
+                  "SeismicIntensity": "2\u7d1a",
+                  "StationLatitude": 23.504,
+                  "StationLongitude": 121.33
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 6.04,
+                    "NSComponent": 7.06,
+                    "VComponent": 3.47,
+                    "IntScaleValue": 6.96
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.16,
+                    "NSComponent": 0.17,
+                    "VComponent": 0.06,
+                    "IntScaleValue": 0.19
+                  },
+                  "StationName": "\u78ef\u5d0e",
+                  "StationID": "EGC",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 190.14,
+                  "EpicenterDistance": 22.57,
+                  "SeismicIntensity": "2\u7d1a",
+                  "StationLatitude": 23.708,
+                  "StationLongitude": 121.548
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 3.77,
+                    "NSComponent": 3.68,
+                    "VComponent": 1.65,
+                    "IntScaleValue": 4.25
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.16,
+                    "NSComponent": 0.13,
+                    "VComponent": 0.05,
+                    "IntScaleValue": 0.17
+                  },
+                  "StationName": "\u6c34\u7489",
+                  "StationID": "SHUL",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 190.06,
+                  "EpicenterDistance": 31.55,
+                  "SeismicIntensity": "2\u7d1a",
+                  "StationLatitude": 23.788,
+                  "StationLongitude": 121.563
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 5.27,
+                    "NSComponent": 5.25,
+                    "VComponent": 2.33,
+                    "IntScaleValue": 5.81
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.11,
+                    "NSComponent": 0.12,
+                    "VComponent": 0.08,
+                    "IntScaleValue": 0.17
+                  },
+                  "StationName": "\u897f\u6797",
+                  "StationID": "ESL",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 168.55,
+                  "EpicenterDistance": 34.47,
+                  "SeismicIntensity": "2\u7d1a",
+                  "StationLatitude": 23.812,
+                  "StationLongitude": 121.442
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 3.64,
+                    "NSComponent": 3.43,
+                    "VComponent": 1.35,
+                    "IntScaleValue": 3.44
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.18,
+                    "NSComponent": 0.1,
+                    "VComponent": 0.07,
+                    "IntScaleValue": 0.19
+                  },
+                  "StationName": "\u9e7d\u5bee",
+                  "StationID": "EYL",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 192.18,
+                  "EpicenterDistance": 44.95,
+                  "SeismicIntensity": "2\u7d1a",
+                  "StationLatitude": 23.904,
+                  "StationLongitude": 121.602
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 0.94,
+                    "NSComponent": 1.08,
+                    "VComponent": 1.18,
+                    "IntScaleValue": 1.04
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.05,
+                    "NSComponent": 0.06,
+                    "VComponent": 0.03,
+                    "IntScaleValue": 0.06
+                  },
+                  "StationName": "\u7389\u91cc",
+                  "StationID": "EYUL",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 47.45,
+                  "EpicenterDistance": 26.3,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.347,
+                  "StationLongitude": 121.319
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.7,
+                    "NSComponent": 1.78,
+                    "VComponent": 0.77,
+                    "IntScaleValue": 2.06
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.08,
+                    "NSComponent": 0.09,
+                    "VComponent": 0.03,
+                    "IntScaleValue": 0.1
+                  },
+                  "StationName": "\u5bcc\u91cc",
+                  "StationID": "FULB",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 32.67,
+                  "EpicenterDistance": 40.68,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.199,
+                  "StationLongitude": 121.294
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 2.04,
+                    "NSComponent": 1.77,
+                    "VComponent": 1.6,
+                    "IntScaleValue": 1.98
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.09,
+                    "NSComponent": 0.08,
+                    "VComponent": 0.05,
+                    "IntScaleValue": 0.12
+                  },
+                  "StationName": "\u9285\u9580",
+                  "StationID": "ETM",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 178.18,
+                  "EpicenterDistance": 50.88,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.966,
+                  "StationLongitude": 121.493
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.56,
+                    "NSComponent": 2.0,
+                    "VComponent": 0.67,
+                    "IntScaleValue": 1.99
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.09,
+                    "NSComponent": 0.1,
+                    "VComponent": 0.04,
+                    "IntScaleValue": 0.12
+                  },
+                  "StationName": "\u82b1\u84ee\u5e02",
+                  "StationID": "HWA",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 191.67,
+                  "EpicenterDistance": 52.98,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.975,
+                  "StationLongitude": 121.614
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.21,
+                    "NSComponent": 2.13,
+                    "VComponent": 0.44,
+                    "IntScaleValue": 1.53
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.03,
+                    "NSComponent": 0.05,
+                    "VComponent": 0.01,
+                    "IntScaleValue": 0.05
+                  },
+                  "StationName": "\u592a\u9b6f\u95a3",
+                  "StationID": "ETL",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 189.15,
+                  "EpicenterDistance": 73.18,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 24.159,
+                  "StationLongitude": 121.623
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.36,
+                    "NSComponent": 1.87,
+                    "VComponent": 1.59,
+                    "IntScaleValue": 1.93
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.04,
+                    "NSComponent": 0.06,
+                    "VComponent": 0.04,
+                    "IntScaleValue": 0.07
+                  },
+                  "StationName": "\u897f\u5bf6",
+                  "StationID": "ETLH",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 177.98,
+                  "EpicenterDistance": 77.64,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 24.207,
+                  "StationLongitude": 121.482
+                }
+              ]
+            },
+            {
+              "AreaDesc": "\u81fa\u6771\u7e23\u5730\u5340",
+              "CountyName": "\u81fa\u6771\u7e23",
+              "InfoStatus": "observe",
+              "AreaIntensity": "2\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 4.24,
+                    "NSComponent": 3.39,
+                    "VComponent": 1.55,
+                    "IntScaleValue": 3.61
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.14,
+                    "NSComponent": 0.12,
+                    "VComponent": 0.04,
+                    "IntScaleValue": 0.18
+                  },
+                  "StationName": "\u6210\u529f",
+                  "StationID": "CHK",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 16.96,
+                  "EpicenterDistance": 47.52,
+                  "SeismicIntensity": "2\u7d1a",
+                  "StationLatitude": 23.098,
+                  "StationLongitude": 121.373
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 6.59,
+                    "NSComponent": 3.87,
+                    "VComponent": 1.92,
+                    "IntScaleValue": 6.43
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.2,
+                    "NSComponent": 0.12,
+                    "VComponent": 0.06,
+                    "IntScaleValue": 0.21
+                  },
+                  "StationName": "\u6771\u6cb3",
+                  "StationID": "EDH",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 19.44,
+                  "EpicenterDistance": 62.94,
+                  "SeismicIntensity": "2\u7d1a",
+                  "StationLatitude": 22.973,
+                  "StationLongitude": 121.304
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 3.21,
+                    "NSComponent": 2.66,
+                    "VComponent": 1.1,
+                    "IntScaleValue": 2.16
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.21,
+                    "NSComponent": 0.08,
+                    "VComponent": 0.03,
+                    "IntScaleValue": 0.21
+                  },
+                  "StationName": "\u9577\u6ff1",
+                  "StationID": "ECB",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 15.48,
+                  "EpicenterDistance": 22.0,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.316,
+                  "StationLongitude": 121.451
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.02,
+                    "NSComponent": 0.79,
+                    "VComponent": 0.7,
+                    "IntScaleValue": 1.04
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.05,
+                    "NSComponent": 0.03,
+                    "VComponent": 0.02,
+                    "IntScaleValue": 0.05
+                  },
+                  "StationName": "\u6d77\u7aef",
+                  "StationID": "EHD",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 37.86,
+                  "EpicenterDistance": 50.41,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.149,
+                  "StationLongitude": 121.206
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.22,
+                    "NSComponent": 1.51,
+                    "VComponent": 0.86,
+                    "IntScaleValue": 1.54
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.09,
+                    "NSComponent": 0.12,
+                    "VComponent": 0.04,
+                    "IntScaleValue": 0.12
+                  },
+                  "StationName": "\u6c60\u4e0a",
+                  "StationID": "ECS",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 32.91,
+                  "EpicenterDistance": 54.49,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.095,
+                  "StationLongitude": 121.219
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.16,
+                    "NSComponent": 0.89,
+                    "VComponent": 0.78,
+                    "IntScaleValue": 1.05
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.03,
+                    "NSComponent": 0.02,
+                    "VComponent": 0.02,
+                    "IntScaleValue": 0.03
+                  },
+                  "StationName": "\u5229\u7a3b",
+                  "StationID": "ELD",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 54.29,
+                  "EpicenterDistance": 60.89,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.187,
+                  "StationLongitude": 121.025
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "EarthquakeNo": 112000,
+        "ReportType": "\u5730\u9707\u5831\u544a",
+        "ReportColor": "\u7da0\u8272",
+        "ReportContent": "04/20-05:41\u82b1\u84ee\u7e23\u9cf3\u6797\u93ae\u767c\u751f\u898f\u6a213.6\u6709\u611f\u5730\u9707\uff0c\u6700\u5927\u9707\u5ea6\u82b1\u84ee\u7e23\u897f\u67973\u7d1a\u3002",
+        "ReportImageURI": "https://scweb.cwb.gov.tw/webdata/OLDEQ/202304/2023042005413136_H.png",
+        "ReportRemark": "\u672c\u5831\u544a\u4fc2\u4e2d\u592e\u6c23\u8c61\u5c40\u5730\u9707\u89c0\u6e2c\u7db2\u5373\u6642\u5730\u9707\u8cc7\u6599\u5730\u9707\u901f\u5831\u4e4b\u7d50\u679c\u3002",
+        "Web": "https://scweb.cwb.gov.tw/zh-tw/earthquake/details/2023042005413136",
+        "EarthquakeInfo": {
+          "OriginTime": "2023-04-20 05:41:31",
+          "Source": "\u4e2d\u592e\u6c23\u8c61\u5c40",
+          "FocalDepth": 7.3,
+          "Epicenter": {
+            "Location": "\u82b1\u84ee\u7e23\u653f\u5e9c\u5357\u5357\u897f\u65b9  31.0  \u516c\u91cc (\u4f4d\u65bc\u82b1\u84ee\u7e23\u9cf3\u6797\u93ae)",
+            "EpicenterLatitude": 23.75,
+            "EpicenterLongitude": 121.48
+          },
+          "EarthquakeMagnitude": {
+            "MagnitudeType": "\u82ae\u6c0f\u898f\u6a21",
+            "MagnitudeValue": 3.6
+          }
+        },
+        "Intensity": {
+          "ShakingArea": [
+            {
+              "AreaDesc": "\u5357\u6295\u7e23\u5730\u5340",
+              "CountyName": "\u5357\u6295\u7e23",
+              "InfoStatus": "observe",
+              "AreaIntensity": "1\u7d1a",
+              "EqStation": [
+                {
+                  "StationName": "\u5408\u6b61\u5c71",
+                  "StationID": "WHF",
+                  "BackAzimuth": 154.96,
+                  "EpicenterDistance": 48.77,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 24.143,
+                  "StationLongitude": 121.273
+                }
+              ]
+            },
+            {
+              "AreaDesc": "\u6700\u5927\u9707\u5ea63\u7d1a\u5730\u5340",
+              "CountyName": "\u82b1\u84ee\u7e23",
+              "AreaIntensity": "3\u7d1a",
+              "EqStation": []
+            },
+            {
+              "AreaDesc": "\u81fa\u4e2d\u5e02\u5730\u5340",
+              "CountyName": "\u81fa\u4e2d\u5e02",
+              "InfoStatus": "observe",
+              "AreaIntensity": "1\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 0.54,
+                    "NSComponent": 0.7,
+                    "VComponent": 0.15,
+                    "IntScaleValue": 0.82
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.02,
+                    "NSComponent": 0.02,
+                    "VComponent": 0.0,
+                    "IntScaleValue": 0.02
+                  },
+                  "StationName": "\u68a8\u5c71",
+                  "StationID": "FUSS",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 157.08,
+                  "EpicenterDistance": 60.51,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 24.248,
+                  "StationLongitude": 121.244
+                }
+              ]
+            },
+            {
+              "AreaDesc": "\u6700\u5927\u9707\u5ea61\u7d1a\u5730\u5340",
+              "CountyName": "\u5357\u6295\u7e23\u3001\u81fa\u4e2d\u5e02",
+              "AreaIntensity": "1\u7d1a",
+              "EqStation": []
+            },
+            {
+              "AreaDesc": "\u82b1\u84ee\u7e23\u5730\u5340",
+              "CountyName": "\u82b1\u84ee\u7e23",
+              "InfoStatus": "observe",
+              "AreaIntensity": "3\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 78.09,
+                    "NSComponent": 49.96,
+                    "VComponent": 12.28,
+                    "IntScaleValue": 20.92
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.76,
+                    "NSComponent": 0.55,
+                    "VComponent": 0.11,
+                    "IntScaleValue": 0.87
+                  },
+                  "StationName": "\u897f\u6797",
+                  "StationID": "ESL",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 155.12,
+                  "EpicenterDistance": 8.17,
+                  "SeismicIntensity": "3\u7d1a",
+                  "StationLatitude": 23.812,
+                  "StationLongitude": 121.442
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 4.65,
+                    "NSComponent": 3.85,
+                    "VComponent": 4.3,
+                    "IntScaleValue": 3.35
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.09,
+                    "NSComponent": 0.07,
+                    "VComponent": 0.07,
+                    "IntScaleValue": 0.1
+                  },
+                  "StationName": "\u5149\u5fa9",
+                  "StationID": "EGFH",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 29.96,
+                  "EpicenterDistance": 9.77,
+                  "SeismicIntensity": "2\u7d1a",
+                  "StationLatitude": 23.669,
+                  "StationLongitude": 121.428
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.65,
+                    "NSComponent": 1.55,
+                    "VComponent": 2.67,
+                    "IntScaleValue": 1.51
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.04,
+                    "NSComponent": 0.04,
+                    "VComponent": 0.03,
+                    "IntScaleValue": 0.05
+                  },
+                  "StationName": "\u78ef\u5d0e",
+                  "StationID": "EGC",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 299.37,
+                  "EpicenterDistance": 8.45,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.708,
+                  "StationLongitude": 121.548
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.47,
+                    "NSComponent": 2.01,
+                    "VComponent": 1.27,
+                    "IntScaleValue": 1.86
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.03,
+                    "NSComponent": 0.05,
+                    "VComponent": 0.02,
+                    "IntScaleValue": 0.05
+                  },
+                  "StationName": "\u6c34\u7489",
+                  "StationID": "SHUL",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 242.19,
+                  "EpicenterDistance": 10.07,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.788,
+                  "StationLongitude": 121.563
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.28,
+                    "NSComponent": 1.3,
+                    "VComponent": 0.64,
+                    "IntScaleValue": 1.29
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.04,
+                    "NSComponent": 0.04,
+                    "VComponent": 0.02,
+                    "IntScaleValue": 0.05
+                  },
+                  "StationName": "\u9e7d\u5bee",
+                  "StationID": "EYL",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 216.24,
+                  "EpicenterDistance": 21.78,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.904,
+                  "StationLongitude": 121.602
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 3.14,
+                    "NSComponent": 2.64,
+                    "VComponent": 2.68,
+                    "IntScaleValue": 1.33
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.04,
+                    "NSComponent": 0.03,
+                    "VComponent": 0.03,
+                    "IntScaleValue": 0.04
+                  },
+                  "StationName": "\u9285\u9580",
+                  "StationID": "ETM",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 184.15,
+                  "EpicenterDistance": 24.56,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.966,
+                  "StationLongitude": 121.493
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.24,
+                    "NSComponent": 1.34,
+                    "VComponent": 0.59,
+                    "IntScaleValue": 1.13
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.04,
+                    "NSComponent": 0.03,
+                    "VComponent": 0.01,
+                    "IntScaleValue": 0.04
+                  },
+                  "StationName": "\u82b1\u84ee\u5e02",
+                  "StationID": "HWA",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 208.93,
+                  "EpicenterDistance": 29.15,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.975,
+                  "StationLongitude": 121.614
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.37,
+                    "NSComponent": 1.5,
+                    "VComponent": 0.56,
+                    "IntScaleValue": 0.96
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.02,
+                    "NSComponent": 0.03,
+                    "VComponent": 0.01,
+                    "IntScaleValue": 0.03
+                  },
+                  "StationName": "\u592a\u9b6f\u95a3",
+                  "StationID": "ETL",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 198.13,
+                  "EpicenterDistance": 48.28,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 24.159,
+                  "StationLongitude": 121.623
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.2,
+                    "NSComponent": 1.42,
+                    "VComponent": 1.31,
+                    "IntScaleValue": 1.66
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.03,
+                    "NSComponent": 0.03,
+                    "VComponent": 0.03,
+                    "IntScaleValue": 0.04
+                  },
+                  "StationName": "\u897f\u5bf6",
+                  "StationID": "ETLH",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 180.74,
+                  "EpicenterDistance": 51.22,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 24.207,
+                  "StationLongitude": 121.482
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "EarthquakeNo": 112000,
+        "ReportType": "\u5730\u9707\u5831\u544a",
+        "ReportColor": "\u7da0\u8272",
+        "ReportContent": "04/19-15:49\u82b1\u84ee\u7e23\u5353\u6eaa\u9109\u767c\u751f\u898f\u6a213.8\u6709\u611f\u5730\u9707\uff0c\u6700\u5927\u9707\u5ea6\u82b1\u84ee\u7e23\u7389\u91cc2\u7d1a\u3002",
+        "ReportImageURI": "https://scweb.cwb.gov.tw/webdata/OLDEQ/202304/2023041915490838_H.png",
+        "ReportRemark": "\u672c\u5831\u544a\u4fc2\u4e2d\u592e\u6c23\u8c61\u5c40\u5730\u9707\u89c0\u6e2c\u7db2\u5373\u6642\u5730\u9707\u8cc7\u6599\u5730\u9707\u901f\u5831\u4e4b\u7d50\u679c\u3002",
+        "Web": "https://scweb.cwb.gov.tw/zh-tw/earthquake/details/2023041915490838",
+        "EarthquakeInfo": {
+          "OriginTime": "2023-04-19 15:49:08",
+          "Source": "\u4e2d\u592e\u6c23\u8c61\u5c40",
+          "FocalDepth": 10.8,
+          "Epicenter": {
+            "Location": "\u82b1\u84ee\u7e23\u653f\u5e9c\u5357\u5357\u897f\u65b9  72.3  \u516c\u91cc (\u4f4d\u65bc\u82b1\u84ee\u7e23\u5353\u6eaa\u9109)",
+            "EpicenterLatitude": 23.41,
+            "EpicenterLongitude": 121.3
+          },
+          "EarthquakeMagnitude": {
+            "MagnitudeType": "\u82ae\u6c0f\u898f\u6a21",
+            "MagnitudeValue": 3.8
+          }
+        },
+        "Intensity": {
+          "ShakingArea": [
+            {
+              "AreaDesc": "\u5357\u6295\u7e23\u5730\u5340",
+              "CountyName": "\u5357\u6295\u7e23",
+              "InfoStatus": "observe",
+              "AreaIntensity": "1\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.71,
+                    "NSComponent": 1.23,
+                    "VComponent": 0.89,
+                    "IntScaleValue": 1.81
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.07,
+                    "NSComponent": 0.04,
+                    "VComponent": 0.02,
+                    "IntScaleValue": 0.07
+                  },
+                  "StationName": "\u7389\u5c71",
+                  "StationID": "YUS",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 104.31,
+                  "EpicenterDistance": 36.26,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.487,
+                  "StationLongitude": 120.959
+                }
+              ]
+            },
+            {
+              "AreaDesc": "\u6700\u5927\u9707\u5ea62\u7d1a\u5730\u5340",
+              "CountyName": "\u82b1\u84ee\u7e23",
+              "AreaIntensity": "2\u7d1a",
+              "EqStation": []
+            },
+            {
+              "AreaDesc": "\u6700\u5927\u9707\u5ea61\u7d1a\u5730\u5340",
+              "CountyName": "\u81fa\u6771\u7e23\u3001\u5357\u6295\u7e23",
+              "AreaIntensity": "1\u7d1a",
+              "EqStation": []
+            },
+            {
+              "AreaDesc": "\u82b1\u84ee\u7e23\u5730\u5340",
+              "CountyName": "\u82b1\u84ee\u7e23",
+              "InfoStatus": "observe",
+              "AreaIntensity": "2\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 3.12,
+                    "NSComponent": 3.88,
+                    "VComponent": 2.03,
+                    "IntScaleValue": 2.91
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.13,
+                    "NSComponent": 0.09,
+                    "VComponent": 0.08,
+                    "IntScaleValue": 0.16
+                  },
+                  "StationName": "\u7389\u91cc",
+                  "StationID": "EYUL",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 346.24,
+                  "EpicenterDistance": 6.77,
+                  "SeismicIntensity": "2\u7d1a",
+                  "StationLatitude": 23.347,
+                  "StationLongitude": 121.319
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 14.43,
+                    "NSComponent": 12.85,
+                    "VComponent": 4.31,
+                    "IntScaleValue": 6.93
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.18,
+                    "NSComponent": 0.15,
+                    "VComponent": 0.09,
+                    "IntScaleValue": 0.2
+                  },
+                  "StationName": "\u7d05\u8449",
+                  "StationID": "EHY",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 194.11,
+                  "EpicenterDistance": 11.13,
+                  "SeismicIntensity": "2\u7d1a",
+                  "StationLatitude": 23.504,
+                  "StationLongitude": 121.33
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 2.91,
+                    "NSComponent": 3.34,
+                    "VComponent": 1.85,
+                    "IntScaleValue": 3.27
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.07,
+                    "NSComponent": 0.08,
+                    "VComponent": 0.04,
+                    "IntScaleValue": 0.11
+                  },
+                  "StationName": "\u5149\u5fa9",
+                  "StationID": "EGFH",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 203.53,
+                  "EpicenterDistance": 31.75,
+                  "SeismicIntensity": "2\u7d1a",
+                  "StationLatitude": 23.669,
+                  "StationLongitude": 121.428
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 2.09,
+                    "NSComponent": 1.73,
+                    "VComponent": 1.07,
+                    "IntScaleValue": 2.28
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.07,
+                    "NSComponent": 0.07,
+                    "VComponent": 0.03,
+                    "IntScaleValue": 0.08
+                  },
+                  "StationName": "\u5bcc\u91cc",
+                  "StationID": "FULB",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 2.4,
+                  "EpicenterDistance": 23.06,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.199,
+                  "StationLongitude": 121.294
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.24,
+                    "NSComponent": 1.33,
+                    "VComponent": 0.59,
+                    "IntScaleValue": 0.84
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.02,
+                    "NSComponent": 0.02,
+                    "VComponent": 0.01,
+                    "IntScaleValue": 0.02
+                  },
+                  "StationName": "\u897f\u6797",
+                  "StationID": "ESL",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 197.41,
+                  "EpicenterDistance": 47.15,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.812,
+                  "StationLongitude": 121.442
+                }
+              ]
+            },
+            {
+              "AreaDesc": "\u81fa\u6771\u7e23\u5730\u5340",
+              "CountyName": "\u81fa\u6771\u7e23",
+              "InfoStatus": "observe",
+              "AreaIntensity": "1\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.42,
+                    "NSComponent": 1.46,
+                    "VComponent": 0.75,
+                    "IntScaleValue": 1.48
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.12,
+                    "NSComponent": 0.05,
+                    "VComponent": 0.04,
+                    "IntScaleValue": 0.12
+                  },
+                  "StationName": "\u9577\u6ff1",
+                  "StationID": "ECB",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 303.47,
+                  "EpicenterDistance": 18.12,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.316,
+                  "StationLongitude": 121.451
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.01,
+                    "NSComponent": 1.1,
+                    "VComponent": 1.49,
+                    "IntScaleValue": 0.86
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.02,
+                    "NSComponent": 0.02,
+                    "VComponent": 0.02,
+                    "IntScaleValue": 0.03
+                  },
+                  "StationName": "\u6d77\u7aef",
+                  "StationID": "EHD",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 19.18,
+                  "EpicenterDistance": 30.27,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.149,
+                  "StationLongitude": 121.206
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.61,
+                    "NSComponent": 1.59,
+                    "VComponent": 1.21,
+                    "IntScaleValue": 1.2
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.02,
+                    "NSComponent": 0.02,
+                    "VComponent": 0.02,
+                    "IntScaleValue": 0.03
+                  },
+                  "StationName": "\u5229\u7a3b",
+                  "StationID": "ELD",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 49.46,
+                  "EpicenterDistance": 37.45,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.187,
+                  "StationLongitude": 121.025
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "EarthquakeNo": 112000,
+        "ReportType": "\u5730\u9707\u5831\u544a",
+        "ReportColor": "\u7da0\u8272",
+        "ReportContent": "04/19-14:11\u81fa\u6771\u7e23\u6d77\u7aef\u9109\u767c\u751f\u898f\u6a213.1\u6709\u611f\u5730\u9707\uff0c\u6700\u5927\u9707\u5ea6\u81fa\u6771\u7e23\u6c60\u4e0a2\u7d1a\u3002",
+        "ReportImageURI": "https://scweb.cwb.gov.tw/webdata/OLDEQ/202304/2023041914111731_H.png",
+        "ReportRemark": "\u672c\u5831\u544a\u4fc2\u4e2d\u592e\u6c23\u8c61\u5c40\u5730\u9707\u89c0\u6e2c\u7db2\u5373\u6642\u5730\u9707\u8cc7\u6599\u5730\u9707\u901f\u5831\u4e4b\u7d50\u679c\u3002",
+        "Web": "https://scweb.cwb.gov.tw/zh-tw/earthquake/details/2023041914111731",
+        "EarthquakeInfo": {
+          "OriginTime": "2023-04-19 14:11:17",
+          "Source": "\u4e2d\u592e\u6c23\u8c61\u5c40",
+          "FocalDepth": 6.2,
+          "Epicenter": {
+            "Location": "\u81fa\u6771\u7e23\u653f\u5e9c\u5317\u65b9  33.4  \u516c\u91cc (\u4f4d\u65bc\u81fa\u6771\u7e23\u6d77\u7aef\u9109)",
+            "EpicenterLatitude": 23.06,
+            "EpicenterLongitude": 121.13
+          },
+          "EarthquakeMagnitude": {
+            "MagnitudeType": "\u82ae\u6c0f\u898f\u6a21",
+            "MagnitudeValue": 3.1
+          }
+        },
+        "Intensity": {
+          "ShakingArea": [
+            {
+              "AreaDesc": "\u6700\u5927\u9707\u5ea62\u7d1a\u5730\u5340",
+              "CountyName": "\u81fa\u6771\u7e23",
+              "AreaIntensity": "2\u7d1a",
+              "EqStation": []
+            },
+            {
+              "AreaDesc": "\u81fa\u6771\u7e23\u5730\u5340",
+              "CountyName": "\u81fa\u6771\u7e23",
+              "InfoStatus": "observe",
+              "AreaIntensity": "2\u7d1a",
+              "EqStation": [
+                {
+                  "StationName": "\u6c60\u4e0a",
+                  "StationID": "ECS",
+                  "BackAzimuth": 244.35,
+                  "EpicenterDistance": 10.0,
+                  "SeismicIntensity": "2\u7d1a",
+                  "StationLatitude": 23.095,
+                  "StationLongitude": 121.219
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.42,
+                    "NSComponent": 1.24,
+                    "VComponent": 3.3,
+                    "IntScaleValue": 1.53
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.02,
+                    "NSComponent": 0.02,
+                    "VComponent": 0.04,
+                    "IntScaleValue": 0.04
+                  },
+                  "StationName": "\u6d77\u7aef",
+                  "StationID": "EHD",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 216.76,
+                  "EpicenterDistance": 12.83,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.149,
+                  "StationLongitude": 121.206
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 0.61,
+                    "NSComponent": 0.6,
+                    "VComponent": 1.29,
+                    "IntScaleValue": 0.81
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.01,
+                    "NSComponent": 0.02,
+                    "VComponent": 0.02,
+                    "IntScaleValue": 0.02
+                  },
+                  "StationName": "\u9e7f\u91ce",
+                  "StationID": "LONT",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 0.23,
+                  "EpicenterDistance": 16.63,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 22.906,
+                  "StationLongitude": 121.131
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "EarthquakeNo": 112000,
+        "ReportType": "\u5730\u9707\u5831\u544a",
+        "ReportColor": "\u7da0\u8272",
+        "ReportContent": "04/19-02:53\u82b1\u84ee\u7e23\u79c0\u6797\u9109\u767c\u751f\u898f\u6a213.6\u6709\u611f\u5730\u9707\uff0c\u6700\u5927\u9707\u5ea6\u5357\u6295\u7e23\u5408\u6b61\u5c71\u3001\u81fa\u4e2d\u5e02\u68a8\u5c713\u7d1a\u3002",
+        "ReportImageURI": "https://scweb.cwb.gov.tw/webdata/OLDEQ/202304/2023041902535936_H.png",
+        "ReportRemark": "\u672c\u5831\u544a\u4fc2\u4e2d\u592e\u6c23\u8c61\u5c40\u5730\u9707\u89c0\u6e2c\u7db2\u5373\u6642\u5730\u9707\u8cc7\u6599\u5730\u9707\u901f\u5831\u4e4b\u7d50\u679c\u3002",
+        "Web": "https://scweb.cwb.gov.tw/zh-tw/earthquake/details/2023041902535936",
+        "EarthquakeInfo": {
+          "OriginTime": "2023-04-19 02:53:59",
+          "Source": "\u4e2d\u592e\u6c23\u8c61\u5c40",
+          "FocalDepth": 7.0,
+          "Epicenter": {
+            "Location": "\u82b1\u84ee\u7e23\u653f\u5e9c\u897f\u5317\u897f\u65b9  37.2  \u516c\u91cc (\u4f4d\u65bc\u82b1\u84ee\u7e23\u79c0\u6797\u9109)",
+            "EpicenterLatitude": 24.17,
+            "EpicenterLongitude": 121.31
+          },
+          "EarthquakeMagnitude": {
+            "MagnitudeType": "\u82ae\u6c0f\u898f\u6a21",
+            "MagnitudeValue": 3.6
+          }
+        },
+        "Intensity": {
+          "ShakingArea": [
+            {
+              "AreaDesc": "\u5357\u6295\u7e23\u5730\u5340",
+              "CountyName": "\u5357\u6295\u7e23",
+              "InfoStatus": "observe",
+              "AreaIntensity": "3\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 17.14,
+                    "NSComponent": 21.97,
+                    "VComponent": 6.57,
+                    "IntScaleValue": 17.2
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.5,
+                    "NSComponent": 0.53,
+                    "VComponent": 0.16,
+                    "IntScaleValue": 0.54
+                  },
+                  "StationName": "\u5408\u6b61\u5c71",
+                  "StationID": "WHF",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 54.59,
+                  "EpicenterDistance": 4.55,
+                  "SeismicIntensity": "3\u7d1a",
+                  "StationLatitude": 24.143,
+                  "StationLongitude": 121.273
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 2.46,
+                    "NSComponent": 3.43,
+                    "VComponent": 2.75,
+                    "IntScaleValue": 2.11
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.04,
+                    "NSComponent": 0.05,
+                    "VComponent": 0.05,
+                    "IntScaleValue": 0.07
+                  },
+                  "StationName": "\u5967\u842c\u5927",
+                  "StationID": "OWD",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 29.84,
+                  "EpicenterDistance": 27.2,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.955,
+                  "StationLongitude": 121.176
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 0.67,
+                    "NSComponent": 0.66,
+                    "VComponent": 1.01,
+                    "IntScaleValue": 0.91
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.01,
+                    "NSComponent": 0.01,
+                    "VComponent": 0.02,
+                    "IntScaleValue": 0.02
+                  },
+                  "StationName": "\u57d4\u91cc",
+                  "StationID": "WPL",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 64.35,
+                  "EpicenterDistance": 39.67,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 24.012,
+                  "StationLongitude": 120.957
+                }
+              ]
+            },
+            {
+              "AreaDesc": "\u6700\u5927\u9707\u5ea62\u7d1a\u5730\u5340",
+              "CountyName": "\u82b1\u84ee\u7e23",
+              "AreaIntensity": "2\u7d1a",
+              "EqStation": []
+            },
+            {
+              "AreaDesc": "\u65b0\u7af9\u7e23\u5730\u5340",
+              "CountyName": "\u65b0\u7af9\u7e23",
+              "InfoStatus": "observe",
+              "AreaIntensity": "1\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 0.42,
+                    "NSComponent": 1.5,
+                    "VComponent": 0.37,
+                    "IntScaleValue": 1.29
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.01,
+                    "NSComponent": 0.03,
+                    "VComponent": 0.01,
+                    "IntScaleValue": 0.03
+                  },
+                  "StationName": "\u5ce8\u7709",
+                  "StationID": "LIOB",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 150.85,
+                  "EpicenterDistance": 60.94,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 24.647,
+                  "StationLongitude": 121.016
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 0.61,
+                    "NSComponent": 0.71,
+                    "VComponent": 0.63,
+                    "IntScaleValue": 0.87
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.02,
+                    "NSComponent": 0.02,
+                    "VComponent": 0.01,
+                    "IntScaleValue": 0.03
+                  },
+                  "StationName": "\u7af9\u6771",
+                  "StationID": "NJD",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 160.46,
+                  "EpicenterDistance": 66.94,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 24.736,
+                  "StationLongitude": 121.088
+                }
+              ]
+            },
+            {
+              "AreaDesc": "\u81fa\u4e2d\u5e02\u5730\u5340",
+              "CountyName": "\u81fa\u4e2d\u5e02",
+              "InfoStatus": "observe",
+              "AreaIntensity": "3\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 11.65,
+                    "NSComponent": 11.59,
+                    "VComponent": 3.17,
+                    "IntScaleValue": 11.82
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.21,
+                    "NSComponent": 0.3,
+                    "VComponent": 0.07,
+                    "IntScaleValue": 0.32
+                  },
+                  "StationName": "\u68a8\u5c71",
+                  "StationID": "FUSS",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 143.35,
+                  "EpicenterDistance": 11.11,
+                  "SeismicIntensity": "3\u7d1a",
+                  "StationLatitude": 24.248,
+                  "StationLongitude": 121.244
+                },
+                {
+                  "StationName": "\u5fb7\u57fa",
+                  "StationID": "TWT",
+                  "BackAzimuth": 121.43,
+                  "EpicenterDistance": 17.52,
+                  "SeismicIntensity": "2\u7d1a",
+                  "StationLatitude": 24.25,
+                  "StationLongitude": 121.162
+                }
+              ]
+            },
+            {
+              "AreaDesc": "\u82b1\u84ee\u7e23\u5730\u5340",
+              "CountyName": "\u82b1\u84ee\u7e23",
+              "InfoStatus": "observe",
+              "AreaIntensity": "2\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 4.23,
+                    "NSComponent": 4.75,
+                    "VComponent": 5.12,
+                    "IntScaleValue": 5.12
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.12,
+                    "NSComponent": 0.13,
+                    "VComponent": 0.1,
+                    "IntScaleValue": 0.17
+                  },
+                  "StationName": "\u897f\u5bf6",
+                  "StationID": "ETLH",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 255.94,
+                  "EpicenterDistance": 18.1,
+                  "SeismicIntensity": "2\u7d1a",
+                  "StationLatitude": 24.207,
+                  "StationLongitude": 121.482
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.99,
+                    "NSComponent": 1.76,
+                    "VComponent": 1.23,
+                    "IntScaleValue": 1.15
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.03,
+                    "NSComponent": 0.04,
+                    "VComponent": 0.02,
+                    "IntScaleValue": 0.04
+                  },
+                  "StationName": "\u9285\u9580",
+                  "StationID": "ETM",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 320.07,
+                  "EpicenterDistance": 29.12,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.966,
+                  "StationLongitude": 121.493
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 0.83,
+                    "NSComponent": 0.77,
+                    "VComponent": 0.31,
+                    "IntScaleValue": 0.84
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.03,
+                    "NSComponent": 0.02,
+                    "VComponent": 0.01,
+                    "IntScaleValue": 0.03
+                  },
+                  "StationName": "\u82b1\u84ee\u5e02",
+                  "StationID": "HWA",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 304.51,
+                  "EpicenterDistance": 37.61,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.975,
+                  "StationLongitude": 121.614
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 0.81,
+                    "NSComponent": 0.66,
+                    "VComponent": 0.54,
+                    "IntScaleValue": 0.83
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.02,
+                    "NSComponent": 0.02,
+                    "VComponent": 0.01,
+                    "IntScaleValue": 0.02
+                  },
+                  "StationName": "\u5149\u5fa9",
+                  "StationID": "EGFH",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 347.69,
+                  "EpicenterDistance": 56.58,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.669,
+                  "StationLongitude": 121.428
+                }
+              ]
+            },
+            {
+              "AreaDesc": "\u6700\u5927\u9707\u5ea61\u7d1a\u5730\u5340",
+              "CountyName": "\u5b9c\u862d\u7e23\u3001\u65b0\u7af9\u7e23",
+              "AreaIntensity": "1\u7d1a",
+              "EqStation": []
+            },
+            {
+              "AreaDesc": "\u5b9c\u862d\u7e23\u5730\u5340",
+              "CountyName": "\u5b9c\u862d\u7e23",
+              "InfoStatus": "observe",
+              "AreaIntensity": "1\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.47,
+                    "NSComponent": 1.99,
+                    "VComponent": 2.04,
+                    "IntScaleValue": 1.56
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.03,
+                    "NSComponent": 0.03,
+                    "VComponent": 0.03,
+                    "IntScaleValue": 0.04
+                  },
+                  "StationName": "\u5357\u5c71",
+                  "StationID": "NNS",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 193.75,
+                  "EpicenterDistance": 30.87,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 24.437,
+                  "StationLongitude": 121.381
+                }
+              ]
+            },
+            {
+              "AreaDesc": "\u6700\u5927\u9707\u5ea63\u7d1a\u5730\u5340",
+              "CountyName": "\u5357\u6295\u7e23\u3001\u81fa\u4e2d\u5e02",
+              "AreaIntensity": "3\u7d1a",
+              "EqStation": []
+            }
+          ]
+        }
+      },
+      {
+        "EarthquakeNo": 112000,
+        "ReportType": "\u5730\u9707\u5831\u544a",
+        "ReportColor": "\u7da0\u8272",
+        "ReportContent": "04/18-03:33\u81fa\u7063\u6771\u90e8\u6d77\u57df\u767c\u751f\u898f\u6a214.5\u6709\u611f\u5730\u9707\uff0c\u6700\u5927\u9707\u5ea6\u5b9c\u862d\u7e23\u5357\u6fb33\u7d1a\u3002",
+        "ReportImageURI": "https://scweb.cwb.gov.tw/webdata/OLDEQ/202304/2023041803335245_H.png",
+        "ReportRemark": "\u672c\u5831\u544a\u4fc2\u4e2d\u592e\u6c23\u8c61\u5c40\u5730\u9707\u89c0\u6e2c\u7db2\u5373\u6642\u5730\u9707\u8cc7\u6599\u5730\u9707\u901f\u5831\u4e4b\u7d50\u679c\u3002",
+        "Web": "https://scweb.cwb.gov.tw/zh-tw/earthquake/details/2023041803335245",
+        "EarthquakeInfo": {
+          "OriginTime": "2023-04-18 03:33:52",
+          "Source": "\u4e2d\u592e\u6c23\u8c61\u5c40",
+          "FocalDepth": 41.3,
+          "Epicenter": {
+            "Location": "\u5b9c\u862d\u7e23\u653f\u5e9c\u5357\u5357\u6771\u65b9  46.3  \u516c\u91cc (\u4f4d\u65bc\u81fa\u7063\u6771\u90e8\u6d77\u57df)",
+            "EpicenterLatitude": 24.35,
+            "EpicenterLongitude": 121.94
+          },
+          "EarthquakeMagnitude": {
+            "MagnitudeType": "\u82ae\u6c0f\u898f\u6a21",
+            "MagnitudeValue": 4.5
+          }
+        },
+        "Intensity": {
+          "ShakingArea": [
+            {
+              "AreaDesc": "\u5357\u6295\u7e23\u5730\u5340",
+              "CountyName": "\u5357\u6295\u7e23",
+              "InfoStatus": "observe",
+              "AreaIntensity": "1\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.84,
+                    "NSComponent": 1.18,
+                    "VComponent": 0.91,
+                    "IntScaleValue": 1.94
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.05,
+                    "NSComponent": 0.04,
+                    "VComponent": 0.03,
+                    "IntScaleValue": 0.06
+                  },
+                  "StationName": "\u5408\u6b61\u5c71",
+                  "StationID": "WHF",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 71.65,
+                  "EpicenterDistance": 71.48,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 24.143,
+                  "StationLongitude": 121.273
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 0.99,
+                    "NSComponent": 1.48,
+                    "VComponent": 0.66,
+                    "IntScaleValue": 1.28
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.03,
+                    "NSComponent": 0.04,
+                    "VComponent": 0.02,
+                    "IntScaleValue": 0.04
+                  },
+                  "StationName": "\u5967\u842c\u5927",
+                  "StationID": "OWD",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 60.79,
+                  "EpicenterDistance": 89.04,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.955,
+                  "StationLongitude": 121.176
+                }
+              ]
+            },
+            {
+              "AreaDesc": "\u65b0\u5317\u5e02\u5730\u5340",
+              "CountyName": "\u65b0\u5317\u5e02",
+              "InfoStatus": "observe",
+              "AreaIntensity": "2\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 3.02,
+                    "NSComponent": 3.4,
+                    "VComponent": 1.04,
+                    "IntScaleValue": 3.29
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.1,
+                    "NSComponent": 0.1,
+                    "VComponent": 0.02,
+                    "IntScaleValue": 0.11
+                  },
+                  "StationName": "\u6c50\u6b62",
+                  "StationID": "NXZ",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 159.45,
+                  "EpicenterDistance": 86.56,
+                  "SeismicIntensity": "2\u7d1a",
+                  "StationLatitude": 25.077,
+                  "StationLongitude": 121.64
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.31,
+                    "NSComponent": 1.25,
+                    "VComponent": 2.4,
+                    "IntScaleValue": 1.97
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.04,
+                    "NSComponent": 0.05,
+                    "VComponent": 0.06,
+                    "IntScaleValue": 0.06
+                  },
+                  "StationName": "\u65b0\u5e97",
+                  "StationID": "NHDH",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 148.29,
+                  "EpicenterDistance": 80.02,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 24.96,
+                  "StationLongitude": 121.525
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.14,
+                    "NSComponent": 0.94,
+                    "VComponent": 1.02,
+                    "IntScaleValue": 1.21
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.06,
+                    "NSComponent": 0.07,
+                    "VComponent": 0.03,
+                    "IntScaleValue": 0.08
+                  },
+                  "StationName": "\u4e94\u5206\u5c71",
+                  "StationID": "NWF",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 168.71,
+                  "EpicenterDistance": 82.09,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 25.072,
+                  "StationLongitude": 121.782
+                }
+              ]
+            },
+            {
+              "AreaDesc": "\u6843\u5712\u5e02\u5730\u5340",
+              "CountyName": "\u6843\u5712\u5e02",
+              "InfoStatus": "observe",
+              "AreaIntensity": "1\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.04,
+                    "NSComponent": 1.11,
+                    "VComponent": 1.52,
+                    "IntScaleValue": 1.15
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.03,
+                    "NSComponent": 0.04,
+                    "VComponent": 0.02,
+                    "IntScaleValue": 0.04
+                  },
+                  "StationName": "\u4e09\u5149",
+                  "StationID": "NSK",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 122.0,
+                  "EpicenterDistance": 68.59,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 24.674,
+                  "StationLongitude": 121.367
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.13,
+                    "NSComponent": 1.01,
+                    "VComponent": 0.54,
+                    "IntScaleValue": 0.88
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.02,
+                    "NSComponent": 0.02,
+                    "VComponent": 0.01,
+                    "IntScaleValue": 0.03
+                  },
+                  "StationName": "\u6843\u5712\u5e02",
+                  "StationID": "NTY",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 138.09,
+                  "EpicenterDistance": 97.44,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 25.0,
+                  "StationLongitude": 121.298
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 0.8,
+                    "NSComponent": 0.64,
+                    "VComponent": 0.21,
+                    "IntScaleValue": 0.81
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.03,
+                    "NSComponent": 0.02,
+                    "VComponent": 0.01,
+                    "IntScaleValue": 0.04
+                  },
+                  "StationName": "\u65b0\u5c4b",
+                  "StationID": "NHW",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 129.04,
+                  "EpicenterDistance": 116.37,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 25.007,
+                  "StationLongitude": 121.048
+                }
+              ]
+            },
+            {
+              "AreaDesc": "\u6700\u5927\u9707\u5ea61\u7d1a\u5730\u5340",
+              "CountyName": "\u6843\u5712\u5e02\u3001\u5357\u6295\u7e23\u3001\u81fa\u4e2d\u5e02\u3001\u82d7\u6817\u7e23",
+              "AreaIntensity": "1\u7d1a",
+              "EqStation": []
+            },
+            {
+              "AreaDesc": "\u65b0\u7af9\u7e23\u5730\u5340",
+              "CountyName": "\u65b0\u7af9\u7e23",
+              "InfoStatus": "observe",
+              "AreaIntensity": "2\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 3.87,
+                    "NSComponent": 3.43,
+                    "VComponent": 1.06,
+                    "IntScaleValue": 3.92
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.1,
+                    "NSComponent": 0.09,
+                    "VComponent": 0.03,
+                    "IntScaleValue": 0.1
+                  },
+                  "StationName": "\u7af9\u6771",
+                  "StationID": "NJD",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 116.59,
+                  "EpicenterDistance": 96.59,
+                  "SeismicIntensity": "2\u7d1a",
+                  "StationLatitude": 24.736,
+                  "StationLongitude": 121.088
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 0.67,
+                    "NSComponent": 0.56,
+                    "VComponent": 0.64,
+                    "IntScaleValue": 0.81
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.03,
+                    "NSComponent": 0.02,
+                    "VComponent": 0.02,
+                    "IntScaleValue": 0.03
+                  },
+                  "StationName": "\u4e94\u5cf0",
+                  "StationID": "NFF",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 110.82,
+                  "EpicenterDistance": 89.22,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 24.632,
+                  "StationLongitude": 121.118
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.13,
+                    "NSComponent": 2.39,
+                    "VComponent": 0.42,
+                    "IntScaleValue": 2.28
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.02,
+                    "NSComponent": 0.06,
+                    "VComponent": 0.02,
+                    "IntScaleValue": 0.06
+                  },
+                  "StationName": "\u5ce8\u7709",
+                  "StationID": "LIOB",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 109.6,
+                  "EpicenterDistance": 99.45,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 24.647,
+                  "StationLongitude": 121.016
+                },
+                {
+                  "StationName": "\u95dc\u897f",
+                  "StationID": "KSHI",
+                  "BackAzimuth": 121.67,
+                  "EpicenterDistance": 91.09,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 24.777,
+                  "StationLongitude": 121.175
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 0.79,
+                    "NSComponent": 1.07,
+                    "VComponent": 0.38,
+                    "IntScaleValue": 1.06
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.04,
+                    "NSComponent": 0.05,
+                    "VComponent": 0.01,
+                    "IntScaleValue": 0.05
+                  },
+                  "StationName": "\u7af9\u5317\u5e02",
+                  "StationID": "HSN",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 119.68,
+                  "EpicenterDistance": 107.99,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 24.828,
+                  "StationLongitude": 121.014
+                }
+              ]
+            },
+            {
+              "AreaDesc": "\u6700\u5927\u9707\u5ea63\u7d1a\u5730\u5340",
+              "CountyName": "\u5b9c\u862d\u7e23",
+              "AreaIntensity": "3\u7d1a",
+              "EqStation": []
+            },
+            {
+              "AreaDesc": "\u81fa\u4e2d\u5e02\u5730\u5340",
+              "CountyName": "\u81fa\u4e2d\u5e02",
+              "InfoStatus": "observe",
+              "AreaIntensity": "1\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 0.64,
+                    "NSComponent": 1.06,
+                    "VComponent": 0.49,
+                    "IntScaleValue": 1.09
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.02,
+                    "NSComponent": 0.03,
+                    "VComponent": 0.02,
+                    "IntScaleValue": 0.03
+                  },
+                  "StationName": "\u68a8\u5c71",
+                  "StationID": "FUSS",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 81.2,
+                  "EpicenterDistance": 71.59,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 24.248,
+                  "StationLongitude": 121.244
+                },
+                {
+                  "StationName": "\u5fb7\u57fa",
+                  "StationID": "TWT",
+                  "BackAzimuth": 82.27,
+                  "EpicenterDistance": 79.78,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 24.25,
+                  "StationLongitude": 121.162
+                }
+              ]
+            },
+            {
+              "AreaDesc": "\u82b1\u84ee\u7e23\u5730\u5340",
+              "CountyName": "\u82b1\u84ee\u7e23",
+              "InfoStatus": "observe",
+              "AreaIntensity": "2\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 5.56,
+                    "NSComponent": 4.13,
+                    "VComponent": 3.22,
+                    "IntScaleValue": 5.36
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.17,
+                    "NSComponent": 0.12,
+                    "VComponent": 0.1,
+                    "IntScaleValue": 0.17
+                  },
+                  "StationName": "\u548c\u5e73",
+                  "StationID": "EHP",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 78.0,
+                  "EpicenterDistance": 19.84,
+                  "SeismicIntensity": "2\u7d1a",
+                  "StationLatitude": 24.309,
+                  "StationLongitude": 121.749
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 5.66,
+                    "NSComponent": 7.84,
+                    "VComponent": 2.79,
+                    "IntScaleValue": 6.44
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.07,
+                    "NSComponent": 0.17,
+                    "VComponent": 0.04,
+                    "IntScaleValue": 0.18
+                  },
+                  "StationName": "\u592a\u9b6f\u95a3",
+                  "StationID": "ETL",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 57.19,
+                  "EpicenterDistance": 38.39,
+                  "SeismicIntensity": "2\u7d1a",
+                  "StationLatitude": 24.159,
+                  "StationLongitude": 121.623
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 5.58,
+                    "NSComponent": 5.66,
+                    "VComponent": 6.55,
+                    "IntScaleValue": 5.51
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.12,
+                    "NSComponent": 0.1,
+                    "VComponent": 0.11,
+                    "IntScaleValue": 0.14
+                  },
+                  "StationName": "\u897f\u5bf6",
+                  "StationID": "ETLH",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 71.64,
+                  "EpicenterDistance": 49.09,
+                  "SeismicIntensity": "2\u7d1a",
+                  "StationLatitude": 24.207,
+                  "StationLongitude": 121.482
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 0.75,
+                    "NSComponent": 0.93,
+                    "VComponent": 1.26,
+                    "IntScaleValue": 1.13
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.02,
+                    "NSComponent": 0.02,
+                    "VComponent": 0.02,
+                    "IntScaleValue": 0.03
+                  },
+                  "StationName": "\u79c0\u6797",
+                  "StationID": "TWD",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 49.27,
+                  "EpicenterDistance": 45.06,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 24.081,
+                  "StationLongitude": 121.605
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.18,
+                    "NSComponent": 1.42,
+                    "VComponent": 0.65,
+                    "IntScaleValue": 1.46
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.04,
+                    "NSComponent": 0.05,
+                    "VComponent": 0.02,
+                    "IntScaleValue": 0.05
+                  },
+                  "StationName": "\u82b1\u84ee\u5e02",
+                  "StationID": "HWA",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 38.89,
+                  "EpicenterDistance": 52.9,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.975,
+                  "StationLongitude": 121.614
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.51,
+                    "NSComponent": 2.22,
+                    "VComponent": 0.99,
+                    "IntScaleValue": 2.12
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.07,
+                    "NSComponent": 0.07,
+                    "VComponent": 0.03,
+                    "IntScaleValue": 0.08
+                  },
+                  "StationName": "\u9e7d\u5bee",
+                  "StationID": "EYL",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 35.05,
+                  "EpicenterDistance": 60.0,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.904,
+                  "StationLongitude": 121.602
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.47,
+                    "NSComponent": 1.95,
+                    "VComponent": 1.47,
+                    "IntScaleValue": 1.55
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.04,
+                    "NSComponent": 0.04,
+                    "VComponent": 0.03,
+                    "IntScaleValue": 0.05
+                  },
+                  "StationName": "\u9285\u9580",
+                  "StationID": "ETM",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 47.17,
+                  "EpicenterDistance": 62.06,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.966,
+                  "StationLongitude": 121.493
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 0.81,
+                    "NSComponent": 0.7,
+                    "VComponent": 0.58,
+                    "IntScaleValue": 0.88
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.04,
+                    "NSComponent": 0.04,
+                    "VComponent": 0.03,
+                    "IntScaleValue": 0.04
+                  },
+                  "StationName": "\u6c34\u7489",
+                  "StationID": "SHUL",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 31.8,
+                  "EpicenterDistance": 72.94,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.788,
+                  "StationLongitude": 121.563
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 0.75,
+                    "NSComponent": 0.93,
+                    "VComponent": 0.51,
+                    "IntScaleValue": 1.08
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.02,
+                    "NSComponent": 0.03,
+                    "VComponent": 0.01,
+                    "IntScaleValue": 0.04
+                  },
+                  "StationName": "\u78ef\u5d0e",
+                  "StationID": "EGC",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 29.44,
+                  "EpicenterDistance": 81.34,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.708,
+                  "StationLongitude": 121.548
+                },
+                {
+                  "StationName": "\u7d05\u8449",
+                  "StationID": "EHY",
+                  "BackAzimuth": 33.63,
+                  "EpicenterDistance": 112.25,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.504,
+                  "StationLongitude": 121.33
+                }
+              ]
+            },
+            {
+              "AreaDesc": "\u82d7\u6817\u7e23\u5730\u5340",
+              "CountyName": "\u82d7\u6817\u7e23",
+              "InfoStatus": "observe",
+              "AreaIntensity": "1\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 0.71,
+                    "NSComponent": 0.76,
+                    "VComponent": 0.39,
+                    "IntScaleValue": 0.92
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.04,
+                    "NSComponent": 0.04,
+                    "VComponent": 0.02,
+                    "IntScaleValue": 0.05
+                  },
+                  "StationName": "\u5357\u5e84",
+                  "StationID": "NST",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 108.42,
+                  "EpicenterDistance": 99.55,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 24.63,
+                  "StationLongitude": 121.009
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 0.94,
+                    "NSComponent": 0.99,
+                    "VComponent": 0.34,
+                    "IntScaleValue": 1.01
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.03,
+                    "NSComponent": 0.04,
+                    "VComponent": 0.02,
+                    "IntScaleValue": 0.05
+                  },
+                  "StationName": "\u7af9\u5357",
+                  "StationID": "NJN",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 109.05,
+                  "EpicenterDistance": 114.74,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 24.684,
+                  "StationLongitude": 120.87
+                }
+              ]
+            },
+            {
+              "AreaDesc": "\u6700\u5927\u9707\u5ea62\u7d1a\u5730\u5340",
+              "CountyName": "\u82b1\u84ee\u7e23\u3001\u65b0\u5317\u5e02\u3001\u65b0\u7af9\u7e23",
+              "AreaIntensity": "2\u7d1a",
+              "EqStation": []
+            },
+            {
+              "AreaDesc": "\u5b9c\u862d\u7e23\u5730\u5340",
+              "CountyName": "\u5b9c\u862d\u7e23",
+              "InfoStatus": "observe",
+              "AreaIntensity": "3\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 16.86,
+                    "NSComponent": 12.52,
+                    "VComponent": 3.65,
+                    "IntScaleValue": 10.84
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.31,
+                    "NSComponent": 0.26,
+                    "VComponent": 0.09,
+                    "IntScaleValue": 0.35
+                  },
+                  "StationName": "\u5357\u6fb3",
+                  "StationID": "ENA",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 114.47,
+                  "EpicenterDistance": 21.36,
+                  "SeismicIntensity": "3\u7d1a",
+                  "StationLatitude": 24.426,
+                  "StationLongitude": 121.749
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 5.01,
+                    "NSComponent": 6.12,
+                    "VComponent": 4.87,
+                    "IntScaleValue": 5.51
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.14,
+                    "NSComponent": 0.15,
+                    "VComponent": 0.07,
+                    "IntScaleValue": 0.17
+                  },
+                  "StationName": "\u6b66\u5854",
+                  "StationID": "EWT",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 123.66,
+                  "EpicenterDistance": 19.79,
+                  "SeismicIntensity": "2\u7d1a",
+                  "StationLatitude": 24.445,
+                  "StationLongitude": 121.778
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 3.59,
+                    "NSComponent": 3.17,
+                    "VComponent": 2.58,
+                    "IntScaleValue": 3.35
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.15,
+                    "NSComponent": 0.19,
+                    "VComponent": 0.08,
+                    "IntScaleValue": 0.19
+                  },
+                  "StationName": "\u6fb3\u82b1",
+                  "StationID": "EAH",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 84.77,
+                  "EpicenterDistance": 20.52,
+                  "SeismicIntensity": "2\u7d1a",
+                  "StationLatitude": 24.329,
+                  "StationLongitude": 121.739
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 4.62,
+                    "NSComponent": 4.51,
+                    "VComponent": 1.8,
+                    "IntScaleValue": 4.03
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.09,
+                    "NSComponent": 0.09,
+                    "VComponent": 0.04,
+                    "IntScaleValue": 0.1
+                  },
+                  "StationName": "\u725b\u9b25",
+                  "StationID": "ENT",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 131.03,
+                  "EpicenterDistance": 49.3,
+                  "SeismicIntensity": "2\u7d1a",
+                  "StationLatitude": 24.638,
+                  "StationLongitude": 121.574
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 3.07,
+                    "NSComponent": 3.06,
+                    "VComponent": 1.34,
+                    "IntScaleValue": 3.55
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.15,
+                    "NSComponent": 0.21,
+                    "VComponent": 0.05,
+                    "IntScaleValue": 0.26
+                  },
+                  "StationName": "\u5b9c\u862d\u5e02",
+                  "StationID": "ILA",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 158.16,
+                  "EpicenterDistance": 49.95,
+                  "SeismicIntensity": "2\u7d1a",
+                  "StationLatitude": 24.764,
+                  "StationLongitude": 121.757
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 2.5,
+                    "NSComponent": 3.19,
+                    "VComponent": 0.85,
+                    "IntScaleValue": 2.79
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.07,
+                    "NSComponent": 0.07,
+                    "VComponent": 0.02,
+                    "IntScaleValue": 0.07
+                  },
+                  "StationName": "\u5357\u5c71",
+                  "StationID": "NNS",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 100.12,
+                  "EpicenterDistance": 57.63,
+                  "SeismicIntensity": "2\u7d1a",
+                  "StationLatitude": 24.437,
+                  "StationLongitude": 121.381
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 3.1,
+                    "NSComponent": 2.2,
+                    "VComponent": 1.45,
+                    "IntScaleValue": 2.26
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.1,
+                    "NSComponent": 0.04,
+                    "VComponent": 0.04,
+                    "IntScaleValue": 0.11
+                  },
+                  "StationName": "\u8607\u6fb3",
+                  "StationID": "TWC",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 164.29,
+                  "EpicenterDistance": 30.2,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 24.608,
+                  "StationLongitude": 121.86
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.99,
+                    "NSComponent": 2.35,
+                    "VComponent": 2.19,
+                    "IntScaleValue": 2.47
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.1,
+                    "NSComponent": 0.09,
+                    "VComponent": 0.06,
+                    "IntScaleValue": 0.11
+                  },
+                  "StationName": "\u51ac\u5c71",
+                  "StationID": "NDS",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 144.61,
+                  "EpicenterDistance": 39.18,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 24.634,
+                  "StationLongitude": 121.717
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.69,
+                    "NSComponent": 2.23,
+                    "VComponent": 2.79,
+                    "IntScaleValue": 2.04
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.06,
+                    "NSComponent": 0.06,
+                    "VComponent": 0.06,
+                    "IntScaleValue": 0.07
+                  },
+                  "StationName": "\u5167\u57ce",
+                  "StationID": "TWE",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 147.67,
+                  "EpicenterDistance": 48.84,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 24.718,
+                  "StationLongitude": 121.683
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.5,
+                    "NSComponent": 1.44,
+                    "VComponent": 0.73,
+                    "IntScaleValue": 1.54
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.05,
+                    "NSComponent": 0.03,
+                    "VComponent": 0.02,
+                    "IntScaleValue": 0.06
+                  },
+                  "StationName": "\u5927\u540c",
+                  "StationID": "NDT",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 123.26,
+                  "EpicenterDistance": 51.87,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 24.603,
+                  "StationLongitude": 121.513
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 2.04,
+                    "NSComponent": 1.84,
+                    "VComponent": 1.03,
+                    "IntScaleValue": 2.05
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.1,
+                    "NSComponent": 0.16,
+                    "VComponent": 0.05,
+                    "IntScaleValue": 0.17
+                  },
+                  "StationName": "\u982d\u57ce",
+                  "StationID": "NTC",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 168.76,
+                  "EpicenterDistance": 57.4,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 24.854,
+                  "StationLongitude": 121.83
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "EarthquakeNo": 112000,
+        "ReportType": "\u5730\u9707\u5831\u544a",
+        "ReportColor": "\u7da0\u8272",
+        "ReportContent": "04/18-02:21\u5357\u6295\u7e23\u570b\u59d3\u9109\u767c\u751f\u898f\u6a213.4\u6709\u611f\u5730\u9707\uff0c\u6700\u5927\u9707\u5ea6\u5357\u6295\u7e23\u570b\u59d32\u7d1a\u3002",
+        "ReportImageURI": "https://scweb.cwb.gov.tw/webdata/OLDEQ/202304/2023041802213334_H.png",
+        "ReportRemark": "\u672c\u5831\u544a\u4fc2\u4e2d\u592e\u6c23\u8c61\u5c40\u5730\u9707\u89c0\u6e2c\u7db2\u5373\u6642\u5730\u9707\u8cc7\u6599\u5730\u9707\u901f\u5831\u4e4b\u7d50\u679c\u3002",
+        "Web": "https://scweb.cwb.gov.tw/zh-tw/earthquake/details/2023041802213334",
+        "EarthquakeInfo": {
+          "OriginTime": "2023-04-18 02:21:33",
+          "Source": "\u4e2d\u592e\u6c23\u8c61\u5c40",
+          "FocalDepth": 24.0,
+          "Epicenter": {
+            "Location": "\u5357\u6295\u7e23\u653f\u5e9c\u6771\u5317\u65b9  30.3  \u516c\u91cc (\u4f4d\u65bc\u5357\u6295\u7e23\u570b\u59d3\u9109)",
+            "EpicenterLatitude": 24.07,
+            "EpicenterLongitude": 120.92
+          },
+          "EarthquakeMagnitude": {
+            "MagnitudeType": "\u82ae\u6c0f\u898f\u6a21",
+            "MagnitudeValue": 3.4
+          }
+        },
+        "Intensity": {
+          "ShakingArea": [
+            {
+              "AreaDesc": "\u5357\u6295\u7e23\u5730\u5340",
+              "CountyName": "\u5357\u6295\u7e23",
+              "InfoStatus": "observe",
+              "AreaIntensity": "2\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.98,
+                    "NSComponent": 4.8,
+                    "VComponent": 1.71,
+                    "IntScaleValue": 4.17
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.04,
+                    "NSComponent": 0.09,
+                    "VComponent": 0.01,
+                    "IntScaleValue": 0.09
+                  },
+                  "StationName": "\u570b\u59d3",
+                  "StationID": "WCS",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 34.51,
+                  "EpicenterDistance": 2.12,
+                  "SeismicIntensity": "2\u7d1a",
+                  "StationLatitude": 24.057,
+                  "StationLongitude": 120.912
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.13,
+                    "NSComponent": 1.07,
+                    "VComponent": 0.69,
+                    "IntScaleValue": 0.9
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.02,
+                    "NSComponent": 0.02,
+                    "VComponent": 0.02,
+                    "IntScaleValue": 0.03
+                  },
+                  "StationName": "\u57d4\u91cc",
+                  "StationID": "WPL",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 332.66,
+                  "EpicenterDistance": 7.49,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 24.012,
+                  "StationLongitude": 120.957
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 0.65,
+                    "NSComponent": 0.51,
+                    "VComponent": 0.24,
+                    "IntScaleValue": 0.84
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.02,
+                    "NSComponent": 0.01,
+                    "VComponent": 0.01,
+                    "IntScaleValue": 0.02
+                  },
+                  "StationName": "\u5408\u6b61\u5c71",
+                  "StationID": "WHF",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 257.47,
+                  "EpicenterDistance": 36.34,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 24.143,
+                  "StationLongitude": 121.273
+                }
+              ]
+            },
+            {
+              "AreaDesc": "\u5f70\u5316\u7e23\u5730\u5340",
+              "CountyName": "\u5f70\u5316\u7e23",
+              "InfoStatus": "observe",
+              "AreaIntensity": "1\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.0,
+                    "NSComponent": 0.38,
+                    "VComponent": 0.43,
+                    "IntScaleValue": 0.85
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.03,
+                    "NSComponent": 0.01,
+                    "VComponent": 0.01,
+                    "IntScaleValue": 0.03
+                  },
+                  "StationName": "\u54e1\u6797",
+                  "StationID": "WYL",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 70.46,
+                  "EpicenterDistance": 37.09,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.961,
+                  "StationLongitude": 120.58
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.89,
+                    "NSComponent": 1.77,
+                    "VComponent": 0.54,
+                    "IntScaleValue": 1.1
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.03,
+                    "NSComponent": 0.03,
+                    "VComponent": 0.01,
+                    "IntScaleValue": 0.03
+                  },
+                  "StationName": "\u5f70\u5316\u5e02",
+                  "StationID": "WCHH",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 91.21,
+                  "EpicenterDistance": 37.14,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 24.079,
+                  "StationLongitude": 120.558
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.05,
+                    "NSComponent": 1.35,
+                    "VComponent": 0.6,
+                    "IntScaleValue": 0.94
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.02,
+                    "NSComponent": 0.02,
+                    "VComponent": 0.01,
+                    "IntScaleValue": 0.02
+                  },
+                  "StationName": "\u9e7f\u6e2f",
+                  "StationID": "B112",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 87.83,
+                  "EpicenterDistance": 50.19,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 24.055,
+                  "StationLongitude": 120.43
+                }
+              ]
+            },
+            {
+              "AreaDesc": "\u6700\u5927\u9707\u5ea61\u7d1a\u5730\u5340",
+              "CountyName": "\u5f70\u5316\u7e23",
+              "AreaIntensity": "1\u7d1a",
+              "EqStation": []
+            },
+            {
+              "AreaDesc": "\u6700\u5927\u9707\u5ea62\u7d1a\u5730\u5340",
+              "CountyName": "\u5357\u6295\u7e23",
+              "AreaIntensity": "2\u7d1a",
+              "EqStation": []
+            }
+          ]
+        }
+      },
+      {
+        "EarthquakeNo": 112000,
+        "ReportType": "\u5730\u9707\u5831\u544a",
+        "ReportColor": "\u7da0\u8272",
+        "ReportContent": "04/17-03:17\u81fa\u6771\u7e23\u5351\u5357\u9109\u767c\u751f\u898f\u6a214.0\u6709\u611f\u5730\u9707\uff0c\u6700\u5927\u9707\u5ea6\u81fa\u6771\u7e23\u592a\u9ebb\u91cc\u3001\u81fa\u6771\u7e23\u81fa\u6771\u5e02\u3001\u5c4f\u6771\u7e23\u746a\u5bb62\u7d1a\u3002",
+        "ReportImageURI": "https://scweb.cwb.gov.tw/webdata/OLDEQ/202304/2023041703173340_H.png",
+        "ReportRemark": "\u672c\u5831\u544a\u4fc2\u4e2d\u592e\u6c23\u8c61\u5c40\u5730\u9707\u89c0\u6e2c\u7db2\u5373\u6642\u5730\u9707\u8cc7\u6599\u5730\u9707\u901f\u5831\u4e4b\u7d50\u679c\u3002",
+        "Web": "https://scweb.cwb.gov.tw/zh-tw/earthquake/details/2023041703173340",
+        "EarthquakeInfo": {
+          "OriginTime": "2023-04-17 03:17:33",
+          "Source": "\u4e2d\u592e\u6c23\u8c61\u5c40",
+          "FocalDepth": 9.1,
+          "Epicenter": {
+            "Location": "\u81fa\u6771\u7e23\u653f\u5e9c\u897f\u65b9  23.6  \u516c\u91cc (\u4f4d\u65bc\u81fa\u6771\u7e23\u5351\u5357\u9109)",
+            "EpicenterLatitude": 22.75,
+            "EpicenterLongitude": 120.92
+          },
+          "EarthquakeMagnitude": {
+            "MagnitudeType": "\u82ae\u6c0f\u898f\u6a21",
+            "MagnitudeValue": 4.0
+          }
+        },
+        "Intensity": {
+          "ShakingArea": [
+            {
+              "AreaDesc": "\u9ad8\u96c4\u5e02\u5730\u5340",
+              "CountyName": "\u9ad8\u96c4\u5e02",
+              "InfoStatus": "observe",
+              "AreaIntensity": "1\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 0.93,
+                    "NSComponent": 0.99,
+                    "VComponent": 1.03,
+                    "IntScaleValue": 1.0
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.04,
+                    "NSComponent": 0.05,
+                    "VComponent": 0.04,
+                    "IntScaleValue": 0.05
+                  },
+                  "StationName": "\u65d7\u5c71",
+                  "StationID": "SCS",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 109.24,
+                  "EpicenterDistance": 46.46,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 22.89,
+                  "StationLongitude": 120.49
+                }
+              ]
+            },
+            {
+              "AreaDesc": "\u6700\u5927\u9707\u5ea61\u7d1a\u5730\u5340",
+              "CountyName": "\u9ad8\u96c4\u5e02",
+              "AreaIntensity": "1\u7d1a",
+              "EqStation": []
+            },
+            {
+              "AreaDesc": "\u6700\u5927\u9707\u5ea62\u7d1a\u5730\u5340",
+              "CountyName": "\u81fa\u6771\u7e23\u3001\u5c4f\u6771\u7e23",
+              "AreaIntensity": "2\u7d1a",
+              "EqStation": []
+            },
+            {
+              "AreaDesc": "\u5c4f\u6771\u7e23\u5730\u5340",
+              "CountyName": "\u5c4f\u6771\u7e23",
+              "InfoStatus": "observe",
+              "AreaIntensity": "2\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 7.2,
+                    "NSComponent": 6.96,
+                    "VComponent": 9.72,
+                    "IntScaleValue": 5.22
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.1,
+                    "NSComponent": 0.12,
+                    "VComponent": 0.12,
+                    "IntScaleValue": 0.15
+                  },
+                  "StationName": "\u746a\u5bb6",
+                  "StationID": "SMG",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 80.66,
+                  "EpicenterDistance": 28.78,
+                  "SeismicIntensity": "2\u7d1a",
+                  "StationLatitude": 22.71,
+                  "StationLongitude": 120.64
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 5.85,
+                    "NSComponent": 4.17,
+                    "VComponent": 4.14,
+                    "IntScaleValue": 5.8
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.16,
+                    "NSComponent": 0.14,
+                    "VComponent": 0.15,
+                    "IntScaleValue": 0.26
+                  },
+                  "StationName": "\u4e09\u5730\u9580",
+                  "StationID": "SSD",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 89.3,
+                  "EpicenterDistance": 28.88,
+                  "SeismicIntensity": "2\u7d1a",
+                  "StationLatitude": 22.74,
+                  "StationLongitude": 120.64
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 0.66,
+                    "NSComponent": 0.76,
+                    "VComponent": 0.53,
+                    "IntScaleValue": 0.84
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.05,
+                    "NSComponent": 0.05,
+                    "VComponent": 0.03,
+                    "IntScaleValue": 0.05
+                  },
+                  "StationName": "\u4e5d\u5982",
+                  "StationID": "SGL",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 86.47,
+                  "EpicenterDistance": 43.47,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 22.72,
+                  "StationLongitude": 120.5
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 0.85,
+                    "NSComponent": 0.63,
+                    "VComponent": 0.59,
+                    "IntScaleValue": 0.95
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.05,
+                    "NSComponent": 0.05,
+                    "VComponent": 0.02,
+                    "IntScaleValue": 0.05
+                  },
+                  "StationName": "\u5c4f\u6771\u5e02",
+                  "StationID": "SPT",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 79.8,
+                  "EpicenterDistance": 44.36,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 22.68,
+                  "StationLongitude": 120.5
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 0.84,
+                    "NSComponent": 1.03,
+                    "VComponent": 1.27,
+                    "IntScaleValue": 1.1
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.04,
+                    "NSComponent": 0.04,
+                    "VComponent": 0.04,
+                    "IntScaleValue": 0.04
+                  },
+                  "StationName": "\u65b0\u57e4",
+                  "StationID": "SSP",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 51.1,
+                  "EpicenterDistance": 46.63,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 22.48,
+                  "StationLongitude": 120.57
+                }
+              ]
+            },
+            {
+              "AreaDesc": "\u81fa\u6771\u7e23\u5730\u5340",
+              "CountyName": "\u81fa\u6771\u7e23",
+              "InfoStatus": "observe",
+              "AreaIntensity": "2\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 8.36,
+                    "NSComponent": 8.1,
+                    "VComponent": 5.67,
+                    "IntScaleValue": 4.69
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.12,
+                    "NSComponent": 0.11,
+                    "VComponent": 0.09,
+                    "IntScaleValue": 0.12
+                  },
+                  "StationName": "\u592a\u9ebb\u91cc",
+                  "StationID": "ECL",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 346.11,
+                  "EpicenterDistance": 17.35,
+                  "SeismicIntensity": "2\u7d1a",
+                  "StationLatitude": 22.6,
+                  "StationLongitude": 120.96
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 4.23,
+                    "NSComponent": 5.53,
+                    "VComponent": 6.33,
+                    "IntScaleValue": 4.78
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.13,
+                    "NSComponent": 0.11,
+                    "VComponent": 0.14,
+                    "IntScaleValue": 0.14
+                  },
+                  "StationName": "\u5351\u5357",
+                  "StationID": "TWG",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 244.57,
+                  "EpicenterDistance": 18.06,
+                  "SeismicIntensity": "2\u7d1a",
+                  "StationLatitude": 22.82,
+                  "StationLongitude": 121.08
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.34,
+                    "NSComponent": 1.3,
+                    "VComponent": 4.63,
+                    "IntScaleValue": 4.36
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.06,
+                    "NSComponent": 0.06,
+                    "VComponent": 0.19,
+                    "IntScaleValue": 0.19
+                  },
+                  "StationName": "\u81fa\u6771\u5e02",
+                  "StationID": "TTN",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 268.68,
+                  "EpicenterDistance": 24.04,
+                  "SeismicIntensity": "2\u7d1a",
+                  "StationLatitude": 22.75,
+                  "StationLongitude": 121.16
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 3.11,
+                    "NSComponent": 6.88,
+                    "VComponent": 4.55,
+                    "IntScaleValue": 4.48
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.1,
+                    "NSComponent": 0.11,
+                    "VComponent": 0.07,
+                    "IntScaleValue": 0.12
+                  },
+                  "StationName": "\u9e7f\u91ce",
+                  "StationID": "LONT",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 230.65,
+                  "EpicenterDistance": 27.78,
+                  "SeismicIntensity": "2\u7d1a",
+                  "StationLatitude": 22.91,
+                  "StationLongitude": 121.13
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.3,
+                    "NSComponent": 1.17,
+                    "VComponent": 0.87,
+                    "IntScaleValue": 1.53
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.05,
+                    "NSComponent": 0.05,
+                    "VComponent": 0.02,
+                    "IntScaleValue": 0.06
+                  },
+                  "StationName": "\u6771\u6cb3",
+                  "StationID": "EDH",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 237.56,
+                  "EpicenterDistance": 46.53,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 22.97,
+                  "StationLongitude": 121.3
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 0.68,
+                    "NSComponent": 1.0,
+                    "VComponent": 0.57,
+                    "IntScaleValue": 0.92
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.03,
+                    "NSComponent": 0.03,
+                    "VComponent": 0.02,
+                    "IntScaleValue": 0.04
+                  },
+                  "StationName": "\u6c60\u4e0a",
+                  "StationID": "ECS",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 218.4,
+                  "EpicenterDistance": 49.21,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.1,
+                  "StationLongitude": 121.22
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "EarthquakeNo": 112000,
+        "ReportType": "\u5730\u9707\u5831\u544a",
+        "ReportColor": "\u7da0\u8272",
+        "ReportContent": "04/16-18:44\u81fa\u6771\u7e23\u5ef6\u5e73\u9109\u767c\u751f\u898f\u6a213.5\u6709\u611f\u5730\u9707\uff0c\u6700\u5927\u9707\u5ea6\u81fa\u6771\u7e23\u9e7f\u91ce3\u7d1a\u3002",
+        "ReportImageURI": "https://scweb.cwb.gov.tw/webdata/OLDEQ/202304/2023041618442935_H.png",
+        "ReportRemark": "\u672c\u5831\u544a\u4fc2\u4e2d\u592e\u6c23\u8c61\u5c40\u5730\u9707\u89c0\u6e2c\u7db2\u5373\u6642\u5730\u9707\u8cc7\u6599\u5730\u9707\u901f\u5831\u4e4b\u7d50\u679c\u3002",
+        "Web": "https://scweb.cwb.gov.tw/zh-tw/earthquake/details/2023041618442935",
+        "EarthquakeInfo": {
+          "OriginTime": "2023-04-16 18:44:29",
+          "Source": "\u4e2d\u592e\u6c23\u8c61\u5c40",
+          "FocalDepth": 11.8,
+          "Epicenter": {
+            "Location": "\u81fa\u6771\u7e23\u653f\u5e9c\u5317\u5317\u897f\u65b9  18.1  \u516c\u91cc (\u4f4d\u65bc\u81fa\u6771\u7e23\u5ef6\u5e73\u9109)",
+            "EpicenterLatitude": 22.91,
+            "EpicenterLongitude": 121.09
+          },
+          "EarthquakeMagnitude": {
+            "MagnitudeType": "\u82ae\u6c0f\u898f\u6a21",
+            "MagnitudeValue": 3.5
+          }
+        },
+        "Intensity": {
+          "ShakingArea": [
+            {
+              "AreaDesc": "\u9ad8\u96c4\u5e02\u5730\u5340",
+              "CountyName": "\u9ad8\u96c4\u5e02",
+              "InfoStatus": "observe",
+              "AreaIntensity": "1\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.27,
+                    "NSComponent": 1.31,
+                    "VComponent": 0.75,
+                    "IntScaleValue": 1.19
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.03,
+                    "NSComponent": 0.02,
+                    "VComponent": 0.01,
+                    "IntScaleValue": 0.03
+                  },
+                  "StationName": "\u6843\u6e90",
+                  "StationID": "STYH",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 133.76,
+                  "EpicenterDistance": 43.61,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.18,
+                  "StationLongitude": 120.78
+                }
+              ]
+            },
+            {
+              "AreaDesc": "\u6700\u5927\u9707\u5ea63\u7d1a\u5730\u5340",
+              "CountyName": "\u81fa\u6771\u7e23",
+              "AreaIntensity": "3\u7d1a",
+              "EqStation": []
+            },
+            {
+              "AreaDesc": "\u6700\u5927\u9707\u5ea61\u7d1a\u5730\u5340",
+              "CountyName": "\u82b1\u84ee\u7e23\u3001\u9ad8\u96c4\u5e02",
+              "AreaIntensity": "1\u7d1a",
+              "EqStation": []
+            },
+            {
+              "AreaDesc": "\u82b1\u84ee\u7e23\u5730\u5340",
+              "CountyName": "\u82b1\u84ee\u7e23",
+              "InfoStatus": "observe",
+              "AreaIntensity": "1\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.11,
+                    "NSComponent": 0.7,
+                    "VComponent": 0.23,
+                    "IntScaleValue": 1.09
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.05,
+                    "NSComponent": 0.03,
+                    "VComponent": 0.01,
+                    "IntScaleValue": 0.05
+                  },
+                  "StationName": "\u5bcc\u91cc",
+                  "StationID": "FULB",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 213.08,
+                  "EpicenterDistance": 38.56,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.2,
+                  "StationLongitude": 121.29
+                }
+              ]
+            },
+            {
+              "AreaDesc": "\u81fa\u6771\u7e23\u5730\u5340",
+              "CountyName": "\u81fa\u6771\u7e23",
+              "InfoStatus": "observe",
+              "AreaIntensity": "3\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 8.27,
+                    "NSComponent": 10.68,
+                    "VComponent": 8.3,
+                    "IntScaleValue": 9.69
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.19,
+                    "NSComponent": 0.23,
+                    "VComponent": 0.14,
+                    "IntScaleValue": 0.29
+                  },
+                  "StationName": "\u9e7f\u91ce",
+                  "StationID": "LONT",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 271.77,
+                  "EpicenterDistance": 4.31,
+                  "SeismicIntensity": "3\u7d1a",
+                  "StationLatitude": 22.91,
+                  "StationLongitude": 121.13
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 5.13,
+                    "NSComponent": 4.29,
+                    "VComponent": 2.68,
+                    "IntScaleValue": 3.9
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.1,
+                    "NSComponent": 0.1,
+                    "VComponent": 0.07,
+                    "IntScaleValue": 0.12
+                  },
+                  "StationName": "\u5351\u5357",
+                  "StationID": "TWG",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 4.99,
+                  "EpicenterDistance": 10.03,
+                  "SeismicIntensity": "2\u7d1a",
+                  "StationLatitude": 22.82,
+                  "StationLongitude": 121.08
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.3,
+                    "NSComponent": 2.23,
+                    "VComponent": 1.67,
+                    "IntScaleValue": 1.87
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.03,
+                    "NSComponent": 0.05,
+                    "VComponent": 0.03,
+                    "IntScaleValue": 0.05
+                  },
+                  "StationName": "\u6771\u6cb3",
+                  "StationID": "EDH",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 251.92,
+                  "EpicenterDistance": 23.24,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 22.97,
+                  "StationLongitude": 121.3
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.25,
+                    "NSComponent": 1.59,
+                    "VComponent": 0.74,
+                    "IntScaleValue": 1.49
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.03,
+                    "NSComponent": 0.04,
+                    "VComponent": 0.02,
+                    "IntScaleValue": 0.04
+                  },
+                  "StationName": "\u6c60\u4e0a",
+                  "StationID": "ECS",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 212.76,
+                  "EpicenterDistance": 24.76,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 23.1,
+                  "StationLongitude": 121.22
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "EarthquakeNo": 112000,
+        "ReportType": "\u5730\u9707\u5831\u544a",
+        "ReportColor": "\u7da0\u8272",
+        "ReportContent": "04/14-23:38\u81fa\u6771\u7e23\u592a\u9ebb\u91cc\u9109\u767c\u751f\u898f\u6a213.6\u6709\u611f\u5730\u9707\uff0c\u6700\u5927\u9707\u5ea6\u81fa\u6771\u7e23\u592a\u9ebb\u91cc3\u7d1a\u3002",
+        "ReportImageURI": "https://scweb.cwb.gov.tw/webdata/OLDEQ/202304/2023041423381636_H.png",
+        "ReportRemark": "\u672c\u5831\u544a\u4fc2\u4e2d\u592e\u6c23\u8c61\u5c40\u5730\u9707\u89c0\u6e2c\u7db2\u5373\u6642\u5730\u9707\u8cc7\u6599\u5730\u9707\u901f\u5831\u4e4b\u7d50\u679c\u3002",
+        "Web": "https://scweb.cwb.gov.tw/zh-tw/earthquake/details/2023041423381636",
+        "EarthquakeInfo": {
+          "OriginTime": "2023-04-14 23:38:16",
+          "Source": "\u4e2d\u592e\u6c23\u8c61\u5c40",
+          "FocalDepth": 11.8,
+          "Epicenter": {
+            "Location": "\u81fa\u6771\u7e23\u653f\u5e9c\u897f\u5357\u65b9  34.1  \u516c\u91cc (\u4f4d\u65bc\u81fa\u6771\u7e23\u592a\u9ebb\u91cc\u9109)",
+            "EpicenterLatitude": 22.51,
+            "EpicenterLongitude": 120.95
+          },
+          "EarthquakeMagnitude": {
+            "MagnitudeType": "\u82ae\u6c0f\u898f\u6a21",
+            "MagnitudeValue": 3.6
+          }
+        },
+        "Intensity": {
+          "ShakingArea": [
+            {
+              "AreaDesc": "\u6700\u5927\u9707\u5ea63\u7d1a\u5730\u5340",
+              "CountyName": "\u81fa\u6771\u7e23",
+              "AreaIntensity": "3\u7d1a",
+              "EqStation": []
+            },
+            {
+              "AreaDesc": "\u6700\u5927\u9707\u5ea61\u7d1a\u5730\u5340",
+              "CountyName": "\u5c4f\u6771\u7e23",
+              "AreaIntensity": "1\u7d1a",
+              "EqStation": []
+            },
+            {
+              "AreaDesc": "\u5c4f\u6771\u7e23\u5730\u5340",
+              "CountyName": "\u5c4f\u6771\u7e23",
+              "InfoStatus": "observe",
+              "AreaIntensity": "1\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 0.49,
+                    "NSComponent": 0.34,
+                    "VComponent": 1.03,
+                    "IntScaleValue": 0.81
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.02,
+                    "NSComponent": 0.02,
+                    "VComponent": 0.02,
+                    "IntScaleValue": 0.02
+                  },
+                  "StationName": "\u65b0\u57e4",
+                  "StationID": "SSP",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 85.46,
+                  "EpicenterDistance": 39.24,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 22.48,
+                  "StationLongitude": 120.57
+                }
+              ]
+            },
+            {
+              "AreaDesc": "\u81fa\u6771\u7e23\u5730\u5340",
+              "CountyName": "\u81fa\u6771\u7e23",
+              "InfoStatus": "observe",
+              "AreaIntensity": "3\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 13.94,
+                    "NSComponent": 21.97,
+                    "VComponent": 14.12,
+                    "IntScaleValue": 10.09
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.29,
+                    "NSComponent": 0.3,
+                    "VComponent": 0.14,
+                    "IntScaleValue": 0.33
+                  },
+                  "StationName": "\u592a\u9ebb\u91cc",
+                  "StationID": "ECL",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 188.37,
+                  "EpicenterDistance": 9.44,
+                  "SeismicIntensity": "3\u7d1a",
+                  "StationLatitude": 22.6,
+                  "StationLongitude": 120.96
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 7.38,
+                    "NSComponent": 18.89,
+                    "VComponent": 5.11,
+                    "IntScaleValue": 16.17
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.18,
+                    "NSComponent": 0.4,
+                    "VComponent": 0.08,
+                    "IntScaleValue": 0.41
+                  },
+                  "StationName": "\u5927\u6b66",
+                  "StationID": "TAWH",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 18.09,
+                  "EpicenterDistance": 20.03,
+                  "SeismicIntensity": "3\u7d1a",
+                  "StationLatitude": 22.34,
+                  "StationLongitude": 120.89
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 5.63,
+                    "NSComponent": 8.98,
+                    "VComponent": 4.46,
+                    "IntScaleValue": 6.0
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.14,
+                    "NSComponent": 0.17,
+                    "VComponent": 0.08,
+                    "IntScaleValue": 0.2
+                  },
+                  "StationName": "\u9054\u4ec1",
+                  "StationID": "EAS",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 33.37,
+                  "EpicenterDistance": 17.2,
+                  "SeismicIntensity": "2\u7d1a",
+                  "StationLatitude": 22.38,
+                  "StationLongitude": 120.86
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "EarthquakeNo": 112000,
+        "ReportType": "\u5730\u9707\u5831\u544a",
+        "ReportColor": "\u7da0\u8272",
+        "ReportContent": "04/14-11:54\u81fa\u6771\u7e23\u5351\u5357\u9109\u767c\u751f\u898f\u6a213.6\u6709\u611f\u5730\u9707\uff0c\u6700\u5927\u9707\u5ea6\u81fa\u6771\u7e23\u81fa\u6771\u5e023\u7d1a\u3002",
+        "ReportImageURI": "https://scweb.cwb.gov.tw/webdata/OLDEQ/202304/2023041411544736_H.png",
+        "ReportRemark": "\u672c\u5831\u544a\u4fc2\u4e2d\u592e\u6c23\u8c61\u5c40\u5730\u9707\u89c0\u6e2c\u7db2\u5373\u6642\u5730\u9707\u8cc7\u6599\u5730\u9707\u901f\u5831\u4e4b\u7d50\u679c\u3002",
+        "Web": "https://scweb.cwb.gov.tw/zh-tw/earthquake/details/2023041411544736",
+        "EarthquakeInfo": {
+          "OriginTime": "2023-04-14 11:54:47",
+          "Source": "\u4e2d\u592e\u6c23\u8c61\u5c40",
+          "FocalDepth": 9.1,
+          "Epicenter": {
+            "Location": "\u81fa\u6771\u7e23\u653f\u5e9c\u5317\u5317\u897f\u65b9  3.7  \u516c\u91cc (\u4f4d\u65bc\u81fa\u6771\u7e23\u5351\u5357\u9109)",
+            "EpicenterLatitude": 22.79,
+            "EpicenterLongitude": 121.14
+          },
+          "EarthquakeMagnitude": {
+            "MagnitudeType": "\u82ae\u6c0f\u898f\u6a21",
+            "MagnitudeValue": 3.6
+          }
+        },
+        "Intensity": {
+          "ShakingArea": [
+            {
+              "AreaDesc": "\u6700\u5927\u9707\u5ea63\u7d1a\u5730\u5340",
+              "CountyName": "\u81fa\u6771\u7e23",
+              "AreaIntensity": "3\u7d1a",
+              "EqStation": []
+            },
+            {
+              "AreaDesc": "\u81fa\u6771\u7e23\u5730\u5340",
+              "CountyName": "\u81fa\u6771\u7e23",
+              "InfoStatus": "observe",
+              "AreaIntensity": "3\u7d1a",
+              "EqStation": [
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 10.13,
+                    "NSComponent": 19.42,
+                    "VComponent": 4.09,
+                    "IntScaleValue": 17.88
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.3,
+                    "NSComponent": 0.44,
+                    "VComponent": 0.09,
+                    "IntScaleValue": 0.5
+                  },
+                  "StationName": "\u81fa\u6771\u5e02",
+                  "StationID": "TTN",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 334.26,
+                  "EpicenterDistance": 4.1,
+                  "SeismicIntensity": "3\u7d1a",
+                  "StationLatitude": 22.75,
+                  "StationLongitude": 121.16
+                },
+                {
+                  "pga": {
+                    "unit": "gal",
+                    "EWComponent": 1.61,
+                    "NSComponent": 1.61,
+                    "VComponent": 0.9,
+                    "IntScaleValue": 1.42
+                  },
+                  "pgv": {
+                    "unit": "kine",
+                    "EWComponent": 0.03,
+                    "NSComponent": 0.04,
+                    "VComponent": 0.02,
+                    "IntScaleValue": 0.04
+                  },
+                  "StationName": "\u5351\u5357",
+                  "StationID": "TWG",
+                  "InfoStatus": "observe",
+                  "BackAzimuth": 120.53,
+                  "EpicenterDistance": 6.89,
+                  "SeismicIntensity": "1\u7d1a",
+                  "StationLatitude": 22.82,
+                  "StationLongitude": 121.08
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
