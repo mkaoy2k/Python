@@ -1,0 +1,42 @@
+0000000000000000000000000000000000000000 99e10c5d42bd791b018cffe76a0ef5f17d796df0 mkaoy2k <mkaoy2k@gmail.com> 1681430133 -0700	commit (initial): Initial commit
+99e10c5d42bd791b018cffe76a0ef5f17d796df0 110e70d42368db6a34619900df97d3b8015ff3f7 mkaoy2k <mkaoy2k@gmail.com> 1681431990 -0700	commit: Initial commit
+110e70d42368db6a34619900df97d3b8015ff3f7 110e70d42368db6a34619900df97d3b8015ff3f7 mkaoy2k <mkaoy2k@gmail.com> 1681432234 -0700	Branch: renamed refs/heads/master to refs/heads/main
+110e70d42368db6a34619900df97d3b8015ff3f7 d3fa4d10177ea527a8c06327d6b829af97686a75 mkaoy2k <mkaoy2k@gmail.com> 1681433397 -0700	commit: Initial
+d3fa4d10177ea527a8c06327d6b829af97686a75 ced8dd6927e46daccd7b480905a009718b8771be mkaoy2k <mkaoy2k@gmail.com> 1681433561 -0700	commit: Initial
+ced8dd6927e46daccd7b480905a009718b8771be 5016a77b2b6a01df9aefa4dc884323ad322868a7 mkaoy2k <mkaoy2k@gmail.com> 1681433648 -0700	commit: Initial
+5016a77b2b6a01df9aefa4dc884323ad322868a7 37f80630a7a560a114159943e69836d6b4896934 mkaoy2k <mkaoy2k@gmail.com> 1681434228 -0700	commit: Initial
+37f80630a7a560a114159943e69836d6b4896934 ed17ee7081dbeca3fa04658f2173bac4a80bf7a3 mkaoy2k <mkaoy2k@gmail.com> 1681437992 -0700	commit: Added comments
+ed17ee7081dbeca3fa04658f2173bac4a80bf7a3 79a2ed1676dd62589a015f6d7ba358e6225eda16 Michael Kao <mkaoy2k@gmail.com> 1681523406 -0700	commit: Inital comit
+79a2ed1676dd62589a015f6d7ba358e6225eda16 f4b25a265b22701cd17b7c96703c0d3186abb9e9 Michael Kao <mkaoy2k@gmail.com> 1681523746 -0700	commit: Initial commit
+f4b25a265b22701cd17b7c96703c0d3186abb9e9 400132701cadb8a01026198df5f835dc8b4313b5 Michael Kao <mkaoy2k@gmail.com> 1681524914 -0700	commit: inital
+400132701cadb8a01026198df5f835dc8b4313b5 400132701cadb8a01026198df5f835dc8b4313b5 Michael Kao <mkaoy2k@gmail.com> 1681526140 -0700	Branch: renamed refs/heads/main to refs/heads/main
+400132701cadb8a01026198df5f835dc8b4313b5 bb0f6ba46dfda2ecc33fba194a98687032f70c50 Michael Kao <mkaoy2k@gmail.com> 1681527576 -0700	pull --tags origin main: Fast-forward
+bb0f6ba46dfda2ecc33fba194a98687032f70c50 b5ae8dead6235a8c77fc187bbb75fbe0019ab404 Michael Kao <mkaoy2k@gmail.com> 1681528987 -0700	commit: Bibary search tree code changes
+b5ae8dead6235a8c77fc187bbb75fbe0019ab404 b2d7fc349e62e90bdf6e68d7a3203c0afd92f086 mkaoy2k <mkaoy2k@gmail.com> 1681577803 -0700	commit: clean more files
+b2d7fc349e62e90bdf6e68d7a3203c0afd92f086 8a56f883446d7a222b5135b91eba2c10e7f0b006 Michael Kao <mkaoy2k@gmail.com> 1681612789 -0700	commit: clean venv2
+8a56f883446d7a222b5135b91eba2c10e7f0b006 697ef95a991ad1e1ef163814ab4292e16226aa55 Michael Kao <mkaoy2k@gmail.com> 1681613403 -0700	commit: remove credentials.py
+697ef95a991ad1e1ef163814ab4292e16226aa55 c47daa55e84ebad033350f99231636b0e51c7114 Michael Kao <mkaoy2k@gmail.com> 1681663448 -0700	commit: changed output formats
+c47daa55e84ebad033350f99231636b0e51c7114 c68ced475337032d6047360871d89ba4252e58fb Michael Kao <mkaoy2k@gmail.com> 1681663694 -0700	pull --tags -r origin main (finish): refs/heads/main onto 769ed9be31c04a66e219489c7dca00d80db3d84d
+c68ced475337032d6047360871d89ba4252e58fb 7815b8ba893ceca0f98ae43e0a4dfd3189d8a32d Michael Kao <mkaoy2k@gmail.com> 1681664116 -0700	pull --tags origin main: Fast-forward
+7815b8ba893ceca0f98ae43e0a4dfd3189d8a32d c4d4d063f649ced2f7f3b5fe1ce7e0aaa1a33ba5 Michael Kao <mkaoy2k@gmail.com> 1681666934 -0700	pull --tags origin main: Fast-forward
+c4d4d063f649ced2f7f3b5fe1ce7e0aaa1a33ba5 f1f170f02a8fe4809022de3da02dab03c663b13e Michael Kao <mkaoy2k@gmail.com> 1681687376 -0700	commit: Added import decimal for getcontext()
+f1f170f02a8fe4809022de3da02dab03c663b13e 0a1c6e37e903ee6e5dbafb4e1a6fc30210f17db1 Michael Kao <mkaoy2k@gmail.com> 1681689147 -0700	commit: Included .git
+0a1c6e37e903ee6e5dbafb4e1a6fc30210f17db1 eb6efd40b4480feb2dfa79b948579fa5bf163e55 Michael Kao <mkaoy2k@gmail.com> 1681693945 -0700	commit: Added *.html
+eb6efd40b4480feb2dfa79b948579fa5bf163e55 6814487f9809274a31e3c7a95cd9dc2bbf318bff Michael Kao <mkaoy2k@gmail.com> 1682206553 -0700	commit: Filter .DS_Store
+6814487f9809274a31e3c7a95cd9dc2bbf318bff f52b59f750b17645cccae32437de4e8c34405ddd Michael Kao <mkaoy2k@gmail.com> 1682207459 -0700	commit: Removed Python.code-workspace
+f52b59f750b17645cccae32437de4e8c34405ddd 69ed723ea61ad04736b68a1e3d39e74196eaca99 Michael Kao <mkaoy2k@gmail.com> 1682213941 -0700	commit: Revised 地震資訊JSON 檔案的結構
+69ed723ea61ad04736b68a1e3d39e74196eaca99 f9248163842e0f58d636dd841f4c12c4aca2bf8d Michael Kao <mkaoy2k@gmail.com> 1682351628 -0700	commit: reviewed 2023
+f9248163842e0f58d636dd841f4c12c4aca2bf8d 72a187f2a95f7228af8d615a8257a03ba2930fe3 Michael Kao <mkaoy2k@gmail.com> 1682353404 -0700	commit: Moved credentials.py to sample
+72a187f2a95f7228af8d615a8257a03ba2930fe3 2074ce954b1bcb4c50783dc163104e62a29e6ced Michael Kao <mkaoy2k@gmail.com> 1682984566 -0700	commit: 2023 review
+2074ce954b1bcb4c50783dc163104e62a29e6ced 2a01399930499c2511aa094cad760157841b46b3 Michael Kao <mkaoy2k@gmail.com> 1683037618 -0700	commit: Fixed ShadowImport lint problem
+2a01399930499c2511aa094cad760157841b46b3 5bc896d990a05ef21dc3b5eb5b048e3b9045af13 Michael Kao <mkaoy2k@gmail.com> 1683043280 -0700	commit: Added __main__() section for functional test
+5bc896d990a05ef21dc3b5eb5b048e3b9045af13 c87b779e3ea4bc9b258c41a460df6a460b8344d8 Michael Kao <mkaoy2k@gmail.com> 1683214554 -0700	commit: Added different heaps and renamed in group
+c87b779e3ea4bc9b258c41a460df6a460b8344d8 898de89ea55637bb34568e4f4efb739846010179 Michael Kao <mkaoy2k@gmail.com> 1683215481 -0700	commit: Created binary heap.
+898de89ea55637bb34568e4f4efb739846010179 ec405ca1dc4e9dddefedfeab0182d452d3685487 Michael Kao <mkaoy2k@gmail.com> 1683216346 -0700	commit: renamed Fibonacci Heap
+ec405ca1dc4e9dddefedfeab0182d452d3685487 29dfeeb504bb3149d7b953f50073e044f7a186b7 Michael Kao <mkaoy2k@gmail.com> 1683250128 -0700	commit: Added functional test for Binary & Binomial heaps
+29dfeeb504bb3149d7b953f50073e044f7a186b7 3abba400b8bdb99a0527ccf103c13a8b51bef9e5 Michael Kao <mkaoy2k@gmail.com> 1683383772 -0700	commit: renamed heap variable
+3abba400b8bdb99a0527ccf103c13a8b51bef9e5 323ee077d43d23271649e29732875aca854c1c91 Michael Kao <mkaoy2k@gmail.com> 1683473265 -0700	commit: 2023 review: reformat outputs
+323ee077d43d23271649e29732875aca854c1c91 55dd7ea83b13319083034940c402044b97ac6119 Michael Kao <mkaoy2k@gmail.com> 1684719223 -0700	commit: modified __repr__()
+55dd7ea83b13319083034940c402044b97ac6119 4e1438f3c67cdbb4199b2bdce7b526b0b891aa42 Michael Kao <mkaoy2k@gmail.com> 1684982304 -0700	commit: 2023 review and refactored
+4e1438f3c67cdbb4199b2bdce7b526b0b891aa42 1403623c963c98300356b6ed54595c0ea1ced4d9 Michael Kao <mkaoy2k@gmail.com> 1688051514 -0700	commit: 2023 review
+1403623c963c98300356b6ed54595c0ea1ced4d9 78a32c544203379a7d41d10c15130b7f786af801 Michael Kao <mkaoy2k@gmail.com> 1688055821 -0700	commit: 2023 review
