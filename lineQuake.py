@@ -7,7 +7,7 @@
 城市名稱、區域名稱和觀測點名稱。
 """
 
-import requests
+import requests # pip install requests
 from sample.credentials import line_gw_url, line_pc_token, line_pc_name, quake_url, quake_magnitude
 from datetime import date, timedelta
 import json
