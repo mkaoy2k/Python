@@ -4,9 +4,9 @@
 # 載入 math 模塊
 # 利用其中的函式 ceil() 把年齡換成大於或等於浮點數的最小整數
 import math
-import pandas as pd
-import openpyxl
-import xlrd
+import pandas as pd # pip install pandas
+import openpyxl # pip install openpyxl
+import xlrd # pip install xlrd
 
 question = """問：
     假設有一天，科技能讓你移民火星的時候，而你媽媽仍住在地球。
