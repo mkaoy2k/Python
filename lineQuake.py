@@ -1,7 +1,7 @@
 """
 爬取台灣中央氣象局會地震資訊及位置圖
-使用 Requests 函式庫的 get 的方法，抓取氣象觀測資料的 JSON 網址
-(https://opendata.cwb.gov.tw/devManual/insrtuction)。
+使用 Requests 函式庫的 get 的方法，抓取氣象觀測資料的 JSON 網址:
+https://opendata.cwa.gov.tw/api/v1/rest/datastore/E-A0015-001?Authorization=rdec-key-123-45678-011121314
 
 接著使用字典的取值方法，搭配 for-迴圈印出某一地震强度以上 (如4.0)
 城市名稱、區域名稱和觀測點名稱。
