@@ -6,13 +6,9 @@
 
 # VS Code environment
 /.vscode
-*.code-workspace
 
 # USB extFat
 ._*
-
-# Conda environemtn
-environment.yaml
 
 # Streamlit Examples
 db_upload.py
