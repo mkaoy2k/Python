@@ -1,15 +1,64 @@
-# 定義一個函數來檢查是否滿足條件
-def find_abcd():
-    for abcd in range(1000, 10000):  # 四位數範圍
-        dcba = abcd * 4  # 計算乘以4的值
-        if dcba < 10000:  # 確保dcba仍然是四位數
-            # 將數字轉換為字符串並反轉
-            if str(dcba) == str(abcd)[::-1]:
-                return abcd  # 返回符合條件的數字
+"""Find a four-digit number that when multiplied by 4 equals its reverse.
 
-# 調用函數並打印結果
-result = find_abcd()
-if result:
-    print(f"符合條件的四位數 ABCD 是: {result}")
-else:
-    print("沒有找到符合條件的四位數。")
+This program solves a mathematical puzzle where we need to find a four-digit
+number ABCD such that:
+1. When multiplied by 4, the result is still a four-digit number
+2. The result is the reverse of the original number
+"""
+
+def is_reverse(num1, num2):
+    """Check if num2 is the reverse of num1.
+    
+    Args:
+        num1 (int): First number
+        num2 (int): Second number to check if it's the reverse of num1
+        
+    Returns:
+        bool: True if num2 is the reverse of num1, False otherwise
+    """
+    return str(num2) == str(num1)[::-1]
+
+def is_valid_result(num):
+    """Check if a number multiplied by 4 is still a four-digit number.
+    
+    Args:
+        num (int): Number to check
+        
+    Returns:
+        bool: True if the result is a four-digit number, False otherwise
+    """
+    return num * 4 < 10000
+
+def find_abcd():
+    """Find a four-digit number that satisfies the puzzle conditions.
+    
+    Returns:
+        int: The four-digit number that satisfies the conditions, or None if not found
+    """
+    for num in range(1000, 10000):  # Four-digit number range
+        result = num * 4
+        if is_valid_result(num) and is_reverse(num, result):
+            return num
+    return None
+
+def main():
+    """Main function to run the puzzle solver and display results."""
+    print("\nSolving the four-digit number puzzle...")
+    print("-" * 50)
+    print("Puzzle conditions:")
+    print("1. The number is a four-digit number (1000-9999)")
+    print("2. When multiplied by 4, the result is still a four-digit number")
+    print("3. The result is the reverse of the original number")
+    print("-" * 50)
+    
+    result = find_abcd()
+    if result:
+        print(f"\nSolution found!")
+        print(f"The four-digit number is: {result}")
+        print(f"When multiplied by 4: {result * 4}")
+        print(f"Which is the reverse of: {result}")
+    else:
+        print("\nNo solution found that satisfies all conditions.")
+
+if __name__ == '__main__':
+    main()
