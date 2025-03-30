@@ -1,91 +1,99 @@
-# Arithmetic Operators:
+# 算術運算子示範
 #
-# Addition:              
-print('3 + 2 is...')
+# 這個程式展示了 Python 中基本的算術運算子的使用方式，
+# 包括加法、減法、乘法、除法等運算。
+
+# 加法運算
+# 使用 + 運算子來進行加法運算
+print('3 + 2 等於...')
 print('   ', 3 + 2)
 
-# Subtraction:         
-print('3 - 2 is...')
+# 減法運算
+# 使用 - 運算子來進行減法運算
+print('3 - 2 等於...')
 print('   ', 3 - 2)
 
-# Multiplication:       
-print('3 * 2 is...')
+# 乘法運算
+# 使用 * 運算子來進行乘法運算
+print('3 * 2 等於...')
 print('   ', 3 * 2)
 
-# Division:
-print('3 / 2 is...')               
+# 除法運算
+# 使用 / 運算子來進行除法運算，結果會是浮點數
+print('3 / 2 等於...')
 print('   ', 3 / 2)
 
-# Floor Division:      
-print('3 // 2 is...')
+# 整數除法運算
+# 使用 // 運算子來進行整數除法運算，結果會是整數
+print('3 // 2 等於...')
 print('   ', 3 // 2)
 
-# Exponent:
-print('3 ** 2 is...')             
+# 指數運算
+# 使用 ** 運算子來進行指數運算
+print('3 ** 2 等於...')
 print('   ', 3 ** 2)
 
-# Modulus: 
-print('3 % 2 is...')              
+# 取餘數運算
+# 使用 % 運算子來進行取餘數運算
+print('3 % 2 等於...')
 print('   ', 3 % 2)
 
-# Test even or odd numbers with Modulus operator
+# 測試偶數或奇數使用取餘數運算
 m = 5
 if (m % 2):
-	print(m, 'is an odd nmuber!')
+	print(m, '是奇數!')
 else :
-	print(m, 'is an even number!')
+	print(m, '是偶數!')
 
-# Built-in functions
+# 內建函數
 #
 # abs
 m = -4
-print(m, ' with the absolute value=', abs(m))
+print(m, '的絕對值=', abs(m))
 
-# round to the nearest integer
+# 四捨五入到最接近的整數
 m = 3.45
 n = 5.55
-print(m, 'rounded to the nearest integer=', round(m))
+print(m, '四捨五入到最接近的整數=', round(m))
 
-# round to the first after decimal
-print(m, 'rounded to the first after decimal=', round(m,1))
-print(n, 'rounded to the first after decimal=', round(n,1))
+# 四捨五入到小數點後一位
+print(m, '四捨五入到小數點後一位=', round(m,1))
+print(n, '四捨五入到小數點後一位=', round(n,1))
 
-# Comparisons:
+# 比較運算
 #
-# Equal: ==
+# 相等: ==
 num_1 = 3
 num_2 = 2
 print(num_1, ' == ', num_2, '?')
 print ('   ', num_1 == num_2)
 
-# Not Equal: !=
+# 不相等: !=
 print(num_1, ' != ', num_2, '?')
 print ('   ', num_1 != num_2)
 
-# Greater Than: >
+# 大於: >
 print(num_1, ' > ', num_2, '?')
 print ('   ', num_1 > num_2)
 
-# Less Than: <
+# 小於: <
 print(num_1, ' < ', num_2, '?')
 print ('   ', num_1 < num_2)
 
-# Greater or Equal: >=
+# 大於或等於: >=
 print(num_1, ' >= ', num_2, '?')
 print ('   ', num_1 >= num_2)
 
-# Less or Equal: <=
+# 小於或等於: <=
 print(num_1, ' <= ', num_2, '?')
 print ('   ', num_1 <= num_2)
 
-# Type casting
+# 類型轉換
 #
 num_1 = int('100')
-print(num_1, ' is an integer, adding itself...')
-print('   ', num_1 + num_1, 'is an integer!')
+print(num_1, '是整數，自己加自己...')
+print('   ', num_1 + num_1, '是整數!')
 
 str_1 = str(num_1)
-print(str_1, ' is a string, adding itself...')
-print('   ', str_1 + str_1, 'is a string!')
-
-
+print(str_1, '是字串，自己加自己...')
+print('   ', str_1 + str_1, '是字串!')
