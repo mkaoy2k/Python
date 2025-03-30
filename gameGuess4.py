@@ -1,64 +1,68 @@
-"""Find a four-digit number that when multiplied by 4 equals its reverse.
+"""尋找一個四位數，當乘以4時等於其反轉的數字。
 
-This program solves a mathematical puzzle where we need to find a four-digit
-number ABCD such that:
-1. When multiplied by 4, the result is still a four-digit number
-2. The result is the reverse of the original number
+這個程式解決一個數學謎題，需要找到一個四位數ABCD，使其滿足：
+1. 當乘以4時，結果仍然是四位數
+2. 結果是原始數字的反轉
 """
 
+
 def is_reverse(num1, num2):
-    """Check if num2 is the reverse of num1.
+    """檢查num2是否為num1的反轉。
     
     Args:
-        num1 (int): First number
-        num2 (int): Second number to check if it's the reverse of num1
+        num1 (int): 第一個數字
+        num2 (int): 要檢查是否為num1反轉的第二個數字
         
     Returns:
-        bool: True if num2 is the reverse of num1, False otherwise
+        bool: 如果num2是num1的反轉則返回True，否則返回False
     """
     return str(num2) == str(num1)[::-1]
 
-def is_valid_result(num):
-    """Check if a number multiplied by 4 is still a four-digit number.
+
+def is_valid_result(result):
+    """檢查數字乘以4後是否仍然是四位數。
     
     Args:
-        num (int): Number to check
+        result (int): 要檢查的數字
         
     Returns:
-        bool: True if the result is a four-digit number, False otherwise
+        bool: 如果結果是四位數則返回True，否則返回False
     """
-    return num * 4 < 10000
+    return 1000 <= result <= 9999
+
 
 def find_abcd():
-    """Find a four-digit number that satisfies the puzzle conditions.
+    """生成所有滿足謎題條件的四位數。
     
-    Returns:
-        int: The four-digit number that satisfies the conditions, or None if not found
+    Yields:
+        int: 滿足條件的四位數
     """
-    for num in range(1000, 10000):  # Four-digit number range
+    for num in range(1000, 10000):  # 四位數範圍，從小到大
         result = num * 4
-        if is_valid_result(num) and is_reverse(num, result):
-            return num
-    return None
+        if is_valid_result(result) and is_reverse(num, result):
+            yield num
+
 
 def main():
-    """Main function to run the puzzle solver and display results."""
-    print("\nSolving the four-digit number puzzle...")
+    """主要函數，用於運行謎題求解器並顯示結果。"""
+    print("\n正在解四位數謎題...")
     print("-" * 50)
-    print("Puzzle conditions:")
-    print("1. The number is a four-digit number (1000-9999)")
-    print("2. When multiplied by 4, the result is still a four-digit number")
-    print("3. The result is the reverse of the original number")
+    print("謎題條件：")
+    print("1. 數字是一個四位數 (1000-9999)")
+    print("2. 當乘以4時，結果仍然是四位數")
+    print("3. 結果是原始數字的反轉")
     print("-" * 50)
     
-    result = find_abcd()
-    if result:
-        print(f"\nSolution found!")
-        print(f"The four-digit number is: {result}")
-        print(f"When multiplied by 4: {result * 4}")
-        print(f"Which is the reverse of: {result}")
+    solutions = list(find_abcd())
+    if solutions:
+        print(f"\n找到 {len(solutions)} 個解答！")
+        for solution in solutions:
+            print(f"\n解答：{solution}")
+            print(f"當乘以4時：{solution * 4}")
+            print(f"這是：{solution} 的反轉")
     else:
-        print("\nNo solution found that satisfies all conditions.")
+        print("\n找不到滿足所有條件的解答。")
+
 
 if __name__ == '__main__':
     main()
