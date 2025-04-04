@@ -1,122 +1,127 @@
-from bsTree import biNode
-import glog as log
+"""
+範例程式碼，展示如何使用二元搜尋樹
 
-""" Example code, demonstrating:
-    1. Build a binary tree from a list of integers
-    2. Showing btree info:
-        1) print keys in "Inorder" order
-        2) print keys in "Postorder" order
-        3) print keys in "Preorder" order
-        4} sort keys stored in a list
-    3. Finding out
-        1) max node of the btree
-        2) min node of the btreetree
-        3) max node of a sub-tree
-        4) min node of a sub-tree
-    4. Finding a node given a key
-        1) finding a node with matching key
-        2) finding target node with matching key and its parent if any
-    5. Removing a node given a key
-    6. Removing a subtree
-    7. Removing an entire tree
+這個範例程式碼展示了如何：
+1. 從整數列表建立二元搜尋樹
+2. 顯示二元搜尋樹資訊：
+   1) 以中序方式印出鍵值
+   2) 以後序方式印出鍵值
+   3) 以先序方式印出鍵值
+   4) 將鍵值排序並存儲在列表中
+3. 查詢：
+   1) 查詢二元搜尋樹中的最大節點
+   2) 查詢二元搜尋樹中的最小節點
+   3) 查詢子樹中的最大節點
+   4) 查詢子樹中的最小節點
+4. 根據鍵值查找節點：
+   1) 查找具有匹配鍵值的節點
+   2) 查找具有匹配鍵值的目標節點及其父節點（如果有的話）
+5. 根據鍵值移除節點
+6. 移除子樹
+7. 移除整個樹
 """
 
-# log.setLevel("DEBUG")
-numbers = [30, 70, 20, 40, 60, 80, 80, 50]
-print(f'Number of items in {numbers} = {len(numbers)}\n')
+from bsTree import BinaryTreeNode
+import logging
 
-# create root of binary tree
-node_root = biNode.insert_tree(numbers.pop())
-print(f'Example 1: Built a binary tree with root key = {biNode.root.key}')
+# 設定 logging 等級為 DEBUG
+logging.basicConfig(level=logging.DEBUG)
 
-# To iterate from the rest elements in the list
-for key in numbers:
-    bn = node_root.insert_tree(key)
-    print(f'Example 1: Node at {bn} inserted with key = {bn.key}')
+# 建立測試數據
+test_numbers = [4, 1, 9, 5, 3, 7, 6, 8, 2, 5]
+print(f'測試數據數量： {test_numbers} = {len(test_numbers)}\n')
+
+# 1. 建立二元搜尋樹根節點
+node_root = BinaryTreeNode(test_numbers.pop())
+print(f'範例 1: 建立二元搜尋樹，根節點鍵值 = {BinaryTreeNode.root.key}')
+
+# 2. 迴圈插入剩餘的節點
+for key in test_numbers:
+    bn = BinaryTreeNode(key)
+    if node_root.insert_node(bn) == -1:
+        print(f'範例 1: 重複鍵值 = {bn.key}')
+        bn.free_node()
+    else:
+        print(f'範例 1: 已插入節點，位於 {bn}，鍵值 = {bn.key}')
 print()
 
-# print keys
-print(f'Example 2.1: printing keys Inorder:', end=' ')
+# 3. 印出鍵值
+print(f'範例 2.1: 以中序方式印出鍵值：', end=' ')
 node_root.print_keys("Inorder")
 print()
-print(f'Example 2.2: printing keys Postorder:', end=' ')
+print(f'範例 2.2: 以後序方式印出鍵值：', end=' ')
 node_root.print_keys("Postorder")
 print()
-print(f'Example 2.3: printing keys Preorder:', end=' ')
+print(f'範例 2.3: 以先序方式印出鍵值：', end=' ')
 node_root.print_keys("Preorder")
 print()
 
-# To print the sorted keys in a list
+# 4. 印出排序後的鍵值列表
 print(
-    f'Example 2.4: sorting keys of the whole btree: {biNode.root.sort_keys()} with {biNode.count} node(s)')
-print(f'root at {biNode.root} with key = {biNode.root.key}\n')
+    f'範例 2.4: 排序整個二元搜尋樹的鍵值： {BinaryTreeNode.root.sort_keys()}，共 {BinaryTreeNode.count} 個節點')
+print(f'根節點位於 {BinaryTreeNode.root}，鍵值 = {BinaryTreeNode.root.key}\n')
 
-# To print the max node and key
+# 5. 查詢最大和最小節點
 node_max, _, _ = node_root.find_node_max()
-print(f'Example 3.1: global maximum key = {node_max.key} at {node_max}')
+print(f'範例 3.1: 全局最大鍵值 = {node_max.key} 位於 {node_max}')
 
-# To print the min node and key
 node_min, _, _ = node_root.find_node_min()
-print(f'Example 3.2: global mainimum key = {node_min.key} at {node_min}\n')
+print(f'範例 3.2: 全局最小鍵值 = {node_min.key} 位於 {node_min}\n')
 
-# Example: To find a node from btree given a key
-key = 30
+# 6. 查詢子樹中的最大和最小節點
+key = 3
 node_found = node_root.find_node(key)
 if node_found != -2:
     node_max, _, _ = node_found.find_node_max()
     print(
-        f'Example 3.3: Subtree of {key} has a local maximum key = {node_max.key} at {node_max}')
+        f'範例 3.3: 鍵值 = {key} 的子樹中，局部最大鍵值 = {node_max.key} 位於 {node_max}')
     node_min, _, _ = node_found.find_node_min()
     print(
-        f'Example 3.4: Subtree of {key} has a local minimum key = {node_min.key} at {node_min}\n')
-    print(f'Example 4.1: Finding target node with key = {key}')
-    print(f'---> Found {node_found} with key= {node_found.key}\n')
+        f'範例 3.4: 鍵值 = {key} 的子樹中，局部最小鍵值 = {node_min.key} 位於 {node_min}\n')
+    print(f'範例 4.1: 查找鍵值 = {key} 的節點')
+    print(f'---> 找到 {node_found}，鍵值 = {node_found.key}\n')
 
 else:
-    print(f'---> key = {key} not found\n')
+    print(f'---> 鍵值 = {key} 未找到\n')
 
-key = 30
-print(f'Example 4.2: Finding a node with key = {key} and its parent if any')
+key = 9
+print(f'範例 4.2: 查找鍵值 = {key} 的節點及其父節點')
 node_found, node_p, from_left = node_root.find_node_parent(key)
 if node_found is None:
-    print(f'---> key = {key} not found.')
+    print(f'---> 鍵值 = {key} 未找到。')
     if node_p is None:
-        print(f'---> parent node not found.\n')
+        print(f'---> 父節點未找到。\n')
     else:
-        print(f'---> Found parent {node_p} with key= {node_p.key}\n')
+        print(f'---> 找到父節點 {node_p}，鍵值 = {node_p.key}\n')
 else:
-    print(f'---> Found target {node_found} with key= {node_found.key}')
+    print(f'---> 找到目標節點 {node_found}，鍵值 = {node_found.key}')
     if node_p is None:
-        print(f'---> parent node not found.\n')
+        print(f'---> 父節點未找到。\n')
     else:
-        print(f'---> Found parent {node_p} with key= {node_p.key}\n')
+        print(f'---> 找到父節點 {node_p}，鍵值 = {node_p.key}\n')
 
-# Example: To remove a node from btree given a key
-key = 50
-print(f'Example 5: Removing target node with key = {key}')
+# 7. 根據鍵值移除節點
+key = 5
+print(f'範例 5: 移除鍵值 = {key} 的節點')
 
 node_removed = node_root.remove_node(key)
 if node_removed == -2:
-    print(f'key = {key} not found.\n')
+    print(f'鍵值 = {key} 未找到。\n')
 else:
-    print(f'node at {node_removed} with key = {key} removed successfully.')
-    print(f'{biNode.root.sort_keys()} with {biNode.count} node(s)')
-    print(f'root at {biNode.root} with key = {biNode.root.key}\n')
+    print(f'節點 {node_removed}，鍵值 = {key} 移除成功。')
+    print(f'排序後的鍵值列表： {BinaryTreeNode.root.sort_keys()}，共 {BinaryTreeNode.count} 個節點')
+    print(f'根節點位於 {BinaryTreeNode.root}，鍵值 = {BinaryTreeNode.root.key}\n')
 
-# Removing a subtree
-key = 70
+# 8. 移除子樹
+key = 9
 node_found = node_root.find_node(key)
-if node_found == -2:   # not found
-    print(f'Example 6: Removing a sub-btree, invalid key = {key}\n')
-else:
-    print(
-        f'Example 6: Removing a sub-btree of {node_found.key} at {node_found}')
-    node_found.remove_tree()
-    print(f'{biNode.root.sort_keys()} with {biNode.count} node(s)\n')
+print(f'範例 6: 移除子樹，根節點位於 {node_found}，鍵值 = {node_found.key}')
 
-# Removing the entire tree
-print(
-    f'Example 7: Removing an entire btree, root at {biNode.root} with key = {biNode.root.key}')
+node_found.remove_tree()
+print(f'排序後的鍵值列表： {BinaryTreeNode.root.sort_keys()}，共 {BinaryTreeNode.count} 個節點\n')
+
+# 9. 移除整個樹
+print(f'範例 7: 移除整個二元搜尋樹，根節點位於 {BinaryTreeNode.root}，鍵值 = {BinaryTreeNode.root.key}')
 node_root.remove_tree()
-if biNode.root is None and biNode.count == 0:
-    print(f'The entire tree removed. Program terminated.')
+if BinaryTreeNode.root is None and BinaryTreeNode.count == 0:
+    print(f'整個樹已移除。程式結束。')
