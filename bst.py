@@ -1,15 +1,18 @@
 """ 
-This implementation defines two classes: Node and BinarySearchTree. 
-Node represents a node in the binary search tree, 
-    with a value and pointers to its left and right children. 
+這個實作定義了兩個類別：Node 和 BinarySearchTree。
+Node 代表二元搜尋樹中的節點，
+    包含一個值和指向其左子樹和右子樹的指標。
 
-BinarySearchTree represents the binary search tree itself,
-    with a pointer to the root node, and 2 methods which are:
-    to insert new nodes and search for nodes with a given value.
+BinarySearchTree 代表二元搜尋樹本身，
+    包含一個指向根節點的指標，以及兩個方法：
+    用於插入新節點和搜尋具有特定值的節點。
 """
 import random
 import traceback
-import glog as log
+import logging
+
+# 設定 logging 等級為 DEBUG
+logging.basicConfig(level=logging.DEBUG)
 
 
 def get_function_name():
@@ -22,23 +25,22 @@ class Node:
         self.left = None
         self.right = None
 
-    """ Three common traversal orders for a binary search tree:
-    **inorder**, **preorder**, and **postorder**.
-    Inorder traversal
-        involves visiting the left subtree, then the root,
-        and finally the right subtree.
-        This traversal gives nodes in non-decreasing order.
-    Preorder traversal
-        involves visiting the root first, then the left subtree,
-        and finally the right subtree.
-    Postorder traversal
-        involves visiting the left subtree first, then the right subtree,
-        and finally the root.
+    """ 二元搜尋樹的三種常見遍歷順序：
+    **中序**、**先序** 和 **後序**。
+    中序遍歷
+        包含訪問左子樹，然後是根節點，
+        最後是右子樹。
+        這種遍歷會以非遞減順序給出節點。
+    先序遍歷
+        包含先訪問根節點，然後是左子樹，
+        最後是右子樹。
+    後序遍歷
+        包含先訪問左子樹，然後是右子樹，
+        最後是根節點。
     """
 
     def print_keys_inorder(self):
-
-        log.debug(
+        logging.debug(
             f'{get_function_name()}: {self.value}')
 
         if self.left is not None:
@@ -50,8 +52,7 @@ class Node:
             self.right.print_keys_inorder()
 
     def print_keys_postorder(self):
-
-        log.debug(
+        logging.debug(
             f'{get_function_name()}: {self.value}')
 
         if self.left is not None:
@@ -63,8 +64,7 @@ class Node:
         print(self.value, end=' ')
 
     def print_keys_preorder(self):
-
-        log.debug(
+        logging.debug(
             f'{get_function_name()}: {self.value}')
 
         print(self.value, end=' ')
@@ -80,24 +80,24 @@ class BinarySearchTree:
     def __init__(self):
         self.root = None
 
-    """ There are two methods implemented with this class.
-    1. insert method
-        takes a value and creates a new node with that value.
-        If the tree is empty (i.e., the root node is None),
-        the new node becomes the root.
-        Otherwise, the method traverses the tree from the root node
-        until it finds a leaf
-        node where the new node should be inserted based on its value.
-        The method then sets the left or right child of that leaf node to the new node,
-        depending on whether the new node's value is less than or greater than
-        the leaf node's value.
+    """ 這個類別實現了兩個方法。
+    1. insert 方法
+        接受一個值並創建一個具有該值的新節點。
+        如果樹是空的（即根節點為 None），
+        新節點成為根節點。
+        否則，該方法從根節點遍歷樹
+        直到找到一個葉節點
+        根據新節點的值，新節點應該插入的位置。
+        該方法然後將該葉節點的左子樹或右子樹設為新節點，
+        取決於新節點的值是否小於或大於
+        葉節點的值。
 
-    2. search method
-        takes a value and traverses the tree from the root node
-        until it finds a node with that value.
-        If such a node exists, the method returns True.
-        If the method reaches a leaf node without finding a node with the given value,
-        it returns False.
+    2. search 方法
+        接受一個值並從根節點遍歷樹
+        直到找到具有該值的節點。
+        如果存在這樣的節點，該方法返回 True。
+        如果該方法到達葉節點而未找到具有給定值的節點，
+        它返回 False。
     """
 
     def insert(self, value):
@@ -131,14 +131,14 @@ class BinarySearchTree:
         return False
 
     def print_keys(self, order):
-        """ Print all the keys within self sub-tree in 3 orders
-        Syntax:
+        """ 印出 self 子樹中的所有鍵值，有三種順序
+        語法：
         <obj>.print_keys(order)
-        return:
-            sorted string of keys if order = "Inorder"
-            postorder string if order = "Postorder"
-            preorder string if order = "Preorder"
-            None: invalide order
+        返回：
+            排序後的鍵值字串，如果 order = "Inorder"
+            後序字串，如果 order = "Postorder"
+            先序字串，如果 order = "Preorder"
+            None: 無效的 order
         """
         current_node = self.root
 
@@ -152,41 +152,40 @@ class BinarySearchTree:
             current_node.print_keys_preorder()
 
         else:
-            print(f'Invalid order: {order}')
+            print(f'無效的順序：{order}')
 
 
 if __name__ == '__main__':
-    """ Example code, demonstrating the followings:
+    """ 範例程式碼，展示以下功能：
 
-    1. Build a binary search tree with random numbers with the key of root is 500
-    2. Insert nodes into a binary search tree with random keys
-    3. Traverse keys of binary search tree in Preorder
-    4. Traverse keys of binary search tree in Inorder
-    5. Traverse keys of binary search tree in Postorder
+    1. 使用隨機數字建立二元搜尋樹，根節點的鍵值為 500
+    2. 使用隨機鍵值插入節點到二元搜尋樹
+    3. 以先序方式遍歷二元搜尋樹的鍵值
+    4. 以中序方式遍歷二元搜尋樹的鍵值
+    5. 以後序方式遍歷二元搜尋樹的鍵值
     """
-    log.setLevel("INFO")
-    # log.setLevel("DEBUG")
+    logging.basicConfig(level=logging.INFO)
 
     bst = BinarySearchTree()
-    print(f'Example 1: Binary Search Tree initiated.')
+    print(f'範例 1: 二元搜尋樹已初始化。')
 
     bn = bst.insert(500)
-    print(f'===>Root {bn} with key = {bn.value}\n')
+    print(f'===>根節點 {bn}，鍵值 = {bn.value}\n')
 
-    print(f"Example2: Inserting nodes ...")
+    print(f"範例 2: 插入節點...")
     for _ in range(9):
         bn = bst.insert(random.randint(100, 999))
-        print(f'===>Node {bn} inserted with key = {bn.value}')
+        print(f'===>節點 {bn} 已插入，鍵值 = {bn.value}')
     print()
 
-    print(f'Example 3: Print keys of Binary Search Tree in Preorder')
+    print(f'範例 3: 以先序方式印出二元搜尋樹的鍵值')
     bst.print_keys("Preorder")
     print("\n")
 
-    print(f'Example 4: Print keys of Binary Search Tree in Inorder')
+    print(f'範例 4: 以中序方式印出二元搜尋樹的鍵值')
     bst.print_keys("Inorder")
     print("\n")
 
-    print(f'Example 5: Print keys of Binary Search Tree in Postorder')
+    print(f'範例 5: 以後序方式印出二元搜尋樹的鍵值')
     bst.print_keys("Postorder")
     print("\n")

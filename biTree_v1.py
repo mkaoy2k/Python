@@ -1,84 +1,76 @@
 import random
 import traceback
-import glog as log
+import logging as log
 
 def get_function_name():
+    """取得目前函數名稱"""
     return traceback.extract_stack(None, 2)[0][2]
 
 
-class biNode:
-    """ This is a class node for building a binary tree
-    which has the following properties::
-    1. Binary tree can be built by inserting nodes or from a list
-    2. all nodes are sorted with keys in asscending order
-    3. Each node with at most two children nodes is allowed
-    3. Binary tree can be converted to a list in an accending or deccending order
-    4. Any node can be removed from binary tree
-
-    Errors that this module might return:
-
-    -1: Node key duplicate
-    -2: Node key not found
-    -3: Root node not found
-    -4: Unknown error
-    -5: Parent node can not be located
+class BinaryTreeNode:
+    """二元樹節點類別
+    
+    這個類別用於建立和管理二元樹，具有以下特性：
+    1. 可以通過插入節點或從列表建立二元樹
+    2. 所有節點按照鍵值升序排列
+    3. 每個節點最多可以有兩個子節點
+    4. 可以將二元樹轉換為升序或降序的列表
+    5. 可以從二元樹中移除任意節點
+    
+    可能返回的錯誤代碼：
+    -1: 節點鍵值重複
+    -2: 節點鍵值未找到
+    -3: 根節點未找到
+    -4: 未知錯誤
+    -5: 父節點無法定位
     """
 
-    # 類別變數:
-    # 節點總數，初值0
-    count = 0
-    root = None
+    # 類別變數
+    count = 0  # 節點總數
+    root = None  # 根節點
 
-    # 物件實體化
     def __init__(self, value, left=None, right=None):
+        """初始化節點
+        
+        參數：
+        value: 節點的鍵值
+        left: 左子節點 (預設為 None)
+        right: 右子節點 (預設為 None)
+        """
         self.key = value
         self.left = left
         self.right = right
-        biNode.count += 1
-        if biNode.count == 1:
-            # first node becomes the root node
-            biNode.root = self
+        BinaryTreeNode.count += 1
+        if BinaryTreeNode.count == 1:
+            # 第一個節點成為根節點
+            BinaryTreeNode.root = self
 
-    # Problem envountered:
-    # __del__() does not always get invoked upon 'del <object>''
-    # Problem workaround
     def free_node(self):
-        """ delete a biNode object
-    Syntax:
-        <obj>.free_node()
-        return 0
+        """釋放節點記憶體
+        
+        回傳：
+        0: 成功釋放
         """
-
         del self
-        biNode.count -= 1
-        if biNode.count <= 0:
-            # btree is empty
-            biNode.root = None
-            biNode.count = 0
+        BinaryTreeNode.count -= 1
+        if BinaryTreeNode.count <= 0:
+            # 二元樹已清空
+            BinaryTreeNode.root = None
+            BinaryTreeNode.count = 0
         return 0
-
-    # def __del__(self):
-    #     biNode.count -= 1
-    #     if biNode.count == 0:
-    #         # btree is empty
-    #         biNode.root = None
-    #     else:
-    #         print(f'{get_function_name()}: root key = {biNode.root.key}')
-    #         print(
-    #             f'{get_function_name()}: {biNode.root.sort_keys()} with {biNode.count} node(s)\n')
 
     def insert_node(self, node):
-        """ To insert a node into a btree, rooted by self
-    Syntax:
-        <obj>.insert_node(node)
-        return:
-             0: if successful
-            -1: ignore the insertion if duplicate key
+        """在二元樹中插入節點
+        
+        參數：
+        node: 要插入的節點
+        
+        回傳：
+        0: 成功插入
+        -1: 鍵值重複，忽略插入
         """
-
         if node.key == self.key:
-            # duplicated key
-            return -1   # key duplicate
+            return -1   # 鍵值重複
 
         if node.key < self.key:
             if self.left is None:
@@ -87,7 +79,7 @@ class biNode:
             else:
                 if self.left.insert_node(node) == -1:
                     return -1
-        else:  # i.e node.key > self.key
+        else:
             if self.right is None:
                 self.right = node
                 return 0
@@ -96,407 +88,296 @@ class biNode:
                     return -1
         return 0
 
-    def remove_node(self, node):
-        """ To remove a node from btree, rooted from self
-    Syntax:
-        <ogj>.remove_node(node)
-        return:
-             0: remove successfully
-            -4: unknown error
+    def remove_node(self, key):
+        """從二元樹中移除指定鍵值的節點
+        
+        參數：
+        key: 要移除的節點的鍵值
+        
+        回傳：
+        0: 成功移除
+        -2: 節點未找到
+        -4: 未知錯誤
         """
+        # 找到要移除的節點
+        node = self.find_node(key)
+        if node == -2:
+            return -2  # 節點未找到
 
-        # Approach: consider 2 cases that could happen
-        # 1. root is to remove
-        # 2. non-root node is to remove
-        if node.key == biNode.root.key:
-            # case 1: root node is to remove
-            node_target = biNode.root
+        # 處理兩種情況：
+        # 1. 移除根節點
+        # 2. 移除非根節點
+        if node.key == BinaryTreeNode.root.key:
+            node_target = BinaryTreeNode.root
 
-            # make the right child as root if not empty
-            # prefering the right subtree to the left
+            # 優先選擇右子樹作為新的根節點
             if node_target.right is not None:
-                biNode.root = node_target.right
-
-                # prepare left tree to merge
+                BinaryTreeNode.root = node_target.right
+                # 準備合併左子樹
                 if node_target.left is None:
                     nodes_list = []
                 else:
                     nodes_list = node_target.left.sort_nodes()
 
-            # otherwise, make the left child as root if not empty
+            # 如果右子樹為空，則選擇左子樹作為新的根節點
             elif node_target.left is not None:
-                biNode.root = node_target.left
-
-                # prepare right tree to merge
+                BinaryTreeNode.root = node_target.left
+                # 準備合併右子樹
                 if node_target.right is None:
                     nodes_list = []
                 else:
                     nodes_list = node_target.right.sort_nodes()
 
-            # Lastly, root does not have any child
+            # 如果根節點沒有子節點
             else:
-                # update class variable root
-                biNode.root = None
+                BinaryTreeNode.root = None
+                BinaryTreeNode.count = 0
+                return 0
 
-                # no merge trees necessary
-                nodes_list = []
+            # 將合併的節點列表插入新的根節點
+            for node in nodes_list:
+                BinaryTreeNode.root.insert_node(node)
 
         else:
-            # case 2: find 3 things we need:
-            #   1. parent node
-            #   2. target to remove
-            #   3. which parent's arm from which the target comes
-            node_parent, node_target, from_left = biNode.root.find_dad_kid(
-                node.key)
-            if node_parent == -5:
-                return -5
-            if node_parent == -4:
-                return -4
+            # 移除非根節點
+            dad, kid, is_left = self.find_dad_kid(key)
+            if dad is None:
+                return -5   # 父節點未找到
 
-            # collect a list of nodes from left subtree of target node for merge
-            if node_target.left is None:
-                nodes_left = []
+            if is_left:
+                dad.left = None
             else:
-                nodes_left = node_target.left.sort_nodes()
+                dad.right = None
 
-            # collect a list of nodes from right subtree of target node for merge
-            if node_target.right is None:
-                nodes_right = []
-            else:
-                nodes_right = node_target.right.sort_nodes()
-
-            num_left = len(nodes_left)
-            num_right = len(nodes_right)
-
-            # determine target node is from left or right arm of parent
-            if from_left:   # kid from parent's left arm
-
-                # keep the left in btree if right subtree is empty or smaller
-                if num_right == 0 or num_left >= num_right:
-                    node_parent.left = node_target.left
-
-                    # prepare node list from the right to merge
-                    nodes_list = nodes_right
-                else:
-                    # keep the right in btree, otherwise
-                    node_parent.left = node_target.right
-
-                    # prepare node list from the left to merge
-                    nodes_list = nodes_left
-
-            else:   # kid from the parent's right arm
-
-                # keep the left if right subtree is empty or smaller
-                if num_right == 0 or num_left >= num_right:
-                    node_parent.right = node_target.left
-                    # prepare node list from the right to merge
-                    nodes_list = nodes_right
-                else:
-                    # keep the right subtree, otherwise
-                    node_parent.right = node_target.right
-                    # prepare node list from the left to merge
-                    nodes_list = nodes_left
-            # Case 2 end
-
-        # Debugging
-        log.debug(f'{get_function_name()}: nodes list = {nodes_list}')
-
-        # now, it's time to free target node
-        node_target.free_node()
-
-        # join all the nodes in node list back to the new btree
-        for node in nodes_list:
-            node.left = None
-            node.right = None
-
-            # Debugging
-            log.debug(f'{get_function_name()}: join node at {node} with key = {node.key}')
-
-            if biNode.root.insert_node(node) != 0:
-                return -4
-
-        # Debugging
-        log.debug(
-            f'{get_function_name()}: join end: root at {biNode.root} with {biNode.count} node(s)\n')
         return 0
 
     def find_dad_kid(self, key):
-        """ From btree rooted by self node, to find the parent node of the target node
-        given a key value and get the left or right relationship.
-    Syntax:
-        <obj>.find_dad_kid(key)
-        return:
-            3 parameters:
-                2 biNodes, Dad and Kid objects, given kid's key
-                1 boolean, indicating kid's node from left arm of parent or not
-            -5: if parent node can not be found
-            -4: unknown error
+        """在二元樹中查找指定鍵值的節點及其父節點
+        
+        參數：
+        key: 要查找的鍵值
+        
+        回傳：
+        三個參數：
+        dad: 父節點
+        kid: 子節點
+        is_left: 布林值，表示子節點是否為父節點的左子節點
+        -5: 如果找不到父節點
+        -4: 未知錯誤
         """
-
-        # no parent could be found
-        if key == self.key:
-            # print(f'{get_function_name()}: parent node can not be found.')
-            return -5   # parent can not be found
+        if self.key == key:
+            return None, self, True  # 找到目標節點，沒有父節點
 
         if key < self.key:
             if self.left is None:
-
-                # Debugging
-                log.debug(f'{get_function_name()}: parent node can not be found.')
-                return -5   # parent can not be found
-
-            else:   # ie have a left child
-                if key == self.left.key:
-                    return self, self.left, True   # found
-                else:
-                    return self.left.find_dad_kid(key)
-
-        else:   # ie key > self.key
+                return None, None, True
+            else:
+                dad, kid, is_left = self.left.find_dad_kid(key)
+                if dad is None:
+                    return self, kid, True
+                return dad, kid, is_left
+        else:
             if self.right is None:
-
-                # Debugging
-                log.debug(f'{get_function_name()}: parent node can not be found.')
-                return -5   # parent can not be found
-
-            else:   # ie have a right child
-                if key == self.right.key:
-                    return self, self.right, False   # found
-                else:
-                    return self.right.find_dad_kid(key)
-
-        # Debugging
-        log.debug(f'{get_function_name()}: unknown error.')
-        return -4   # unknown error
+                return None, None, False
+            else:
+                dad, kid, is_left = self.right.find_dad_kid(key)
+                if dad is None:
+                    return self, kid, False
+                return dad, kid, is_left
 
     def find_node(self, key):
-        """From btree rooted by self node, to find a node given a key
-    Syntax:
-        <obj>.find_node(key)
-        return:
-            biNode object if key is found
-            -2: if not found
+        """在二元樹中查找指定鍵值的節點
+        
+        參數：
+        key: 要查找的鍵值
+        
+        回傳：
+        找到的節點物件
+        -2: 如果未找到
         """
-        if key == self.key:
+        if self.key == key:
             return self
         elif key < self.key:
             if self.left is None:
-                return -2   # key not found
-            else:
-                return self.left.find_node(key)
-        else:  # ie key > self.key
+                return -2
+            return self.left.find_node(key)
+        else:
             if self.right is None:
-                return -2   # key not found
-            else:
-                return self.right.find_node(key)
+                return -2
+            return self.right.find_node(key)
 
     def find_node_max(self):
-        """From self node, find the node with max key
-    Syntax:
-        <obj>.find_node_max()
-        return:
-            biNode object with the max key
-        """
+        """在二元樹中查找具有最大鍵值的節點"""
         if self.right is None:
             return self
-        else:
-            return self.right.find_node_max()
+        return self.right.find_node_max()
 
     def find_node_min(self):
-        """From self node, find the node with min key
-    Syntax:
-        <obj>.find_node_min()
-        return:
-            biNode object with the min key
-        """
-
+        """在二元樹中查找具有最小鍵值的節點"""
         if self.left is None:
             return self
-        else:
-            return self.left.find_node_min()
+        return self.left.find_node_min()
 
     def print_keys(self):
-        """ Print the keys within the btree, rooted by self
-    Syntax:
-        <obj>.print_keys()
-        return:
-            sorted list of keys within the subtree from self node
+        """印出二元樹中的所有鍵值
+        
+        回傳：
+        按照升序排列的鍵值列表
         """
+        keys = []
+        self.append_key(keys)
+        print(" ".join(map(str, keys)))
+        return keys
 
-        if self.left is not None:
-            self.left.print_keys()
-
-        print(self.key, end=' ')
-
-        if self.right is not None:
-            self.right.print_keys()
+    def append_key(self, key_list, reverse=False):
+        """內部遞迴函數，用於收集鍵值
+        
+        參數：
+        key_list: 用於存儲鍵值的列表
+        reverse: 布林值，決定是否反向排序
+        
+        回傳：
+        0: 成功
+        """
+        if reverse is False:
+            if self.left is not None:
+                self.left.append_key(key_list, reverse)
+            key_list.append(self.key)
+            if self.right is not None:
+                self.right.append_key(key_list, reverse)
+        else:
+            if self.right is not None:
+                self.right.append_key(key_list, reverse)
+            key_list.append(self.key)
+            if self.left is not None:
+                self.left.append_key(key_list, reverse)
+        return 0
 
     def sort_keys(self, reverse=False):
-        """ Traverse the btree (Inorder) to retrieve keys
-            in accending order (reverse=False by default) or
-            in decending order (reverse=True)
-    Syntax:
-        <obj>.sort_keys(reverse)
-        return:
-            A sorted list of keys
+        """遍歷二元樹並取得鍵值列表
+        
+        參數：
+        reverse: 布林值，決定是否反向排序
+        
+        回傳：
+        按照指定順序排列的鍵值列表
         """
         key_list = []
         self.append_key(key_list, reverse)
         return key_list
 
-    def append_key(self, key_list, reverse=False):
-        """ Internal recursive function, invoked by sort_keys()
-    Syntax:
-        <obj>.append_key(node_list, reverse)
-        return 0
-        """
-
-        if reverse is False:
-            if self.left is not None:
-                self.left.append_key(key_list, reverse)
-
-            key_list.append(self.key)
-
-            if self.right is not None:
-                self.right.append_key(key_list, reverse)
-        else:
-            if self.right is not None:
-                self.right.append_key(key_list, reverse)
-
-            key_list.append(self.key)
-
-            if self.left is not None:
-                self.left.append_key(key_list, reverse)
-
     def sort_nodes(self, reverse=False):
-        """ Traverse the btree (Inorder) to retrieve nodes
-            in accending order if reverse=False (by default) or
-            in decending order if reverse=True
-    Syntax:
-        <obj>.sort_nodes(reverse)
-        return:
-            A sorted list of nodes
+        """遍歷二元樹並取得節點列表
+        
+        參數：
+        reverse: 布林值，決定是否反向排序
+        
+        回傳：
+        排序後的節點列表
         """
-
         node_list = []
         self.append_node(node_list, reverse)
         return node_list
 
     def append_node(self, node_list, reverse=False):
-        """ Internal recursive function, invoked by sort_nodes()
-    Syntax:
-        <obj>.append_node(node_list, reverse)
-        return 0
+        """內部遞迴函數，用於收集節點
+        
+        參數：
+        node_list: 用於存儲節點的列表
+        reverse: 布林值，決定是否反向排序
+        
+        回傳：
+        0: 成功
         """
-
         if reverse is False:
             if self.left is not None:
                 self.left.append_node(node_list, reverse)
-
             node_list.append(self)
-
             if self.right is not None:
                 self.right.append_node(node_list, reverse)
-
-        else:   # ie in reverse order
+        else:
             if self.right is not None:
                 self.right.append_node(node_list, reverse)
-
             node_list.append(self)
-
             if self.left is not None:
                 self.left.append_node(node_list, reverse)
-
         return 0
 
     def remove_tree(self):
-        """ Free up the whole tree, rooted by self,
-        by removing all the nodes one-by-one out of btree
-        in a postorder traversal order manner
-    Syntax:
-        <obj>.discard_tree()
-        return: 0
+        """遞迴移除整個二元樹
+        
+        回傳：
+        0: 成功
         """
+        if self.left is not None:
+            log.debug(f'移除左子節點，鍵值 = {self.left.key}')
+            self.remove_node(self.left.key)
+            log.debug(f'剩餘節點: {BinaryTreeNode.root.sort_keys()}，共 {BinaryTreeNode.count} 個節點')
 
-        while self.left is not None:
+        if self.right is not None:
+            log.debug(f'移除右子節點，鍵值 = {self.right.key}')
+            self.remove_node(self.right.key)
+            log.debug(f'剩餘節點: {BinaryTreeNode.root.sort_keys()}，共 {BinaryTreeNode.count} 個節點')
 
-            # Debugging
-            log.debug(
-                f'{get_function_name()}: removing left node with key = {self.left.key}')
-
-            self.remove_node(self.left)
-
-            # Debugging
-            log.debug(
-                f'{get_function_name()}: {biNode.root.sort_keys()} with {biNode.count} node(s)')
-
-        while self.right is not None:
-
-            # Debugging
-            log.debug(
-                f'{get_function_name()}: removing right node with key = {self.right.key}')
-
-            self.remove_node(self.right)
-
-            # Debugging
-            log.debug(
-                f'{get_function_name()}: {biNode.root.sort_keys()} with {biNode.count} node(s)')
-
-        self.remove_node(self)
-
+        # 移除自己
+        if self == BinaryTreeNode.root:
+            BinaryTreeNode.root = None
         return 0
 
     @classmethod
     def discard_tree(cls):
-        """ Free up the root node recursively until the btree is empty
-    Syntax:
-        biNode.discard_tree()
-        return: 0
+        """釋放整個二元樹的記憶體
+        
+        回傳：
+        0: 成功
         """
-
         if cls.count <= 0:
             return 0
-        else:
-            cls.root.remove_node(biNode.root)
-            return cls.discard_tree()
+        
+        # 從根節點開始移除
+        if cls.root is not None:
+            cls.root.remove_tree()
+            cls.root = None
+            cls.count = 0
+        return 0
 
 
 if __name__ == '__main__':
-    """ Example code, demonstrating:
-        Build a binary tree with random numbers
-        1. Plus root node with key of 500
-        2. With keys of 9 random-number keys between 100 and 999
-        3. Showing btree info
-        4. Converting btree to a sorted list in accending order
-        5. Converting btree to a sorted list in decending order
-        6. Removing the whole tree
+    """範例程式碼，展示如何使用二元樹：
+    1. 建立根節點 (鍵值 = 500)
+    2. 隨機插入 9 個鍵值在 100-999 之間的節點
+    3. 顯示二元樹資訊
+    4. 將二元樹轉換為升序列表
+    5. 將二元樹轉換為降序列表
+    6. 移除整個二元樹
     """
-    # log.setLevel("DEBUG")
-    node_root = biNode(500)
-    print(
-        f'Example 1: Binary Tree root at {node_root} with key = {node_root.key}\n')
+    # 設定 log 等級
+    log.basicConfig(level=log.DEBUG)
+    
+    node_root = BinaryTreeNode(500)
+    print(f'範例 1: 二元樹根節點，位於 {node_root}，鍵值 = {node_root.key}\n')
 
     for _ in range(9):
-        bn = biNode(random.randint(100, 999))
+        bn = BinaryTreeNode(random.randint(100, 999))
         if node_root.insert_node(bn) == -1:
-            print(f'Example 2: duplicated key = {bn.key}')
-            bn.free_node()  # duplicate
+            print(f'範例 2: 重複鍵值 = {bn.key}')
+            bn.free_node()  # 重複鍵值
         else:
-            print(f'Example 2: Node at {bn} inserted with key = {bn.key}')
+            print(f'範例 2: 已插入節點，位於 {bn}，鍵值 = {bn.key}')
     print()
 
-    print(f'Example 3: Number of nodes in btree = {biNode.count}')
-    print(f'Example 3: printing keys:')
+    print(f'範例 3: 二元樹節點數量 = {BinaryTreeNode.count}')
+    print('範例 3: 印出鍵值:')
     node_root.print_keys()
     print('\n')
 
-    # Converting binary tree to list
+    # 將二元樹轉換為列表
     new_list = node_root.sort_keys()
-    print(f'Example 4: sorted key-list:\n {new_list}\n')
+    print(f'範例 4: 升序鍵值列表:\n {new_list}\n')
     rev_list = node_root.sort_keys(reverse=True)
-    print(f'Example 5: reverse-sorted key-list:\n {rev_list}\n')
+    print(f'範例 5: 降序鍵值列表:\n {rev_list}\n')
 
-    # Remove the whole tree in postorder
-    print(
-        f'Example 6: Removing btree, root at {biNode.root} with key = {biNode.root.key}')
-    biNode.root.remove_tree()
-    print(f'Example 6: The whole tree removed. Program terminated.')
+    # 移除整個二元樹
+    print(f'範例 6: 移除二元樹，根節點位於 {BinaryTreeNode.root}，鍵值 = {BinaryTreeNode.root.key}')
+    BinaryTreeNode.discard_tree()
+    print('範例 6: 已移除整個二元樹。程式結束。')
