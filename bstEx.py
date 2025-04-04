@@ -1,86 +1,76 @@
-# Python program to demonstrate delete operation
-# in binary search tree
+"""
+這個程式示範了二元搜尋樹中的刪除操作
+"""
 
-# A Binary Tree Node
+import logging
+
+# 設定 logging 等級為 DEBUG
+logging.basicConfig(level=logging.DEBUG)
 
 
 class Node:
-
-    # Constructor to create a new node
+    """ 二元搜尋樹的節點類別 """
     def __init__(self, key):
+        """ 初始化節點 """
         self.key = key
         self.left = None
         self.right = None
 
 
-# A utility function to do inorder traversal of BST
 def inorder(root):
+    """ 以中序方式遍歷二元搜尋樹 """
     if root is not None:
         inorder(root.left)
-        print (root.key,end=" ")
+        logging.debug(root.key)
         inorder(root.right)
 
 
-# A utility function to insert a
-# new node with given key in BST
 def insert(node, key):
-
-    # If the tree is empty, return a new node
+    """ 在二元搜尋樹中插入新節點 """
+    # 如果樹是空的，返回新節點
     if node is None:
         return Node(key)
 
-    # Otherwise recur down the tree
+    # 否則遞迴向下查找
     if key < node.key:
         node.left = insert(node.left, key)
     else:
         node.right = insert(node.right, key)
 
-    # return the (unchanged) node pointer
+    # 返回（未變更的）節點指標
     return node
-
-# Given a non-empty binary
-# search tree, return the node
-# with minimum key value
-# found in that tree. Note that the
-# entire tree does not need to be searched
 
 
 def minValueNode(node):
+    """ 給定一個非空的二元搜尋樹，返回具有最小鍵值的節點
+    注意：不需要搜索整個樹
+    """
     current = node
 
-    # loop down to find the leftmost leaf
-    while (current.left is not None):
+    # 循環向下找到最左的葉節點
+    while current.left is not None:
         current = current.left
 
     return current
 
-# Given a binary search tree and a key, this function
-# delete the key and returns the new root
-
 
 def deleteNode(root, key):
-
-    # Base Case
+    """ 給定一個二元搜尋樹和一個鍵，刪除該鍵並返回新的根 """
+    # 基本情況
     if root is None:
         return root
 
-    # If the key to be deleted
-    # is smaller than the root's
-    # key then it lies in left subtree
+    # 如果要刪除的鍵小於根的鍵，則它位於左子樹
     if key < root.key:
         root.left = deleteNode(root.left, key)
 
-    # If the kye to be delete
-    # is greater than the root's key
-    # then it lies in right subtree
-    elif(key > root.key):
+    # 如果要刪除的鍵大於根的鍵，則它位於右子樹
+    elif key > root.key:
         root.right = deleteNode(root.right, key)
 
-    # If key is same as root's key, then this is the node
-    # to be deleted
+    # 如果鍵與根的鍵相同，則這是需要刪除的節點
     else:
-
-        # Node with only one child or no child
+        # 只有一個子樹或沒有子樹的節點
         if root.left is None:
             temp = root.right
             root = None
@@ -91,56 +81,58 @@ def deleteNode(root, key):
             root = None
             return temp
 
-        # Node with two children:
-        # Get the inorder successor
-        # (smallest in the right subtree)
+        # 兩個子樹的節點：
+        # 取得中序後繼節點
+        # （右子樹中最小的節點）
         temp = minValueNode(root.right)
 
-        # Copy the inorder successor's
-        # content to this node
+        # 將中序後繼節點的內容複製到此節點
         root.key = temp.key
 
-        # Delete the inorder successor
+        # 刪除中序後繼節點
         root.right = deleteNode(root.right, temp.key)
 
     return root
 
 
-# Driver code
-""" Let us create following BST
-          50
-        /    \
-       30    70
-      / \   / \
-     20 40 60 80 
-"""
+if __name__ == '__main__':
+    """ 主程式範例，建立並操作二元搜尋樹 """
+    logging.basicConfig(level=logging.INFO)
 
-root = None
-root = insert(root, 50)
-root = insert(root, 30)
-root = insert(root, 20)
-root = insert(root, 40)
-root = insert(root, 70)
-root = insert(root, 60)
-root = insert(root, 80)
+    # 建立以下二元搜尋樹
+    #          50
+    #        /    \
+    #       30    70
+    #      / \   / \
+    #     20 40 60 80 
 
-print ("Inorder traversal of the given tree")
-inorder(root)
+    root = None
+    root = insert(root, 50)
+    root = insert(root, 30)
+    root = insert(root, 20)
+    root = insert(root, 40)
+    root = insert(root, 70)
+    root = insert(root, 60)
+    root = insert(root, 80)
 
-print ("\nDelete 20")
-root = deleteNode(root, 20)
-print ("Inorder traversal of the modified tree")
-inorder(root)
+    logging.info("中序遍歷初始樹：")
+    inorder(root)
+    logging.info("")
 
-print ("\nDelete 30")
-root = deleteNode(root, 30)
-print ("Inorder traversal of the modified tree")
-inorder(root)
+    logging.info("\n刪除 20")
+    root = deleteNode(root, 20)
+    logging.info("刪除後的中序遍歷：")
+    inorder(root)
+    logging.info("")
 
-print ("\nDelete 50")
-root = deleteNode(root, 50)
-print ("Inorder traversal of the modified tree")
-inorder(root)
+    logging.info("\n刪除 30")
+    root = deleteNode(root, 30)
+    logging.info("刪除後的中序遍歷：")
+    inorder(root)
+    logging.info("")
 
-# This code is contributed by Nikhil Kumar Singh(nickzuck_007)
-
+    logging.info("\n刪除 50")
+    root = deleteNode(root, 50)
+    logging.info("刪除後的中序遍歷：")
+    inorder(root)
+    logging.info("程式示範結束\n")
