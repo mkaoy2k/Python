@@ -1,79 +1,208 @@
-import csv
-from datetime import datetime
-"""Demonstrate reading and writing CSV files
-using reader() and writer() methods
-Steps to read a CSV file:
-
-    1. Import the csv library.
-        import csv.
-    2. Open the CSV file. 建議用語境管理就可省掉 step 6
-    3. Use the csv.reader object to read the CSV file, e.g.
-        csvreader = csv.reader(file)
-    4. Extract the field names in the 1st line, called header. ...
-    5. Extract the rows/records. ...
-    6. Close the file.
-
+"""
+Python CSV 檔案處理範例
+本程式示範如何使用 csv 模組中的 reader 和 writer 方法
+來讀取和寫入 CSV 檔案
 """
 
-data = []
+import csv
+from datetime import datetime
+from typing import List
+import logging
+from pathlib import Path
+import matplotlib.pyplot as plt
+import pandas as pd
 
-# Initialize the folder where data is located
-data_path = 'sample'  # relative to the current dir
+# 設定日誌
+logging.basicConfig(
+    level=logging.DEBUG,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler('csv_processor.log'),
+        logging.StreamHandler()
+    ]
+)
+logger = logging.getLogger(__name__)
 
-# Locate all data files in this example
-file_read = f'{data_path}/csv_stocks.csv'
-file_write = f'{data_path}/csv_stocks_daily_return.csv'
+# 設定資料夾路徑
+DATA_PATH = 'sample'  # 相對於當前目錄的資料夾位置
 
-with open(file_read, 'r') as csv_file:
+# 確保資料夾存在
+Path(DATA_PATH).mkdir(parents=True, exist_ok=True)
 
-    # reader() method is commonly used for reading CSV files
-    # But, DictReader() method is preferred to read csv contents
-    # into a dictionary with the values of the first row as keys
-    csv_reader = csv.reader(csv_file)
+# 定義要讀取和寫入的檔案路徑
+def get_file_paths() -> tuple:
+    """
+    取得檔案路徑
+    
+    Returns:
+        tuple: 包含讀取和寫入檔案路徑的元組，依序為原始檔案、每日回報率檔案和圖表檔案
+    """
+    return (
+        f'{DATA_PATH}/csv_stocks.csv',    # 要讀取的原始檔案
+        f'{DATA_PATH}/csv_stocks_daily_return.csv',  # 要寫入的新檔案
+        f'{DATA_PATH}/csv_return.png'  # 圖表檔案
+    )
 
-    # Skip the first line which is the header
-    header = next(csv_reader)
+def read_csv(file_path: str) -> List[List]:
+    """
+    使用 reader() 讀取 CSV 檔案
+    
+    Args:
+        file_path: CSV 檔案路徑
+        
+    Returns:
+        List[List]: 包含所有資料的二維列表
+    """
+    logger.info(f"開始讀取檔案: {file_path}")
+    
+    try:
+        with open(file_path, 'r', encoding='utf-8') as csv_file:
+            logger.debug("使用 csv.reader 讀取檔案")
+            csv_reader = csv.reader(csv_file)
+            
+            data = []
+            
+            headers = next(csv_reader)
+            logger.debug(f"欄位名稱: {headers}")
+            
+            for row in csv_reader:
+                data.append(row)
+            
+            logger.debug(f"讀取到 {len(data)} 筆資料")
+            return data
+            
+    except Exception as e:
+        logger.error(f"讀取檔案時發生錯誤: {str(e)}")
+        return []
 
-    print(f'Reading {csv_file.name} ...\n')
-    for line in csv_reader:
+def write_csv(file_path: str, data: List[List], headers: List[str]) -> bool:
+    """
+    使用 writer() 寫入 CSV 檔案
+    
+    Args:
+        file_path: CSV 檔案路徑
+        data: 要寫入的資料列表
+        headers: 欄位名稱列表
+        
+    Returns:
+        bool: 寫入是否成功
+    """
+    logger.info(f"開始寫入檔案: {file_path}")
+    
+    try:
+        with open(file_path, 'w', encoding='utf-8', newline='') as csv_file:
+            logger.debug("使用 csv.writer 寫入檔案")
+            csv_writer = csv.writer(csv_file)
+            
+            logger.debug(f"寫入欄位名稱: {headers}")
+            csv_writer.writerow(headers)
+            
+            logger.debug(f"寫入 {len(data)} 筆資料")
+            csv_writer.writerows(data)
+            
+            logger.info(f"成功寫入檔案: {file_path}")
+            return True
+            
+    except Exception as e:
+        logger.error(f"寫入檔案時發生錯誤: {str(e)}")
+        return False
 
-        # [Date, Open, High, Low, Close, Volume, Adj. Close]
-        date = datetime.strptime(line[0], '%m/%d/%Y')
-        open_price = float(line[1])  # 'open' is a built-in keyword
-        high = float(line[2])
-        low = float(line[3])
-        close = float(line[4])
-        volume = int(line[5])
-        adj_close = float(line[6])
+def process_csv(input_file: str, output_file: str, plot_file: str) -> bool:
+    """
+    處理 CSV 檔案
+    
+    Args:
+        input_file: 輸入的 CSV 檔案路徑
+        output_file: 輸出的 CSV 檔案路徑
+        plot_file: 圖表檔案路徑
+        
+    Returns:
+        bool: 處理是否成功
+    """
+    logger.info("=== 開始 CSV 檔案處理 ===")
+    
+    try:
+        # 讀取原始檔案
+        logger.info(f"讀取檔案: {input_file}")
+        data = read_csv(input_file)
+        if not data:
+            logger.error("讀取檔案失敗")
+            return False
+            
+        # 處理資料
+        processed_data = []
+        for row in data:
+            try:
+                # 處理日期字串和轉換收盤價為浮點數
+                date_str = row[0]
+                close_price = float(row[4])
+                
+                date_obj = datetime.strptime(date_str, '%m/%d/%Y')
+                
+                if len(processed_data) > 0:
+                    yesterday_close_price = float(processed_data[-1][1])
+                    
+                    # 檢查昨日收盤價是否為零
+                    if yesterday_close_price == 0:
+                        logger.warning(f"跳過計算：昨日收盤價為零，無法計算報酬率。日期: {date_str}")
+                        processed_data.append([date_obj.strftime('%m/%d/%Y'), close_price, 0.0])
+                    else:
+                        daily_return = (close_price - yesterday_close_price) / yesterday_close_price
+                        processed_data.append([date_obj.strftime('%m/%d/%Y'), close_price, daily_return])
+                else:
+                    # 處理第一筆資料，因為沒有前一日的收盤價，所以設定報酬率為0.0
+                    processed_data.append([date_obj.strftime('%m/%d/%Y'), close_price, 0.0])
+                    
+            except (IndexError, ValueError) as e:
+                logger.warning(f"跳過無效的資料: {row} - 錯誤: {str(e)}")
+                continue
+            
+        # 寫入新檔案
+        if processed_data:
+            headers = ['Date', 'Close Price', 'return']
+            logger.info(f"寫入檔案: {output_file}")
+            
+            success = write_csv(output_file, processed_data, headers)
+            if success:
+                logger.info(f"成功處理檔案: {input_file} -> {output_file}")
+                
+                # 繪製報酬率長條圖
+                df = pd.read_csv(output_file)
+                
+                plt.figure(figsize=(15, 8))  # 調整圖表大小
+                plt.bar(df['Date'], df['return'], color='blue')
+                plt.title('Daily Return Rate')
+                plt.xlabel('Date')
+                plt.ylabel('Return Rate')
+                plt.xticks(rotation=45, ha='right', fontsize=8)  # 調整 x 軸標籤的對齊方式和字體大小
+                plt.tight_layout()
+                plt.grid(True, linestyle='--', alpha=0.7)
+                plt.savefig(plot_file)
+                plt.close()
+                logger.info(f"已生成報酬率長條圖: {plot_file}")
+            return success
+            
+        logger.warning("沒有有效的資料可以處理")
+        return False
+        
+    except Exception as e:
+        logger.error(f"處理檔案時發生錯誤: {str(e)}")
+        return False
 
-        data.append([date, open_price, high, low, close, volume,
-                     adj_close])
-
-# Assume stock data sorted in chronogically decending order
-# Otherwise, need to sort it first
-
-# Write to another CSV file
-with open(file_write, 'w') as new_file:
-    fieldnames = ['Date', 'return']
-
-    csv_writer = csv.writer(new_file, delimiter='\t')
-
-    # write the header at the first line
-    csv_writer.writerow(fieldnames)
-
-    for i in range(len(data) - 1):
-
-        # Compute and store daily stock returns
-        today_row = data[i]
-        today_date = today_row[0]
-        today_price = today_row[-1]
-        yesterday_row = data[i + 1]
-        yesterday_price = yesterday_row[-1]
-
-        daily_return = (today_price - yesterday_price) / yesterday_price
-        formatted_date = today_date.strftime('%m/%d/%Y')
-
-        # writerow() method is to write one row of data to file
-        csv_writer.writerow([formatted_date, daily_return])
-
-print(f'==>Please check a new file, called {file_write}, created')
+# 主程式
+if __name__ == '__main__':
+    # 取得檔案路徑
+    input_file, output_file, plot_file = get_file_paths()
+    
+    logger.info("=== 開始主程式 ===")
+    
+    # 測試處理 CSV 檔案
+    success = process_csv(input_file, output_file, plot_file)
+    
+    # 顯示結果
+    if success:
+        logger.info("=== 處理完成 ===")
+        logger.info("CSV 檔案處理成功")
+    else:
+        logger.error("=== 處理失敗 ===")
+        logger.error("請檢查錯誤訊息並重新嘗試")
