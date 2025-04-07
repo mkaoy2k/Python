@@ -1,76 +1,81 @@
-class Martian:
-    """Someone who lives on Mars."""
+import logging
 
+# 設置 logging 格式
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+
+class Martian:
+    """火星人"""
+    
     def __init__(self, fn, ln):
+        self.logger = logging.getLogger('Martian')
         self.first_name = fn
         self.last_name = ln
 
     def __setattr__(self, name, value):
-        print(f"===> You set {name} = {value}")
-        self.__dict__[name] = value
+        if name == 'logger':
+            super().__setattr__(name, value)
+        else:
+            self.logger.debug(f"設定屬性 {name} = {value}")
+            super().__setattr__(name, value)
 
     def __getattr__(self, name):
-        print(f"===> Get the '{name}' attribute")
+        self.logger.debug(f"獲取屬性 '{name}'")
         if name == 'full_name':
             return f"{self.first_name} {self.last_name}"
         else:
-            raise AttributeError(f"No attribute name '{name}' found")
+            raise AttributeError(f"找不到屬性名稱 '{name}'")
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
 
     def __lt__(self, other):
-        print(f"===> Comparing {self} with {other}")
+        self.logger.debug(f"比較 {self} 與 {other}")
         if self.last_name != other.last_name:
             return (self.last_name < other.last_name)
         else:
             return (self.first_name < other.first_name)
 
 
-# Print "__doc__" Attribute where doc-string is stored
-print(f'Printing __doc__:\n===>{Martian.__doc__}\n')
+def main():
+    # 印出類別的文件字串 (__doc__ 屬性)
+    logger = logging.getLogger('main')
+    logger.info(f'Printing __doc__:\n===>{Martian.__doc__}\n')
 
-# Print "__dict__" Attribute where class attributes are stored
-m1 = Martian('Michael', 'Kao')
-m1.arrival_date = '2035-12-22'
-print(f'Printing __dict__:\n===>{m1.__dict__}\n')
+    # 印出物件的屬性字典 (__dict__ 屬性)
+    m1 = Martian('Michael', 'Kao')
+    m1.arrival_date = '2035-12-22'
+    logger.info(f'Printing __dict__:\n===>{m1.__dict__}\n')
 
-# Get attributes. Note: __getattr__() not invoked
-print(f'First name = {m1.first_name}')
-print(f'Last name = {m1.last_name}')
+    # 取得屬性。注意：__getattr__() 不會被調用
+    logger.info(f'First name = {m1.first_name}')
+    logger.info(f'Last name = {m1.last_name}')
 
-# __getattr__() used for computed attributes
-print(m1.full_name)
+    # 使用 __getattr__() 取得計算屬性
+    logger.info(m1.full_name)
 
-try:
-    print(m1.martian_name)
-except:
-    print(f"===> AttributeError caught\n")
+    try:
+        logger.info(m1.martian_name)
+    except:
+        logger.info(f"===> AttributeError caught\n")
 
-# computed attributes are not stored in __dict__
-print(f'Printing __dict__:\n===>{m1.__dict__}\n')
+    # 計算屬性不會存儲在 __dict__ 中
+    logger.info(f'Printing __dict__:\n===>{m1.__dict__}\n')
 
-# # Print obj address
-# print(f'Obj instance address in hex:\n===>{m1}\n')
-# print(f'Obj __str__() method in hex:\n===>{m1.__str__()}\n')
-# print(f'Obj instance address in hex:\n===>{id(m1)}\n')
-#
-# overwrite_str = """Trying to overwrite __str__() method by:
-# def __str__(self):
-#     return f"{self.first_name} {self.last_name}"
-#
-# ===>To change the default behavior
-# """
-# print(overwrite_str)
+    # 創建多個火星人實例並排序
+    m2 = Martian("Henry", "Kao")
+    m3 = Martian("Christine", "Kao")
+    m4 = Martian("Judy", "Kao")
+    m5 = Martian("Latte", "Dog")
+    m6 = Martian("Olisan", "Dog")
 
-# comparing two martians by name
-m2 = Martian("Henry", "Kao")
-m3 = Martian("Christine", "Kao")
-m4 = Martian("Judy", "Kao")
-m5 = Martian("Latte", "Dog")
-m6 = Martian("Olisan", "Dog")
+    martians = [m1, m2, m3, m4, m5, m6]
+    martians.sort()
+    logger.info("火星人字母排序如下：")
+    for i, m in enumerate(martians, 1):
+        logger.info(f"===> {i}. {m}")
 
-martians = [m1, m2, m3, m4, m5, m6]
-martians.sort()
-for m in martians:
-    print(f"===>{m}")
+if __name__ == "__main__":
+    main()

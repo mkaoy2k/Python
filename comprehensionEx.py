@@ -1,70 +1,72 @@
-"""List Comprehension examples"""
+"""
+Python 生成式 (Comprehension) 範例
+本程式示範各種生成式的使用方式，包括列表、集合、字典和產生器表達式
+"""
 
-# 傳統程式寫法
+# 1. 傳統程式寫法 vs 列表生成式
+# 傳統寫法：使用 for 迴圈和 append()
 list1 = []
 for n in range(12):
-  list1.append(n**2)
-print(f'傳統程式...')
+    list1.append(n**2)  # 計算平方值
+print(f'傳統程式寫法:')
 print(f'===>{list1}\n')
 
-# 與上面等價的列表生成式如下
+# 使用列表生成式 (List Comprehension)
+# 格式：[expression for item in iterable]
 list2 = [n**2 for n in range(12)]
-print(f'列表生成式...')
+print(f'列表生成式:')
 print(f'===>{list2}\n')
 
-"""
-多重迭代
-一行列表生成式來定義 2x3 的矩陣
-"""
+# 2. 多重迭代生成式
+# 生成 2x3 的矩陣，每個元素為 (row, column) 元組
 list3 = [(r, c) for r in range(2) for c in range(3)]
-print(f'多重迭代列表生成式 List of tuples initialization...')
+print(f'多重迭代列表生成式 (2x3 矩陣):')
 print(f'===>{list3}\n')
 
-# Example: M x N matrix  initialized with positive integers
-# from left to right and then up down
-
-M = 3
-N = 5
+# 3. 二維矩陣生成
+# 生成 MxN 矩陣，元素從 1 開始遞增
+M = 3  # 矩陣列數
+N = 5  # 矩陣行數
 matrix = [[c + N * r for c in range(1, N + 1)] for r in range(M)]
-print(f'2-dim matrix initialization...\n===>{matrix}')
-for r in range(0, M):
-  for c in range(0, N):
-    print(f'{matrix[r][c]:8d}', end=' ')
-  print()
+print(f'{M}x{N} 二維矩陣:')
+print(f'===>{matrix}')
+
+# 以格式化方式顯示矩陣
+for r in range(M):
+    for c in range(N):
+        print(f'{matrix[r][c]:8d}', end=' ')  # 每個數字佔 8 個字元寬度
+    print()
 print()
 
-"""
-條件控制迭代
-返回從0到小於20的偶數列表物件
-"""
+# 4. 帶條件的生成式
+# 生成 0-20 之間的偶數列表
 list4 = [x for x in range(20) if x % 2 == 0]
-print(f'條件控制迭代列表生成式...')
+print(f'帶條件的列表生成式 (偶數):')
 print(f'===>{list4}\n')
 
-"""
-集合生成式 (Set Comprehension)
-如下例返回從0到小於20的偶數集合物件
-"""
+# 5. 集合生成式 (Set Comprehension)
+# 生成 0-20 之間的偶數集合
+# 集合會自動去除重複元素
 set1 = {x for x in range(20) if x % 2 == 0}
-print(f'集合生成式...')
+print(f'集合生成式 (偶數):')
 print(f'===>{set1}\n')
 
-"""
-字典生成式 (Dictionary Comprehension)
-如下例返回從0到小於20的偶數鍵字典物件，其值為鍵的平方
-"""
+# 6. 字典生成式 (Dictionary Comprehension)
+# 生成 0-20 之間的偶數字典，鍵為數字，值為其平方
+# 格式：{key_expression: value_expression for item in iterable if condition}
 dict1 = {x: x**2 for x in range(20) if x % 2 == 0}
-print(f'字典生成式...')
+print(f'字典生成式 (數字:平方):')
 print(f'===>{dict1}\n')
 
-"""
-元组生成式
-即是上一章學過的產生器表達式 (Generator Expression)，然通常以產生器表達式稱之，
-因為元组生成式回傳的是產生器物件，不是元組物件，如下例返回從0到小於20的偶數產生器物件：
-"""
+# 7. 產生器表達式 (Generator Expression)
+# 類似列表生成式，但使用圓括號 ()
+# 產生器是惰性計算，只在需要時才生成值
 gexpr = (x for x in range(20) if x % 2 == 0)
-print(f'元组生成式即是上一章學過的產生器表達式...')
-print(f'===>{gexpr}')
+print(f'產生器表達式:')
+print(f'===>{gexpr}')  # 顯示產生器物件
+
+# 逐一取出產生器中的值
+print('產生器中的值:')
 for n in gexpr:
-  print(n, end=" ")
+    print(n, end=" ")
 print()

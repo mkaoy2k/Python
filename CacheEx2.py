@@ -3,86 +3,104 @@ from cacheLib import *
 
 
 def fibo(n):
-    """Return the n-th element of Fibonacci sequence without cache"""
-
-    # checking the input must be a positive integer
+    """
+    計算費波那契數列的第n個元素（不使用快取）
+    
+    參數:
+    n (int): 要計算的費波那契數列位置
+    
+    回傳:
+    int: 費波那契數列的第n個元素
+    
+    備註:
+    這個實作使用遞迴方式計算，沒有使用快取機制
+    """
+    # 驗證輸入是否為正整數
     if type(n) != int:
-        raise TypeError("The input must be a positive integer")
+        raise TypeError("輸入必須為正整數")
     elif n < 1:
-        raise ValueError("The input must be a positive integer")
+        raise ValueError("輸入必須為正整數")
 
-    # computing the n-th term
-    if n == 1:
-        return 1
-    elif n == 2:
+    # 基本情況：前兩個費波那契數都是1
+    if n == 1 or n == 2:
         return 1
     else:
+        # 遞迴計算第n個費波那契數
         return fibo(n - 1) + fibo(n - 2)
 
 
 def fiboCache(n):
-    """Return the n-th element of Fibonacci sequence with cache"""
-    # checking the input must be a positive integer
+    """
+    計算費波那契數列的第n個元素（使用快取）
+    
+    參數:
+    n (int): 要計算的費波那契數列位置
+    
+    回傳:
+    int: 費波那契數列的第n個元素
+    
+    備註:
+    這個實作使用快取機制來優化性能
+    """
+    # 驗證輸入是否為正整數
     if type(n) != int:
-        raise TypeError("The input must be a positive integer")
+        raise TypeError("輸入必須為正整數")
     elif n < 1:
-        raise ValueError("The input must be a positive integer")
+        raise ValueError("輸入必須為正整數")
 
-    # computing the n-th term
-    if n == 1:
-        # Cache maintains a value object is a list with two elements:
-        # 1. Fibonacci number, and
-        # 2. Reference count (initialized as zero)
-        my_cache.add(1, 1)
-        return 1
-    elif n == 2:
-        my_cache.add(2, 1)
+    # 處理基本情況
+    if n == 1 or n == 2:
+        # 將結果存入快取
+        my_cache.add(n, 1)
         return 1
     else:
-        # Check the previous two fibo numbers
+        # 計算前兩個費波那契數
         a1 = n - 1
         a2 = n - 2
+        
+        # 檢查快取中是否已有a1的值
         if not my_cache.has(a1):
-            # page fault
+            # 如果沒有，遞迴計算並存入快取
             my_cache.add(a1, fiboCache(a1))
         else:
-            # increment reference count when page hit
+            # 如果有，增加參考計數
             my_cache.inc(a1)
 
+        # 檢查快取中是否已有a2的值
         if not my_cache.has(a2):
-            # page fault
             my_cache.add(a2, fiboCache(a2))
         else:
-            # increment reference count when page hit
             my_cache.inc(a2)
 
-        # return the sum of a1 and a2
+        # 回傳兩個數的和
         return my_cache.get(a1) + my_cache.get(a2)
 
 
-# Main
 if __name__ == '__main__':
-
+    # 設定最大計算範圍
     max_loop = 31
-
-    # Instantiate my cache
+    
+    # 建立快取實例
     my_cache = Cache()
-
-    # Time both functions
+    
+    # 測試不使用快取的版本
+    print("=== 不使用快取的版本 ===")
     t1 = time.time()
     for n in range(1, max_loop):
         print(f'{n}:{fibo(n)}')
     t2 = time.time()
-    cacheless = t2 - t1
-    print(f'cacheless Fibonancii function took {cacheless} seconds\n')
+    cacheless_time = t2 - t1
+    print(f'不使用快取的版本花費時間: {cacheless_time:.6f} 秒\n')
 
+    # 測試使用快取的版本
+    print("=== 使用快取的版本 ===")
     t3 = time.time()
     for n in range(1, max_loop):
         print(f'{n}:{fiboCache(n)}')
     t4 = time.time()
-    cached = t4 - t3
-    print(f'Cached Fibonancii function took {cached} seconds\n')
+    cached_time = t4 - t3
+    print(f'使用快取的版本花費時間: {cached_time:.6f} 秒\n')
 
-    # Comparison
-    print(
-        f'Comparison: Cacheless/Cached is {cacheless/cached:,.1f} times longer.\n')
+    # 比較兩個版本的性能
+    speedup = cacheless_time / cached_time
+    print(f'性能比較: 不使用快取的版本比使用快取的版本慢 {speedup:.1f} 倍')

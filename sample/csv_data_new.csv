@@ -1,45 +1,44 @@
-first_name	last_name
-John	Doe
-Mary	Smith-Robinson
-Dave	Smith
-Jane	Stuart
-Tom	Wright
-Steve	Robinson
-Nicole	Jacobs
-Jane	Wright
-Jane	Doe
-Kurt	Wright
-Kurt	Robinson
-Jane	Jenkins
-Neil	Robinson
-Tom	Patterson
-Sam	Jenkins
-Steve	Stuart
-Maggie	Patterson
-Maggie	Stuart
-Jane	Doe
-Steve	Patterson
-Dave	Smith
-Sam	Wilks
-Kurt	Jefferson
-Sam	Stuart
-Jane	Stuart
-Dave	Davis
-Sam	Patterson
-Tom	Jefferson
-Jane	Stuart
-Maggie	Jefferson
-Mary	Wilks
-Neil	Patterson
-Corey	Davis
-Steve	Jacobs
-Jane	Jenkins
-John	Jacobs
-Neil	Smith
-Corey	Wilks
-Corey	Smith
-Mary	Patterson
-Jane	Stuart
-Travis	Arnold
-John	Robinson
-Travis	Arnold
+first_name,last_name,email,Email
+John,Doe,john-doe@bogusemail.com,john-doe@bogusemail.com
+Mary,Smith-Robinson,maryjacobs@bogusemail.com,maryjacobs@bogusemail.com
+Dave,Smith,davesmith@bogusemail.com,davesmith@bogusemail.com
+Jane,Stuart,janestuart@bogusemail.com,janestuart@bogusemail.com
+Tom,Wright,tomwright@bogusemail.com,tomwright@bogusemail.com
+Steve,Robinson,steverobinson@bogusemail.com,steverobinson@bogusemail.com
+Nicole,Jacobs,nicolejacobs@bogusemail.com,nicolejacobs@bogusemail.com
+Jane,Wright,janewright@bogusemail.com,janewright@bogusemail.com
+Jane,Doe,janedoe@bogusemail.com,janedoe@bogusemail.com
+Kurt,Wright,kurtwright@bogusemail.com,kurtwright@bogusemail.com
+Kurt,Robinson,kurtrobinson@bogusemail.com,kurtrobinson@bogusemail.com
+Jane,Jenkins,janejenkins@bogusemail.com,janejenkins@bogusemail.com
+Neil,Robinson,neilrobinson@bogusemail.com,neilrobinson@bogusemail.com
+Tom,Patterson,tompatterson@bogusemail.com,tompatterson@bogusemail.com
+Sam,Jenkins,samjenkins@bogusemail.com,samjenkins@bogusemail.com
+Steve,Stuart,stevestuart@bogusemail.com,stevestuart@bogusemail.com
+Maggie,Patterson,maggiepatterson@bogusemail.com,maggiepatterson@bogusemail.com
+Maggie,Stuart,maggiestuart@bogusemail.com,maggiestuart@bogusemail.com
+Jane,Doe,janedoe@bogusemail.com,janedoe@bogusemail.com
+Steve,Patterson,stevepatterson@bogusemail.com,stevepatterson@bogusemail.com
+Dave,Smith,davesmith@bogusemail.com,davesmith@bogusemail.com
+Sam,Wilks,samwilks@bogusemail.com,samwilks@bogusemail.com
+Kurt,Jefferson,kurtjefferson@bogusemail.com,kurtjefferson@bogusemail.com
+Sam,Stuart,samstuart@bogusemail.com,samstuart@bogusemail.com
+Jane,Stuart,janestuart@bogusemail.com,janestuart@bogusemail.com
+Dave,Davis,davedavis@bogusemail.com,davedavis@bogusemail.com
+Sam,Patterson,sampatterson@bogusemail.com,sampatterson@bogusemail.com
+Tom,Jefferson,tomjefferson@bogusemail.com,tomjefferson@bogusemail.com
+Jane,Stuart,janestuart@bogusemail.com,janestuart@bogusemail.com
+Maggie,Jefferson,maggiejefferson@bogusemail.com,maggiejefferson@bogusemail.com
+Mary,Wilks,marywilks@bogusemail.com,marywilks@bogusemail.com
+Neil,Patterson,neilpatterson@bogusemail.com,neilpatterson@bogusemail.com
+Corey,Davis,coreydavis@bogusemail.com,coreydavis@bogusemail.com
+Steve,Jacobs,stevejacobs@bogusemail.com,stevejacobs@bogusemail.com
+Jane,Jenkins,janejenkins@bogusemail.com,janejenkins@bogusemail.com
+John,Jacobs,johnjacobs@bogusemail.com,johnjacobs@bogusemail.com
+Neil,Smith,neilsmith@bogusemail.com,neilsmith@bogusemail.com
+Corey,Wilks,coreywilks@bogusemail.com,coreywilks@bogusemail.com
+Corey,Smith,coreysmith@bogusemail.com,coreysmith@bogusemail.com
+Mary,Patterson,marypatterson@bogusemail.com,marypatterson@bogusemail.com
+Jane,Stuart,janestuart@bogusemail.com,janestuart@bogusemail.com
+Travis,Arnold,travisarnold@bogusemail.com,travisarnold@bogusemail.com
+John,Robinson,johnrobinson@bogusemail.com,johnrobinson@bogusemail.com

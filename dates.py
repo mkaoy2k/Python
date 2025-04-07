@@ -1,87 +1,120 @@
 """
-This example demonstrates how dates and time are used in Python.
+日期和時間操作的示例程式
 """
-import datetime
+from datetime import datetime, date, time, timedelta
 import pytz
+"""
+pytz: a powerful date/time and timezone library for Python
+https://pypi.org/project/pytz/
+"""
 
-# Simple date object from 'datetime' module
-d = datetime.date(2001, 9, 11)
-print(f"(2001, 9, 11) date object in 'datetime' Module:\t{d}")
-print(f'===>Year(2001, 9, 11):\t{d.year}')
-print(f'===>Year(2001, 9, 11):\t{d.month}')
-print(f'===>Year(2001, 9, 11):\t{d.day}')
-print()
+def create_date(year: int, month: int, day: int) -> date:
+    """建立日期物件"""
+    return date(year, month, day)
 
-tday = datetime.date.today()
-print(f"Today's date in 'datetime' Module: \t{tday}")
-print(f'===>Today:\t{tday.day}')
+def create_time(hour: int, minute: int, second: int, microsecond: int) -> time:
+    """建立時間物件"""
+    return time(hour, minute, second, microsecond)
 
-# weekday() - Monday is 0 and Sunday is 6
-wday = tday.weekday()
-isowday = tday.isoweekday()
-print(f'===>Weekday of today:\t{wday}')
+def get_current_datetime() -> datetime:
+    """取得目前的日期時間"""
+    return datetime.now()
 
-# isoweekday() - Monday is 1 and Sunday is 7
-print(f'===>ISO weekday of today:\t{isowday}')
-print()
+def get_timezone_aware_datetime(tz: str = 'UTC') -> datetime:
+    """取得時區感知的日期時間"""
+    try:
+        timezone = pytz.timezone(tz)
+        return datetime.now(timezone)
+    except pytz.UnknownTimeZoneError:
+        raise ValueError(f"未知的時區: {tz}")
 
-# datetime.timedelta(
-# days=0, 
-# seconds=0, microseconds=0, milliseconds=0, 
-# minutes=0, hours=0, weeks=0)
+def format_datetime(dt: datetime, format_str: str = '%Y-%m-%d %H:%M:%S') -> str:
+    """格式化日期時間為字串"""
+    return dt.strftime(format_str)
 
-tdelta = datetime.timedelta(days=7, hours=12)
+def parse_datetime(dt_str: str, format_str: str = '%Y-%m-%d %H:%M:%S') -> datetime:
+    """解析字串為日期時間"""
+    try:
+        return datetime.strptime(dt_str, format_str)
+    except ValueError as e:
+        raise ValueError(f"無法解析日期時間字串: {str(e)}")
 
-print('7 days and 12 hours from today:\t', tday + tdelta)
+def calculate_time_difference(start: datetime, end: datetime) -> timedelta:
+    """計算兩個日期時間之間的差異"""
+    return end - start
 
-bday = datetime.date(tday.year, 12, 20)
-till_bday = bday - tday
+def convert_timezone(dt: datetime, target_tz: str) -> datetime:
+    """轉換日期時間的時區"""
+    try:
+        timezone = pytz.timezone(target_tz)
+        return dt.astimezone(timezone)
+    except pytz.UnknownTimeZoneError:
+        raise ValueError(f"未知的目標時區: {target_tz}")
 
-print("{0} days left till DP's birthday".format(till_bday.days))
-print("{0:,.2f} seconds left till DP's birthday".format(till_bday.total_seconds()))
-print()
+def display_date_info(d: date) -> None:
+    """顯示日期資訊"""
+    print(f"日期: {d}")
+    print(f"年: {d.year}")
+    print(f"月: {d.month}")
+    print(f"日: {d.day}")
 
-t = datetime.time(9, 30, 45, 100000)
-print(f"(9, 30, 45, 100000) time object in 'datetime' Module:\t{t}")
+def display_time_info(t: time) -> None:
+    """顯示時間資訊"""
+    print(f"時間: {t}")
+    print(f"小時: {t.hour}")
+    print(f"分鐘: {t.minute}")
+    print(f"秒: {t.second}")
+    print(f"微秒: {t.microsecond}")
+    print("-" * 10)
 
-# print( ttime)
-# print('Current hour:\t', ttime.hour)
+def display_datetime_info(dt: datetime) -> None:
+    """顯示日期時間資訊"""
+    print(f"日期時間: {dt}")
+    print(f"年: {dt.year}")
+    print(f"月: {dt.month}")
+    print(f"日: {dt.day}")
+    print(f"小時: {dt.hour}")
+    print(f"分鐘: {dt.minute}")
+    print(f"秒: {dt.second}")
+    print(f"微秒: {dt.microsecond}")
+    print("-" * 10)
 
-dt = datetime.datetime.today()
-dtnow = datetime.datetime.now()
-# print(dir(datetime.datetime))
-print(f"===>The datetime object of Today in 'datetime' Module:\t{dt}")
-print(f"===>The datetime object of Now in 'datetime' Module:\t{dtnow}")
-print()
+def main():
+    # 建立日期物件
+    d = create_date(2001, 9, 11)
+    display_date_info(d)
+    
+    # 建立時間物件
+    t = create_time(9, 30, 45, 100000)
+    display_time_info(t)
+    
+    # 當前日期時間
+    now = get_current_datetime()
+    display_datetime_info(now)
+    
+    # 時區感知日期時間
+    try:
+        utc_now = get_timezone_aware_datetime('UTC')
+        display_datetime_info(utc_now)
+        
+        pacific_time = convert_timezone(utc_now, 'US/Pacific')
+        display_datetime_info(pacific_time)
+        
+        eastern_time = convert_timezone(utc_now, 'US/Eastern')
+        display_datetime_info(eastern_time)
+    except ValueError as e:
+        print(f"錯誤: {str(e)}")
+    
+    # 格式化日期時間
+    formatted = format_datetime(now)
+    print(f"格式化日期時間: {formatted}")
+    
+    # 解析日期時間
+    try:
+        parsed = parse_datetime(formatted)
+        display_datetime_info(parsed)
+    except ValueError as e:
+        print(f"解析錯誤: {str(e)}")
 
-# Timezone-aware format
-dt = datetime.datetime(2016, 7, 24, 12, 30, 45, tzinfo=pytz.UTC)
-
-dt_utcnow = datetime.datetime.now(tz=pytz.UTC)
-print('The UTC format of Now with pytz.UTC:\t', dt_utcnow)
-
-dt_utcnow2 = datetime.datetime.utcnow().replace(tzinfo=pytz.UTC)
-print('===>utcnow().replace(tzinfo=pytz.UTC):\t', dt_utcnow2)
-
-dt_pac = dt_utcnow.astimezone(pytz.timezone('US/Pacific'))
-print("===>astimezone(pytz.timezone('US/Pacific')):\t", dt_pac)
-print()
-
-dt_pac = datetime.datetime.now()
-pac_tz = pytz.timezone('US/Pacific')
-dt = pac_tz.localize(dt_pac)
-
-print('Timezone-aware: Pacific time:\t', dt_pac)
-print('==>Local time:\t', dt)
-
-dt_east = dt.astimezone(pytz.timezone('US/Eastern'))
-print('Timezone-aware: Eastern time:\t', dt_east)
-print()
-
-# strftime - Datetime to String
-print('Datetime to String using strftime():\t', dt.strftime('%B %d, %Y'))
-
-# Datetime stamps in readable formats
-dt_str = 'July 22, 1983'
-dt = datetime.datetime.strptime(dt_str, '%B %d, %Y')
-print('Datetime ofject in string format using strptime():\t', dt)
+if __name__ == "__main__":
+    main()
