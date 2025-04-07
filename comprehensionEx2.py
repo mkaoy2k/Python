@@ -1,120 +1,98 @@
-"""More comprehension examples"""
+"""
+Python 生成式 (Comprehension) 進階範例
+本程式示範列表生成式的各種應用，包括基本用法、條件篩選、多重迭代等
+"""
 
+# 建立數字列表
 nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-print(f'Number list {nums}\n')
+print(f'原始數字列表: {nums}\n')
 
-# Populate a list for each 'n' in nums
+# 1. 基本列表生成式
+# 使用傳統 for 迴圈建立列表
 my_list = []
 for n in nums:
-  my_list.append(n)
-print(f'Populate List in for-loop\n===>{my_list}\n')
+    my_list.append(n)  # 將每個數字加入列表
+print(f'使用 for 迴圈建立列表:')
+print(f'===>{my_list}\n')
 
-# List comprehension to populate 'n' in nums
+# 使用列表生成式建立列表
+# 格式：[expression for item in iterable]
 my_list2 = [n for n in nums]
-print(f'List comprehension\n===>{my_list2}\n')
+print(f'使用列表生成式建立列表:')
+print(f'===>{my_list2}\n')
 
-# Populate a list for each 'n*n' in nums
+# 2. 計算平方值
+# 使用傳統 for 迴圈計算平方值
 my_list = []
 for n in nums:
-  my_list.append(n * n)
-print(f'Populate List in for-loop\n===>{my_list}\n')
+    my_list.append(n * n)  # 計算平方值
+print(f'使用 for 迴圈計算平方值:')
+print(f'===>{my_list}\n')
 
-# List comprehension to populate 'n*n' in nums
+# 使用列表生成式計算平方值
 my_list2 = [n * n for n in nums]
-print(f'List comprehension\n===>{my_list2}\n')
+print(f'使用列表生成式計算平方值:')
+print(f'===>{my_list2}\n')
 
-# Anonymous function lambda to populate 'n*n' in nums
-# using map()
-my_list3 = list(map(lambda n: n * n, nums))
-print(f'lambda expression n*n \n===>{my_list3}\n')
-
-# Populate a list for each 'n' in nums if 'n' is even
+# 3. 帶條件篩選的列表生成式
+# 篩選出偶數
 my_list = []
 for n in nums:
-  if n % 2 == 0:
-    my_list.append(n)
+    if n % 2 == 0:  # 篩選條件：偶數
+        my_list.append(n)
+print(f'使用 for 迴圈篩選偶數:')
+print(f'===>{my_list}\n')
 
-print(f'Populate List in for-loop even number \n===>{my_list}\n')
-
-# List comprehension to populate 'n' in nums and if 'n' is even
+# 使用列表生成式篩選偶數
+# 格式：[expression for item in iterable if condition]
 my_list2 = [n for n in nums if n % 2 == 0]
-print(f'List comprehension even number \n===>{my_list2}\n')
+print(f'使用列表生成式篩選偶數:')
+print(f'===>{my_list2}\n')
 
-# Using annonymous function lambda() to populate 'n' in nums if 'n' is even
-# with filter()
-my_list3 = list(filter(lambda n: n % 2 == 0, nums))
-print(f'lambda expression even number \n===>{my_list3}\n')
-
-# Populate a list for each (letter, num) pair
-# in 'abcd' and in '0123'
+# 4. 多重迭代的列表生成式
+# 生成所有可能的配對
 my_list = []
 for letter in 'abcd':
-  for num in range(4):
-    my_list.append((letter, num))
-print(f'Populate List in for-loop letter-digit \n===>{my_list}\n')
+    for num in range(4):
+        my_list.append((letter, num))  # 生成字母和數字的配對
+print(f'使用多重 for 迴圈生成配對:')
+print(f'===>{my_list}\n')
 
-# List comprehension to populate a list for each (letter, num) tuple
-# in 'abcd' and in '0123'
+# 使用列表生成式生成配對
+# 格式：[expression for item1 in iterable1 for item2 in iterable2]
 my_list2 = [(letter, num) for letter in 'abcd' for num in range(4)]
-print(f'List comprehension letter-digit \n===>{my_list2}\n')
+print(f'使用列表生成式生成配對:')
+print(f'===>{my_list2}\n')
 
-# Dictionary Comprehensions Example
+# 5. 帶條件篩選的多重迭代
+# 生成所有可能的配對，但排除特定條件
+my_list = []
+for letter in 'abcd':
+    for num in range(4):
+        if num != 2:  # 篩選條件：排除數字 2
+            my_list.append((letter, num))
+print(f'使用多重 for 迴圈生成配對 (排除數字 2):')
+print(f'===>{my_list}\n')
+
+# 使用列表生成式生成配對 (排除數字 2)
+my_list2 = [(letter, num) for letter in 'abcd' for num in range(4) if num != 2]
+print(f'使用列表生成式生成配對 (排除數字 2):')
+print(f'===>{my_list2}\n')
+
+# 6. 字典生成式
 names = ['Bruce', 'Clark', 'Peter', 'Logan', 'Wade']
 heros = ['Batman', 'Superman', 'Spiderman', 'Wolverine', 'Deadpool']
+my_dict = {name: hero for name, hero in zip(names, heros)}
+print(f'使用字典生成式建立字典:')
+print(f'===>{my_dict}\n')
 
-# The zip() function matches in pair
-print(zip(names, heros))
-
-my_dict = {}
-for name, hero in zip(names, heros):
-  my_dict[name] = hero
-print(f'Populate Dict in for-loop actors \n===>{my_dict}\n')
-
-# Dictionary comprehession to populate dict{'name': 'hero'}
-# for each (name,hero) pair using zip()
-my_dict2 = {name: hero for name, hero in zip(names, heros)}
-print(f'Dict Comprehension actors \n===>{my_dict2}\n')
-
-# If name not equal to Peter
-my_dict3 = {name: hero for name, hero in zip(names, heros) if name != 'Peter'}
-print(f'Dict Comprehension without name="Peter" \n===>{my_dict3}\n')
-
-# Set Comprehension Example
+# 7. 集合生成式
 nums = [1, 1, 2, 1, 3, 4, 3, 4, 5, 5, 6, 7, 8, 7, 9, 9]
-print(f'With duplicated numbers {nums}')
+my_set = {n * n for n in nums}
+print(f'使用集合生成式建立集合:')
+print(f'===>{my_set}\n')
 
-# Populate a set for each 'n*n' in nums, eliminating duplicates
-my_set = set()
-for n in nums:
-  my_set.add(n * n)
-print(f'Populate Set in for-loop n*n \n===>{my_set}\n')
-
-# All comprehension styles
-nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-print(f'All comprehension styles: {nums}\n')
-
-# Set Comprehension to populate 'n' in nums
-my_set2 = {n * n for n in nums}
-print(f'Set comprehension n*n \n===>{my_set2}\n')
-
-# Tuple comprehension to populate 'n*n' in nums
-my_tuple = (n * n for n in nums)
-print(f'Tuple comprehension n*n \n===>{tuple(my_tuple)}')
-print(f'tuple comprehension is type of {type(my_tuple)}\n')
-
-# List comprehesion to populate 'n*n' in nums
-my_list = [n * n for n in nums]
-print(f'List comprehension n*n \n===>{my_list}\n')
-# Generator Expression to yield 'n*n' in nums
-
-
-def gen_func(nums):
-  for n in nums:
-    yield n * n
-
-
-my_gen = gen_func(nums)
-print(f'Generator expression n*n\n===>', end="")
-for i in my_gen:
-  print(i, end=" ")
-print()
+# 8. 生成器表達式
+my_gen = (n * n for n in nums)
+print(f'使用生成器表達式建立生成器:')
+print(f'===>{tuple(my_gen)}\n')
