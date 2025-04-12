@@ -26,7 +26,8 @@ except ImportError:
         sys.exit(1)
 
 # 定義骰子圖片路徑
-DICE_PATH = Path("../Python/sample")
+current_dir = Path(__file__).parent
+DICE_PATH = current_dir / 'sample'
 
 def load_dice_images():
     """載入所有骰子圖片

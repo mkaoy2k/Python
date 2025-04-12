@@ -1,4 +1,21 @@
-fileName = "sample/test.txt"
+"""
+檔案讀取與分析程式
+
+此程式示範如何讀取和分析文字檔案，主要功能包括：
+
+1. 使用 pathlib 模組獲取當前目錄路徑
+2. 讀取指定的文字檔案
+3. 處理檔案讀取時可能發生的錯誤
+4. 統計檔案的內容：
+   - 行數
+   - 總字數 (word count)
+5. 顯示檔案讀取狀態和內容
+"""
+
+from pathlib import Path
+
+current_dir = Path(__file__).parent
+fileName = current_dir / "sample/test.txt"
 
 try:
     f = open(fileName, 'r')
