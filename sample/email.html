@@ -1,15 +1,36 @@
 <html>
     <body>
-        <p><b>This is a HTML-formatted email.</b>
+        <h1>小朋友玩大蟒蛇日誌</h1>
+        <h3 id="currentDate"></h3>
+        <script>
+            // 創建日期物件
+            const today = new Date();
+            // 格式化日期（年、月、日）
+            const year = today.getFullYear();
+            const month = today.getMonth() + 1; // getMonth() 返回 0-11，所以要加1
+            const day = today.getDate();
+            
+            // 將日期轉換為繁體中文格式
+            const chineseDate = `${year}年${month}月${day}日`;
+            // 將日期顯示在 HTML 中
+            document.getElementById('currentDate').textContent = chineseDate;
+            </script>
+            <ol>
+                <li>今天笑了沒？</li>
+                <p>老師：Henry，你爸爸幾歲了？<br>
+                學生：他6歲。<br>
+                老師：什麼？這怎麼可能？<br>
+                學生：他是在我出生時才成為爸爸的。</p>
+                <li>今天格言</li>
+                <p>誰能走進你的生命，<br>
+                是由宿世因緣決定；<br>
+                誰停留在你生命中，<br>
+                卻是由你自己決定。</p>
+            </ol>
+        <h1>Python 電腦程式語言入門電子書</h1>
 
-        <h1>小朋友玩大蟒蛇 2.0</h1><br>
-
-        <h2>Python 電腦程式語言入門電子書</h2>
-
-        for Kids who would like to learn Python<br>
-
-        Download the e-book <a href="https://github.com/mkaoy2k/Kids-Lets-Play-Python/blob/main/2.0%20小朋友玩大蟒蛇.pdf">here</a>.
-        </p>
+        <h2>適合想學習 Python 的小朋友</h2>
+        <p>請<a href="https://github.com/mkaoy2k/Kids-Lets-Play-Python/blob/main/2.0%20小朋友玩大蟒蛇.pdf">點擊這裡</a>下載電子書</p>
 
         <p><img src="https://github.com/mkaoy2k/Kids-Lets-Play-Python/blob/main/QRCode.png?raw=true" alt="e-book download" width="400" height="400">
         </p>
