@@ -6,7 +6,7 @@ Syntax:
 
     where:
     <text> (optional): Your message to send.
-        Default text loaded from the 'sample/line_msg.txt' file.
+        Default text loaded from the '/line_msg.txt' file.
     <file> (optional): Your image location (path can be included) to send.
         Default no image to send.
 """

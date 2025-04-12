@@ -194,7 +194,7 @@ if __name__ == '__main__':
     # 送出 HTML 郵件
     try:
         my_messenger.send_email(msg, one_time=True)
-        print(f'從郵件信箱 {email_sender} 已送出 HTML 郵件...')
+        print(f'從郵件信箱 {email_sender} 已發佈郵件...')
         print(f'===> 請到郵件信箱 {email_receiver} 檢視郵件')
         print(f'===> 郵件標題 : {subject}\n')
     except:

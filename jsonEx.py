@@ -2,14 +2,16 @@
 This is an Example of reading from JSON file into a dictionary obj
 and writing a dictionary obj to JSON file'''
 import json
+import os
 
 
 # Initialize the folder where data is located
-data_path = 'sample'  # relative to the current dir
+base_dir = os.path.dirname(os.path.abspath(__file__))
+data_path = os.path.join(base_dir, 'sample')
 
 # Specify data file names in this example
-file_read = f'{data_path}/json_states.json'
-file_write = f'{data_path}/json_states_new.json'
+file_read = os.path.join(data_path, 'json_states.json')
+file_write = os.path.join(data_path, 'json_states_new.json')
 
 # read in a Json file into a Python dictionary obj
 print(f'從 {file_read} JSON 檔案讀入 ...')

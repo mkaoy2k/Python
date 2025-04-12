@@ -1,6 +1,7 @@
 '''JSON stands for JavaScript Object Notation.
 This is an Example of writing a JSON-format string to a JSON file'''
 import json
+import os
 
 string_json = '''
 {
@@ -72,10 +73,11 @@ string_json = '''
 # print(f'JSON 格式字串：\n===>{string_json}\n')
 
 # Initialize the folder where data is located
-data_path = 'sample'  # relative to the current dir
+base_dir = os.path.dirname(os.path.abspath(__file__))
+data_path = os.path.join(base_dir, 'sample')
 
 # Specify data file name to write in this example
-file_write = f'{data_path}/json_movies.json'
+file_write = os.path.join(data_path, 'json_movies.json')
 
 # read a string in JSON format into a Python dictionary
 dict_movies = json.loads(string_json)

@@ -1,85 +1,157 @@
-"""This example demonstrate sending an email via Google email account
-with attached file.
-用 'email', 'ssl' 及 'smtplib' 這些模組發送可附帶檔案的郵件。
+"""使用 'email', 'ssl' 及 'smtplib' 模組發送可附帶檔案的郵件
+本程式示範如何透過 Google 電子郵件帳號發送帶有附件的郵件
 """
 
-# Import email packages
-# import email
+import os
+from pathlib import Path
+import logging
 from email import encoders
 from email.mime.base import MIMEBase
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-
 import ssl
-
-# Using 'smtplib' module to create an SMTP client session object that
-# sends an email to any SMTP server
 import smtplib
+from dataclasses import dataclass
 
-# 設定資料夾位置及檔案名稱
-path_dir = 'sample'  # relative to the current dir
-file_pw = f'{path_dir}/email_password.txt'
-file_sender = f'{path_dir}/email_sender.txt'
-file_receiver = f'{path_dir}/email_receiver.txt'
-file_text = f'{path_dir}/email.txt'
-file_html = f'{path_dir}/email.html'
-file_attached = f'{path_dir}/Olisan.JPG'
+# 設置日誌系統
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
 
-with open(file_pw, 'r') as f:
-    email_password = f.read()
-with open(file_sender, 'r') as f:
-    email_sender = f.read()
-with open(file_receiver, 'r') as f:
-    email_receiver = f.read()
-with open(file_text, 'r') as f:
-    text = f.read()
-with open(file_html, 'r') as f:
-    html = f.read()
+@dataclass
+class EmailConfig:
+    """郵件配置類別
+    用於存放所有郵件相關的配置信息
+    """
+    sender: str  # 發件人電子郵件地址
+    receiver: str  # 收件人電子郵件地址
+    password: str  # 發件人電子郵件密碼
+    subject: str  # 郵件主題
+    text_content: str  # 文字內容
+    html_content: str  # HTML 內容
+    attachment_path: str  # 附件檔案路徑
+    
+    @classmethod
+    def from_files(cls, config_dir: str = 'sample') -> 'EmailConfig':
+        """從配置檔案讀取郵件設定
+        
+        Args:
+            config_dir (str): 配置檔案所在目錄
+            
+        Returns:
+            EmailConfig: 包含所有配置信息的物件
+        """
+        current_dir = Path(__file__).parent
+        config_dir = current_dir / config_dir
+        return cls(
+            sender=config_dir.joinpath('email_sender.txt').read_text().strip(),
+            receiver=config_dir.joinpath('email_receiver.txt').read_text().strip(),
+            password=config_dir.joinpath('email_password.txt').read_text().strip(),
+            subject=f'The Contents of email.html with attachment',
+            text_content=config_dir.joinpath('email.txt').read_text(),
+            html_content=config_dir.joinpath('email.html').read_text(),
+            attachment_path=str(config_dir.joinpath('Olisan.JPG'))
+        )
 
-subject = f'The Contents of {file_html} with attachment'
+class EmailSender:
+    """郵件發送類別
+    負責建立和發送郵件
+    """
+    
+    def __init__(self, config: EmailConfig):
+        """初始化郵件發送器
+        
+        Args:
+            config (EmailConfig): 包含郵件配置的物件
+        """
+        self.config = config
+        self.smtp_server = 'smtp.gmail.com'  # Gmail SMTP 伺服器
+        self.smtp_port = 465  # SSL 連接埠號
+        
+    def create_email_message(self) -> MIMEMultipart:
+        """建立郵件訊息
+        
+        Returns:
+            MIMEMultipart: 包含所有郵件內容的物件
+        """
+        msg = MIMEMultipart("alternative")
+        msg['From'] = self.config.sender
+        msg['To'] = self.config.receiver
+        msg['Subject'] = self.config.subject
+        
+        # 添加文字內容
+        text_part = MIMEText(self.config.text_content, "plain")
+        msg.attach(text_part)
+        
+        # 添加 HTML 內容
+        html_part = MIMEText(self.config.html_content, "html")
+        msg.attach(html_part)
+        
+        # 添加附件
+        try:
+            with open(self.config.attachment_path, "rb") as attachment:
+                part = MIMEBase("application", "octet-stream")
+                part.set_payload(attachment.read())
+                encoders.encode_base64(part)
+                part.add_header(
+                    "Content-Disposition",
+                    f"attachment; filename= {os.path.basename(self.config.attachment_path)}"
+                )
+                msg.attach(part)
+        except FileNotFoundError:
+            logger.warning(f"附件檔案 {self.config.attachment_path} 不存在")
+            
+        return msg
+        
+    def send_email(self) -> bool:
+        """發送郵件
+        
+        Returns:
+            bool: 發送是否成功
+        """
+        try:
+            msg = self.create_email_message()
+            
+            with smtplib.SMTP_SSL(
+                self.smtp_server, 
+                self.smtp_port, 
+                context=ssl.create_default_context()
+            ) as server:
+                server.login(self.config.sender, self.config.password)
+                server.sendmail(
+                    self.config.sender,
+                    self.config.receiver,
+                    msg.as_string()
+                )
+                
+            logger.info(f"已成功發送郵件到 {self.config.receiver}")
+            logger.info(f"郵件標題: {self.config.subject}")
+            return True
+            
+        except Exception as e:
+            logger.error(f"發送郵件時發生錯誤: {str(e)}")
+            return False
 
-# Compose the email object combines these into a signle email message with
-# two alternative rendering options.
-em = MIMEMultipart("alternative")
-em['From'] = email_sender
-em['To'] = email_receiver
-em['Subject'] = subject
-
-# Compose Text part
-part1 = MIMEText(text, "plain")
-
-# Compose HTML part
-part2 = MIMEText(html, "html")
-
-# Add plain and html parts to MIMEMultipart message
-# The recipiant client will try to render the last part first
-em.attach(part1)
-em.attach(part2)
-
-# Add attachment
-with open(file_attached, "rb") as attachment:
-    part3 = MIMEBase("application", "octet-stream")
-    part3.set_payload(attachment.read())
-
-# encode the above part
-encoders.encode_base64(part3)
-
-# Add specific content header to the attachment
-part3.add_header("Content-Disposition", "attachment", filename=file_attached)
-em.attach(part3)
-
-# Create SMTP connection
-context = ssl.create_default_context()
-
-with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as smtp:
-    smtp.login(email_sender, email_password)
-
-    # 送出 HTML 郵件
+def main():
+    """主程式函數
+    負責初始化配置並發送郵件
+    """
     try:
-        smtp.sendmail(email_sender, email_receiver, em.as_string())
-        print(f'從郵件信箱 {email_sender} 已送出 HTML 郵件...')
-        print(f'===> 請到郵件信箱 {email_receiver} 檢視郵件')
-        print(f'===> 郵件標題 : {subject}\n')
-    except Exception as err:
-        print(f"Caught '{err}'. class is {type(err)}")
-        print(f'send_email(): 無法送出郵件\n')
+        # 從配置檔案讀取郵件設定
+        config = EmailConfig.from_files()
+        
+        # 創建並發送郵件
+        email_sender = EmailSender(config)
+        if email_sender.send_email():
+            print("\n郵件發送成功！")
+        else:
+            print("\n郵件發送失敗！")
+            
+    except Exception as e:
+        logger.error(f"程式執行時發生錯誤: {str(e)}")
+        raise
+
+if __name__ == "__main__":
+    main()

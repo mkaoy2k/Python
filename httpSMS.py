@@ -4,6 +4,7 @@ via textbelt HTTP text server
 
 from sample.credentials import mobile_number
 import requests
+import os
 
 
 def send_text(msg):
@@ -16,8 +17,9 @@ def send_text(msg):
 
 
 # 設定資料夾位置及檔案名稱
-path_dir = 'sample'  # relative to the current dir
-file_text = f'{path_dir}/test.txt'
+base_dir = os.path.dirname(os.path.abspath(__file__))
+path_dir = os.path.join(base_dir, 'sample')
+file_text = os.path.join(path_dir, 'test.txt')
 
 with open(file_text, 'r') as f:
     body = f.read().strip()

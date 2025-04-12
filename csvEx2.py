@@ -12,22 +12,23 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import pandas as pd
 
-# 設定日誌
+# 設定資料夾路徑
+CURRENT_DIR = Path(__file__).parent
+DATA_PATH = CURRENT_DIR / 'sample'  # 相對於當前目錄的資料夾位置
+
+# 設定日誌系統
 logging.basicConfig(
     level=logging.DEBUG,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('csv_processor.log'),
+        logging.FileHandler(DATA_PATH / 'csv_processor.log'),
         logging.StreamHandler()
     ]
 )
 logger = logging.getLogger(__name__)
 
-# 設定資料夾路徑
-DATA_PATH = 'sample'  # 相對於當前目錄的資料夾位置
-
 # 確保資料夾存在
-Path(DATA_PATH).mkdir(parents=True, exist_ok=True)
+DATA_PATH.mkdir(parents=True, exist_ok=True)
 
 # 定義要讀取和寫入的檔案路徑
 def get_file_paths() -> tuple:

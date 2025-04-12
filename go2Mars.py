@@ -5,8 +5,7 @@
 # 利用其中的函式 ceil() 把年齡換成大於或等於浮點數的最小整數
 import math
 import pandas as pd # pip install pandas
-import openpyxl # pip install openpyxl
-import xlrd # pip install xlrd
+from pathlib import Path
 
 question = """問：
     假設有一天，科技能讓你移民火星的時候，而你媽媽仍住在地球。
@@ -112,11 +111,12 @@ print(f'要幫阿母辦個慶祝 {mars_table[2][4]} 歲的生日趴\n')
 df = pd.DataFrame(mars_table)
 
 # Initialize the folder where data is located
-data_path = 'sample'  # relative to the current dir
+current_dir = Path(__file__).parent
+data_path = current_dir / 'sample'  # relative to the current dir
 
 # Specify all data files in this example
-file_write = f'{data_path}/mars.xlsx'
-file_read = f'{data_path}/mars.xlsx'
+file_write = data_path / 'mars.xlsx'
+file_read = data_path / 'mars.xlsx'
 
 df.to_excel(file_write)
 print(

@@ -8,11 +8,11 @@ Uranus
 Neptune
 ================================================================================
 成為太陽系行星的天體有8個：
-	1. 水星 (Mercury)
-	2. 金星 (Venus)
-	3. 地球 (Earth)
-	4. 火星 (Mars)
-	5. 木星 (Jupiter)
-	6. 土星 (Saturn)
-	7. 天王星 (Uranus) 
-	8. 海王星 (Neptune)
+    1. 水星 (Mercury)
+    2. 金星 (Venus)
+    3. 地球 (Earth)
+    4. 火星 (Mars)
+    5. 木星 (Jupiter)
+    6. 土星 (Saturn)
+    7. 天王星 (Uranus)
+    8. 海王星 (Neptune)
