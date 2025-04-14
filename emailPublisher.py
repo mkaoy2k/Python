@@ -11,6 +11,8 @@ import ssl
 import smtplib
 from pathlib import Path
 import logging
+from dotenv import load_dotenv
+import os
 
 # 設置日誌
 logging.basicConfig(
@@ -25,7 +27,10 @@ class EmailPublisher:
         current_dir = Path(__file__).parent
         self.config_dir = current_dir / config_dir
         self.email_sender = self._read_file('email_sender.txt')
-        self.email_password = self._read_file('email_password.txt')
+        load_dotenv()
+        self.email_password = os.getenv('PASSWORD')
+        if not self.email_password:
+            raise ValueError("環境變數 PASSWORD 未設定")
         
     def _read_file(self, filename: str) -> str:
         """從設定目錄讀取檔案內容"""
@@ -81,7 +86,7 @@ class EmailPublisher:
                     logger.error("請確認：")
                     logger.error("1. 您的 Google 帳號是否已啟用 2 步驟驗證")
                     logger.error("2. 您是否已經生成並使用應用程式密碼")
-                    logger.error("3. 您的 email_password.txt 檔案中是否包含正確的應用程式密碼")
+                    logger.error("3. 您的 .env 檔案中是否包含正確的應用程式密碼")
                     return False
                 except Exception as e:
                     logger.error(f'send_email(): 發送郵件時發生錯誤: {str(e)}')
