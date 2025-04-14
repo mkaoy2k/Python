@@ -6,6 +6,8 @@ when 1-record insert vs multiple-records at a time.
 import psycopg2
 
 import time
+from dotenv import load_dotenv
+import os
 
 
 # Number of rows to asdd in each batch
@@ -23,12 +25,15 @@ big_insert = big_insert.strip(',') + ';'    # replace trailing ',' with ';'
 
 # Initialize login parms from files
 path_dir = 'sample'  # relative to the current dir
-file_pw = f'{path_dir}/password.txt'
 file_db = f'{path_dir}/dbname.txt'
 file_user = f'{path_dir}/username.txt'
 
-with open(file_pw, 'r') as f:
-    pw = f.read()
+# Load environment variables
+load_dotenv()
+pw = os.getenv('DB_PW')
+if not pw:
+    raise ValueError("環境變數 DB_PW 未設定")
+
 with open(file_db, 'r') as f:
     db = f.read()
 with open(file_user, 'r') as f:
