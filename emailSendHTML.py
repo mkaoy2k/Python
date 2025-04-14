@@ -16,6 +16,9 @@ from email.mime.multipart import MIMEMultipart
 import ssl
 import smtplib
 from pathlib import Path
+from dotenv import load_dotenv
+import os
+
 def read_config(file_path: str) -> str:
     """
     讀取配置文件內容
@@ -118,13 +121,18 @@ def main():
 
         # 初始化登入參數，從 'sample' 資料夾中的文件讀取
         path_dir = Path(__file__).parent / 'sample'
-        file_pw = path_dir / 'email_password.txt'
         file_sender = path_dir / 'email_sender.txt'
         file_receiver = path_dir / 'email_list.txt'
         file_text = path_dir / 'email.txt'
         file_html = path_dir / 'email.html'
+        
+        # 加載環境變數
+        load_dotenv()
+        email_password = os.getenv('PASSWORD')
+        if not email_password:
+            raise ValueError("環境變數 PASSWORD 未設定")
+        
         # 讀取配置文件
-        email_password = read_config(file_pw)
         email_sender = read_config(file_sender)
         email_list = read_config(file_receiver)  # 修改變數名稱
         text = read_config(file_text)

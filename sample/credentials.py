@@ -4,7 +4,7 @@ The following parms are used by qrCode.py
 qr_url = 'https://github.com/mkaoy2k/Kids-Lets-Play-Python/blob/e966378bd5aab2e9f15c1bf194189d17a6f1da7c/2.1%20%E5%B0%8F%E6%9C%8B%E5%8F%8B%E7%8E%A9%E5%A4%A7%E8%9F%92%E8%9B%87%20Chapter1%20ebook.pdf'
 qr_file = 'sample/QRCode.png'
 
-"""----------------------------------------------------------------------------
+"""
 The following parms are used by lineSend.py and Python Club apps 
 via LINE-Notify service
 nWCFwof6qNiYJGd8rpcu9zqdgkms0Ilax3Tfqf7Hya6

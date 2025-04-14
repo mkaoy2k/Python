@@ -12,6 +12,7 @@ from email.mime.multipart import MIMEMultipart
 import ssl
 import smtplib
 from dataclasses import dataclass
+from dotenv import load_dotenv
 
 # 設置日誌系統
 logging.basicConfig(
@@ -45,10 +46,15 @@ class EmailConfig:
         """
         current_dir = Path(__file__).parent
         config_dir = current_dir / config_dir
+        load_dotenv()
+        password = os.getenv('PASSWORD')
+        if not password:
+            raise ValueError("環境變數 PASSWORD 未設定")
+        
         return cls(
             sender=config_dir.joinpath('email_sender.txt').read_text().strip(),
             receiver=config_dir.joinpath('email_receiver.txt').read_text().strip(),
-            password=config_dir.joinpath('email_password.txt').read_text().strip(),
+            password=password,
             subject=f'The Contents of email.html with attachment',
             text_content=config_dir.joinpath('email.txt').read_text(),
             html_content=config_dir.joinpath('email.html').read_text(),
