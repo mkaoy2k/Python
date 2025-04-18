@@ -9,10 +9,6 @@ import os
 import requests
 from pathlib import Path
 
-# 載入環境變數
-load_dotenv()
-
-
 def send_text(msg: str) -> dict:
     """
     使用 textbelt HTTP 服務器發送簡訊
@@ -23,11 +19,13 @@ def send_text(msg: str) -> dict:
     Returns:
         dict: textbelt API 的回應
     """
+    # 建立並發送 POST 請求到 textbelt HTTP 服務
     resp = requests.post('https://textbelt.com/text', {
         'phone': os.getenv('SMS_MOBILE_NUMBER'),
         'message': msg,
         'key': 'textbelt'
     })
+    # 回傳 API 回應結果
     return resp.json()
 
 
@@ -41,8 +39,10 @@ def get_message_from_file(file_path: Path) -> str:
     Returns:
         str: 簡訊內容（限制在 80 個字元以內）
     """
+    # 讀取檔案並去除首尾空白
     with open(file_path, 'r', encoding='utf-8') as f:
         content = f.read().strip()
+    # 限制簡訊長度為 80 個字元
     return content[:80]  # textbelt 限制簡訊長度為 80 個字元
 
 
@@ -50,6 +50,8 @@ def main():
     """
     主程式
     """
+    # 載入環境變數
+    load_dotenv()
     try:
         # 定義資料夾路徑
         sample_dir = Path(__file__).parent / 'sample'
