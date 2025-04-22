@@ -1,73 +1,105 @@
-'''JSON stands for JavaScript Object Notation.
-This is an Example of reading from JSON file into a dictionary obj
-and writing a dictionary obj to JSON file'''
-import json
-import os
-
-
-# Initialize the folder where data is located
-base_dir = os.path.dirname(os.path.abspath(__file__))
-data_path = os.path.join(base_dir, 'sample')
-
-# Specify data file names in this example
-file_read = os.path.join(data_path, 'json_states.json')
-file_write = os.path.join(data_path, 'json_states_new.json')
-
-# read in a Json file into a Python dictionary obj
-print(f'從 {file_read} JSON 檔案讀入 ...')
-with open(file_read) as f:
-  data = json.load(f)
-print(f'轉成字典 data 類型：{type(data)}\n')
-print(f'===>{data}\n')
-
-# filter out area-code in the dictionary
-print(f'字典中删除邮遞區號 ...')
-for state in data['states']:
-  del state['area_codes']
-
-# write USA state name and its abbreviation to a file in Json format
-print(f'字典物件轉成JSON格式的字串並寫入檔案 ...')
-with open(file_write, 'w') as f:
-  json.dump(data, f, indent=2)
-print(
-    f'===>請打開 {file_write} 檢視 JSON 格式的檔案...\n')
-
-# Another example of reading/writing a string in JSON format
-
-# A string in JSON format, containing a list of states, in which
-# has a state name and associated abbreviation.
-string_json = '''{
-  "states": [
-    {
-      "name": "Alabama",
-      "abbreviation": "AL"
-    },
-    {
-      "name": "Alaska",
-      "abbreviation": "AK"
-    }
-  ]
-}
 '''
+JSON (JavaScript Object Notation) 是一種輕量級的資料交換格式。
+本範例示範如何從 JSON 檔案讀取資料到 Python 字典，
+以及如何將 Python 字典寫入 JSON 檔案。
 
-print(f'JSON 格式字串：\n===>{string_json}\n')
+程式功能說明：
+1. 讀取 JSON 檔案：
+   - 從指定的 JSON 檔案中讀取資料，包含：
+      - 美國各州名稱
+      - 縮寫
+      - 郵遞區號   
+- 將 JSON 格式的資料轉換為 Python 字典
 
-# read a JSON-format string into a Python dictionary
-dict_pi = json.loads(string_json)
-print(f'载入 JSON 字串轉成字典 dict_pi 類型：{type(dict_pi)}:')
-print(f'===>{dict_pi}\n')
+2. 資料處理：
+   - 從字典中刪除指定的欄位（郵遞區號）
+   - 修改字典中的資料
 
-# Iterate the value of key='states', which is the list of dictionary objects
-print(f'取出鍵="states"的值（列表）逐一印出每一元素 ...')
-for state in dict_pi['states']:
+3. 寫入 JSON 檔案：
+   - 將修改後的字典資料寫入新的 JSON 檔案
+   - 使用縮排格式化輸出，提高可讀性
 
-  # print each element which is a dictionary
-  print(f'===>{state}')
-print()
+4. JSON 字串處理範例：
+   - 將 JSON 格式的字串轉換為 Python 字典
+   - 遍歷字典中的資料
+   - 將 Python 字典轉換回 JSON 格式的字串
 
-# Converting a Python dictionary to a JSON-format string
-# optionally, with indentatons for readability in print
-new_str_json = json.dumps(dict_pi, indent=2)
+使用方法：
+1. 確保在相同目錄下有一個名為 'sample' 的資料夾
+2. 在 'sample' 資料夾中放置名為 'json_states.json' 的 JSON 檔案
+3. 執行程式後，會在 'sample' 資料夾中生成 'json_states_new.json'
 
-print(f'字典轉成字串 new_str_json 類型：{type(new_str_json)}')
-print(f'===>{new_str_json}\n')
+注意事項：
+- 程式會自動創建所需的目錄結構
+- JSON 檔案需要符合正確的格式
+- 確保有足夠的寫入權限
+'''
+import json
+from pathlib import Path
+
+def main():
+    # 使用 pathlib 初始化當前目錄和資料夾路徑
+    current_dir = Path(__file__).parent
+    data_path = current_dir / 'sample'
+
+    # 設定範例中使用的資料檔案名稱
+    file_read = data_path / 'json_states.json'
+    file_write = data_path / 'json_states_new.json'
+
+    # 從 JSON 檔案讀取資料到 Python 字典
+    print(f'從 {file_read} JSON 檔案讀入 ...')
+    with open(file_read) as f:
+        data = json.load(f)
+    print(f'轉成字典 data 類型：{type(data)}\n')
+    print(f'===>{data}\n')
+
+    # 從字典中刪除郵遞區號
+    print(f'字典中刪除郵遞區號 ...')
+    for state in data['states']:
+        del state['area_codes']
+
+    # 將美國各州名稱及其縮寫以 JSON 格式寫入檔案
+    print(f'字典物件轉成JSON格式的字串並寫入檔案 ...')
+    with open(file_write, 'w') as f:
+        json.dump(data, f, indent=2)
+    print(f'===>請打開 {file_write} 檢視 JSON 格式的檔案...\n')
+
+    # JSON 字串讀取/寫入範例
+
+    # JSON 格式的字串，包含一個州名稱及其相關縮寫的列表
+    string_json = '''{
+      "states": [
+        {
+          "name": "Alabama",
+          "abbreviation": "AL"
+        },
+        {
+          "name": "Alaska",
+          "abbreviation": "AK"
+        }
+      ]
+    }
+    '''
+
+    print(f'JSON 格式字串：\n===>{string_json}\n')
+
+    # 將 JSON 格式字串轉換為 Python 字典
+    dict_pi = json.loads(string_json)
+    print(f'載入 JSON 字串轉成字典 dict_pi 類型：{type(dict_pi)}:')
+    print(f'===>{dict_pi}\n')
+
+    # 遍歷 'states' 鍵的值（列表），逐一印出每個元素
+    print(f'取出鍵="states"的值（列表）逐一印出每一元素 ...')
+    for state in dict_pi['states']:
+        print(f'===>{state}')
+    print()
+
+    # 將 Python 字典轉換為 JSON 格式的字串
+    # 選擇性地，使用縮排來提高可讀性
+    new_str_json = json.dumps(dict_pi, indent=2)
+
+    print(f'字典轉成字串 new_str_json 類型：{type(new_str_json)}')
+    print(f'===>{new_str_json}\n')
+
+if __name__ == '__main__':
+    main()

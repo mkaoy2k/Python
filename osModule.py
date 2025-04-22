@@ -1,87 +1,106 @@
-# Module os examples
-#
+"""
+這個模組展示了 Python os 模組的基本使用範例
+主要功能包括：
+1. 目錄操作 (建立、刪除、改名)
+2. 目錄遍歷
+3. 檔案系統資訊查詢
+4. 目錄路徑操作
+
+"""
+
 import os
-
-# List all the methods
-print('List methods of os Module:')
-print(dir(os))
-print()
-
-# List Path of Current Working Directory (CWD)
-#    as a string
-print('List CWD path:')
-print(os.getcwd())
-print()
-
-# Change CWD
-dir1 = '/Users/michaelkao/OneDrive/My_Projects'
-print('Change CWD to:', dir1)
-os.chdir(dir1)
-print(os.getcwd())
-print()
-
-# List Contents of a Directory
-#    CWD if no parm specified
-dir1 = '/Users'
-print('List contents of {0}:'.format(dir1))
-print(os.listdir(dir1))
-print()
-
-# Create a Direcotry/folder
-#   mkdir: create only one given dir
-#   makedirs: create dirs all the way
-dir1 = 'Demo-dir'
-dir1sub = 'Sub-dir'
-dirpath = os.path.join(dir1, dir1sub)
-
-if not os.path.isdir(dirpath):
-    os.makedirs(dirpath)
-    print('{0} folder created in {1}.'.format(dir1, os.getcwd()))
-    print(os.listdir())
-    print()
-
-    print('{0} folder created in {1}.'.format(dir1sub, dir1))
-    print(os.listdir(dir1))
-    print()
-
-# List detail info of an object
 from datetime import datetime
+from pathlib import Path
 
-print('List info of:', dir1)
-mod_time = os.stat(dir1).st_mtime
-print('{0}\n\tModification time: {1}'.format(
-    os.stat(dir1), datetime.fromtimestamp(mod_time)))
-print()
-
-# Remove a Direcotry/folder that is empty
-#   rmdir: remove only one given dir
-#   removedirs: Remove dirs all the way
-if os.path.isdir(dirpath):
-    os.rmdir(dirpath)
-    print('{0} folder removed from {1}.'.format(dir1sub, dir1))
-    print(os.listdir(dir1))
+def main():
+    # 列出 os 模組的所有方法
+    print('列出 os 模組的所有方法:')
+    print(dir(os))
     print()
 
-# Rename an object (folder or file)
-dir2 = 'Demo-other-dir'
-if os.path.exists(dir1) and not os.path.exists(dir2):
-    os.rename(dir1, dir2)
-    print('{0} folder renamed to {1}.'.format(dir1, dir2))
-    print(os.listdir())
+    # 列出當前工作目錄路徑
+    print('列出當前工作目錄路徑:')
+    print(os.getcwd())
     print()
 
-# clean up
-if os.path.exists(dir1):
-    os.removedirs(dir1)
-if os.path.exists(dir2):
-    os.removedirs(dir2)
-
-# Directory tree tranversal
-dir1 = '/Users/michaelkao/OneDrive/My_Projects/Python'
-
-print('{} directory tree traversal:'.format(dir1))
-for dirpath, dirname, filename in os.walk(dir1):
-    print('Current Path:\t', dirpath)
-    print('Directories:\t', dirname)
-    print('Files:\t', filename)
+    # 更改當前工作目錄到相對路徑的 samples 目錄
+    # 使用 Path(__file__).parent 取得當前腳本所在的目錄
+    # 建立 samples 子目錄並切換到該目錄
+    script_dir = Path(__file__).parent
+    sample_dir = script_dir / 'sample'
+    sample_dir.mkdir(exist_ok=True)  # 確保目錄存在
+    print('更改當前工作目錄到:', sample_dir)
+    os.chdir(sample_dir)
+    print(os.getcwd())
     print()
+
+    # 列出當前目錄下的所有子目錄
+    print(f'列出 {sample_dir} 目錄下的所有子目錄:')
+    print([entry.name for entry in os.scandir() if entry.is_dir()])
+    print()
+
+    # 建立目錄結構
+    dir1 = 'Demo-dir'
+    dir1sub = 'Sub-dir'
+    dirpath = Path(dir1) / dir1sub
+
+    # 建立多層目錄結構
+    if not dirpath.exists():
+        dirpath.mkdir(parents=True)
+        print(f'{dir1} 目錄建立在 {os.getcwd()}')
+        
+        # 只列出子目錄
+        subdirs = [entry.name for entry in os.scandir() if entry.is_dir()]
+        print(f'子目錄列表: {subdirs}')
+        print()
+
+        print(f'{dir1sub} 目錄建立在 {dir1}')
+        
+        # 只列出子目錄
+        subdirs = [entry.name for entry in os.scandir(dir1) if entry.is_dir()]
+        print(f'子目錄列表: {subdirs}')
+        print()
+
+    # 列出目錄詳細資訊
+    print('列出目錄詳細資訊:', dir1)
+    mod_time = os.stat(dir1).st_mtime
+    print(f'\t{os.stat(dir1)}\n\t修改時間: {datetime.fromtimestamp(mod_time)}')
+    print()
+
+    # 刪除目錄
+    if dirpath.exists():
+        dirpath.rmdir()
+        print(f'{dir1sub} 目錄從 {dir1} 刪除')
+        print(os.listdir(dir1))
+        print()
+
+    # 重命名目錄
+    dir2 = 'Demo-other-dir'
+    if Path(dir1).exists() and not Path(dir2).exists():
+        Path(dir1).rename(dir2)
+        print(f'{dir1} 目錄重命名為 {dir2}')
+        print([entry.name for entry in os.scandir() if entry.is_dir()])
+        print()
+
+    # 遍歷目錄樹
+    print(f'{sample_dir} 目錄樹遍歷:')
+    for dirpath, dirname, filename in os.walk(sample_dir):
+        print(f'當前路徑:\t{dirpath}')
+        print(f'目錄:\t{dirname}')
+        print(f'檔案:\t{filename}')
+        print()
+
+    # 清理臨時目錄
+    if Path(dir1).exists():
+        print(f'刪除 {dir1} 目錄')
+        Path(dir1).rmdir()
+    if Path(dir2).exists():
+        print(f'刪除 {dir2} 目錄')
+        Path(dir2).rmdir()
+
+    # 返回原始目錄
+    os.chdir(script_dir)
+    print(f'返回原始目錄: {os.getcwd()}')
+
+if __name__ == '__main__':
+    main()
