@@ -18,9 +18,10 @@
 
 import requests
 from datetime import date, timedelta
-import json
 from dotenv import load_dotenv
 import os
+from urllib3.util.retry import Retry
+from requests.adapters import HTTPAdapter
 
 # 載入環境變數
 load_dotenv()
@@ -31,6 +32,23 @@ line_pc_token = os.getenv('LINE_PC_TOKEN')
 line_pc_name = os.getenv('LINE_PC_NAME')
 quake_url = os.getenv('QUAKE_URL')
 quake_magnitude = float(os.getenv('QUAKE_MAGNITUDE', 4.0))
+
+def create_session():
+    """
+    建立具有重試機制的 requests 會話
+    """
+    session = requests.Session()
+    retry = Retry(
+        total=3,
+        backoff_factor=1,
+        status_forcelist=[500, 502, 503, 504],
+        allowed_methods=False,
+        raise_on_status=False
+    )
+    adapter = HTTPAdapter(max_retries=retry)
+    session.mount("http://", adapter)
+    session.mount("https://", adapter)
+    return session
 
 def send_line(msg: str, img: str) -> None:
     """
@@ -50,7 +68,8 @@ def send_line(msg: str, img: str) -> None:
     }
     
     try:
-        response = requests.post(line_gw_url, headers=headers, data=data)
+        session = create_session()
+        response = session.post(line_gw_url, headers=headers, data=data, timeout=10)
         response.raise_for_status()
     except requests.exceptions.RequestException as e:
         print(f"發送 LINE 通知失敗：{str(e)}")
@@ -63,7 +82,8 @@ def get_earthquake_data() -> dict:
         dict: 包含地震資料的字典
     """
     try:
-        response = requests.get(quake_url)
+        session = create_session()
+        response = session.get(quake_url, timeout=10)
         response.raise_for_status()
         return response.json()
     except requests.exceptions.RequestException as e:
@@ -72,7 +92,7 @@ def get_earthquake_data() -> dict:
 
 def process_earthquake_events(data_json: dict) -> None:
     """
-    處理地震事件，並發送通知
+    處理地震事件，並發送Line通知
 
     Args:
         data_json (dict): 地震資料的 JSON 格式字典
@@ -100,7 +120,7 @@ def process_earthquake_events(data_json: dict) -> None:
                     send_line(msg, img)
                     print(f'===> {val} 級地震，已發送 LINE 通知給 {line_pc_name}!')
         except (KeyError, ValueError) as e:
-            print(f"處理地震事件時發生錯誤：{str(e)}")
+            print(f"處理地震資料時發生錯誤：{str(e)}")
 
 def main():
     """
@@ -108,6 +128,7 @@ def main():
     """
     print("開始爬取地震資料...")
     data_json = get_earthquake_data()
+    print("開始處理地震資料...")
     process_earthquake_events(data_json)
     print("完成資料處理")
 

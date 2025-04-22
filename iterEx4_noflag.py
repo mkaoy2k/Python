@@ -1,53 +1,77 @@
-"""Exhaustive guess approach to crack open a n-digit combo lock
-駭客解鎖的例子"""
+"""
+使用窮舉法破解數位密碼鎖
+
+此程式示範如何使用窮舉法（暴力破解）來嘗試破解一個數位密碼鎖。
+"""
 
 import itertools
-import glog as log
-from glogTime import func_timer_decorator
+import logging
 
-# log.setLevel("INFO")
-log.setLevel("DEBUG")
+# 設定 logging 格式
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
 
 
-@func_timer_decorator
 def crackLock(pass_code):
-    # n-digit lock
+    """
+    使用窮舉法嘗試破解密碼鎖
+    
+    Args:
+        pass_code (tuple): 目標密碼
+        
+    Returns:
+        bool: 是否成功破解密碼
+    """
+    # n位數密碼鎖
     n_digit = len(pass_code)
+    
+    # 生成0-9的數字序列
     numbers = tuple(range(10))
-    log.info(f'{numbers}\n===>{type(numbers)}')
+    logging.info(f'{numbers}\n===>{type(numbers)}')
 
-    # 模擬數字鎖:可迭代的產生器表達式
+    # 生成所有可能的數字組合
     combos = (
-        combo for combo in itertools.product(numbers, repeat=n_digit))
+        combo for combo in itertools.product(numbers, repeat=n_digit)
+    )
 
-    log.info(f'模擬數字鎖:可迭代的產生器表達式 {type(combos)}\n')
-    log.info(f'===> {n_digit}位數字鎖的密碼可看成{n_digit}個元素的元組物件')
-    log.info(f'===> 每一個元素值介於[0-9]的數字')
+    logging.info(f'生成所有可能的數字組合 {type(combos)}\n')
+    logging.info(f'===> {n_digit}位數密碼鎖的密碼可看成{n_digit}個元素的元組物件')
+    logging.info(f'===> 每一個元素值介於[0-9]的數字')
     max_combo = len(numbers) ** n_digit
-    log.info(f'===> 理論上用窮盡法最多試： {max_combo:,} 組合，即可破解！\n')
+    logging.info(f'===> 理論上用窮舉法最多試： {max_combo:,} 組合，即可破解！\n')
 
-    # 駭客用窮盡法，試試所有的可能組合
-    log.info(f'駭客用窮盡法開始...')
+    # 開始嘗試所有可能的組合
+    logging.info(f'開始嘗試所有可能的組合...')
 
     counter = 1
     for combo in combos:
         if combo == pass_code:
-            log.info(f'試第 {counter:,} 次組合是： {combo}')
+            logging.info(f'試第 {counter:,} 次組合是： {combo}')
             return True
-        log.debug(f'===>{combo}')
+        logging.debug(f'===>{combo}')
         counter += 1
     return False
 
 
-if __name__ == '__main__':
-
-    passcode_str = input('輸入你的數字密碼，數字之間空白隔開: ')
+def main():
+    """
+    主函數，負責處理使用者輸入並執行密碼破解
+    """
+    passcode_str = input('輸入你的數位密碼，數字之間空白隔開: ')
     if passcode_str == "":
-        # default
+        # 預設密碼
         passcode = (1, 3, 4, 2)
     else:
         passcode_list = [int(x) for x in passcode_str.split(' ')]
         passcode = tuple(passcode_list)
 
     if crackLock(passcode):
-        log.info(f'駭客用窮盡法結束\n===>{passcode} 破解.')
+        logging.info(f'成功破解密碼\n===>{passcode} 破解.')
+    else:
+        logging.info('未能破解密碼')
+
+
+if __name__ == '__main__':
+    main()

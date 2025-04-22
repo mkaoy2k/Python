@@ -1,62 +1,69 @@
-"""檢視一下 Python 内建的可迭代物件
+"""
+Python 可迭代物件範例
+
+本程式展示 Python 中各種內建的可迭代物件，並說明其特性
 """
 import itertools
+from typing import Iterable
 
+def check_iterable(obj: object) -> bool:
+    """
+    檢查物件是否為可迭代物件
 
-def check_iterable(obj):
-    # The iter() built-in function checks whether the obj implements
-    # __iter__() or not. And calls that to obtain an iterator.
-    # Python raises TypeError if failed.
+    Args:
+        obj: 要檢查的物件
+
+    Returns:
+        bool: 如果物件可迭代則返回 True，否則返回 False
+    """
     try:
         iter(obj)
-        print(f'===> {type(obj)} 是可迭代物件\n')
+        print(f'===> {type(obj)} 是可迭代物件')
         return True
     except TypeError:
-        print(f'===> {type(obj)} 不是可迭代物件\n')
+        print(f'===> {type(obj)} 不是可迭代物件')
         return False
 
+def show_iterable_examples():
+    """展示各種可迭代物件的範例"""
+    print("\n=== 序列類型 ===")
+    check_iterable([1, 2, 3])      # list
+    check_iterable((1, 2, 3))      # tuple
+    check_iterable("hello")        # str
+    check_iterable(b"hello")       # bytes
+    check_iterable(range(3))       # range
 
-# All objects, shown below, are iterables
-# List
-X = ['c123', 142_857, '尤勇', '夏琪']
-for element in X:
-    print(element, end=" ")
-check_iterable(X)
+    print("\n=== 集合類型 ===")
+    check_iterable({1, 2, 3})      # set
+    check_iterable(frozenset({1, 2, 3}))  # frozenset
+    check_iterable({"a": 1, "b": 2})  # dict
 
-# Tuple
-X = ('c123', 142_857, '尤勇', '夏琪')
-for element in X:
-    print(element, end=" ")
-check_iterable(X)
+    print("\n=== 生成器 ===")
+    check_iterable((x for x in range(3)))  # 生成器表達式
+    check_iterable(itertools.count())      # 無限生成器
 
-# Set
-X = {'c123', 142_857, '尤勇', '夏琪'}
-for element in X:
-    print(element, end=" ")
-check_iterable(X)
+    print("\n=== 其他 ===")
+    check_iterable({1, 2, 3})      # set
+    check_iterable(frozenset({1, 2, 3}))  # frozenset
+    check_iterable({"a": 1, "b": 2})  # dict
+    check_iterable(set())           # 空 set
+    check_iterable(frozenset())     # 空 frozenset
+    check_iterable(dict())          # 空 dict
 
-# Dictionary
-X = {'name': 'John', 'age': 25, 'courses': ['Math', 'ComSci']}
+def show_non_iterable_examples():
+    """展示不可迭代物件的範例"""
+    print("\n=== 不可迭代物件 ===")
+    check_iterable(123)             # int
+    check_iterable(3.14)            # float
+    check_iterable(True)            # bool
+    check_iterable(None)            # None
+    check_iterable(object())        # 基本物件
 
-# Looping thru Dictionary
-for key, value in X.items():
-    print(f'{key}:{value}')
-check_iterable(X)
+def main():
+    """主程式函數，展示可迭代物件的範例"""
+    print("=== Python 可迭代物件範例 ===")
+    show_iterable_examples()
+    show_non_iterable_examples()
 
-# String
-X = 'Michael Kao'
-for letter in X:
-    print(letter, end="")
-check_iterable(X)
-
-# Bytes String
-X = b'Binary'
-for byte in X:
-    print(byte, end=" ")
-check_iterable(X)
-
-# However, an integer type is not iterable, as follows
-# Integer
-X = 142_857
-print(X, end=" ")
-check_iterable(X)
+if __name__ == '__main__':
+    main()
