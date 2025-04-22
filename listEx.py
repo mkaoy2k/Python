@@ -1,109 +1,158 @@
-# List operations
-courses = ['History', 'Physics', 'ComSci']
-print('List of courses:', courses, '\n')
-print('   The fist element of list begins with idx zero: ', courses[0])
-print('   The last element of list can be retrieved with idx -1:', courses[-1])
-print('   The range of list is from element 0 until 2 (not including 2):\n     ',
-      courses[:2])
-print('   The range of last two elements of the list:\n     ', courses[-2:])
-print('   The length of list:', len(courses), '\n')
+"""
+這個範例程式展示了 Python 中 list (列表) 的各種基本操作和常用方法。
 
-courses_2 = ['Art', 'Education']
-print('List of another courses:', courses_2, '\n')
+主要功能包括：
+1. 基本列表操作：
+   - 取得列表元素 (使用索引)
+   - 取得列表長度
+   - 取得子列表 (使用切片)
 
-print('To insert a course: Math, on idx 1, list begins with zero')
-courses.insert(1, 'Math')
-print('List of courses:\n  ', courses, '\n')
+2. 列表修改操作：
+   - insert(): 在指定位置插入元素
+   - append(): 在列表末尾添加元素
+   - extend(): 將另一個列表的元素添加到當前列表
+   - remove(): 移除指定元素
+   - pop(): 移除並返回最後一個元素
 
-print('To insert a course_2, which is an another list')
-courses.insert(0, courses_2)
-print('List of courses:\n  ', courses, '\n')
+3. 列表排序和反轉：
+   - sort(): 排序列表
+   - reverse(): 反轉列表順序
+   - sorted(): 建立新的已排序列表
 
-print('To append a course: Art, to the last of list')
-courses.append(courses_2)
-print('List of courses:\n  ', courses, '\n')
+4. 列表查詢操作：
+   - in: 檢查元素是否存在
+   - index(): 獲取元素索引
+   - min(): 獲取最小值
+   - max(): 獲取最大值
+   - sum(): 計算總和
 
-print('To pop the last element of list')
-courses.pop()
-print('List of courses:\n  ', courses, '\n')
+5. 列表遍歷：
+   - 使用 for 迴圈遍歷列表
+   - 使用 enumerate() 獲取索引和值
 
-print('To remove an element from the list, say course_2')
-courses.remove(courses_2)
-print('List of courses:\n  ', courses, '\n')
+6. 列表轉換：
+   - join(): 將列表轉換為字串
+   - split(): 將字串轉換為列表
 
-print('To insert only course elements contained in the course_2 list')
-courses.extend(courses_2)
-print('List of courses:\n  ', courses, '\n')
+這個範例程式適合用於學習和理解 Python 列表的基本操作和常用方法。
+"""
 
-print('To remove an elelment: course, Art')
-courses.remove('Art')
-print('List of courses:\n  ', courses, '\n')
+def main():
+    # 建立列表
+    課程 = ['History', 'Physics', 'ComSci']
+    print('課程列表:', 課程, '\n')
+    print('   列表的第一個元素索引為 0:', 課程[0])
+    print('   列表的最後一個元素可使用索引 -1:', 課程[-1])
+    print('   列表的前兩個元素範圍(不含索引2):\n     ', 課程[:2])
+    print('   列表的最後兩個元素:\n     ', 課程[-2:])
+    print('   列表長度:', len(課程), '\n')
 
-# Reversing List: 3 ways to do this
-# 1. Using slicing operator to reverse the elements of the list
-print(f'1. Using slicing operator to reverse the elements of the list...')
-reversed_courses = courses[::-1]
-print(f'List of reversed courses:\n  {reversed_courses}\n')
+    # 建立另一個課程列表
+    課程2 = ['Art', 'Education']
+    print('另一個課程列表:', 課程2, '\n')
 
-# 2. Using reverse() method to reverse the elements of the list
-print(f'2. Using reverse() method to reverse the elements of the list...')
-reversed_courses.reverse()
-print(f'Reverse the reversed courses:\n  {reversed_courses}')
-print(f'List of original courses:\n  {courses}\n')
+    # 插入元素
+    print('在索引 1 位置插入數學課程')
+    課程.insert(1, 'Math')
+    print('課程列表:\n  ', 課程, '\n')
 
-# 3. Accessing elements in reversed order, using reversed() function
-print(f'3. Accessing elements in reversed order, using reversed()...')
-for ele in reversed(courses):
-    print(f'  {ele}')
+    # 插入另一個列表
+    print('在索引 0 位置插入另一個課程列表')
+    課程.insert(0, 課程2)
+    print('課程列表:\n  ', 課程, '\n')
 
-print()
+    # 追加元素
+    print('在列表末尾追加另一個課程列表')
+    課程.append(課程2)
+    print('課程列表:\n  ', 課程, '\n')
 
-# Sorting list
-nums = [1, 5, 3, 7, 9]
+    # 移除最後一個元素
+    print('移除列表的最後一個元素')
+    課程.pop()
+    print('課程列表:\n  ', 課程, '\n')
 
-# Sort numbers
-print('The list of numbers:', nums, '\n')
-print('   Minimum of list numbers:', min(nums), '\n')
-print('   Maximum of list numbers:', max(nums), '\n')
-print('   Sum of list numbers:', sum(nums), '\n')
+    # 移除指定元素
+    print('移除指定元素: 課程2')
+    課程.remove(課程2)
+    print('課程列表:\n  ', 課程, '\n')
 
-nums.sort()
-print('Sorting numbers in accendng order:\n  ', nums, '\n')
+    # 擴展列表
+    print('只擴展另一個列表中的課程元素')
+    課程.extend(課程2)
+    print('課程列表:\n  ', 課程, '\n')
 
-nums.sort(reverse=True)
-print('Sorting numbers in deccendng order:\n  ', nums, '\n')
+    # 移除指定元素
+    print('移除元素: Art')
+    課程.remove('Art')
+    print('課程列表:\n  ', 課程, '\n')
 
-# keep the original intact
-print('Keep the original list')
-sorted_courses = sorted(courses)
-print('List of courses:\n  ', courses, '\n')
-print('List of sorted courses:\n  ', sorted_courses, '\n')
+    # 反轉列表: 3 種方法
+    # 1. 使用切片運算符反轉列表元素
+    print(f'1. 使用切片運算符反轉列表元素...')
+    反轉課程 = 課程[::-1]
+    print(f'反轉後的課程列表:\n  {反轉課程}\n')
 
-# More operations of list
-print('Finding a course, ComSci, if it is in the list course: ',
-      'ComSci' in courses, '\n')
-print('   locating its index in the list: ', courses.index('ComSci'), '\n')
-print('Finding a course, Art, if it is in the list course: ', 'Art' in courses, '\n')
+    # 2. 使用 reverse() 方法反轉列表元素
+    print(f'2. 使用 reverse() 方法反轉列表元素...')
+    反轉課程.reverse()
+    print(f'反轉反轉後的課程:\n  {反轉課程}')
+    print(f'原始課程列表:\n  {課程}\n')
 
-# Looping thru the list
-print('\nThe list of courses one per line:')
-for course in courses:
-    print(course)
+    # 3. 使用 reversed() 函數以反向順序訪問元素
+    print(f'3. 使用 reversed() 函數以反向順序訪問元素...')
+    for 元素 in reversed(課程):
+        print(f'  {元素}')
 
-print('\nThe list of courses one pair per line:')
-for index, course in enumerate(courses):
-    print(index, course)
+    print()
 
-print('\nThe list of courses one pair (index from 1) per line:')
-for index, course in enumerate(courses, start=1):
-    print(index, course)
+    # 排序列表
+    數字 = [1, 5, 3, 7, 9]
 
-# Joining the list
-print('\nJoining ", " b/t the list of courses:\n  ', ', '.join(courses))
+    # 排序數字
+    print('數字列表:', 數字, '\n')
+    print('   列表中的最小數字:', min(數字), '\n')
+    print('   列表中的最大數字:', max(數字), '\n')
+    print('   列表數字總和:', sum(數字), '\n')
 
-courses_str = ' - '.join(courses)
-print('\nJoining " - " b/t the list of courses:\n  ', courses_str)
+    數字.sort()
+    print('按升序排序數字:\n  ', 數字, '\n')
 
-# Spliting the list
-new_list = courses_str.split(' - ')
-print('\nSpliting back to a list by " - ":\n  ', new_list)
+    數字.sort(reverse=True)
+    print('按降序排序數字:\n  ', 數字, '\n')
+
+    # 保持原始列表不變
+    print('保持原始列表')
+    排序後課程 = sorted(課程)
+    print('課程列表:\n  ', 課程, '\n')
+    print('排序後的課程列表:\n  ', 排序後課程, '\n')
+
+    # 更多列表操作
+    print('檢查 ComSci 是否在課程列表中: ', 'ComSci' in 課程, '\n')
+    print('   找出其在列表中的索引: ', 課程.index('ComSci'), '\n')
+    print('檢查 Art 是否在課程列表中: ', 'Art' in 課程, '\n')
+
+    # 遍歷列表
+    print('\n課程列表，每行一個:')
+    for 課程名稱 in 課程:
+        print(課程名稱)
+
+    print('\n課程列表，每行一個(含索引):')
+    for 索引, 課程名稱 in enumerate(課程):
+        print(索引, 課程名稱)
+
+    print('\n課程列表，每行一個(索引從 1 開始):')
+    for 索引, 課程名稱 in enumerate(課程, start=1):
+        print(索引, 課程名稱)
+
+    # 連接列表
+    print('\n使用 ", " 連接課程列表:\n  ', ', '.join(課程))
+
+    課程字串 = ' - '.join(課程)
+    print('\n使用 " - " 連接課程列表成字串:\n  ', 課程字串)
+
+    # 分割列表
+    新列表 = 課程字串.split(' - ')
+    print('\n使用 " - " 分割字串成列表:\n  ', 新列表)
+
+if __name__ == '__main__':
+    main()

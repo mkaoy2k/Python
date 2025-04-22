@@ -1,4 +1,5 @@
-"""Python Lambda 函式範例
+"""
+Python Lambda 函式範例
 
 本程式通過兩個示例展示 Python 中 Lambda 函式的使用：
 
@@ -19,32 +20,32 @@
 - 中文註解方便理解
 
 """
-
 from sys import getsizeof
 
-# 例子1: 印出哈囉!
+def main():
+    # 例子1: 印出哈囉!
+    def hello(title):
+        print(f'一般函式：{title}')
 
+    print(f'例子1: 印出哈囉...')
+    hello('哈囉!')
 
-def hello(title):
-    print(f'一般函式：{title}')
+    # 上面例子精簡成一行 Lambda 匿名函式
+    my_lambda = (lambda title: print(f'匿名函式：{title}\n'))
+    size = getsizeof(my_lambda)
+    my_lambda('哈囉!')
 
+    print(f'匿名函式的物件類别是：{type(my_lambda)}')
+    print(f'匿名函式的物件大小是：{size}\n')
 
-print(f'例子1: 印出哈囉...')
-hello('哈囉!')
+    # 例子2: Lambda 匿名函式印出偶數
+    print(f'例子2: 印出偶數...')
+    nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    print(f'數字列表： {nums}')
 
-# 上面例子精簡成一行 Lambda 匿名函式
-my_lambda = (lambda title: print(f'匿名函式：{title}\n'))
-size = getsizeof(my_lambda)
-my_lambda('哈囉!')
+    print(f'列表中偶數如下：')
+    for even in filter(lambda n: n % 2 == 0, nums):
+        print(f'===> {even}')
 
-print(f'匿名函式的物件類别是：{type(my_lambda)}')
-print(f'匿名函式的物件大小是：{size}\n')
-
-# 例子2: Lambda 匿名函式印出偶數
-print(f'例子2: 印出偶數...')
-nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-print(f'數字列表： {nums}')
-
-print(f'列表中偶數如下：')
-for even in filter(lambda n: n % 2 == 0, nums):
-    print(f'===> {even}')
+if __name__ == '__main__':
+    main()

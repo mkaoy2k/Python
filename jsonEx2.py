@@ -1,9 +1,42 @@
-'''JSON stands for JavaScript Object Notation.
-This is an Example of writing a JSON-format string to a JSON file'''
-import json
-import os
+'''
+JSON (JavaScript Object Notation) 是一種輕量級的資料交換格式。
+本範例示範如何將 JSON 格式的字串寫入 JSON 檔案。
 
-string_json = '''
+程式功能說明：
+1. JSON 字串處理：
+   - 包含電影資料的 JSON 格式字串
+   - 資料結構包含：
+     * 電影標題
+     * 發行年份
+     * 是否精彩
+     * 是否獲得奧斯卡獎
+     * 演員陣容
+     * 預算（null 值）
+
+2. 資料寫入：
+   - 將 JSON 格式的字串轉換為 Python 字典
+   - 將字典資料寫入 JSON 檔案
+   - 使用縮排格式化輸出，提高可讀性
+
+使用方法：
+1. 確保有足夠的寫入權限
+2. 執行程式後，會在當前目錄生成 JSON 檔案
+
+注意事項：
+- JSON 格式字串中使用了 true/false 表示布林值
+- 使用 null 表示空值
+- 列表中的元素可以是多種資料類型
+'''
+import json
+from pathlib import Path
+
+def main():
+    # 使用 pathlib 初始化當前目錄和資料夾路徑
+    current_dir = Path(__file__).parent
+    data_path = current_dir / 'sample'
+
+    # JSON 格式的字串，包含電影資料
+    string_json = '''
 {
   "movies": [
     {
@@ -70,35 +103,20 @@ string_json = '''
   ]
 }
 '''
-# print(f'JSON 格式字串：\n===>{string_json}\n')
 
-# Initialize the folder where data is located
-base_dir = os.path.dirname(os.path.abspath(__file__))
-data_path = os.path.join(base_dir, 'sample')
+    # 將 JSON 格式字串轉換為 Python 字典
+    dict_movies = json.loads(string_json)
+    print(f'轉換後的字典類型：{type(dict_movies)}')
+    print(f'字典內容：\n===>{dict_movies}\n')
 
-# Specify data file name to write in this example
-file_write = os.path.join(data_path, 'json_movies.json')
+    # 指定輸出檔案路徑
+    output_file = data_path / 'movies.json'
 
-# read a string in JSON format into a Python dictionary
-dict_movies = json.loads(string_json)
-print(f'轉成字典 dict_movies 類型：{type(dict_movies)}:')
-# print(f'===>{dict_movies}\n')
+    # 將字典寫入 JSON 檔案
+    print(f'正在寫入檔案 {output_file} ...')
+    with open(output_file, 'w', encoding="utf-8") as f:
+        json.dump(dict_movies, f, indent=2, ensure_ascii=False)
+    print(f'===>請打開 {output_file} 檢視 JSON 格式的檔案...\n')
 
-# print out the value with the key of 'movies'
-print(f'電影清單:')
-for movie in dict_movies['movies']:
-  print(f'===>{movie}\n')
-
-# converting a Python dictionary to a string in JSON format
-# with indentatons and non-ascii for readability in print
-# print(f'字典物件轉成JSON格式的字串 ...')
-new_str_json = json.dumps(dict_movies, indent=2, ensure_ascii=False)
-print(f'轉成JSON格式的字串 類型：{type(new_str_json)}')
-# print(f'===>{new_str_json}\n')
-
-# write to JSON file with utf-8 encoding
-print(f'字典物件轉成JSON格式的字串並寫入檔案 ...')
-with open(file_write, 'w', encoding="utf-8") as f:
-  json.dump(dict_movies, f, indent=2, ensure_ascii=False)
-print(
-    f'===>請打開 {file_write} 檢視 JSON 格式的檔案...\n')
+if __name__ == '__main__':
+    main()
