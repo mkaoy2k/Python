@@ -1,4 +1,5 @@
-"""Performance comparison among INSERT SQL command into Postgresql DB
+"""
+Performance comparison among INSERT SQL command into Postgresql DB
 when 1-record insert vs multiple-records at a time.
 """
 
@@ -23,21 +24,13 @@ for i in range(n):
     big_insert += "(1, 'Hello World!'),"
 big_insert = big_insert.strip(',') + ';'    # replace trailing ',' with ';'
 
-# Initialize login parms from files
-path_dir = 'sample'  # relative to the current dir
-file_db = f'{path_dir}/dbname.txt'
-file_user = f'{path_dir}/username.txt'
-
 # Load environment variables
 load_dotenv()
+db = os.getenv('DB_NAME')
+username = os.getenv('DB_USER')
 pw = os.getenv('DB_PW')
 if not pw:
     raise ValueError("環境變數 DB_PW 未設定")
-
-with open(file_db, 'r') as f:
-    db = f.read()
-with open(file_user, 'r') as f:
-    username = f.read()
 
 # Connect to DB & create cursor
 connect_info = f'dbname={db} user={username} password={pw}'

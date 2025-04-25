@@ -48,7 +48,7 @@ class FuncTimer:
         """離開上下文時，記錄結束時間並計算執行時間"""
         end_time = datetime.now()
         duration = end_time - self.init_time
-        logging.info(f'結束: {self.funcName} 共花 {duration.total_seconds():.6f} 秒.\n')
+        logging.info(f'結束: {self.funcName} \n耗時 {duration.total_seconds():.6f} 秒.\n')
 
 
 def func_timer_decorator(func: Callable) -> Callable:
