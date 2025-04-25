@@ -1,0 +1,17 @@
+{
+    "mcpServers": {
+        "email_pub": {
+            "python_path": "/Users/michaelkao/miniconda3/envs/pex/bin/python",
+            "script_path": "/Users/michaelkao/My_Projects/Python/emailPublisher.py",
+            "config_dir": "sample",
+            "timeout": 300,
+            "host": "localhost",
+            "port": 12345,
+            "max_connections": 5,
+            "log_dir": "logger",
+            "log_file": "email.log",
+            "log_level": "INFO",
+            "log_format": "%(asctime)s - %(levelname)s - %(message)s"
+        }
+    }
+}

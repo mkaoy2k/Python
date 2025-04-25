@@ -2,21 +2,14 @@
 斐波那契數列計算範例
 
 本程式展示了兩種不同的斐波那契數列計算方法：
-1. 純遞迴實現 (fibo 函數)
-2. 使用 LRU 快取的遞迴實現 (fibonacci 函數)
+1. 純遞迴實現
+2. 使用 LRU 快取的遞迴實現
 
 主要功能特點：
 - 支援正整數輸入檢查
 - 提供效能比較
-- 顯示不同資料結構的結果（列表和元組）
+- 顯示不同資料結構的結果
 - 包含異常處理機制
-
-使用方法：
-直接運行此程式即可看到斐波那契數列的計算結果和效能比較
-
-注意事項：
-- 輸入必須為正整數
-- 程式會自動處理非數字輸入
 """
 
 import time
@@ -44,27 +37,28 @@ file_handler.setFormatter(formatter)
 # 添加處理器到日誌器
 logger.addHandler(file_handler)
 
-
-def fibo(n):
-    """回傳斐波那契數列的第 n 個元素
-    
-    斐波那契數列是一個無限的正整數序列，
-    從前兩個 1 開始，每個後續數字等於前兩個數字的和。
+def fibo(n: int) -> int:
     """
-
-    # 檢查輸入是否為正整數
+    純遞迴實現的斐波那契數列計算
+    
+    Args:
+        n (int): 要計算的斐波那契數列位置
+        
+    Returns:
+        int: 斐波那契數列的第 n 個元素
+        
+    Raises:
+        TypeError: 如果輸入不是整數
+        ValueError: 如果輸入不是正整數
+    """
     if type(n) != int:
         raise TypeError("輸入必須為整數")
     elif n < 1:
         raise ValueError("輸入必須為正整數")
 
-    # 計算第 n 個項
-    if n == 1:
+    if n == 1 or n == 2:
         return 1
-    elif n == 2:
-        return 1
-    else:
-        return fibo(n - 1) + fibo(n - 2)
+    return fibo(n - 1) + fibo(n - 2)
 
 
 """
@@ -98,66 +92,93 @@ LRU 快取是一種快取策略，當快取滿了時，
 
 
 @lru_cache(maxsize=1000)
-def fibonacci(n):
-    """回傳斐波那契數列的第 n 個元素
-    
-    斐波那契數列是一個無限的正整數序列，
-    從前兩個 1 開始，每個後續數字等於前兩個數字的和。
-    
-    此函數使用 LRU 快取來優化效能
+def fibonacci(n: int) -> int:
     """
-
-    # 檢查輸入是否為正整數
+    使用 LRU 快取的斐波那契數列計算
+    
+    Args:
+        n (int): 要計算的斐波那契數列位置
+        
+    Returns:
+        int: 斐波那契數列的第 n 個元素
+        
+    Raises:
+        TypeError: 如果輸入不是整數
+        ValueError: 如果輸入不是正整數
+    """
     if type(n) != int:
         raise TypeError("輸入必須為正整數")
     elif n < 1:
         raise ValueError("輸入必須為正整數")
 
-    # 計算第 n 個項
-    if n == 1:
+    if n == 1 or n == 2:
         return 1
-    elif n == 2:
-        return 1
-    else:
-        return fibonacci(n - 1) + fibonacci(n - 2)
+    return fibonacci(n - 1) + fibonacci(n - 2)
 
-
-# Main
-if __name__ == '__main__':
-
-    max_loop = 30
-
-    # Time both functions
+def compare_performance(max_loop: int = 30) -> None:
+    """
+    比較兩種斐波那契數列實現的效能
+    
+    Args:
+        max_loop (int): 測試的最大範圍
+    """
+    # 測量不使用快取的版本
     t1 = time.time()
     for n in range(1, max_loop):
         logger.info(f'{n}:{fibo(n)}')
     t2 = time.time()
-    cacheless = t2 - t1
-    print(f'不使用快取的斐波那契函數花費了 {cacheless} 秒\n')
+    cacheless_time = t2 - t1
+    print(f'不使用快取的斐波那契函數花費了 {cacheless_time:.6f} 秒\n')
 
+    # 測量使用快取的版本
     t3 = time.time()
     for n in range(1, max_loop):
         logger.info(f'{n}:{fibonacci(n)}')
     t4 = time.time()
-    cached = t4 - t3
-    print(f'使用 LRU 快取的斐波那契函數花費了 {cached} 秒\n')
+    cached_time = t4 - t3
+    print(f'使用 LRU 快取的斐波那契函數花費了 {cached_time:.6f} 秒\n')
 
-    # Comparison
-    print(
-        f'比較：不使用快取的斐波那契函數花費了 {cacheless/cached:,.1f} 倍的時間。\n')
+    # 比較結果
+    print(f'比較：不使用快取的版本花費了 {cacheless_time/cached_time:.1f} 倍的時間。\n')
 
-    # Fibonacci seq in a list
-    L = [fibonacci(n) for n in range(1, 11)]
-    print(f'斐波那契數列在列表中：\n===>{L}\n')
+def display_results() -> None:
+    """
+    顯示斐波那契數列在不同資料結構中的表示
+    """
+    # 斐波那契數列在列表中
+    fib_list = [fibonacci(n) for n in range(1, 11)]
+    print(f'斐波那契數列在列表中：\n===>{fib_list}\n')
 
-    # Fibonacci seq in a tuple
-    T = (fibonacci(n) for n in range(1, 11))
-    print(f'斐波那契數列在元組中：\n===>{tuple(T)}\n')
+    # 斐波那契數列在元組中
+    fib_tuple = tuple(fibonacci(n) for n in range(1, 11))
+    print(f'斐波那契數列在元組中：\n===>{fib_tuple}\n')
 
-    # abnormal case
+def test_abnormal_case() -> None:
+    """
+    測試異常情況
+    """
     message = f'fibonacci("hello world")'
     try:
         print(message)
         print(fibonacci("hello world"))
-    except:
-        print('===>發生異常')
+    except Exception as e:
+        print(f'===>發生異常：{str(e)}')
+
+def main():
+    """
+    主函數，執行所有測試
+    """
+    # 清除快取
+    fibonacci.cache_clear()
+    
+    # 執行效能比較
+    compare_performance()
+    
+    # 顯示結果
+    display_results()
+    
+    # 測試異常情況
+    test_abnormal_case()
+
+if __name__ == "__main__":
+    main()

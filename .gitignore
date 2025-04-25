@@ -1,5 +1,5 @@
 # credentials
-/sample
+/.env
 
 # git environment
 /.git

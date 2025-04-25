@@ -55,8 +55,25 @@ def demonstrate_modf():
     print("4. 需要分別獲取整數部分和小數部分...")
     float_1 = 3.14
     print(f"math.modf(3.14) ===> {math.modf(3.14)}")
-    print(f"\tmath.modf(3.14) 類型是 {type(math.modf(float_1))}")
+    # 取整數部分
+    int_1 = int(math.modf(float_1)[1])
+    print(f"\t整數部分: {int_1}")
+    dec_1 = math.modf(float_1)[0]
+    print(f"\t小數部分: {dec_1}")
+    print(f"\t{float_1} 類型是 {type(float_1)}")
+    print(f"\t{int_1} 類型是 {type(int_1)}")
+    print(f"\t{dec_1} 類型是 {type(dec_1)}\n")
+    
+    float_1 = 3.85
     print(f"math.modf(3.85) ===> {math.modf(3.85)}")
+    # 取整數部分
+    int_1 = int(math.modf(float_1)[1])
+    print(f"\t整數部分: {int_1}")
+    dec_1 = math.modf(float_1)[0]
+    print(f"\t小數部分: {dec_1}")
+    print(f"\t{float_1} 類型是 {type(float_1)}")
+    print(f"\t{int_1} 類型是 {type(int_1)}")
+    print(f"\t{dec_1} 類型是 {type(dec_1)}\n")
 
 def main():
     """主函數，用於執行所有示範"""
