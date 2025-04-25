@@ -1,0 +1,76 @@
+{
+  "movies": [
+    {
+      "title": "Gattaca",
+      "release_year": 1997,
+      "is_awesome": true,
+      "won_oscar": false,
+      "actors": [
+        "Ethan Hawke",
+        "Uma Thurman",
+        "Jude Law",
+        "Alan Arkin",
+        "Lauren Dean"
+      ],
+      "budget": null,
+      "credits": {
+        "director": "Andrew Nicol",
+        "writer": "Andrew Nicol",
+        "composer": "Michael Nyman",
+        "cinematographer": "Sławomir Idziak"
+      }
+    },
+    {
+      "title": "Minority Report",
+      "director": "Steven Spielberg",
+      "composer": "Jogn Williams",
+      "actors": [
+        "Tom Cruise",
+        "Colin Farrell",
+        "Samantha Morton",
+        "Max von Sydow"
+      ],
+      "is_awesome": true,
+      "budget": 102000000,
+      "cinematographer": "Janusz Kamiński"
+    },
+    {
+      "title": "太陽旗",
+      "director": "魏德聖",
+      "composer": "何國傑",
+      "actors": [
+        "林慶台",
+        "遊大慶",
+        "馬志翔",
+        "安藤政信",
+        "木村祐一",
+        "徐若瑄",
+        "溫嵐",
+        "羅美玲",
+        "田中千繪"
+      ],
+      "is_awesome": true,
+      "budget": null,
+      "cinematographer": "秦鼎昌"
+    },
+    {
+      "title": "彩虹旗",
+      "director": "魏德聖",
+      "composer": "何國傑",
+      "actors": [
+        "林慶台",
+        "遊大慶",
+        "馬志翔",
+        "安藤政信",
+        "木村祐一",
+        "徐若瑄",
+        "溫嵐",
+        "羅美玲",
+        "田中千繪"
+      ],
+      "is_awesome": true,
+      "budget": null,
+      "cinematographer": "秦鼎昌"
+    }
+  ]
+}
