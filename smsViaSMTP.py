@@ -65,6 +65,9 @@ import ssl
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
+# 使用 'email.header' 模組來處理郵件標題編碼
+from email.header import Header
+
 # 使用 'dataclasses' 模組來建立資料類別
 from dataclasses import dataclass
 
@@ -118,7 +121,7 @@ class SMS:
 
 @dataclass
 class Messenger:
-    '''郵件發送器類別
+    '''訊息類別
     
     Attributes:
         username (str): 發件人電子郵件地址
@@ -145,7 +148,7 @@ class Messenger:
             self.conn.close()
 
     def send_sms(self, msg: SMS, one_time: bool = False):
-        '''發送簡訊
+        '''發送簡訊 via SMTP
         
         Args:
             msg (SMS): 簡訊訊息物件
@@ -157,8 +160,9 @@ class Messenger:
         message = MIMEMultipart("alternative")
         message["From"] = self.username
         message["To"] = msg.recipient
-        message["Subject"] = msg.subject
-        message.attach(MIMEText(msg.body, "plain"))
+        # 使用 UTF-8 編碼處理多語言主旨與內文
+        message["Subject"] = Header(msg.subject, 'utf-8')
+        message.attach(MIMEText(msg.body, "plain", 'utf-8'))
         
         self.conn.sendmail(self.username, msg.recipient, message.as_string())
         
@@ -178,12 +182,14 @@ class Messenger:
         message = MIMEMultipart("alternative")
         message["From"] = self.username
         message["To"] = msg.to
-        message["Subject"] = msg.subject
+        # 使用 UTF-8 編碼處理多語言主旨
+        message["Subject"] = Header(msg.subject, 'utf-8')
         
+        # 使用 UTF-8 編碼處理多語言內文
         if msg.is_HTML:
-            message.attach(MIMEText(msg.body, "html"))
+            message.attach(MIMEText(msg.body, "html", 'utf-8'))
         else:
-            message.attach(MIMEText(msg.body, "plain"))
+            message.attach(MIMEText(msg.body, "plain", 'utf-8'))
         
         self.conn.sendmail(self.username, msg.to, message.as_string())
         
@@ -191,7 +197,7 @@ class Messenger:
             self.close_conn()
 
 
-def main():
+if __name__ == '__main__':
     """主程式函數，負責執行電子郵件和簡訊發送測試"""
     try:
         # 載入環境變數
@@ -210,17 +216,12 @@ def main():
         # 檢查 sample 目錄是否存在
         if not path_dir.exists():
             raise FileNotFoundError(f"找不到 sample 目錄: {path_dir}")
-
-        # 從環境變數讀取密碼
-        email_password = os.getenv('PASSWORD')
+        email_sender = os.getenv('EMAIL_SENDER')
+        email_password = os.getenv('EMAIL_PASSWORD')
         if not email_password:
-            raise ValueError("環境變數 PASSWORD 未設定")
+            raise ValueError("環境變數 EMAIL_PASSWORD 未設定")
 
-        # 讀取發件人電子郵件
-        with open(file_sender, 'r') as f:
-            email_sender = f.read().strip()
-
-        # 建立郵件發送器實例
+        # 建立訊息物件
         my_messenger = Messenger(email_sender, email_password)
 
         # 發送 TXT 郵件
@@ -254,18 +255,17 @@ def main():
         except Exception as e:
             print(f'send_email(): 發送 HTML 郵件時發生錯誤: {str(e)}\n')
 
-        # 發送簡訊
+        # 發送簡訊 
         mobile_number = os.getenv('SMS_MOBILE_NUMBER')
         SMSgateway = os.getenv('SMS_GATEWAY')
         SMSmsg = os.getenv('SMS_MESSAGE')
         
         if not all([mobile_number, SMSgateway, SMSmsg]):
             print("簡訊設定不完整，跳過簡訊發送")
-            return
+            exit
 
-        subject = "test SMS from Michael Kao"
-        body = SMSmsg
-        msg = SMS(mobile_number, SMSgateway, subject, body)
+        subject = os.getenv('SMS_SUBJECT')
+        msg = SMS(mobile_number, SMSgateway, subject, SMSmsg)
 
         try:
             my_messenger.send_sms(msg, one_time=True)
@@ -278,6 +278,3 @@ def main():
 
     except Exception as e:
         print(f'主程式執行時發生錯誤: {str(e)}')
-
-if __name__ == '__main__':
-    main()
