@@ -1,4 +1,5 @@
-"""使用 textbelt HTTP 服務器發送簡訊
+"""
+使用 textbelt HTTP 服務器發送簡訊
 
 這個模組使用 textbelt HTTP 服務器來發送簡訊到手機。
 簡訊內容會從指定的檔案讀取，並限制在 80 個字元以內（textbelt 的限制）。
@@ -9,23 +10,23 @@ import os
 import requests
 from pathlib import Path
 
-def send_text(msg: str) -> dict:
+def send_sms(msg: str) -> dict:
     """
-    使用 textbelt HTTP 服務器發送簡訊
+    使用 HTTP 服務器發送簡訊
 
     Args:
         msg (str): 要發送的簡訊內容
 
     Returns:
-        dict: textbelt API 的回應
+        dict: HTTP 服務的回應
     """
-    # 建立並發送 POST 請求到 textbelt HTTP 服務
-    resp = requests.post('https://textbelt.com/text', {
+    # 建立並發送 POST 請求到 HTTP 服務
+    resp = requests.post(os.getenv('SMS_URL'), {
         'phone': os.getenv('SMS_MOBILE_NUMBER'),
         'message': msg,
         'key': 'textbelt'
     })
-    # 回傳 API 回應結果
+    # 回傳 HTTP 服務回應結果
     return resp.json()
 
 
@@ -46,10 +47,7 @@ def get_message_from_file(file_path: Path) -> str:
     return content[:80]  # textbelt 限制簡訊長度為 80 個字元
 
 
-def main():
-    """
-    主程式
-    """
+if __name__ == '__main__':
     # 載入環境變數
     load_dotenv()
     try:
@@ -65,12 +63,8 @@ def main():
         # 讀取並發送簡訊
         message = get_message_from_file(file_path)
         print(f"準備發送簡訊到 {mobile_number}...")
-        response = send_text(message)
+        response = send_sms(message)
         print("發送結果:", response)
 
     except Exception as e:
         print(f"發生錯誤: {str(e)}")
-
-
-if __name__ == '__main__':
-    main()
