@@ -1,27 +1,35 @@
-# Set operations
-cs_courses = {'History', 'Math', 'Physics', 'ComSci', 'Math'} # dup Math noticed
-print('\nSet cs_courses (no duplicate):', cs_courses, '\n')
+"""
+集合運算範例
+展示 Python 集合的基本操作，包括交集、差集和聯集運算
+"""
 
-art_courses = {'History', 'Math', 'Art', 'Design'}
+def main():
+    """
+    主函數：展示集合運算的範例
+    """
+    # 建立電腦科學課程集合（自動移除重複元素）
+    cs_courses = {'History', 'Math', 'Physics', 'ComSci', 'Math'}
+    print('\n電腦科學課程集合（無重複）:', cs_courses, '\n')
 
-print('\nSet intersection:')
-print(cs_courses.intersection(art_courses))
+    # 建立藝術課程集合
+    art_courses = {'History', 'Math', 'Art', 'Design'}
 
-print('\nSet difference:')
-print(cs_courses.difference(art_courses))
+    # 顯示集合交集
+    print('\n集合交集（同時存在於兩集合中的元素）:')
+    print(cs_courses.intersection(art_courses))
 
-print('\nSet union:')
-print(cs_courses.union(art_courses))
+    # 顯示集合差集
+    print('\n集合差集（只存在於第一個集合中的元素）:')
+    print(cs_courses.difference(art_courses))
 
-# Empty Lists
-empty_list = []
-empty_list = list()
+    # 顯示集合聯集
+    print('\n集合聯集（兩個集合的所有元素）:')
+    print(cs_courses.union(art_courses))
 
-# Empty Tuples
-empty_tuple = ()
-empty_tuple = tuple()
+    # 空集合的正確建立方式
+    print('\n\n空集合的建立方式：')
+    print('錯誤方式：{} 會建立空字典')
+    print('正確方式：set()')
 
-# Empty Sets
-empty_set = {} # This is NOT right! It's an empty Dictionary
-empty_set = set() # only this valid, confusing!
- 
+if __name__ == '__main__':
+    main()

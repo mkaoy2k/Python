@@ -2,26 +2,28 @@
 
 這個目錄包含了多種 Python 程式碼，涵蓋了從基本程式設計概念到實用應用的範例。以下是主要的程式碼類別和功能說明：
 
-## 1. 教學示範程式
+## 1. 基本程式設計範例
+
+### 數據結構與演算法
+
+- `biTree.py` 系列: 二元樹資料結構實現
+- `bsTree.py` 系列: 二元搜尋樹實現
+- `heap*.py`: 堆積資料結構實現
+- `fibo.py`: 斐波那契數列計算
+- `gRatio.py`: 黃金比例計算
 
 ### 基本程式設計概念
 
-- `loopEx.py`: 教學示範各種循環結構
+- `arithmetic.py`: 基本運算示範
+- `condFlowEx.py`: 條件流程控制
+- `comprehensionEx.py` 系列: 列表生成式示範
 - `dictEx.py`: 字典操作示範
-- `condFlowEx.py`: 條件判斷示範
 - `funcEx.py`: 函數使用示範
 
-### 數據結構
+### 檔案操作
 
-- `biTree.py` 系列: 二元樹相關實作
-- `bst.py` 系列: 二元搜尋樹實作
-- `heap*.py`: 堆積資料結構實作
-
-### 算法
-
-- `primeLib.py`: 質數相關算法
-- `gRatio.py`: 黃金比例計算
-- `fibo.py`: 斐波那契數列計算
+- `filesEx*.py`: 檔案讀取/寫入示範
+- `csvEx*.py`: CSV 檔案處理示範
 
 ## 2. 遊戲程式
 
@@ -40,22 +42,28 @@
 
 ## 3. 實用工具
 
-### 地震監測系統
+### 資料處理
 
-- `quake.py`: 地震資料爬取
-- `smsOnQuake.py`: 地震簡訊通知系統
+- `cacheEx.py` 系列: 快取機制示範
+- `email*.py`: 電子郵件相關工具
+- `dates.py`: 日期時間處理
 
-### 其他工具
+### 檔案處理
 
-- `qrCodeEx.py`: QR Code 生成器
+- `csvEx*.py`: CSV 檔案處理
 - `jsonAPI.py`: JSON API 處理示範
-- `emailSender.py`: 電子郵件發送工具
 
-## 4. 數學計算
+## 4. 先進主題
 
-- `piLib.py`: π值計算方法比較
-- `piEstimate.py`: π值估算
-- 數學相關的算法和計算工具
+### 進階特性
+
+- `asyncEx.py`: 非同步程式設計示範
+- `dunderEx.py`: 魔法方法示範
+- `exceptionEx.py`: 異常處理示範
+
+### 性能優化
+
+- `eafp.py`: Python 程式設計模式示範
 
 ## 使用方式
 
@@ -63,14 +71,8 @@
 
 ```bash
 python gameSnake.py
-python primeLib.py
+python cacheEx.py
 ```
-
-## 注意事項
-
-- 部分程式需要安裝額外的套件（如 Pygame）
-- 部分程式需要設定環境變數（如電子郵件相關設定）
-- 建議在虛擬環境中運行這些程式
 
 ## 技術堆疊
 
@@ -81,6 +83,11 @@ python primeLib.py
 - requests（API 請求）
 - logging（日誌記錄）
 - json（資料處理）
+
+## 注意事項
+
+- 部分程式需要安裝額外的套件（如 Pygame）
+- 建議在虛擬環境中運行這些程式
 
 ## 版本控制
 

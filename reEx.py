@@ -1,126 +1,94 @@
-"""A regular expression, or regex, is a pattern that can be used to match
-and manipulate strings in Python.
-
-The re module in Python provides a set of functions for
-working with regular expressions.
 """
+這個程式展示 Python re 模組中的主要功能和用法
+主要功能包括：
+1. 列出 re 模組中的所有公開類別和函數
+2. 進行模式匹配的示範
+3. 展示編譯模式的重複使用
+4. URL 匹配的示範
+"""
+
 import re
 from inspect import getmembers, isclass, isfunction
 
-#  Display classes in 're' module
-print(f'Display classes in "re" module')
-for (name, member) in getmembers(re, isclass):
-    if not name.startswith("_"):
-        print(f'===>{name}')
-print()
+def main():
+    """
+    主函數，負責執行程式的主要邏輯
+    
+    這個函數會依次執行以下功能：
+    1. 列出 re 模組中的所有公開類別
+    2. 列出 re 模組中的所有公開函數
+    3. 示範模式匹配在字串中的使用
+    4. 示範模式匹配在句子中的使用（忽略大小寫）
+    5. 示範編譯模式的重複使用
+    """
+    # 1. 列出 re 模組中的類別
+    print("\n顯示 re 模組中的類別：")
+    for (name, _) in getmembers(re, isclass):
+        if not name.startswith("_"):
+            print(f'\t{name}')
 
-# Display functions in 're' module
-print(f'Display functions in "re" module')
-for (name, member) in getmembers(re, isfunction):
-    if not name.startswith("_"):
-        print(f'===>{name}')
-print()
+    # 2. 列出 re 模組中的函數
+    print("\n顯示 re 模組中的函數：")
+    for (name, _) in getmembers(re, isfunction):
+        if not name.startswith("_"):
+            print(f'\t{name}')
 
-# Example of matching patterns in a string
-print(f"Example of matching patterns in a string...")
-
-text_to_search = '''
-abcdefghijklmnopqurtuvwxyz
+    # 3. 匹配模式在字串中的示範
+    print("\n匹配模式在字串中的示範：")
+    text_to_search = '''abcdefghijklmnopqurtuvwxyz
 ABCDEFGHIJKLMNOPQRSTUVWXYZ
 1234567890
 Ha HaHa
 MetaCharacters (Need to be escaped):
 . ^ $ * + ? { } [ ] \ | ( )
-coreyms.com
+
+Corey Schafer.com
 321-555-4321
 123.555.1234
-123*555*1234
 800-555-1234
 900-555-1234
+
 Mr. Schafer
 Mr Smith
 Ms Davis
 Mrs. Robinson
 Mr. T
 '''
-print(f"==>{text_to_search}<==")
 
-# match 800- and 900-phone numbers
-pattern0 = re.compile(r'[89]00[-.]\d\d\d[-.]\d\d\d\d')
+    pattern = re.compile(r'abc')
+    matches = pattern.finditer(text_to_search)
+    print("匹配 abc 模式的結果：")
+    for match in matches:
+        print(f"\t位置: {match.span()}, 內容: '{match.group()}'")
 
-# match phone numbers
-pattern1 = re.compile(r'\d{3}.\d{3}.\d{4}')
+    # 4. 匹配模式在句子中的示範（忽略大小寫）
+    print("\n匹配模式在句子中的示範（忽略大小寫）：")
+    sentence = "The quick brown fox jumps over the lazy dog."
+    pattern = re.compile(r'fox', re.IGNORECASE)
+    matches = pattern.finditer(sentence)
+    print("匹配 fox 模式的結果：")
+    for match in matches:
+        print(f"\t位置: {match.span()}, 內容: '{match.group()}'")
 
-# match Mr....
-pattern2 = re.compile(r'Mr\.? [A-Z]\w*')
+    # 5. 可重複使用的編譯模式示範
+    print("\n可重複使用的編譯模式示範：")
+    urls = [
+        "https://www.google.com",
+        "https://www.facebook.com",
+        "https://twitter.com",
+        "https://www.instagram.com"
+    ]
 
-# match all Mr. Ms. and Mrs...
-pattern3 = re.compile(r'(Mr|Ms|Mrs)\.? [A-Z]\w*')
+    # 匹配 URL 模式
+    url_pattern = re.compile(r'https://(www\.)?([a-zA-Z0-9]+)(\.[a-zA-Z]+)')
+    print("匹配 URL 模式的結果：")
+    for url in urls:
+        matches = url_pattern.finditer(url)
+        for match in matches:
+            print(f"\n原始 URL: {url}")
+            print(f"\t完整匹配: {match.group(0)}")
+            print(f"\t主域名: {match.group(2)}")
+            print(f"\t頂層域名: {match.group(3)}")
 
-matches = pattern3.finditer(text_to_search)
-
-# print(matches)
-for match in matches:
-    print(f"===>{match}")
-print()
-
-# Example of matching a pattern (case-ignored) from a sentence
-print(f"Example of matching a pattern (case-ignored) from a sentence...")
-
-sentence = 'Start a sentence and then bring it to an end'
-print(f"==>{sentence}<==")
-
-pattern = re.compile(r'start', re.I)
-matches = pattern.search(sentence)
-print(f"===>{matches}")
-print()
-
-print("Example of re-usable compiled pattern...")
-
-urls = '''https://www.google.com
-http://coreyms.com
-https://youtube.com
-https://www.nasa.gov
-'''
-print(f"==>{urls}<==\n")
-
-"""
-The re.compile() function is used to precompile a regular expression
-pattern, creating a regular expression object that can be used for
-pattern matching. This can be useful in situations where the same
-regular expression will be used multiple times, as it allows the
-pattern to be compiled once, and then used repeatedly,
-rather than having to recompile the pattern each time it is used.
-
-Additionally, compile() can take some optional parameters like
-re.IGNORECASE,
-re.DOTALL,
-re.MULTILINE and so on, that allow you to define how
-the regular expression should behave.
-"""
-
-pattern = re.compile(r'https?://(www\.)?(\w+)(\.\w+)')
-
-# Using compiled Pattern to find the 2nd & 3rd parts of urls
-subbed_urls = pattern.sub(r'\2\3', urls)
-
-# Example of filtering 'www' out of URL's
-print("Filtering 'www' out of URL list...")
-print(f'===>subbed_url is {type(subbed_urls)}\n===>{subbed_urls}<==')
-
-# Using compiled Pattern to find the 3rd group
-print("Printing the 3rd group of matched strings...")
-matches = pattern.finditer(urls)
-
-for match in matches:
-    str = match.group(3)
-    print(f'===>{str}')
-
-# Example of matching pattern from a file
-# with open('person_data.txt', 'r') as f:
-#     contents = f.read()
-
-#     matches = pattern.finditer(contents)
-
-#     for match in matches:
-#         print(match)
+if __name__ == "__main__":
+    main()

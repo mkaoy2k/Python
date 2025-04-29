@@ -1,64 +1,109 @@
-"""Examples of Sorting Customized Objects by its attributes
-Assuming attributes are alphanumeric sortables
-3 ways to sort an object
-1. sorted() with key=user-defined-function
-2. sorted() with key=lambda function
-3. sorted() with key=attrgetter(), 'operator' Module required
+"""
+這個程式示範如何根據自定義物件的屬性進行排序
+主要展示了三種排序方式：
+1. 使用自定義函數作為 key
+2. 使用 lambda 函數作為 key
+3. 使用 attrgetter 函數作為 key
 """
 
-class Employee():
+from operator import attrgetter
+
+class Employee:
+    """
+    員工類別，包含姓名、年齡和薪資屬性
+    """
     def __init__(self, name, age, salary):
         self.name = name
         self.age = age
         self.salary = salary
 
     def __repr__(self):
-        return '({},{},{})'.format(self.name, self.age, self.salary)
+        """
+        定義物件的字串表示方式
+        """
+        return f'({self.name},{self.age},{self.salary})'
 
-
-e1 = Employee('Carl Washington', 37, 70000)
-e2 = Employee('Sarah Dumbo', 29, 80000)
-e3 = Employee('Michael Kao', 43, 90000)
-
-print(f'Example of sorting an object:')
-emp_li = [e1, e2, e3]
-print(f'Original Emp List:\n{emp_li}\n')
-
-def e_sort_name(emp):
+def sort_by_name(emp):
+    """
+    根據員工姓名進行排序的函數
+    
+    Args:
+        emp (Employee): 員工物件
+    
+    Returns:
+        str: 員工姓名
+    """
     return emp.name
 
-
-def e_sort_age(emp):
+def sort_by_age(emp):
+    """
+    根據員工年齡進行排序的函數
+    
+    Args:
+        emp (Employee): 員工物件
+    
+    Returns:
+        int: 員工年齡
+    """
     return emp.age
 
-
-def e_sort_salary(emp):
+def sort_by_salary(emp):
+    """
+    根據員工薪資進行排序的函數
+    
+    Args:
+        emp (Employee): 員工物件
+    
+    Returns:
+        int: 員工薪資
+    """
     return emp.salary
 
-print(f'1. Sorted by user-defined function:')
+def main():
+    """
+    主程式函數，示範不同的排序方式
+    """
+    # 建立員工物件
+    e1 = Employee('Carl Washington', 37, 70_000)
+    e2 = Employee('Sarah Dumbo', 29, 80_000)
+    e3 = Employee('Michael Kao', 43, 90_000)
+    
+    print("\n=== 員工排序示範 ===")
+    
+    # 原始員工列表
+    emp_list = [e1, e2, e3]
+    print("\n原始員工列表:")
+    print(f'\t{emp_list}')
+    
+    # 1. 使用自定義函數排序
+    print("\n=== 1. 使用自定義函數排序 ===")
+    
+    # 按姓名排序
+    sorted_by_name = sorted(emp_list, key=sort_by_name)
+    print("\n按姓名排序:")
+    print(f'\t{sorted_by_name}')
+    
+    # 按年齡排序
+    sorted_by_age = sorted(emp_list, key=sort_by_age)
+    print("\n按年齡排序:")
+    print(f'\t{sorted_by_age}')
+    
+    # 按薪資遞減排序
+    sorted_by_salary = sorted(emp_list, key=sort_by_salary, reverse=True)
+    print("\n按薪資遞減排序:")
+    print(f'\t{sorted_by_salary}')
+    
+    # 2. 使用 lambda 函數排序
+    print("\n=== 2. 使用 lambda 函數排序 ===")
+    sorted_by_lambda = sorted(emp_list, key=lambda e: e.name, reverse=True)
+    print("\n按姓名遞減排序:")
+    print(f'\t{sorted_by_lambda}')
+    
+    # 3. 使用 attrgetter 函數排序
+    print("\n=== 3. 使用 attrgetter 函數排序 ===")
+    sorted_by_attrgetter = sorted(emp_list, key=attrgetter('salary'), reverse=True)
+    print("\n按薪資遞減排序:")
+    print(f'\t{sorted_by_attrgetter}')
 
-s_emp_li = sorted(emp_li, key=e_sort_name)
-print(f'===>Sorted by user-defined function w/ "name":')
-print(f'{s_emp_li}\n')
-
-s_emp_li2 = sorted(emp_li, key=e_sort_age)
-print(f'===>Sorted by user-defined function w/ age:')
-print(f'{s_emp_li2}\n')
-
-s_emp_li3 = sorted(emp_li, key=e_sort_salary, reverse=True)
-print('===>Sorted by user-defined function w/ salary in reverse:')
-print(f'{s_emp_li3}\n')
-
-# 2nd way to sort
-print(f'2. Sorting object by lambda() function:')
-s_emp_li4 = sorted(emp_li, key=lambda e: e.name, reverse=True)
-print(f'===>By "name" in reverse order:')
-print(f'{s_emp_li4}\n')
-
-# 3rd way to sort
-print(f'3. Sorting object by attrgetter() function:')
-from operator import attrgetter
-
-s_emp_li5 = sorted(emp_li, key=attrgetter('salary'), reverse=True)
-print(f'===>By salary in reverse order:')
-print(f'{s_emp_li5}\n')
+if __name__ == "__main__":
+    main()

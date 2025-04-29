@@ -120,15 +120,12 @@ def is_prime(n: int) -> bool:
             return False
     return True
 
-def main() -> None:
-    """
-    主函數，用於測試質數相關函數
-    """
-    print("=== 質數測試 ===")
+
     
-    # 測試 generate_primes
-    print("\n生成前 10 個質數:")
-    print(generate_primes(10))
+if __name__ == '__main__':
+    """
+    主程式函數，用於測試各個質數生成函數
+    """
     
     # 測試不同的質數檢查函數
     test_numbers = [1, 2, 3, 4, 5, 97, 100, 101]
@@ -141,12 +138,10 @@ def main() -> None:
     # 測試效能
     large_number = 1_000_000_007
     print(f"\n給定一個測試數字: {large_number:,}")
-    print("\n效能測試開始...")
+    print("效能測試開始...")
     for func in [is_prime_v1, is_prime_v2, is_prime]:
         start_time = time.time()
         result = func(large_number)
         end_time = time.time()
         print(f"{func.__name__}({large_number:,}): {result} ({end_time - start_time:.6f} 秒)")
-
-if __name__ == '__main__':
-    main()
+ 
