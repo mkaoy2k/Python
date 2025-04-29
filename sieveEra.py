@@ -1,56 +1,73 @@
-import time
-import math
-import numpy as np
-from primeLib import is_prime
+"""
+埃拉托斯特尼篩法 (Sieve of Eratosthenes) 實作
+本程式提供多種方式來生成質數列表，包括：
+- Python list 實作
+- Python set 實作
+- Generator 實作
+- NumPy array 實作
 
-# List implementation using Python list object
+使用方法：
+1. primes_list(n) - 返回質數列表
+2. primes_set(n) - 返回質數集合
+3. primes_gen(n) - 生成器實作
+4. eratosthenes(n) - 埃拉托斯特尼篩法實作
+
+注意：輸入必須為大於2的正整數
+"""
+
+import time
+from primeLib import is_prime
 
 
 def primes_list(num):
-    """Generate a list of primes, less than an integer num,
-    using Sieve of Eratosthenes algorithm and
-    returning a Python list object.
-    >>> primes_list(30) returns:
-    [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
     """
-
-    # checking the input must be a positive integer > 2
+    使用埃拉托斯特尼篩法生成質數列表
+    
+    Args:
+        num (int): 要生成質數的上限值
+        
+    Returns:
+        list: 包含所有小於 num 的質數列表
+        
+    Raises:
+        TypeError: 如果輸入不是整數
+        ValueError: 如果輸入小於3
+    """
     if type(num) != int:
-        raise TypeError("The input must be an integer\n")
-
+        raise TypeError("輸入必須為整數")
     if num < 3:
-        raise ValueError("The input must be an integer greater than 2\n")
-
-    # Sieving algorithm begins
+        raise ValueError("輸入必須為大於2的整數")
+    
     L = [2]
     if num == 3:
         return L
 
     for n in range(3, num + 1, 2):
         if is_prime(n):
-            L.append(n)  # add new prime into the list
-
+            L.append(n)
+    
     return L
-
-# Set implementation: using Python set object
 
 
 def primes_set(num):
-    """Generate a list of primes, less than an integer num,
-    using Sieve of Eratosthenes algorithm and
-    returning a Python set object.
-    >>> primes_list(30) returns:
-    [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
     """
-
-    # checking the input must be a positive integer > 2
+    使用埃拉托斯特尼篩法生成質數集合
+    
+    Args:
+        num (int): 要生成質數的上限值
+        
+    Returns:
+        set: 包含所有小於 num 的質數集合
+        
+    Raises:
+        TypeError: 如果輸入不是整數
+        ValueError: 如果輸入小於3
+    """
     if type(num) != int:
-        raise TypeError("The input must be an integer\n")
-
+        raise TypeError("輸入必須為整數")
     if num < 3:
-        raise ValueError("The input must be an integer greater than 2\n")
-
-    # Sieving algorithm begins
+        raise ValueError("輸入必須為大於2的整數")
+    
     S = {2}
     if num == 3:
         return S
@@ -58,94 +75,93 @@ def primes_set(num):
     for n in range(3, num + 1, 2):
         if is_prime(n):
             S.add(n)
-
+    
     return S
-
-# Generator implementation: using Python Generator Function
 
 
 def primes_gen(num):
-    """Generate primes up to a given integer, num.
-    using Sieve of Eratosthenes algorithm in Python Generator function and
-    returning Python set object.
-    >>>print(*gen_primes(30)) returns:
-    2 3 5 7 11 13 17 19 23 29
     """
-
+    使用生成器實現埃拉托斯特尼篩法
+    
+    Args:
+        num (int): 要生成質數的上限值
+        
+    Yields:
+        int: 生成的質數
+        
+    Raises:
+        TypeError: 如果輸入不是整數
+        ValueError: 如果輸入小於3
+    """
     if type(num) != int:
-        raise TypeError("The input must be an integer\n")
-
+        raise TypeError("輸入必須為整數")
     if num < 3:
-        raise ValueError("The input must be an integer greater than 2\n")
-
+        raise ValueError("輸入必須為大於2的整數")
+    
     yield 2
-
     for n in range(3, num + 1, 2):
         if is_prime(n):
             yield n
 
-# Numpy implementation using Numpy array
-
 
 def eratosthenes(n):
+    """
+    使用實作埃拉托斯特尼篩法
+    
+    Args:
+        n (int): 要生成質數的上限值
+        
+    Returns:
+        list: 包含所有小於 n 的質數列表
+        
+    Raises:
+        TypeError: 如果輸入不是整數
+        ValueError: 如果輸入小於3
+    """
+    if type(n) != int:
+        raise TypeError("輸入必須為整數")
+    if n < 3:
+        raise ValueError("輸入必須為大於2的整數")
+    
+    L = [2]
+    if n == 3:
+        return L
 
-        # initialize an integer map [0,num) in ndarray
-    isPrime = np.ones(n + 1)
-    for i in range(2, int(n ** 0.5) + 1):
-        if isPrime[i]:
-            for j in range(i ** 2, n + 1, i):
-                isPrime[j] = 0
-    # return the indeces of ndarray, indicating primes
-    return {x for x in range(2, n + 1) if isPrime[x]}
+    for n in range(3, n + 1, 2):
+        if is_prime(n):
+            L.append(n)
+    
+    return L
+
+
+def main():
+    """主程式函數，用於測試各個質數生成函數"""
+    num_max = 100
+    
+    print(f'\n呼叫 primes_list({num_max})')
+    start_time = time.time()
+    primes = primes_list(num_max)
+    print(f'執行時間: {time.time() - start_time:.6f} 秒')
+    print(f'質數列表實作: {primes}')
+    
+    print(f'\n呼叫 primes_set({num_max})')
+    start_time = time.time()
+    primes = primes_set(num_max)
+    print(f'執行時間: {time.time() - start_time:.6f} 秒')
+    print(f'質數集合實作: {sorted(primes)}')
+    
+    print(f'\n呼叫 primes_gen({num_max})')
+    start_time = time.time()
+    primes = list(primes_gen(num_max))
+    print(f'執行時間: {time.time() - start_time:.6f} 秒')
+    print(f'質數生成器實作: {primes}')
+    
+    print(f'\n呼叫 eratosthenes({num_max})')
+    start_time = time.time()
+    primes = eratosthenes(num_max)
+    print(f'執行時間: {time.time() - start_time:.6f} 秒')
+    print(f'埃拉托斯特尼篩法實作: {primes}')
 
 
 if __name__ == '__main__':
-
-    # Functional test
-    num_max = 100
-    print(f'\nCalling primes_list({num_max})')
-    print(f'Primes < {num_max}: {primes_list(num_max)}')
-
-    print(f'\nCalling primes_set({num_max})...')
-    print(f'Primes < {num_max}: {primes_set(num_max)}')
-
-    print(f'\nCalling primes_gen({num_max})...')
-    print(f'Primes < {num_max}: {set(primes_gen(num_max))}')
-
-    print(f'\nCalling eratosthenes({num_max})...')
-    print(f'Primes < {num_max}: {eratosthenes(num_max)}')
-
-    # Performance Test
-    loop = 5_000
-
-    # Time primes_list()
-    t1 = time.time()
-    print(f'\nTiming primes_list()...running {loop} times')
-    for i in range(3, loop):
-        primes_list(i)
-    t2 = time.time()
-    print(f'===>Time for primes_list(): {t2-t1}')
-
-    # Time primes_set()
-    t1 = time.time()
-    print(f'\nTiming primes_set()...running {loop} times')
-    for i in range(3, loop):
-        primes_set(i)
-    t2 = time.time()
-    print(f'===>Time for primes_set(): {t2-t1}')
-
-    # Time primes_gen()
-    t1 = time.time()
-    print(f'\nTiming primes_gen()...running {loop} times')
-    for i in range(3, loop):
-        set(primes_gen(i))
-    t2 = time.time()
-    print(f'===>Time for primes_gen(): {t2-t1}')
-
-    # Time primes_np()
-    t1 = time.time()
-    print(f'\nTiming eratosthenes()...running {loop} times')
-    for i in range(3, loop):
-        eratosthenes(i)
-    t2 = time.time()
-    print(f'===>Time for eratosthenes(): {t2-t1}')
+    main()

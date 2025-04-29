@@ -1,53 +1,100 @@
-"""Example of sorting dictionaries using 'sortedcollections' module
+"""
+展示如何使用 sortedcollections 模組進行字典排序
 
-    1. sort by key
-    2. sort by value, assuming value are alphanumeric sortable"""
+功能:
+    1. 依鍵值排序字典
+    2. 依數值排序字典（假設數值可進行字母數字排序）
+"""
+
 from sortedcollections import OrderedDict
 from inspect import getmembers, isfunction, ismethod, isclass
 
-# Display fuctions in OrderedDict package, using "inspect" module
-print(f'Display functions in "OrderedDict" package')
-for (name, member) in getmembers(OrderedDict, isfunction):
-    if not name.startswith("_"):
-        print(f'===>{name}')
+def display_package_info():
+    """
+    顯示 OrderedDict 包裝中的函數、方法和類別
+    """
+    print(f'顯示 "OrderedDict" 包裝中的函數')
+    for (name, _) in getmembers(OrderedDict, isfunction):
+        if not name.startswith("_"):
+            print(f'\t{name}')
 
-# Display methods in OrderedDict package, using "inspect" module
-print(f'Display methods in "OrderedDict" package')
-for (name, member) in getmembers(OrderedDict, ismethod):
-    if not name.startswith("_"):
-        print(f'===>{name}')
+    print(f'顯示 "OrderedDict" 包裝中的方法')
+    for (name, _) in getmembers(OrderedDict, ismethod):
+        if not name.startswith("_"):
+            print(f'\t{name}')
 
-# Display methods in OrderedDict package, using "inspect" module
-print(f'Display classes in "OrderedDict" package')
-for (name, member) in getmembers(OrderedDict, isclass):
-    if not name.startswith("_"):
-        print(f'===>{name}')
+    print(f'顯示 "OrderedDict" 包裝中的類別')
+    for (name, _) in getmembers(OrderedDict, isclass):
+        if not name.startswith("_"):
+            print(f'\t{name}')
 
-d = {"one": 1, "two": 2, "three": 3}
-print(f'\nOriginal dictionary d is:\n{d}\n')
+def sort_dict_by_key(d):
+    """
+    依鍵值排序字典
+    
+    Args:
+        d (dict): 要排序的字典
+    
+    Returns:
+        dict: 排序後的新字典
+    """
+    od = OrderedDict(sorted(d.items()))
+    print(f'OrderDict() 返回的類型是:\n\t{type(od)}')
+    print(f'OrderedDict 物件值是:\n\t{od}')
+    
+    # 建立新的字典
+    d_sorted = {}
+    od["one"] = 'aaa'
+    od.update(two='bbb')
+    
+    for key, val in od.items():
+        d_sorted[key] = val
+        print(f'\t{key}:{val}')
+    
+    return d_sorted
 
-# dictionary sorted by key
-d_key_sorted = {}
-od = OrderedDict(sorted(d.items()))
-print(f'OrderDict() returns a type of {type(od)}\n')
-print(f'OrderedDict obj value is:\n{od}\n')
+def sort_dict_by_value(d):
+    """
+    依數值排序字典
+    
+    Args:
+        d (dict): 要排序的字典
+    
+    Returns:
+        dict: 排序後的新字典
+    """
+    od = OrderedDict(sorted(d.items(), key=lambda kv: (kv[1], kv[0])))
+    print(f'OrderDict() 返回的類型是:\n\t{type(od)}')
+    print(f'OrderedDict 物件值是:\n\t{od}')
+    
+    # 建立新的字典
+    d_sorted = {}
+    for key, val in od.items():
+        d_sorted[key] = val
+        print(f'\t{key}:{val}')
+    
+    return d_sorted
 
-# Create a new dictionary from OrderdDict obj
-# Processing (e.g. update a key's value) of an OrderedDict obj is the same as dictionary
-od["one"] = 'aaa'
-od.update(two='bbb')
+def main():
+    """
+    主程式函數，展示字典排序功能
+    """
+    # 顯示包裝資訊
+    display_package_info()
+    
+    # 原始字典
+    d = {"one": 1, "two": 2, "three": 3}
+    print(f'\n原始字典 d 是:\n\t{d}')
+    
+    # 依鍵值排序
+    print('\n依鍵值排序:')
+    d_key_sorted = sort_dict_by_key(d)
+    print(f'依鍵值排序後的新字典是:\n\t{d_key_sorted}')
+    
+    # 依數值排序
+    print('\n依數值排序:')
+    d_val_sorted = sort_dict_by_value(d)
+    print(f'依數值排序後的新字典是:\n\t{d_val_sorted}')
 
-for key, val in od.items():
-    d_key_sorted[key] = val
-    print(f'{key}:{val}')
-print(f'New dictionary sorted by key is:\n{d_key_sorted}\n')
-
-# dictionary sorted by value
-d_val_sorted = {}
-od = OrderedDict(sorted(d.items(), key=lambda kv: (kv[1], kv[0])))
-
-# Create a new dictionary from OrderedDict obj
-for key, val in od.items():
-    d_val_sorted[key] = val
-    print(f'{key}:{val}')
-print(f'New dictionary sorted by value is \n{d_val_sorted}\n')
+if __name__ == "__main__":
+    main()
