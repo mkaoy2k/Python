@@ -22,28 +22,22 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 class EmailPublisher:
-    def __init__(self, config_dir: str):
-        """初始化 EmailPublisher 類別，讀取發件人和密碼"""
-        current_dir = Path(__file__).parent
-        self.config_dir = current_dir / config_dir
-        self.email_sender = self._read_file('email_sender.txt')
-        load_dotenv()
-        self.email_password = os.getenv('PASSWORD')
-        if not self.email_password:
-            raise ValueError("環境變數 PASSWORD 未設定")
+    def __init__(self, email_sender: str, email_password: str):
+        self.email_sender = email_sender
+        self.email_password = email_password
         
     def _read_file(self, filename: str) -> str:
         """從設定目錄讀取檔案內容"""
-        file_path = self.config_dir / filename
-        if not file_path.exists():
-            raise FileNotFoundError(f"找不到檔案: {file_path}")
-        with open(file_path, 'r') as f:
+        if not filename.exists():
+            raise FileNotFoundError(f"找不到檔案: {filename}")
+        with open(filename, 'r') as f:
             return f.read().strip()
 
     def _get_recipients(self, recipients_file: str) -> List[str]:
         """讀取並解析收件人列表檔案"""
-        file_path = self.config_dir / recipients_file
-        with open(file_path, 'r') as f:
+        if not recipients_file.exists():
+            raise FileNotFoundError(f"找不到收件人列表的檔案: {recipients_file}")
+        with open(recipients_file, 'r') as f:
             return [email.strip() for email in f.read().splitlines() if email.strip()]
 
     def _create_email(self, subject: str, text: str, html: str, recipients: List[str]) -> MIMEMultipart:
@@ -95,14 +89,22 @@ class EmailPublisher:
             logger.error(f'send_email(): 發生一般錯誤: {str(e)}')
             return False
 
-def main():
+if __name__ == "__main__":
     """主程式函數"""
     # 設定設定檔目錄位置
     current_dir = Path(__file__).parent
     config_dir = current_dir / 'sample'
-    
+    load_dotenv()
+    # 初始化 EmailPublisher 類別，讀取發件人和密碼
+    email_sender = os.getenv('EMAIL_SENDER')
+    if not email_sender:
+        raise ValueError("環境變數 EMAIL_SENDER 未設定")
+    email_password = os.getenv('EMAIL_PASSWORD')
+    if not email_password:
+        raise ValueError("環境變數 EMAIL_PASSWORD 未設定")
+
     # 初始化 EmailPublisher
-    publisher = EmailPublisher(config_dir)
+    publisher = EmailPublisher(email_sender, email_password)
     
     # 讀取郵件內容
     with open(config_dir / 'email.txt', 'r') as f:
@@ -110,11 +112,11 @@ def main():
     with open(config_dir / 'email.html', 'r') as f:
         html_content = f.read()
     
-    # 設定郵件主題
-    subject = f'小朋友玩大蟒蛇日誌'
+    # 設定郵件主題和收件人檔案
+    subject = f'大蟒蛇日誌'
+    recipients_file = config_dir / 'email_list.txt'
     
     # 發送郵件
-    publisher.send_email(subject, text_content, html_content, 'email_list.txt')
+    publisher.send_email(subject, text_content, html_content, recipients_file)
 
-if __name__ == "__main__":
-    main()
+    
