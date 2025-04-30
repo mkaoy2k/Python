@@ -1,77 +1,111 @@
-# Python 程式碼庫
+# Python 程式庫
 
-這個目錄包含了多種 Python 程式碼，涵蓋了從基本程式設計概念到實用應用的範例。以下是主要的程式碼類別和功能說明：
+這個 README.md 文件總結了 Python 目錄中的主要程式類型和功能，包括：
 
-## 1. 基本程式設計範例
+1. 基礎程式設計範例
+2. 檔案處理範例
+3. 資料結構實作範例
+4. 網路和通訊範例
+5. 進階主題範例
+6. 效能測試範例
 
-### 數據結構與演算法
+每個部分都列出了相關的程式檔案，並簡要說明其功能。使用者可以根據需要選擇相應的範例來學習或參考。
 
-- `biTree.py` 系列: 二元樹資料結構實現
-- `bsTree.py` 系列: 二元搜尋樹實現
-- `heap*.py`: 堆積資料結構實現
-- `fibo.py`: 斐波那契數列計算
-- `gRatio.py`: 黃金比例計算
+## 目錄結構
 
-### 基本程式設計概念
+```bash
+Python/
+├── .git/                    # Git 版本控制
+├── .venv/                   # Python 虛擬環境
+├── __pycache__/            # Python 編譯快取
+├── sample/                  # 範例資料檔案
+├── unit_test/               # 單元測試
+├── img_processed/           # 圖片處理輸出
+├── logger/                  # 日誌相關
+├── photo/                   # 圖片檔案
+├── video/                   # 影片檔案
+├── video-orig/              # 原始影片檔案
+├── git/                     # Git 相關檔案
+├── 基礎範例
+│   ├── dates.py            # 日期時間
+│   ├── listEx.py           # 列表操作
+│   ├── dictEx.py           # 字典操作
+│   └── tupleEx1.py         # 元組操作
+├── 數據結構
+│   ├── biTree.py           # 二元樹
+│   ├── bsTree.py           # 二元搜尋樹
+│   └── bst.py              # 二元搜尋樹
+├── 檔案處理
+│   ├── filesEx1.py         # 檔案操作
+│   ├── csvEx.py            # CSV 處理
+│   └── jsonEx.py           # JSON 處理
+├── 網路
+│   ├── emailPublisher.py   # 電子郵件
+│   └── smsOnQuake.py       # 簡訊通知
+├── 遊戲
+│   ├── gameSnake.py        # 蛇遊戲
+│   └── gamePoker.py        # 扑克遊戲
+├── GUI
+│   ├── tkinterEx1.py       # Tkinter GUI
+│   └── guiEx.py            # GUI 範例
+├── 效能測試
+│   ├── perf_LvsT.py        # 列表與元組
+│   └── perfHeaps.py        # 堆積結構
+└── 配置文件
+    ├── .env                # 環境變數
+    ├── requirements.txt    # Python 套件依賴
+    ├── pyproject.toml      # Python 專案配置
+    └── environment.yaml    # 環境配置
+```
 
-- `arithmetic.py`: 基本運算示範
-- `condFlowEx.py`: 條件流程控制
-- `comprehensionEx.py` 系列: 列表生成式示範
-- `dictEx.py`: 字典操作示範
-- `funcEx.py`: 函數使用示範
+## 主要程式類型
 
-### 檔案操作
+### 基礎程式設計範例
 
-- `filesEx*.py`: 檔案讀取/寫入示範
-- `csvEx*.py`: CSV 檔案處理示範
+- `dates.py`: 日期和時間處理範例
+- `listEx.py`: 列表操作和處理範例
+- `dictEx.py`: 字典操作範例
+- `lambdaEx.py`: Lambda 函式範例
 
-## 2. 遊戲程式
+### 檔案處理範例
 
-### 蛇蛇遊戲
+- `filesEx1.py` ~ `filesEx6.py`: 檔案讀取和寫入範例
+- `csvEx.py` ~ `csvEx2.py`: CSV 檔案處理範例
+- `jsonEx.py` ~ `jsonEx2.py`: JSON 資料處理範例
 
-- 多個版本的蛇蛇遊戲實現（`gameSnake.py` 系列）
-- 使用 Pygame 框架
-- 支援分數系統和遊戲結束檢測
+### 資料結構範例
 
-### 其他遊戲
+- `biTree.py` ~ `biTree_v2.py`: 二元樹實作
+- `bsTree.py` ~ `bsTreeEx.py`: 二元搜尋樹實作
+- `bst.py` ~ `bstEx2.py`: 二元搜尋樹範例
 
-- `gameSRP.py`: 剪刀石頭布遊戲
-- `gameRollDice.py`: 擲骰子遊戲
-- `gameGuessNbr.py`: 猜數字遊戲
-- `gamePoker.py`: 扑克牌遊戲
+### 網路和通訊範例
 
-## 3. 實用工具
+- `emailPublisher.py`: 電子郵件發送功能
+- `smsOnQuake.py`: 地震簡訊通知系統
+- `emailSendAttach.py`: 帶附件的電子郵件發送
+- `emailSendHTML.py`: HTML 格式電子郵件發送
 
-### 資料處理
+### 進階主題範例
 
-- `cacheEx.py` 系列: 快取機制示範
-- `email*.py`: 電子郵件相關工具
-- `dates.py`: 日期時間處理
+- `multiprocess10.py`: 多進程處理範例
+- `scheduleEx.py`: 定時任務排程
+- `tkinterEx1.py`: GUI 程式設計
+- `reEx.py`: 正則表達式範例
 
-### 檔案處理
+### 效能測試範例
 
-- `csvEx*.py`: CSV 檔案處理
-- `jsonAPI.py`: JSON API 處理示範
-
-## 4. 先進主題
-
-### 進階特性
-
-- `asyncEx.py`: 非同步程式設計示範
-- `dunderEx.py`: 魔法方法示範
-- `exceptionEx.py`: 異常處理示範
-
-### 性能優化
-
-- `eafp.py`: Python 程式設計模式示範
+- `perf_LvsT.py`: 列表與元組效能比較
+- `perfHeaps.py`: 堆積結構效能測試
+- `perfListvsGenerator.py`: 列表與生成器效能比較
 
 ## 使用方式
 
-大多數程式都可以直接運行，例如：
+每個程式都包含主函數 `main()`, 可以直接執行。例如：
 
 ```bash
-python gameSnake.py
-python cacheEx.py
+python dates.py
+python listEx.py
 ```
 
 ## 技術堆疊
