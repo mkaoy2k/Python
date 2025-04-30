@@ -9,24 +9,34 @@
 from sortedcollections import OrderedDict
 from inspect import getmembers, isfunction, ismethod, isclass
 
-def display_package_info():
+def display_package_info(package):
     """
-    顯示 OrderedDict 包裝中的函數、方法和類別
+    顯示 package 包裝中的函數、方法和類別
+    
+    這個函數會列印出 package 模組中所有公開的函數、方法和類別，並顯示其文檔說明
     """
-    print(f'顯示 "OrderedDict" 包裝中的函數')
-    for (name, _) in getmembers(OrderedDict, isfunction):
-        if not name.startswith("_"):
-            print(f'\t{name}')
+    # 取得所有公開的函數
+    print(f"\n顯示 '{package}' 包裝中的函數:")
+    functions = [(name, func) for (name, func) in getmembers(package, isfunction) if not name.startswith("_")]
+    for name, func in functions:
+        print(f"\n函數: {name}")
+        print(f"文檔說明: {func.__doc__.strip() if func.__doc__ else '沒有文檔說明'}")
 
-    print(f'顯示 "OrderedDict" 包裝中的方法')
-    for (name, _) in getmembers(OrderedDict, ismethod):
-        if not name.startswith("_"):
-            print(f'\t{name}')
+    # 取得所有公開的方法
+    print(f"\n顯示 '{package}' 包裝中的方法:")
+    methods = [(name, method) for (name, method) in getmembers(package, ismethod) if not name.startswith("_")]
+    for name, method in methods:
+        print(f"\n方法: {name}")
+        print(f"文檔說明: {method.__doc__.strip() if method.__doc__ else '沒有文檔說明'}")
 
-    print(f'顯示 "OrderedDict" 包裝中的類別')
-    for (name, _) in getmembers(OrderedDict, isclass):
-        if not name.startswith("_"):
-            print(f'\t{name}')
+    # 取得所有公開的類別
+    print(f"\n顯示 '{package}' 包裝中的類別:")
+    classes = [(name, cls) for (name, cls) in getmembers(package, isclass) if not name.startswith("_")]
+    for name, cls in classes:
+        print(f"\n類別: {name}")
+        print(f"文檔說明: {cls.__doc__.strip() if cls.__doc__ else '沒有文檔說明'}")
+
+
 
 def sort_dict_by_key(d):
     """
@@ -80,7 +90,7 @@ def main():
     主程式函數，展示字典排序功能
     """
     # 顯示包裝資訊
-    display_package_info()
+    display_package_info(OrderedDict)
     
     # 原始字典
     d = {"one": 1, "two": 2, "three": 3}
