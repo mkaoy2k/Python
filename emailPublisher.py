@@ -1,7 +1,7 @@
 """
 這個範例示範如何使用 Google 電子郵件帳戶
-發送 HTML 格式的郵件給多個收件人，收件人列表存放在文字檔案中，每行一個電子郵件地址。
-試著同時發送一份郵件給一群人。
+發送 HTML 格式的郵件給多個收件人，
+收件人列表存放在文字檔案中，每行一個電子郵件地址。
 """
 
 from typing import List
@@ -48,8 +48,10 @@ class EmailPublisher:
         msg['Subject'] = subject
 
         # 添加文字和 HTML 部分
-        msg.attach(MIMEText(text, "plain"))
-        msg.attach(MIMEText(html, "html"))
+        if text:
+            msg.attach(MIMEText(text, "plain"))
+        if html:
+            msg.attach(MIMEText(html, "html"))
         
         return msg
 
@@ -91,10 +93,14 @@ class EmailPublisher:
 
 if __name__ == "__main__":
     """主程式函數"""
+    
+    # 載入環境變數
+    load_dotenv()
+
     # 設定設定檔目錄位置
     current_dir = Path(__file__).parent
     config_dir = current_dir / 'sample'
-    load_dotenv()
+    
     # 初始化 EmailPublisher 類別，讀取發件人和密碼
     email_sender = os.getenv('EMAIL_SENDER')
     if not email_sender:
