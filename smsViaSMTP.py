@@ -78,6 +78,14 @@ from pathlib import Path
 from dotenv import load_dotenv
 import os
 
+import logging
+
+# 設置日誌格式
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
+
 @dataclass
 class Email:
     '''電子郵件訊息類別
@@ -238,7 +246,8 @@ if __name__ == '__main__':
             print(f'===> 請到郵件信箱 {email_receiver} 檢視郵件')
             print(f'===> 郵件標題 : {subject}\n')
         except Exception as e:
-            print(f'send_email(): 發送 TXT 郵件時發生錯誤: {str(e)}\n')
+            logging.error(f'發送 TXT 郵件時發生錯誤: {str(e)}')
+            print(f'發送 TXT 郵件時發生錯誤：{str(e)}\n')
 
         # 發送 HTML 郵件
         with open(file_html, 'r') as f:
