@@ -5,7 +5,7 @@
 主要功能：
 1. 取得地震資料
 2. 檢查地震規模是否達到設定門檻
-3. 發送電子郵件通知
+3. 發送電子郵件通知給 email_list.txt 中的多個收件人
 """
 
 from quake import get_earthquake_data
@@ -46,7 +46,7 @@ def should_notify(val, eq_time, min_magnitude):
         min_magnitude (float): 最小通知規模
     
     Returns:
-        bool: 是否需要通知
+        bool: 此地震事件是否需要通知
     """
     try:
         date_occured = date.fromisoformat(eq_time.split(' ')[0])

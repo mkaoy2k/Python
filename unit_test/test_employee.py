@@ -1,36 +1,28 @@
 import unittest
 from unittest.mock import patch
-
-import traceback
-
-
-def get_function_name():
-    return traceback.extract_stack(None, 2)[0][2]
-
-
 from employee import Employee
-
-
 class TestEmployee(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        print(f'\t{get_function_name()}')
+        cls.test_employees = [
+            Employee('Test', 'Employee1', 50000),
+            Employee('Test', 'Employee2', 60000)
+        ]
 
     @classmethod
     def tearDownClass(cls):
-        print(f'\t{get_function_name()}')
+        cls.test_employees = None
 
     def setUp(self):
-        print(f'\t{get_function_name()}')
         self.emp_1 = Employee('Michael', 'Kao', 50000)
         self.emp_2 = Employee('Sue', 'Smith', 60000)
 
     def tearDown(self):
-        print(f'\t{get_function_name()}')
+        self.emp_1 = None
+        self.emp_2 = None
 
     def test_email(self):
-        print(f'\t{get_function_name()}')
         self.assertEqual(self.emp_1.email, 'Michael.Kao@email.com')
         self.assertEqual(self.emp_2.email, 'Sue.Smith@email.com')
 
@@ -41,7 +33,6 @@ class TestEmployee(unittest.TestCase):
         self.assertEqual(self.emp_2.email, 'Jane.Smith@email.com')
 
     def test_fullname(self):
-        print(f'\t{get_function_name()}')
         self.assertEqual(self.emp_1.fullname, 'Michael Kao')
         self.assertEqual(self.emp_2.fullname, 'Sue Smith')
 
@@ -52,7 +43,6 @@ class TestEmployee(unittest.TestCase):
         self.assertEqual(self.emp_2.fullname, 'Jane Smith')
 
     def test_apply_raise(self):
-        print(f'\t{get_function_name()}')
         self.emp_1.apply_raise()
         self.emp_2.apply_raise()
 
@@ -60,7 +50,6 @@ class TestEmployee(unittest.TestCase):
         self.assertEqual(self.emp_2.pay, 63000)
 
     def test_monthly_schedule(self):
-        print(f'\t{get_function_name()}')
         with patch('employee.requests.get') as mocked_get:
             mocked_get.return_value.ok = True
             mocked_get.return_value.text = 'Success'
@@ -75,8 +64,6 @@ class TestEmployee(unittest.TestCase):
             mocked_get.assert_called_with('http://company.com/Smith/June')
             self.assertEqual(schedule, 'Bad Response!')
 
-
-print(f'Testing employee.py\n')
-
 if __name__ == '__main__':
+    print(f'Unit Testing employee.py begins...')
     unittest.main()
