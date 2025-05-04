@@ -1,61 +1,55 @@
+"""
+測試模組說明：圓形面積計算模組的單元測試
+
+這個測試模組用於驗證 circles.py 中圓形面積計算功能的正確性，
+主要包含以下測試案例：
+
+1. 正常情況測試（test_area）
+   - 測試半徑為正數時的面積計算
+   - 測試半徑為 0 時的面積計算
+   - 測試浮點數半徑的面積計算
+
+2. 值錯誤測試（test_values）
+   - 測試負數半徑時是否正確引發 ValueError
+
+3. 類型錯誤測試（test_types）
+   - 測試複數數字是否正確引發 TypeError
+   - 測試布林值是否正確引發 TypeError
+   - 測試字串是否正確引發 TypeError
+
+特點：
+- 使用 unittest 框架進行單元測試
+- 測試結果會同時輸出到控制台
+"""
+
 import unittest
 from math import pi
-
-# function name macro
-import traceback
-
-
-def get_function_name():
-    return traceback.extract_stack(None, 2)[0][2]
-
-# logging
-import logging
-
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.DEBUG)
-
-formatter = logging.Formatter('%(asctime)s:%(name)s:%(message)s')
-
-log_file = 'test_circles.log'
-file_handler = logging.FileHandler(log_file, mode='w')
-file_handler.setLevel(logging.INFO)
-file_handler.setFormatter(formatter)
-
-stream_handler = logging.StreamHandler()
-stream_handler.setFormatter(formatter)
-
-logger.addHandler(file_handler)
-logger.addHandler(stream_handler)
 
 # Unit Test Cases
 from circles import circle_area
 
-
 class TestCircleArea(unittest.TestCase):
     def test_area(self):
-        logger.info(
-            f'\t{get_function_name()} - Test area calculation when radius >= 0')
-
         # Test area calculation when radius >= 0
         self.assertAlmostEqual(circle_area(1), pi)
         self.assertAlmostEqual(circle_area(0), 0)
         self.assertAlmostEqual(circle_area(2.1), pi * 2.1**2)
 
     def test_values(self):
-        logger.info(f'\t{get_function_name()} - Test value errors of radius')
-
         # Test value errors of radius
-        self.assertRaises(ValueError, circle_area, -2)
+        with self.assertRaises(ValueError):
+            circle_area(-2)
 
     def test_types(self):
-        logger.info(f'\t{get_function_name()} - Test type errors of radius')
-
         # Test type errors of radius
-        self.assertRaises(TypeError, circle_area, 3 + 5j)
-        self.assertRaises(TypeError, circle_area, True)
-        self.assertRaises(TypeError, circle_area, "string")
+        with self.assertRaises(TypeError):
+            circle_area(3 + 5j)
+        with self.assertRaises(TypeError):
+            circle_area(True)
+        with self.assertRaises(TypeError):
+            circle_area("string")
 
 
 if __name__ == '__main__':
-    logger.debug(f'Unit Testing of circles.py begins...')
+    print(f'Unit Testing circles.py begins...')
     unittest.main()
