@@ -24,14 +24,14 @@ from pathlib import Path
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 
-formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(name)s - %(message)s')
+formatter = logging.Formatter('%(asctime)s - %(name)s:%(lineno)d - %(levelname)s - %(message)s')
 
 # 使用 pathlib 創建相對路徑的 logger 目錄
 log_dir = Path(__file__).parent / 'logger'
 log_dir.mkdir(exist_ok=True)
 
 log_file = log_dir / 'loggingEx.log'
-file_handler = logging.FileHandler(log_file, mode='w')
+file_handler = logging.FileHandler(log_file, mode='w', encoding='utf-8')
 file_handler.setLevel(logging.ERROR)
 file_handler.setFormatter(formatter)
 

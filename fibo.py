@@ -1,41 +1,94 @@
 """
-斐波那契數列計算範例
+斐波那契數列計算與效能分析
 
-本程式展示了兩種不同的斐波那契數列計算方法：
-1. 純遞迴實現
-2. 使用 LRU 快取的遞迴實現
+本程式實現了斐波那契數列的兩種計算方法，並提供效能比較和多種展示方式：
 
-主要功能特點：
-- 支援正整數輸入檢查
-- 提供效能比較
-- 顯示不同資料結構的結果
-- 包含異常處理機制
+1. 基本實現:
+   - 純遞迴實現 (fibo 函數)
+   - 包含輸入參數驗證
+   - 支援正整數輸入
+
+2. 高效能實現:
+   - 使用 LRU 快取的遞迴實現 (fibonacci 函數)
+   - 最大快取容量為 1000
+   - 显著提升重複計算的效能
+
+3. 功能特點:
+   - 效能比較工具 (compare_performance)
+   - 多種資料結構展示 (display_results)
+   - 異常處理機制 (test_abnormal_case)
+   - 完整的日誌系統
+   - 環境變數配置支援
+
+4. 日誌系統:
+   - 支援 DEBUG 和 INFO 兩種日誌等級
+   - 同時輸出到控制台和日誌檔案
+   - 日誌檔案每次運行時重新創建
+   - 記錄詳細的執行流程和效能數據
+
+使用方法:
+1. 設置日誌等級:
+   在 .env 檔案中設置 LOGGING 環境變數為 "DEBUG" 或 "INFO"
+
+2. 運行程式:
+   python fibo.py
+
+3. 查看結果:
+   - 控制台輸出
+   - logger/fibo.log 檔案
+
+注意事項:
+- 程式會自動創建 logger 目錄和 fibo.log 檔案
+- 日誌檔案每次運行時都會重新創建
+- 可以通過修改 max_loop 參數調整效能測試範圍
 """
 
 import time
 import logging
 from pathlib import Path
 from functools import lru_cache
+import os
+import traceback
+from dotenv import load_dotenv
+
+# 載入環境變數
+load_dotenv()
 
 # 設置日誌
 logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
-
-# 確保 logger 目錄存在
-log_dir = Path(__file__).parent / 'logger'
-log_dir.mkdir(exist_ok=True)
-
-# 建立日誌檔案處理器
-log_file = log_dir / 'fibo.log'
-file_handler = logging.FileHandler(log_file, encoding='utf-8')
-file_handler.setLevel(logging.INFO)
 
 # 設置日誌格式
-formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+formatter = logging.Formatter('%(asctime)s - %(name)s:%(lineno)d - %(levelname)s - %(message)s')
+
+# 設置 console handler
+console_handler = logging.StreamHandler()
+console_handler.setFormatter(formatter)
+
+# 設置日誌檔案處理器
+log_dir = Path(__file__).parent / 'logger'
+log_dir.mkdir(exist_ok=True)
+log_file = log_dir / 'fibo.log'
+file_handler = logging.FileHandler(log_file, mode='w', encoding='utf-8')
 file_handler.setFormatter(formatter)
 
+# 設置日誌等級
+log_level = os.getenv("LOGGING", "INFO")
+if log_level == "INFO":
+    logger.setLevel(logging.INFO)
+    file_handler.setLevel(logging.INFO)
+else:
+    logger.setLevel(logging.DEBUG)
+    file_handler.setLevel(logging.DEBUG)
+
+# set console handler level to INFO always    
+console_handler.setLevel(logging.INFO)
+
 # 添加處理器到日誌器
+logger.addHandler(console_handler)
 logger.addHandler(file_handler)
+
+def get_function_name():
+    return traceback.extract_stack(None, 2)[0][2]
 
 def fibo(n: int) -> int:
     """
@@ -123,51 +176,60 @@ def compare_performance(max_loop: int = 30) -> None:
         max_loop (int): 測試的最大範圍
     """
     # 測量不使用快取的版本
+    logger.debug(f'{get_function_name()}:測量不使用快取的版本')
     t1 = time.time()
     for n in range(1, max_loop):
-        logger.info(f'{n}:{fibo(n)}')
+        logger.debug(f'{get_function_name()}:{n}:{fibo(n)}')
     t2 = time.time()
     cacheless_time = t2 - t1
     print(f'不使用快取的斐波那契函數花費了 {cacheless_time:.6f} 秒\n')
 
     # 測量使用快取的版本
+    logger.debug(f'{get_function_name()}:測量使用快取的版本')
     t3 = time.time()
     for n in range(1, max_loop):
-        logger.info(f'{n}:{fibonacci(n)}')
+        logger.debug(f'{get_function_name()}:{n}:{fibonacci(n)}')
     t4 = time.time()
     cached_time = t4 - t3
     print(f'使用 LRU 快取的斐波那契函數花費了 {cached_time:.6f} 秒\n')
 
     # 比較結果
+    logger.debug(f'{get_function_name()}:比較結果')
     print(f'比較：不使用快取的版本花費了 {cacheless_time/cached_time:.1f} 倍的時間。\n')
 
 def display_results() -> None:
     """
     顯示斐波那契數列在不同資料結構中的表示
     """
+    logger.debug(f'{get_function_name()}:顯示斐波那契數列在不同資料結構中的表示')
     # 斐波那契數列在列表中
     fib_list = [fibonacci(n) for n in range(1, 11)]
+    logger.debug(f'{get_function_name()}:斐波那契數列在列表中：\n===>{fib_list}\n')
     print(f'斐波那契數列在列表中：\n===>{fib_list}\n')
 
     # 斐波那契數列在元組中
     fib_tuple = tuple(fibonacci(n) for n in range(1, 11))
+    logger.debug(f'{get_function_name()}:斐波那契數列在元組中：\n===>{fib_tuple}\n')
     print(f'斐波那契數列在元組中：\n===>{fib_tuple}\n')
 
 def test_abnormal_case() -> None:
     """
     測試異常情況
     """
+    logger.debug(f'{get_function_name()}:測試異常情況')
     message = f'fibonacci("hello world")'
     try:
         print(message)
         print(fibonacci("hello world"))
     except Exception as e:
+        logger.error(f'{get_function_name()}:發生異常：{str(e)}')
         print(f'===>發生異常：{str(e)}')
 
 def main():
     """
     主函數，執行所有測試
     """
+    logger.debug(f'{get_function_name()}:主函數，執行所有測試')
     # 清除快取
     fibonacci.cache_clear()
     

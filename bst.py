@@ -8,17 +8,50 @@ BinarySearchTree 代表二元搜尋樹本身，
     用於插入新節點和搜尋具有特定值的節點。
 """
 import random
-import traceback
 import logging
+from pathlib import Path
+import os
+import traceback
+from dotenv import load_dotenv
 
-# 設定 logging 等級為 DEBUG
-logging.basicConfig(level=logging.DEBUG)
+# 載入環境變數
+load_dotenv()
 
+# 設置日誌
+logger = logging.getLogger(__name__)
+
+# 設置日誌格式
+formatter = logging.Formatter('%(asctime)s - %(name)s:%(lineno)d - %(levelname)s - %(message)s')
+
+# 設置 console handler
+console_handler = logging.StreamHandler()
+console_handler.setFormatter(formatter)
+
+# 設置日誌檔案處理器
+log_dir = Path(__file__).parent / 'logger'
+log_dir.mkdir(exist_ok=True)
+log_file = log_dir / 'bst.log'
+file_handler = logging.FileHandler(log_file, mode='w', encoding='utf-8')
+file_handler.setFormatter(formatter)
+
+# 設置日誌等級
+log_level = os.getenv("LOGGING", "INFO")
+if log_level == "INFO":
+    logger.setLevel(logging.INFO)
+    file_handler.setLevel(logging.INFO)
+else:
+    logger.setLevel(logging.DEBUG)
+    file_handler.setLevel(logging.DEBUG)
+
+# 設置 console handler 的等級: INFO always
+console_handler.setLevel(logging.INFO)
+
+# 添加處理器到日誌器
+logger.addHandler(console_handler)
+logger.addHandler(file_handler)
 
 def get_function_name():
     return traceback.extract_stack(None, 2)[0][2]
-
-
 class Node:
     def __init__(self, value):
         self.value = value
@@ -40,19 +73,19 @@ class Node:
     """
 
     def print_keys_inorder(self):
-        logging.debug(
+        logger.debug(
             f'{get_function_name()}: {self.value}')
 
         if self.left is not None:
             self.left.print_keys_inorder()
 
-        print(self.value, end=' ')
+        print(f'{self.value} ',end=' ')
 
         if self.right is not None:
             self.right.print_keys_inorder()
 
     def print_keys_postorder(self):
-        logging.debug(
+        logger.debug(
             f'{get_function_name()}: {self.value}')
 
         if self.left is not None:
@@ -61,13 +94,13 @@ class Node:
         if self.right is not None:
             self.right.print_keys_postorder()
 
-        print(self.value, end=' ')
+        print(f'{self.value} ',end=' ')
 
     def print_keys_preorder(self):
-        logging.debug(
+        logger.debug(
             f'{get_function_name()}: {self.value}')
 
-        print(self.value, end=' ')
+        print(f'{self.value} ',end=' ')
 
         if self.left is not None:
             self.left.print_keys_preorder()
@@ -101,6 +134,8 @@ class BinarySearchTree:
     """
 
     def insert(self, value):
+        logger.debug(
+            f'{get_function_name()}: {value}')
         new_node = Node(value)
         if self.root is None:
             self.root = new_node
@@ -120,6 +155,8 @@ class BinarySearchTree:
         return new_node
 
     def search(self, value):
+        logger.debug(
+            f'{get_function_name()}: {value}')
         current_node = self.root
         while current_node is not None:
             if value == current_node.value:
@@ -140,6 +177,8 @@ class BinarySearchTree:
             先序字串，如果 order = "Preorder"
             None: 無效的 order
         """
+        logger.debug(
+            f'{get_function_name()}: {order}')
         current_node = self.root
 
         if order == "Inorder":
@@ -152,7 +191,8 @@ class BinarySearchTree:
             current_node.print_keys_preorder()
 
         else:
-            print(f'無效的順序：{order}')
+            logger.error(f'{get_function_name()}: 無效的順序：{order}')
+        print("\n")
 
 
 if __name__ == '__main__':
@@ -164,19 +204,18 @@ if __name__ == '__main__':
     4. 以中序方式遍歷二元搜尋樹的鍵值
     5. 以後序方式遍歷二元搜尋樹的鍵值
     """
-    logging.basicConfig(level=logging.INFO)
 
     bst = BinarySearchTree()
     print(f'範例 1: 二元搜尋樹已初始化。')
 
     bn = bst.insert(500)
-    print(f'===>根節點 {bn}，鍵值 = {bn.value}\n')
+    print(f'\t根節點 {bn}，鍵值 = {bn.value}\n')
 
     print(f"範例 2: 插入節點...")
     for _ in range(9):
         bn = bst.insert(random.randint(100, 999))
-        print(f'===>節點 {bn} 已插入，鍵值 = {bn.value}')
-    print()
+        print(f'\t節點 {bn} 已插入，鍵值 = {bn.value}')
+    print("\n")
 
     print(f'範例 3: 以先序方式印出二元搜尋樹的鍵值')
     bst.print_keys("Preorder")
@@ -188,4 +227,4 @@ if __name__ == '__main__':
 
     print(f'範例 5: 以後序方式印出二元搜尋樹的鍵值')
     bst.print_keys("Postorder")
-    print("\n")
+ 
