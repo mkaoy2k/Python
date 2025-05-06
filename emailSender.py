@@ -34,7 +34,7 @@ if __name__ == "__main__":
     # 設置日誌
     logging.basicConfig(
         level=logging.INFO,
-        format='%(asctime)s - %(levelname)s - %(message)s'
+        format='%(asctime)s - %(name)s:%(lineno)d - %(levelname)s - %(message)s'
     )
     logger = logging.getLogger(__name__)
     

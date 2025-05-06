@@ -1,0 +1,12 @@
+digraph graphEx3 {
+	A [label=Start fillcolor=green fontcolor=black shape=diamond style=filled]
+	B [label=Process fillcolor=lightblue fontcolor=black shape=box style="rounded,filled"]
+	C [label=End fillcolor=red shape=circle style=filled]
+	A -> B [color=purple penwidth=2 style=dashed taillabel="步驟 1"]
+	B -> C [arrowhead=vee color=black taillabel="完成"]
+	struct [label="ID|名稱|類型" shape=record]
+	struct1 [label="1|Alice|人" shape=record]
+	struct2 [label="2|Bob|人" shape=record]
+	struct -> struct1 [xlabel=p1]
+	struct -> struct2 [taillabel=p2]
+}

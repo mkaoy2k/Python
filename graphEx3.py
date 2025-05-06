@@ -43,8 +43,10 @@ def create_flowchart():
     dot.node('struct2', shape='record', label='2|Bob|人')
     
     # 設置邊
-    dot.edge('struct', 'struct1')
-    dot.edge('struct', 'struct2')
+    dot.edge('struct', 'struct1', xlabel='p1')
+    dot.edge('struct', 'struct2', taillabel='p2')
+    
+
 
     return dot
 
@@ -62,7 +64,7 @@ def main():
         
         # 生成圖形檔案
         graph_file = sample_dir / 'graphEx3.gv'
-        dot.render(graph_file, view=False)
+        dot.render(graph_file, view=True)
         
         logger.info(f"圖形已生成：{graph_file.with_suffix('.gv')} 和 {graph_file.with_suffix('.png')}")
         

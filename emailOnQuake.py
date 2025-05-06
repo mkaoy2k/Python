@@ -64,7 +64,7 @@ if __name__ == "__main__":
     # 設置日誌
     logging.basicConfig(
         level=logging.INFO,
-        format='%(asctime)s - %(levelname)s - %(message)s'
+        format='%(asctime)s - %(name)s:%(lineno)d - %(levelname)s - %(message)s'
     )
     logger = logging.getLogger(__name__)
     
@@ -100,7 +100,7 @@ if __name__ == "__main__":
                 logger.info(message)
                 
                 if should_notify(val, eq_time, min_magnitude):
-                    logger.warning(f"{val} 級地震，簡訊通知地震位置圖...")
+                    logger.warning(f"{val} 級地震，郵件通知地震位置圖...")
                     subject = f'地震警報'
                     recipients_file = config_dir / 'email_list.txt'
                     

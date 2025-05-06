@@ -23,6 +23,14 @@ import os
 from urllib3.util.retry import Retry
 from requests.adapters import HTTPAdapter
 import webbrowser
+import logging
+
+# 設置日誌
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s:%(lineno)d - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
 
 # 載入環境變數
 load_dotenv()
@@ -35,6 +43,7 @@ def create_session():
     """
     建立具有重試機制的 requests 會話
     """
+    logger.info("建立具有重試機制的 requests 會話")
     session = requests.Session()
     retry = Retry(
         total=3,
@@ -50,18 +59,23 @@ def create_session():
 
 def get_earthquake_data() -> dict:
     """
-    爬取中央氣象局地震資料
+    獲取地震資料
 
     Returns:
-        dict: 包含地震資料的字典
+        dict: 地震資料的 JSON 格式字典
     """
     try:
+        logger.info(f"開始獲取地震資料，URL: {quake_url}")
         session = create_session()
         response = session.get(quake_url, timeout=10)
         response.raise_for_status()
+        logger.info("成功獲取地震資料")
         return response.json()
+    except requests.exceptions.Timeout:
+        logger.error(f"API 請求超時：{quake_url}")
+        return {}
     except requests.exceptions.RequestException as e:
-        print(f"爬取地震資料失敗：{str(e)}")
+        logger.error(f"API 請求失敗：{str(e)}")
         return {}
 
 def process_earthquake_events(data_json: dict) -> None:
@@ -72,6 +86,7 @@ def process_earthquake_events(data_json: dict) -> None:
         data_json (dict): 地震資料的 JSON 格式字典
     """
     if not data_json:
+        logger.warning("未收到地震資料")
         return
 
     eq = data_json.get('records', {}).get('Earthquake', [])
@@ -86,22 +101,24 @@ def process_earthquake_events(data_json: dict) -> None:
             img = event['ReportImageURI']
 
             msg = f'{loc}，芮氏規模 {val} 級，深度 {dep} 公里，發生時間 {eq_time}'
-            print(msg)
+            logger.info(msg)
 
             if val >= quake_magnitude:
                 date_occured = date.fromisoformat(eq_time.split(' ')[0])
                 if date_occured in [yesterday, date.today()]:
-                    print(f'===> {val} 級地震，Browser顯示地震位置圖...')
+                    logger.info(f'===> {val} 級地震，Browser顯示地震位置圖...')
                     webbrowser.open(img)  # 顯示地震位置圖
         except (KeyError, ValueError) as e:
-            print(f"處理地震資料時發生錯誤：{str(e)}")
+            logger.error(f"處理地震資料時發生錯誤：{str(e)}")
 
 if __name__ == "__main__":
     """
     主程式入口點
     """
-    print("開始爬取地震資料...")
+    logger.info("開始爬取地震資料...")
     data_json = get_earthquake_data()
-    print("開始處理地震資料...")
-    process_earthquake_events(data_json)
-    print("完成資料處理")
+    if data_json:
+        logger.info("開始處理地震資料...")
+        process_earthquake_events(data_json)
+        logger.info("完成資料處理")
+    logger.info("完成爬取地震資料")

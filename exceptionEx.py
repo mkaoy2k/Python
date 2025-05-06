@@ -30,7 +30,8 @@ LOG_DIR.mkdir(exist_ok=True)
 # 記錄檔案：logger/problems.log
 # 記錄等級：DEBUG
 logging.basicConfig(filename=LOG_DIR / 'problems.log',
-                    level=logging.DEBUG)
+                    level=logging.DEBUG,
+                    format='%(asctime)s - %(name)s:%(lineno)d - %(levelname)s - %(message)s')
 logger = logging.getLogger()
 
 def read_file_timed(path):
