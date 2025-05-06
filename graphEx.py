@@ -9,11 +9,16 @@
 注意事項:
 - 需要安裝 graphviz 套件
 - 生成的圖形會自動開啟預設的圖片檢視器
-- bstGraph.gv 會儲存圖形的原始描述，可以使用 Graphviz 編輯器(eg. DOT插件)顯示
-- bstGraph.png 會儲存圖形的圖片檔案
+- graphEx.gv 會儲存圖形的原始描述，可以使用 Graphviz 編輯器(eg. DOT插件)顯示
+- graphEx.png 會儲存圖形的圖片檔案
 """
 from graphviz import Digraph
 from pathlib import Path
+import logging
+
+# 設置日誌
+logger = logging.getLogger(__name__)
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s:%(lineno)d - %(levelname)s - %(message)s')
 
 # 確保 sample 目錄存在，用於儲存生成的圖形檔案
 def setup_sample_dir():
@@ -40,17 +45,24 @@ def add_node(dot, n, parent=None):
         add_node(dot, 2*n + 1, n)  # 右子節點
 
 def main():
-    # 建立 Graphviz 圖形物件，指定格式為 png
-    dot = Digraph('bstGraph', format='png')
+    try:
+        # 建立 Graphviz 圖形物件，指定格式為 png
+        dot = Digraph('graphEx', format='png')
+        
+        # 確保 sample 目錄存在
+        sample_dir = setup_sample_dir()
     
-    # 確保 sample 目錄存在
-    sample_dir = setup_sample_dir()
+        # 從根節點 1 開始建立樹
+        add_node(dot, 1)
     
-    # 從根節點 1 開始建立樹
-    add_node(dot, 1)
-    
-    # 生成並顯示圖形，檔案儲存於 sample 目錄中
-    dot.render(str(sample_dir / 'bstGraph.gv'), view=True)
+        # 生成並顯示圖形，檔案儲存於 sample 目錄中
+        graph_file = sample_dir / 'graphEx.gv'
+        dot.render(graph_file, view=False)
+        
+        logger.info(f"圖形已生成：{graph_file.with_suffix('.gv')} 和 {graph_file.with_suffix('.png')}")
+        
+    except Exception as e:
+        logger.error(f"發生錯誤：{str(e)}")
 
 if __name__ == "__main__":
     main()
