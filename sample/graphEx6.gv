@@ -1,0 +1,33 @@
+digraph software_architecture {
+	graph [bgcolor=lightgrey compound=true fontcolor=black fontsize=12 rankdir=TB splines=ortho style=filled]
+	node [fillcolor=white fontcolor=black shape=record style=filled]
+	edge [color=blue penwidth=1.5]
+	subgraph cluster_frontend {
+		fillcolor=lightblue label="Frontend Layer" labelcolor=black style=filled
+		ui [label="{User Interface | React Components | Webpack}" fillcolor=skyblue]
+		api_client [label="{API Client | REST Calls | Authentication}" fillcolor=skyblue]
+		ui -> api_client [color=darkblue taillabel="sends requests"]
+	}
+	subgraph cluster_backend {
+		fillcolor=lightgreen label="Backend Layer" labelcolor=black style=filled
+		api [label="{API Gateway | Load Balancer | Rate Limiting}" fillcolor=limegreen]
+		service1 [label="{Service 1 | Business Logic | Database Access}" fillcolor=limegreen]
+		service2 [label="{Service 2 | Analytics | Caching}" fillcolor=limegreen]
+		api -> service1
+		api -> service2
+		service1 -> service2 [color=green style=dashed taillabel="shares data"]
+	}
+	subgraph cluster_db {
+		fillcolor=lightpink label="Data Layer" labelcolor=black style=filled
+		db1 [label="{Primary DB | PostgreSQL | Transactions}" fillcolor=salmon shape=cylinder]
+		db2 [label="{Cache | Redis | Key-Value Store}" fillcolor=salmon shape=cylinder]
+		db1 -> db2 [color=red taillabel=syncs]
+	}
+	api_client -> api [label="HTTP requests" color=purple lhead=cluster_backend ltail=cluster_frontend]
+	service1 -> db1 [color=darkred lhead=cluster_db xlabel="reads/writes"]
+	service2 -> db2 [color=darkred lhead=cluster_db style=dotted xlabel=caches]
+	subgraph cluster_legend {
+		fillcolor=lightyellow label=Legend labelcolor=black rank=sink style=filled
+		legend_node [label="Solid: Direct Call\nDashed: Async Data\nDotted: Optional" fillcolor=yellow labelcolor=black shape=note]
+	}
+}
