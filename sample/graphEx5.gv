@@ -1,0 +1,10 @@
+digraph graphEx5 {
+	{
+		rank=same
+		A
+		B
+	}
+	C
+	A -> C [constraint=false]
+	B -> C [weight=10]
+}
