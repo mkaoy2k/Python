@@ -38,7 +38,9 @@ Python/
 ├── 檔案處理
 │   ├── filesEx1.py         # 檔案操作
 │   ├── csvEx.py            # CSV 處理
-│   └── jsonEx.py           # JSON 處理
+│   ├── jsonEx.py           # JSON 處理
+│   ├── xmlEx1.py           # XML 處理
+│   └── xmlEx2.py           # XML 處理
 ├── 網路
 │   ├── emailPublisher.py   # 電子郵件
 │   └── smsOnQuake.py       # 簡訊通知
@@ -47,10 +49,15 @@ Python/
 │   └── gamePoker.py        # 扑克遊戲
 ├── GUI
 │   ├── tkinterEx1.py       # Tkinter GUI
-│   └── guiEx.py            # GUI 範例
+│   ├── guiEx.py            # GUI 範例
+│   ├── graphEx6.py         # 軟體架構圖
+│   └── graphUSA50.py       # 美國50州相鄰關係圖
 ├── 效能測試
 │   ├── perf_LvsT.py        # 列表與元組
 │   └── perfHeaps.py        # 堆積結構
+│   ├── process_images_1P.py # 單進程影像處理效能測試
+│   ├── process_images_CP.py # 多核心並行處理影像效能測試
+│   └── process_images_CT.py # 多執行緒並行處理影像效能測試
 └── 配置文件
     ├── .env                # 環境變數
     ├── requirements.txt    # Python 套件依賴
@@ -72,6 +79,7 @@ Python/
 - `filesEx1.py` ~ `filesEx6.py`: 檔案讀取和寫入範例
 - `csvEx.py` ~ `csvEx2.py`: CSV 檔案處理範例
 - `jsonEx.py` ~ `jsonEx2.py`: JSON 資料處理範例
+- `xmlEx1.py` ~ `xmlEx2.py`: XML 檔案讀取和寫入範例
 
 ### 資料結構範例
 
@@ -92,12 +100,17 @@ Python/
 - `scheduleEx.py`: 定時任務排程
 - `tkinterEx1.py`: GUI 程式設計
 - `reEx.py`: 正則表達式範例
+- `piLib.py`: 圓周率計算庫
+- `primeLib.py`: 質數計算庫
 
 ### 效能測試範例
 
 - `perf_LvsT.py`: 列表與元組效能比較
 - `perfHeaps.py`: 堆積結構效能測試
 - `perfListvsGenerator.py`: 列表與生成器效能比較
+- `process_images_1P.py`: 單進程影像處理效能測試
+- `process_images_CP.py`: 多核心並行處理影像效能測試
+- `process_images_CT.py`: 多執行緒並行處理影像效能測試
 
 ## 使用方式
 
