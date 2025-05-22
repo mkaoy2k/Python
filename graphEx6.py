@@ -23,43 +23,35 @@ import os
 def create_software_architecture_graph():
     """
     創建軟體架構圖
-
+    
     此函數會：
     1. 初始化 Graphviz 圖形，設置全局屬性
     2. 創建三個主要的子圖（層）：前端、後端和資料層
     3. 在每個層中添加相應的節點和邊
     4. 添加跨層的邊來表示不同層之間的互動
     5. 添加圖例來說明邊的意義
-    6. 渲染並保存圖形
+    
+    回傳:
+        Graphviz Digraph 物件
     """
-    # 獲取腳本目錄並創建 sample 目錄
-    script_dir = Path(__file__).parent
-    sample_dir = script_dir / 'sample'
-    sample_dir.mkdir(exist_ok=True)
-
     # 初始化有向圖，設置全局屬性
     dot = Digraph(
         name='software_architecture',
         format='png',
         graph_attr={
-            'rankdir': 'TB',  # 由上至下布局
-            'splines': 'ortho',  # 正交邊緣
-            'bgcolor': 'lightgrey',  # 背景顏色
-            'fontcolor': 'black',  # 字體顏色
-            'fontsize': '12',  # 字體大小
-            'style': 'filled',  # 填充樣式
-            'compound': 'true'  # 啟用跨子圖的邊
+            'rankdir': 'TB',
+            'splines': 'ortho',
+            'bgcolor': 'lightgrey',
+            'fontcolor': 'black',
+            'fontsize': '12',
+            'style': 'filled',
+            'compound': 'true'
         },
         node_attr={'shape': 'record', 'style': 'filled', 'fillcolor': 'white', 'fontcolor': 'black'},
         edge_attr={'color': 'blue', 'penwidth': '1.5'}
     )
 
     # 前端層子圖
-    """
-    前端層包含兩個主要節點：
-    - UI：使用者介面、React 元件和 Webpack
-    - API Client：API 客戶端、REST 請求和認證
-    """
     with dot.subgraph(name='cluster_frontend') as frontend:
         frontend.attr(label='Frontend Layer', style='filled', fillcolor='lightblue', labelcolor='black')
         frontend.node('ui', r'{User Interface | React Components | Webpack}', fillcolor='skyblue')
@@ -67,12 +59,6 @@ def create_software_architecture_graph():
         frontend.edge('ui', 'api_client', taillabel='sends requests', color='darkblue')
 
     # 後端層子圖
-    """
-    後端層包含三個主要節點：
-    - API：API 網關、負載平衡和速率限制
-    - Service 1：業務邏輯和資料庫存取
-    - Service 2：分析和快取
-    """
     with dot.subgraph(name='cluster_backend') as backend:
         backend.attr(label='Backend Layer', style='filled', fillcolor='lightgreen', labelcolor='black')
         backend.node('api', r'{API Gateway | Load Balancer | Rate Limiting}', fillcolor='limegreen')
@@ -82,11 +68,6 @@ def create_software_architecture_graph():
         backend.edge('service1', 'service2', taillabel='shares data', style='dashed', color='green')
 
     # 資料層子圖
-    """
-    資料層包含兩個主要節點：
-    - Primary DB：主要資料庫、PostgreSQL 和交易
-    - Cache：快取、Redis 和鍵值存儲
-    """
     with dot.subgraph(name='cluster_db') as db:
         db.attr(label='Data Layer', style='filled', fillcolor='lightpink', labelcolor='black')
         db.node('db1', r'{Primary DB | PostgreSQL | Transactions}', shape='cylinder', fillcolor='salmon')
@@ -94,30 +75,38 @@ def create_software_architecture_graph():
         db.edge('db1', 'db2', taillabel='syncs', color='red')
 
     # 跨層邊
-    """
-    添加跨層的邊來表示不同層之間的互動：
-    - API 客戶端到 API：HTTP 請求
-    - Service 1 到 Primary DB：讀取/寫入
-    - Service 2 到 Cache：快取
-    """
     dot.edge('api_client', 'api', lhead='cluster_backend', ltail='cluster_frontend', label='HTTP requests', color='purple')
     dot.edge('service1', 'db1', lhead='cluster_db', xlabel='reads/writes', color='darkred')
     dot.edge('service2', 'db2', lhead='cluster_db', xlabel='caches', style='dotted', color='darkred')
 
     # 圖例
-    """
-    添加圖例來說明不同線型的意義：
-    - 實線：直接呼叫
-    - 虛線：異步資料
-    - 點線：可選操作
-    """
     with dot.subgraph(name='cluster_legend') as legend:
         legend.attr(label='Legend', rank='sink', style='filled', fillcolor='lightyellow', labelcolor='black')
         legend.node('legend_node', r'Solid: Direct Call\nDashed: Async Data\nDotted: Optional', shape='note', fillcolor='yellow', labelcolor='black')
 
-    # 渲染並保存圖形
-    dot.render(sample_dir / 'graphEx6.gv', view=True)
-    print(f"Graph rendered as '{sample_dir / 'graphEx6.png'}'")
+    return dot
+
+def main():
+    """
+    主函數：處理檔案路徑和圖形渲染
+    """
+    try:
+        # 創建圖形
+        graph = create_software_architecture_graph()
+        
+        # 獲取腳本目錄並創建 sample 目錄
+        script_dir = Path(__file__).parent
+        sample_dir = script_dir / 'sample'
+        sample_dir.mkdir(exist_ok=True)
+        
+        # 渲染並保存圖形
+        output_file = sample_dir / 'graphEx6.gv'
+        graph.render(str(output_file), view=True)
+        print(f"Graph rendered as '{output_file.with_suffix('.png')}'")
+        
+    except Exception as e:
+        print(f"發生錯誤：{str(e)}")
+        raise
 
 if __name__ == "__main__":
-    create_software_architecture_graph()
+    main()
