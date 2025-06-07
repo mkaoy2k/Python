@@ -50,6 +50,8 @@ def should_notify(val, eq_time, min_magnitude):
     """
     try:
         date_occured = date.fromisoformat(eq_time.split(' ')[0])
+        logger.debug(f"地震規模: {val}, 最小通知規模: {min_magnitude}, 發生時間: {date_occured}")
+        
         return (val >= min_magnitude and 
                 date_occured in [date.today(), date.today() - timedelta(days=1)])
     except ValueError as e:
@@ -61,16 +63,18 @@ if __name__ == "__main__":
     """
     主程式入口點
     """
+    # 載入環境變數
+    load_dotenv()
+
     # 設置日誌
+    log_level_str = os.getenv('LOGGING', 'DEBUG').upper()
+    log_level = getattr(logging, log_level_str, logging.DEBUG)
     logging.basicConfig(
-        level=logging.INFO,
+        level=log_level,
         format='%(asctime)s - %(name)s:%(lineno)d - %(levelname)s - %(message)s'
     )
     logger = logging.getLogger(__name__)
     
-    # 載入環境變數
-    load_dotenv()
-
     # 設定設定檔目錄位置
     current_dir = Path(__file__).parent
     config_dir = current_dir / 'sample'
