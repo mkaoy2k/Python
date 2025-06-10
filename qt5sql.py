@@ -7,7 +7,8 @@ PyQt5 與 SQLite 資料庫操作範例
 主要功能：
 - 連接 SQLite 資料庫
 - 載入指定資料表
-- 在表格視圖中顯示資料
+- 在表格視圖中顯示、修改和新增資料
+- 儲存變更
 
 使用方式：
     1. 在 .env 檔案中設定 DB_PATH 和 DB_TABLE 環境變數
@@ -61,11 +62,16 @@ class DatabaseViewer(QMainWindow):
         self.save_button.clicked.connect(self.save_changes)
         self.save_button.setEnabled(False)
         
+        # 新增記錄按鈕
+        self.add_button = QPushButton("新增記錄")
+        self.add_button.clicked.connect(self.insert_record)
+        
         # 新增重新整理按鈕
         refresh_button = QPushButton("重新整理")
         refresh_button.clicked.connect(self.refresh_data)
         
         button_layout.addWidget(self.save_button)
+        button_layout.addWidget(self.add_button)
         button_layout.addWidget(refresh_button)
         button_layout.addStretch()
         
@@ -113,6 +119,23 @@ class DatabaseViewer(QMainWindow):
                 self.model.revertAll()  # 回復變更
         except Exception as e:
             QMessageBox.critical(self, "例外錯誤", f"儲存時發生錯誤：{str(e)}")
+    
+    def insert_record(self):
+        """
+        在表格中插入新記錄
+        """
+        # 獲取當前列數
+        row_count = self.model.rowCount()
+        # 在最後插入一行
+        if self.model.insertRow(row_count):
+            # 滾動到新行
+            self.tableView.scrollToBottom()
+            # 啟用編輯模式
+            self.tableView.edit(self.model.index(row_count, 0))
+            # 啟用儲存按鈕
+            self.save_button.setEnabled(True)
+        else:
+            QMessageBox.critical(self, "錯誤", "無法新增記錄：" + self.model.lastError().text())
     
     def refresh_data(self):
         """
