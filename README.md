@@ -33,22 +33,37 @@ Python/
 │   └── tupleEx1.py         # 元組操作
 ├── 數據結構
 │   ├── biTree.py           # 二元樹
+│   ├── biTree_v2.py        # 二元樹
+│   ├── biTree_v3.py        # 二元樹
 │   ├── bsTree.py           # 二元搜尋樹
-│   └── bst.py              # 二元搜尋樹
+│   ├── bsTreeEx.py         # 二元搜尋樹範例
+│   ├── bsTreeEx2.py        # 二元搜尋樹範例
+│   ├── bst.py              # 二元搜尋樹
+│   └── bstEx2.py           # 二元搜尋樹範例
 ├── 檔案處理
 │   ├── filesEx1.py         # 檔案操作
 │   ├── csvEx.py            # CSV 處理
 │   ├── jsonEx.py           # JSON 處理
 │   ├── xmlEx1.py           # XML 處理
 │   └── xmlEx2.py           # XML 處理
+├── 函式庫
+│   ├── piLib.py            # π值估算函式庫
+│   └── primeLib.py         # 質數計算函式庫
 ├── 網路
 │   ├── emailPublisher.py   # 電子郵件
-│   └── smsOnQuake.py       # 簡訊通知
+│   ├── emailOnQuake.py     # 電子郵件地震通知
+│   ├── smsOnQuake.py       # 簡訊地震通知
+│   └── smsViaHTTP.py       # 簡訊通知 via HTTP
 ├── 遊戲
-│   ├── gameSnake.py        # 蛇遊戲
+│   ├── gameGuessNbr.py     # 猜數字遊戲
+│   ├── gameGuess4.py       # 猜數字遊戲
+│   ├── gameRollDice.py     # 擲骰子遊戲
+│   ├── gameSnake*.py       # 蛇遊戲
 │   └── gamePoker.py        # 扑克遊戲
 ├── GUI
 │   ├── tkinterEx1.py       # Tkinter GUI
+│   ├── SQLiteEx.py         # SQLite 資料庫操作範例
+│   ├── qt5sql.py           # PyQt5 與 SQLite 資料庫操作範例
 │   ├── guiEx.py            # GUI 範例
 │   ├── graphEx6.py         # 軟體架構圖
 │   └── graphUSA50.py       # 美國50州相鄰關係圖
@@ -79,6 +94,8 @@ Python/
 - `filesEx1.py` ~ `filesEx6.py`: 檔案讀取和寫入範例
 - `csvEx.py` ~ `csvEx2.py`: CSV 檔案處理範例
 - `jsonEx.py` ~ `jsonEx2.py`: JSON 資料處理範例
+- `sqliteEx.py`: SQLite 資料庫操作範例
+- `qt5sql.py`: PyQt5 與 SQLite 資料庫操作範例
 - `xmlEx1.py` ~ `xmlEx2.py`: XML 檔案讀取和寫入範例
 
 ### 資料結構範例
@@ -87,10 +104,17 @@ Python/
 - `bsTree.py` ~ `bsTreeEx.py`: 二元搜尋樹實作
 - `bst.py` ~ `bstEx2.py`: 二元搜尋樹範例
 
+### 函式庫
+
+- `piLib.py`: π值估算函式庫
+- `primeLib.py`: 質數計算函式庫
+
 ### 網路和通訊範例
 
 - `emailPublisher.py`: 電子郵件發送功能
-- `smsOnQuake.py`: 地震簡訊通知系統
+- `emailOnQuake.py`: 電子郵件地震通知
+- `smsOnQuake.py`: 地震簡訊通知
+- `smsViaHTTP.py`: 簡訊通知 via HTTP
 - `emailSendAttach.py`: 帶附件的電子郵件發送
 - `emailSendHTML.py`: HTML 格式電子郵件發送
 
@@ -100,8 +124,6 @@ Python/
 - `scheduleEx.py`: 定時任務排程
 - `tkinterEx1.py`: GUI 程式設計
 - `reEx.py`: 正則表達式範例
-- `piLib.py`: 圓周率計算庫
-- `primeLib.py`: 質數計算庫
 
 ### 效能測試範例
 
