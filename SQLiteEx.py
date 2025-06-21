@@ -36,7 +36,7 @@ def setup_database():
     cursor.execute('''
     CREATE TABLE IF NOT EXISTS students (
         student_id INTEGER PRIMARY KEY,
-        name TEXT NOT NULL
+        student_name TEXT NOT NULL
     )
     ''')
     
@@ -51,6 +51,7 @@ def setup_database():
     CREATE TABLE IF NOT EXISTS student_courses (
         student_id INTEGER,
         course_id INTEGER,
+        enrollment_date DATE NOT NULL,
         PRIMARY KEY (student_id, course_id),
         FOREIGN KEY (student_id) REFERENCES students(student_id) ON DELETE CASCADE,
         FOREIGN KEY (course_id) REFERENCES courses(course_id) ON DELETE CASCADE
@@ -67,13 +68,16 @@ def insert_sample_data(cursor):
         cursor: 資料庫游標
     """
     cursor.executescript('''
-    INSERT OR IGNORE INTO students (name) VALUES ('Alice');
-    INSERT OR IGNORE INTO students (name) VALUES ('Bob');
-    INSERT OR IGNORE INTO courses (course_name) VALUES ('Math');
-    INSERT OR IGNORE INTO courses (course_name) VALUES ('Science');
-    INSERT OR IGNORE INTO student_courses (student_id, course_id) VALUES (1, 1);
-    INSERT OR IGNORE INTO student_courses (student_id, course_id) VALUES (1, 2);
-    INSERT OR IGNORE INTO student_courses (student_id, course_id) VALUES (2, 1);
+    INSERT INTO students (student_id, student_name) VALUES
+    (1, 'Alice'),
+    (2, 'Bob');
+    INSERT INTO courses (course_id, course_name) VALUES
+    (101, 'Math'),
+    (102, 'Science');
+    INSERT INTO student_courses (student_id, course_id, enrollment_date) VALUES
+    (1, 101, '2025-06-01'),     
+    (1, 102, '2025-06-01'),     
+    (2, 101, '2025-06-02');     
     ''')
 
 def query_student_courses(cursor, student_name):
@@ -92,7 +96,7 @@ def query_student_courses(cursor, student_name):
     FROM students s
     JOIN student_courses sc ON s.student_id = sc.student_id
     JOIN courses c ON sc.course_id = c.course_id
-    WHERE s.name = ?
+    WHERE s.student_name = ?
     ''', (student_name,))
     return [row[0] for row in cursor.fetchall()]
 
