@@ -9,6 +9,7 @@
 
 # USB extFat
 ._*
+/.DS_Store
 
 
 # uv environments

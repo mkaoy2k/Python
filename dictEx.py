@@ -76,6 +76,21 @@ def loop_through_dict(student: dict) -> None:
     for value in student.values():
         print(value)
 
+def get_sub_dictionary(original_dict, keys):
+    """
+    Extract a sub-dictionary from the original dictionary containing only specified keys.
+    
+    Args:
+        original_dict (dict): The original dictionary
+        keys (list): List of keys to include in the sub-dictionary
+        
+    Returns:
+        dict: A new dictionary containing only the specified keys and their values
+    """
+    # Using dictionary comprehension to create sub-dictionary
+    return {key: original_dict[key] for key in keys if key in original_dict}
+
+
 def main() -> None:
     """主函數"""
     # 建立和訪問字典
@@ -89,6 +104,31 @@ def main() -> None:
     
     # 字典遍歷
     loop_through_dict(student)
+    
+    # Sample dictionary
+    original_dict = {
+        'name': 'John',
+        'age': 30,
+        'city': 'New York',
+        'occupation': 'Engineer',
+        'email': 'john@example.com'
+    }
+    
+    # Keys we want in the sub-dictionary
+    desired_keys = ['name', 'age', 'city']
+    
+    # Get the sub-dictionary
+    sub_dict = get_sub_dictionary(original_dict, desired_keys)
+    
+    # Print results
+    print("Original dictionary:", original_dict)
+    print("Sub-dictionary:", sub_dict)
+    
+    # Example with a key that doesn't exist
+    desired_keys_with_invalid = ['name', 'age', 'phone']
+    sub_dict_with_invalid = get_sub_dictionary(original_dict, desired_keys_with_invalid)
+    print("Sub-dictionary with invalid key:", sub_dict_with_invalid)
+
 
 if __name__ == "__main__":
     main()
