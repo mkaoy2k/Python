@@ -5,6 +5,7 @@
 2. 更新和修改字典
 3. 刪除字典元素
 4. 字典遍歷
+5. 提取子字典
 """
 
 def create_and_access_dict() -> dict:
@@ -76,16 +77,16 @@ def loop_through_dict(student: dict) -> None:
     for value in student.values():
         print(value)
 
-def get_sub_dictionary(original_dict, keys):
+def get_sub_dictionary(original_dict: dict, keys: list) -> dict:
     """
-    Extract a sub-dictionary from the original dictionary containing only specified keys.
+    從原始字典中提取只包含指定鍵的子字典
     
     Args:
-        original_dict (dict): The original dictionary
-        keys (list): List of keys to include in the sub-dictionary
+        original_dict (dict): 原始字典
+        keys (list): 要包含在子字典中的鍵列表
         
     Returns:
-        dict: A new dictionary containing only the specified keys and their values
+        dict: 只包含指定鍵及其值的新字典
     """
     # Using dictionary comprehension to create sub-dictionary
     return {key: original_dict[key] for key in keys if key in original_dict}
