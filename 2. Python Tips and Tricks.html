@@ -7517,29 +7517,29 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Python-Tips-and-Tricks">Python Tips and Tricks<a class="anchor-link" href="#Python-Tips-and-Tricks">¶</a></h1><p>The following topics are covered in this notebook:</p>
+<h1 id="Python-Tips-and-Tricks">Python Tips and Tricks<a class="anchor-link" href="#Python-Tips-and-Tricks">¶</a></h1><p>The following topics as tips and tricks in Python coding are covered in this notebook:</p>
 <ol>
-<li><p>How to Make Python Coding More Readable</p>
+<li><p>How to make Python coding more readable</p>
 </li>
-<li><p>Use Context Manager to Manage Resources</p>
+<li><p>Use <code>Context Manager</code> to manage resources</p>
 </li>
-<li><p>Use try-except-else-finally for safe exception handling</p>
+<li><p>Use <code>try-except-else-finally</code> for safe exception handling</p>
 </li>
-<li><p>Use enumerate for counting</p>
+<li><p>Use <code>enumerate</code> for counting</p>
 </li>
-<li><p>Use zip for parallel iteration</p>
+<li><p>Use <code>zip</code> for parallel iteration</p>
 </li>
 <li><p>Use unpacking to assign an object to variables</p>
 </li>
-<li><p>Setattr/Getattr to dynamically set/get attributes of an object</p>
+<li><p>Use <code>Setattr</code>/<code>Getattr</code> to dynamically set/get attributes of an object</p>
 </li>
-<li><p>Use getpass to solicit password from user</p>
+<li><p>Use <code>getpass</code> to solicit password from user</p>
 </li>
-<li><p>Use python -m to run a module as a script</p>
+<li><p>Use <code>python -m</code> to run a module as a script</p>
 </li>
-<li><p>Help/Dir for Docstings and Object Attributes</p>
+<li><p>Use <code>help</code>/<code>dir</code> for Docstings and Object Attributes</p>
 </li>
-<li><p>Use Iterable for iteration</p>
+<li><p>Use <code>Iterable</code> for iteration</p>
 </li>
 </ol>
 </div>
@@ -7561,7 +7561,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
@@ -7581,13 +7581,13 @@ a.anchor-link {
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Python sys.version:
-3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 11:23:37) [Clang 14.0.6 ]
+3.13.2 | packaged by Anaconda, Inc. | (main, Feb  6 2025, 12:55:35) [Clang 14.0.6 ]
 
 Python sys.executable:
-/Users/michaelkao/miniconda3/bin/python
+/Users/michaelkao/miniconda3/envs/pex/bin/python
 
 Python sys.path:
-['/Users/michaelkao/miniconda3/lib/python313.zip', '/Users/michaelkao/miniconda3/lib/python3.13', '/Users/michaelkao/miniconda3/lib/python3.13/lib-dynload', '', '/Users/michaelkao/miniconda3/lib/python3.13/site-packages']
+['/Users/michaelkao/miniconda3/envs/pex/lib/python313.zip', '/Users/michaelkao/miniconda3/envs/pex/lib/python3.13', '/Users/michaelkao/miniconda3/envs/pex/lib/python3.13/lib-dynload', '', '/Users/michaelkao/miniconda3/envs/pex/lib/python3.13/site-packages']
 
 </pre>
 </div>
@@ -7599,7 +7599,7 @@ Python sys.path:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
@@ -7618,7 +7618,7 @@ Python sys.path:
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Current Working Dir (CWD) path:
-/Users/michaelkao/OneDrive/My Projects/Python
+/Users/michaelkao/My_Projects/Python
 
 </pre>
 </div>
@@ -7632,7 +7632,7 @@ Python sys.path:
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="1.-How-to-make-Python-code-more-readable">1. How to make Python code more readable<a class="anchor-link" href="#1.-How-to-make-Python-code-more-readable">¶</a></h2><h3 id="1.1-Use-Descriptive-Variable-and-Fuction-Names">1.1 Use Descriptive Variable and Fuction Names<a class="anchor-link" href="#1.1-Use-Descriptive-Variable-and-Fuction-Names">¶</a></h3><p>Choose variable and function names that describe what they store or do.
+<h2 id="1.-How-to-make-Python-code-more-readable">1. How to make Python code more readable<a class="anchor-link" href="#1.-How-to-make-Python-code-more-readable">¶</a></h2><h3 id="1.1-Use-descriptive-variable-and-function-names">1.1 Use descriptive variable and function names<a class="anchor-link" href="#1.1-Use-descriptive-variable-and-function-names">¶</a></h3><p>Choose variable and function names that describe what they store or do.
 For example, instead of a = 10, write user_age = 10.
 Clear names make your code self-explanatory and reduce the need for comments.</p>
 </div>
@@ -7643,7 +7643,7 @@ Clear names make your code self-explanatory and reduce the need for comments.</p
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [68]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Bad</span>
@@ -7679,7 +7679,7 @@ Subtotal: 2
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [69]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Bad</span>
@@ -7724,16 +7724,19 @@ Calling calculate_sub_total() = 2
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="1.2-Use-Ternary-Conditionals-(%E4%B8%89%E5%85%83%E6%A2%9D%E4%BB%B6%E9%81%8B%E7%AE%97)">1.2 Use Ternary Conditionals (三元條件運算)<a class="anchor-link" href="#1.2-Use-Ternary-Conditionals-(%E4%B8%89%E5%85%83%E6%A2%9D%E4%BB%B6%E9%81%8B%E7%AE%97)">¶</a></h3><p>Python 使用三元運算子(ternary conditional operator) 好處是程式碼可以看起來比較簡短，在某些情況 python 使用三元運算子簡化後 code 會變得清爽簡短許多。</p>
-<p>C 的寫法</p>
-<pre><code>x = condition? 1 : 0</code></pre>
-<p>Python 的寫法</p>
-<pre><code>x = 1 if condition else 0</code></pre>
-<p>二元運算的寫法較多行但邏輯相同，如下：</p>
-<pre><code>if condition:
-    x = 1
-else:
-    x = 0</code></pre>
+<h3 id="1.2-Use-ternary-conditionals-(%E4%B8%89%E5%85%83%E6%A2%9D%E4%BB%B6%E9%81%8B%E7%AE%97)">1.2 Use ternary conditionals (三元條件運算)<a class="anchor-link" href="#1.2-Use-ternary-conditionals-(%E4%B8%89%E5%85%83%E6%A2%9D%E4%BB%B6%E9%81%8B%E7%AE%97)">¶</a></h3><p>Python 使用三元運算子(ternary conditional operator) 好處是程式碼可以看起來比較簡短，在某些情況 python 使用三元運算子簡化後 code 會變得清爽簡短許多。</p>
+<p>C 的寫法:</p>
+<div class="highlight"><pre><span></span><span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">condition</span><span class="o">?</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span>
+</pre></div>
+<p>Python 的寫法:</p>
+<div class="highlight"><pre><span></span>    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">condition</span> <span class="k">else</span> <span class="mi">0</span>
+</pre></div>
+<p>Python 二元運算的寫法較多行但邏輯相同，如下：</p>
+<div class="highlight"><pre><span></span>    <span class="k">if</span> <span class="n">condition</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -7742,7 +7745,7 @@ else:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [70]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">condition</span> <span class="o">=</span> <span class="kc">False</span>
@@ -7784,10 +7787,17 @@ condition is False
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="1.3-Use-_-(Underscore)for-Ignored-Variables-or-as-Placeholders">1.3 Use _ (Underscore)for Ignored Variables or as Placeholders<a class="anchor-link" href="#1.3-Use-_-(Underscore)for-Ignored-Variables-or-as-Placeholders">¶</a></h3><p>When you don’t need a loop variable, use _ to signal it’s intentionally ignored.
-It’s a simple but powerful convention.</p>
-<p>Or when you don’t need a loop variable, use _ to signal it’s intentionally ignored.
-It’s a simple but powerful convention.</p>
+<h3 id="1.3-Use-_-(Underscore)-for-ignored-variables-or-as-placeholders">1.3 Use _ (Underscore) for ignored variables or as placeholders<a class="anchor-link" href="#1.3-Use-_-(Underscore)-for-ignored-variables-or-as-placeholders">¶</a></h3><p>When you have a numeric variable with values that are not easy to read, you can improve readability by using _ to signal it’s value in thousands.</p>
+<div class="highlight"><pre><span></span><span class="c1"># Bad</span>
+<span class="n">num</span> <span class="o">=</span> <span class="mi">1000000</span>
+
+<span class="c1"># Good</span>
+<span class="n">num</span> <span class="o">=</span> <span class="mi">1_000_000</span>
+</pre></div>
+<p>Or when you don’t need a loop variable, use _ to signal it’s intentionally ignored. It’s a simple but powerful convention.</p>
+<div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Hello, World!"</span><span class="p">)</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -7796,7 +7806,7 @@ It’s a simple but powerful convention.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [71]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">num1</span> <span class="o">=</span> <span class="mi">10000000000</span>
@@ -7827,7 +7837,7 @@ It’s a simple but powerful convention.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [72]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># improving readability via "_" (no-op)</span>
@@ -7839,7 +7849,7 @@ It’s a simple but powerful convention.</p>
 
 <span class="c1"># loop counter not used</span>
 <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Hello"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Hello World!"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7853,9 +7863,9 @@ It’s a simple but powerful convention.</p>
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>10100000000
-Hello
-Hello
-Hello
+Hello World!
+Hello World!
+Hello World!
 </pre>
 </div>
 </div>
@@ -7866,10 +7876,10 @@ Hello
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [73]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># improving reporting via formatter</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># improving reporting via ',' formatter</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">total</span><span class="si">:</span><span class="s1">,</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -7896,8 +7906,9 @@ Hello
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="1.4-List-Comprehensions-for-Creating-Lists">1.4 List Comprehensions for Creating Lists<a class="anchor-link" href="#1.4-List-Comprehensions-for-Creating-Lists">¶</a></h3><p>List comprehensions are a compact way to create lists.
-They make your code shorter and easier to understand compared to traditional loops.</p>
+<h3 id="1.4-List-comprehensions-for-creating-lists">1.4 List comprehensions for creating lists<a class="anchor-link" href="#1.4-List-comprehensions-for-creating-lists">¶</a></h3><p>List comprehensions are a compact way to create lists. They make your code shorter and easier to understand compared to traditional loops.</p>
+<div class="highlight"><pre><span></span><span class="n">squares</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -7906,11 +7917,11 @@ They make your code shorter and easier to understand compared to traditional loo
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [74]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># populate list with squares of numbers from 0 to 4</span>
-<span class="n">squares</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
+<span class="n">squares</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"squares: </span><span class="si">{</span><span class="n">squares</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -7924,7 +7935,7 @@ They make your code shorter and easier to understand compared to traditional loo
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>squares: [0, 1, 4, 9, 16]
+<pre>squares: [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 </pre>
 </div>
 </div>
@@ -7935,7 +7946,7 @@ They make your code shorter and easier to understand compared to traditional loo
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [75]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># find even numbers from a list</span>
@@ -7967,7 +7978,20 @@ They make your code shorter and easier to understand compared to traditional loo
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="1.5-Swap-two-variables-without-using-a-temporary-variable">1.5 Swap two variables without using a temporary variable<a class="anchor-link" href="#1.5-Swap-two-variables-without-using-a-temporary-variable">¶</a></h3>
+<h3 id="1.5-Swap-two-variables-without-using-a-temporary-variable">1.5 Swap two variables without using a temporary variable<a class="anchor-link" href="#1.5-Swap-two-variables-without-using-a-temporary-variable">¶</a></h3><p>C 的寫法:</p>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+
+<span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
+</pre></div>
+<p>Python 的寫法:</p>
+<div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -7976,12 +8000,12 @@ They make your code shorter and easier to understand compared to traditional loo
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [77]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Swapping vaiables</span>
-<span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">b</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"a = </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2">, b = </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
@@ -7996,7 +8020,7 @@ They make your code shorter and easier to understand compared to traditional loo
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>a = 20, b = 10
+<pre>a = 2, b = 1
 </pre>
 </div>
 </div>
@@ -8023,12 +8047,12 @@ They make your code shorter and easier to understand compared to traditional loo
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [82]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># reverse a string</span>
 <span class="n">god</span> <span class="o">=</span> <span class="s2">"god"</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"reversed god: </span><span class="si">{</span><span class="n">text</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"reversed god: </span><span class="si">{</span><span class="n">god</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
 <span class="n">stressed</span> <span class="o">=</span> <span class="s2">"stressed"</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"reversed stressed: </span><span class="si">{</span><span class="n">stressed</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
@@ -8056,7 +8080,7 @@ reversed stressed: desserts
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [81]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># check if two strings are anagrams</span>
@@ -8087,7 +8111,7 @@ reversed stressed: desserts
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># count frequency of characters in a string</span>
@@ -8116,7 +8140,7 @@ reversed stressed: desserts
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Remove duplicates from a string</span>
@@ -8170,7 +8194,7 @@ Result: helo wrd
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [83]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># reverse the list</span>
@@ -8212,7 +8236,7 @@ sorted_list: [1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9]
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># flatten a list of lists</span>
@@ -8256,7 +8280,7 @@ sorted_list: [1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9]
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">student</span> <span class="o">=</span> <span class="p">{</span>
@@ -8314,7 +8338,7 @@ Loop via values() method:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Using dictionary comprehension to create sub-dictionary</span>
@@ -8357,7 +8381,7 @@ sub_dict: {'name': 'John', 'age': 30, 'city': 'New York'}
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="2.-Use-Context-Manager-to-Manage-Resources">2. Use Context Manager to Manage Resources<a class="anchor-link" href="#2.-Use-Context-Manager-to-Manage-Resources">¶</a></h2><p>When we read from or write to a file, we sometimes forget to close it at the end. It certainly waste system resources, such as file object and buffer, once allocated and not being able to reuse.</p>
+<h2 id="2.-Use-Context-Manager-to-manage-resources">2. Use <code>Context Manager</code> to manage resources<a class="anchor-link" href="#2.-Use-Context-Manager-to-manage-resources">¶</a></h2><p>When we read from or write to a file, we sometimes forget to close it at the end. It certainly waste system resources, such as file object and buffer, once allocated and not being able to reuse.</p>
 <p>Python has a context manager via "with" statement to manage the resouces for you once you exit the execution of "with"-bolck. Always use with open() for file operations. It ensures files are closed automatically, preventing leaks or errors.</p>
 <p>Here is the sample file, called "test.txt", containing the following:</p>
 <pre><code>1) This is a test file
@@ -8378,7 +8402,7 @@ sub_dict: {'name': 'John', 'age': 30, 'city': 'New York'}
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [25]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Open File Object Modes:</span>
@@ -8387,7 +8411,7 @@ sub_dict: {'name': 'John', 'age': 30, 'city': 'New York'}
 <span class="c1"># f = open("test.txt", "a") # for append</span>
 <span class="c1"># f = open("test.txt", "r+") # for read and write</span>
 
-<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'test.txt'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'sample/test.txt'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'File object:</span><span class="se">\t</span><span class="s1"> </span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'---&gt; Open Mode:</span><span class="se">\t</span><span class="s1"> </span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="n">mode</span><span class="si">}</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 
@@ -8415,28 +8439,24 @@ sub_dict: {'name': 'John', 'age': 30, 'city': 'New York'}
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>File object:	 test.txt
+<pre>File object:	 sample/test.txt
 ---&gt; Open Mode:	 r
 
 ---&gt; is closed?	 True
 
 read the whole file into a string variable at a time:
-1) This is a test file
-2) With multiple lines of data...
-3) Third line
-4) Fourth line
-5) Fifth line
-6) Sixth line
-7) Seventh line
-8) Eighth line
-9) Ninth line
-10) Tenth line
+1) Here is a joke
+2) With 6 lines 45 words, it says:
+3) Teacher: How old is your father, Henry?
+4) Henry: He is 6 years old.
+5) Teacher: What? How is this possible?
+6) Henry: He became father only when I was born.
 
 
 words in the "test.txt" file:
-['1)', 'This', 'is', 'a', 'test', 'file\n2)', 'With', 'multiple', 'lines', 'of', 'data...\n3)', 'Third', 'line\n4)', 'Fourth', 'line\n5)', 'Fifth', 'line\n6)', 'Sixth', 'line\n7)', 'Seventh', 'line\n8)', 'Eighth', 'line\n9)', 'Ninth', 'line\n10)', 'Tenth', 'line\n']
+['1)', 'Here', 'is', 'a', 'joke\n2)', 'With', '6', 'lines', '45', 'words,', 'it', 'says:\n3)', 'Teacher:', 'How', 'old', 'is', 'your', 'father,', 'Henry?\n4)', 'Henry:', 'He', 'is', '6', 'years', 'old.\n5)', 'Teacher:', 'What?', 'How', 'is', 'this', 'possible?\n6)', 'Henry:', 'He', 'became', 'father', 'only', 'when', 'I', 'was', 'born.\n']
 
-There are 27 words in the "test.txt" file.
+There are 40 words in the "test.txt" file.
 
 </pre>
 </div>
@@ -8450,7 +8470,7 @@ There are 27 words in the "test.txt" file.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="2.1-Read-a-File-using-Context-Manager">2.1 Read a File using Context Manager<a class="anchor-link" href="#2.1-Read-a-File-using-Context-Manager">¶</a></h3><p>The common reading methods are:</p>
+<h3 id="2.1-Read-a-file-using-Context-Manager">2.1 Read a file using <code>Context Manager</code><a class="anchor-link" href="#2.1-Read-a-file-using-Context-Manager">¶</a></h3><p>The common reading methods are:</p>
 <pre><code>1. f.read()
 2. f.readlines()
 3. f.readline()
@@ -8467,13 +8487,13 @@ There are 27 words in the "test.txt" file.
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [38]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Reading Files via 'with' context manager</span>
 <span class="c1"># not only file, but also other resources, like threads</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'test.txt'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'sample/test.txt'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'File object:</span><span class="se">\t</span><span class="s1"> </span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'---&gt; Open Mode:</span><span class="se">\t</span><span class="s1"> </span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="n">mode</span><span class="si">}</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
@@ -8513,20 +8533,16 @@ There are 27 words in the "test.txt" file.
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>File object:	 test.txt
+<pre>File object:	 sample/test.txt
 ---&gt; Open Mode:	 r
 
 The whole file was read into a string variable at a time:
-1) This is a test file
-2) With multiple lines of data...
-3) Third line
-4) Fourth line
-5) Fifth line
-6) Sixth line
-7) Seventh line
-8) Eighth line
-9) Ninth line
-10) Tenth line
+1) Here is a joke
+2) With 6 lines 45 words, it says:
+3) Teacher: How old is your father, Henry?
+4) Henry: He is 6 years old.
+5) Teacher: What? How is this possible?
+6) Henry: He became father only when I was born.
 
 
 ---&gt; Context Manager exits. Is the file closed?	 True
@@ -8534,56 +8550,9 @@ The whole file was read into a string variable at a time:
 f.read(): I/O operation on closed file.
 
 View words in the "test.txt" file:
-['1)', 'This', 'is', 'a', 'test', 'file\n2)', 'With', 'multiple', 'lines', 'of', 'data...\n3)', 'Third', 'line\n4)', 'Fourth', 'line\n5)', 'Fifth', 'line\n6)', 'Sixth', 'line\n7)', 'Seventh', 'line\n8)', 'Eighth', 'line\n9)', 'Ninth', 'line\n10)', 'Tenth', 'line\n']
+['1)', 'Here', 'is', 'a', 'joke\n2)', 'With', '6', 'lines', '45', 'words,', 'it', 'says:\n3)', 'Teacher:', 'How', 'old', 'is', 'your', 'father,', 'Henry?\n4)', 'Henry:', 'He', 'is', '6', 'years', 'old.\n5)', 'Teacher:', 'What?', 'How', 'is', 'this', 'possible?\n6)', 'Henry:', 'He', 'became', 'father', 'only', 'when', 'I', 'was', 'born.\n']
 
-There are 27 words in the "test.txt" file.
-
-read lines into a list at a time:
-['1) This is a test file\n', '2) With multiple lines of data...\n', '3) Third line\n', '4) Fourth line\n', '5) Fifth line\n', '6) Sixth line\n', '7) Seventh line\n', '8) Eighth line\n', '9) Ninth line\n', '10) Tenth line\n']
-
-read first line into a list at a time:
-1) This is a test file
-
-read 2nd line into a list next time:
-2) With multiple lines of data...
-
-read 3rd line into a list, ignore \n:
-3) Third line
-read 4th line into a list, ignore \n:
-4) Fourth line
-Iterating in a for-loop, line by line each loop till the end...
-5) Fifth line
-Iterating in a for-loop, line by line each loop till the end...
-6) Sixth line
-Iterating in a for-loop, line by line each loop till the end...
-7) Seventh line
-Iterating in a for-loop, line by line each loop till the end...
-8) Eighth line
-Iterating in a for-loop, line by line each loop till the end...
-9) Ninth line
-Iterating in a for-loop, line by line each loop till the end...
-10) Tenth line
-
-Iterating in a while-loop, 100 bytes each loop till the end...
-"1) This is a test file
-2) With multiple lines of data...
-3) Third line
-4) Fourth line
-5) Fifth line
-"
-Iterating in a while-loop, 100 bytes each loop till the end...
-"6) Sixth line
-7) Seventh line
-8) Eighth line
-9) Ninth line
-10) Tenth line
-"read 10 bytes, ignore \n:
-1) This is
-Current position of the file objet = 10
-
-back to BOF, read 10 bytes, ignore \n:
-1) This is
-Current position of the file objet = 10
+There are 40 words in the "test.txt" file.
 
 </pre>
 </div>
@@ -8597,7 +8566,7 @@ Current position of the file objet = 10
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="2.2-More-Examples-about-File-Reading-Methods">2.2 More Examples about File Reading Methods<a class="anchor-link" href="#2.2-More-Examples-about-File-Reading-Methods">¶</a></h3>
+<h3 id="2.2-More-examples-about-file-reading-methods">2.2 More examples about file reading methods<a class="anchor-link" href="#2.2-More-examples-about-file-reading-methods">¶</a></h3>
 </div>
 </div>
 </div>
@@ -8606,11 +8575,11 @@ Current position of the file objet = 10
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [40]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># More reading methods</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'test.txt'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'sample/test.txt'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     
     <span class="c1"># read file contents in a list of lines:</span>
     <span class="n">f_contents</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
@@ -8675,58 +8644,45 @@ Current position of the file objet = 10
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>read lines into a list at a time:
-['1) This is a test file\n', '2) With multiple lines of data...\n', '3) Third line\n', '4) Fourth line\n', '5) Fifth line\n', '6) Sixth line\n', '7) Seventh line\n', '8) Eighth line\n', '9) Ninth line\n', '10) Tenth line\n']
+['1) Here is a joke\n', '2) With 6 lines 45 words, it says:\n', '3) Teacher: How old is your father, Henry?\n', '4) Henry: He is 6 years old.\n', '5) Teacher: What? How is this possible?\n', '6) Henry: He became father only when I was born.\n']
 
 read first line into a list at a time:
-1) This is a test file
+1) Here is a joke
 
 read 2nd line into a list next time:
-2) With multiple lines of data...
+2) With 6 lines 45 words, it says:
 
 read 3rd line into a list, ignore \n:
-3) Third line
+3) Teacher: How old is your father, Henry?
 read 4th line into a list, ignore \n:
-4) Fourth line
+4) Henry: He is 6 years old.
 Iterating in a for-loop, line by line each loop till the end...
--&gt;5) Fifth line
+-&gt;5) Teacher: What? How is this possible?
 &lt;-
 Iterating in a for-loop, line by line each loop till the end...
--&gt;6) Sixth line
-&lt;-
-Iterating in a for-loop, line by line each loop till the end...
--&gt;7) Seventh line
-&lt;-
-Iterating in a for-loop, line by line each loop till the end...
--&gt;8) Eighth line
-&lt;-
-Iterating in a for-loop, line by line each loop till the end...
--&gt;9) Ninth line
-&lt;-
-Iterating in a for-loop, line by line each loop till the end...
--&gt;10) Tenth line
+-&gt;6) Henry: He became father only when I was born.
 &lt;-
 
 Iterating in a while-loop, 100 bytes each loop till the end...
--&gt;1) This is a test file
-2) With multiple lines of data...
-3) Third line
-4) Fourth line
-5) Fifth line
-&lt;-
+-&gt;1) Here is a joke
+2) With 6 lines 45 words, it says:
+3) Teacher: How old is your father, Henry?
+4) H&lt;-
 
 Iterating in a while-loop, 100 bytes each loop till the end...
--&gt;6) Sixth line
-7) Seventh line
-8) Eighth line
-9) Ninth line
-10) Tenth line
+-&gt;enry: He is 6 years old.
+5) Teacher: What? How is this possible?
+6) Henry: He became father only whe&lt;-
+
+Iterating in a while-loop, 100 bytes each loop till the end...
+-&gt;n I was born.
 &lt;-
 read 10 bytes, ignore \n:
--&gt;1) This is&lt;-
+-&gt;1) Here is&lt;-
 Current position of the file objet = 10
 
 back to BOF, read 10 bytes, ignore \n:
--&gt;1) This is&lt;-
+-&gt;1) Here is&lt;-
 Current position of the file objet = 10
 
 </pre>
@@ -8741,7 +8697,7 @@ Current position of the file objet = 10
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="2.3-Write-a-File-using-Context-Manager">2.3 Write a File using Context Manager<a class="anchor-link" href="#2.3-Write-a-File-using-Context-Manager">¶</a></h3>
+<h3 id="2.3-Write-a-file-using-Context-Manager">2.3 Write a file using <code>Context Manager</code><a class="anchor-link" href="#2.3-Write-a-file-using-Context-Manager">¶</a></h3>
 </div>
 </div>
 </div>
@@ -8750,16 +8706,16 @@ Current position of the file objet = 10
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [43]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Write to a file using Context Manager</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"test2.txt"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"sample/test2.txt"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"Testing123"</span><span class="p">)</span>
     <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"Test987</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"test2.txt"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"sample/test2.txt"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="c1"># Iterating line by line till the end of file:</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Iterating line by line till the end...</span><span class="se">\n</span><span class="s1">-&gt;</span><span class="si">{</span><span class="n">line</span><span class="si">}</span><span class="s1">&lt;-</span><span class="se">\n</span><span class="s1">'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
@@ -8792,7 +8748,7 @@ Iterating line by line till the end...
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="2.4-Copy-a-File-using-Context-Manager">2.4 Copy a File using Context Manager<a class="anchor-link" href="#2.4-Copy-a-File-using-Context-Manager">¶</a></h3>
+<h3 id="2.4-Copy-a-file-using-Context-Manager">2.4 Copy a file using <code>Context Manager</code><a class="anchor-link" href="#2.4-Copy-a-file-using-Context-Manager">¶</a></h3>
 </div>
 </div>
 </div>
@@ -8801,11 +8757,11 @@ Iterating line by line till the end...
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Copy a File to Another:</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"test.txt"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">rf</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"sample/test.txt"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">rf</span><span class="p">:</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"test_copy.txt"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">wf</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">rf</span><span class="p">:</span>
             <span class="n">wf</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
@@ -8818,14 +8774,14 @@ Iterating line by line till the end...
 
 
 <span class="c1"># Copy an image: read/write in binary</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"Olisan.JPG"</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">rf</span><span class="p">:</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"Olisan_copy.JPG"</span><span class="p">,</span> <span class="s2">"wb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">wf</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"sample/Olisan.JPG"</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">rf</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"sample/Olisan_copy.JPG"</span><span class="p">,</span> <span class="s2">"wb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">wf</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">rf</span><span class="p">:</span>
             <span class="n">wf</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
 
 <span class="c1"># Copy an image: in chunks</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"Olisan.JPG"</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">rf</span><span class="p">:</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"Olisan_copy2.JPG"</span><span class="p">,</span> <span class="s2">"wb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">wf</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"sample/Olisan.JPG"</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">rf</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"sample/Olisan_copy2.JPG"</span><span class="p">,</span> <span class="s2">"wb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">wf</span><span class="p">:</span>
         <span class="n">chunk_size</span> <span class="o">=</span> <span class="mi">4096</span>
         <span class="n">rf_chunk</span> <span class="o">=</span> <span class="n">rf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">chunk_size</span><span class="p">)</span>
         
@@ -8835,11 +8791,11 @@ Iterating line by line till the end...
 
 <span class="c1"># Show all the images</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
-<span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">'Olisan.JPG'</span><span class="p">)</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">'sample/Olisan.JPG'</span><span class="p">)</span>
 <span class="n">img</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="n">img_copy</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">'Olisan_copy.JPG'</span><span class="p">)</span>
+<span class="n">img_copy</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">'sample/Olisan_copy.JPG'</span><span class="p">)</span>
 <span class="n">img_copy</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="n">img_copy2</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">'Olisan_copy2.JPG'</span><span class="p">)</span>
+<span class="n">img_copy2</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">'sample/Olisan_copy2.JPG'</span><span class="p">)</span>
 <span class="n">img_copy2</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -8856,34 +8812,22 @@ Iterating line by line till the end...
 <pre>opening test_copy.txt file:
 
 Iterating line by line till the end...
--&gt;1) This is a test file
+-&gt;1) Here is a joke
 &lt;-
 Iterating line by line till the end...
--&gt;2) With multiple lines of data...
+-&gt;2) With 6 lines 45 words, it says:
 &lt;-
 Iterating line by line till the end...
--&gt;3) Third line
+-&gt;3) Teacher: How old is your father, Henry?
 &lt;-
 Iterating line by line till the end...
--&gt;4) Fourth line
+-&gt;4) Henry: He is 6 years old.
 &lt;-
 Iterating line by line till the end...
--&gt;5) Fifth line
+-&gt;5) Teacher: What? How is this possible?
 &lt;-
 Iterating line by line till the end...
--&gt;6) Sixth line
-&lt;-
-Iterating line by line till the end...
--&gt;7) Seventh line
-&lt;-
-Iterating line by line till the end...
--&gt;8) Eighth line
-&lt;-
-Iterating line by line till the end...
--&gt;9) Ninth line
-&lt;-
-Iterating line by line till the end...
--&gt;10) Tenth line
+-&gt;6) Henry: He became father only when I was born.
 &lt;-
 </pre>
 </div>
@@ -8897,7 +8841,7 @@ Iterating line by line till the end...
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="3.-Use-try-except-else-finally-for-error-handling">3. Use try-except-else-finally for error handling<a class="anchor-link" href="#3.-Use-try-except-else-finally-for-error-handling">¶</a></h2><p>Use try/except to handle runtime errors gracefully.
+<h2 id="3.-Use-try-except-else-finally-for-error-handling">3. Use <code>try-except-else-finally</code> for error handling<a class="anchor-link" href="#3.-Use-try-except-else-finally-for-error-handling">¶</a></h2><p>Use <code>try/except</code> to handle runtime errors gracefully.
 It prevents your code from crashing unexpectedly.</p>
 </div>
 </div>
@@ -8907,7 +8851,7 @@ It prevents your code from crashing unexpectedly.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [25]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
@@ -8948,8 +8892,7 @@ finally: This will always execute
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="4.-Use-enumerate-for-counting">4. Use enumerate for counting<a class="anchor-link" href="#4.-Use-enumerate-for-counting">¶</a></h2><p>When looping through lists, use enumerate() instead of manual counters.
-It automatically gives you both index and value, improving clarity.</p>
+<h2 id="4.-Use-enumerate-for-counting">4. Use <code>enumerate</code> for counting<a class="anchor-link" href="#4.-Use-enumerate-for-counting">¶</a></h2><p>When looping through lists, use enumerate() instead of manual counters. It automatically gives you both index and value, improving clarity.</p>
 </div>
 </div>
 </div>
@@ -8958,7 +8901,7 @@ It automatically gives you both index and value, improving clarity.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [26]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Old way using counter</span>
@@ -8994,7 +8937,7 @@ It automatically gives you both index and value, improving clarity.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [27]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># cleaner code with enumerator</span>
@@ -9028,7 +8971,7 @@ It automatically gives you both index and value, improving clarity.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [28]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Another cleaner code with enumerator, starting index from 1</span>
@@ -9065,8 +9008,7 @@ It automatically gives you both index and value, improving clarity.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="5.-Use-zip-for-multiple-objects">5. Use zip for multiple objects<a class="anchor-link" href="#5.-Use-zip-for-multiple-objects">¶</a></h2><p>Combine multiple lists cleanly with zip().
-It’s perfect for looping through related data side by side.</p>
+<h2 id="5.-Use-zip-for-multiple-objects">5. Use <code>zip</code> for multiple objects<a class="anchor-link" href="#5.-Use-zip-for-multiple-objects">¶</a></h2><p>Combine multiple lists cleanly with zip(). It’s perfect for looping through related data side by side.</p>
 </div>
 </div>
 </div>
@@ -9075,7 +9017,7 @@ It’s perfect for looping through related data side by side.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [29]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Corey'</span><span class="p">,</span> <span class="s1">'Michael'</span><span class="p">,</span> <span class="s1">'Travis'</span><span class="p">,</span> <span class="s1">'Dave'</span><span class="p">]</span>
@@ -9109,7 +9051,7 @@ Dave is actually Batman
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [30]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Corey'</span><span class="p">,</span> <span class="s1">'Michael'</span><span class="p">,</span> <span class="s1">'Travis'</span><span class="p">,</span> <span class="s1">'Dave'</span><span class="p">]</span>
@@ -9144,7 +9086,7 @@ Dave is actually Batman
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [31]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Corey'</span><span class="p">,</span> <span class="s1">'Michael'</span><span class="p">,</span> <span class="s1">'Travis'</span><span class="p">,</span> <span class="s1">'Dave'</span><span class="p">]</span>
@@ -9191,7 +9133,7 @@ Dave is actually Batman from Taiwan
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [32]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Basic unpacking with tuple</span>
@@ -9222,7 +9164,7 @@ b: 2
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [33]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># unpacking a list</span>
@@ -9251,7 +9193,7 @@ b: 2
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [34]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Unpack in function arguments</span>
@@ -9285,7 +9227,7 @@ b: 2
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [35]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># unpack a string which is an iterable, consisting a sequence of characters</span>
@@ -9314,7 +9256,7 @@ b: 2
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [36]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Unpacking a dictionary, using ** to unpack key-value pairs</span>
@@ -9350,7 +9292,7 @@ Hello, John. You are 30 years old.
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [37]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># unpacking keys or valures from a dictionary</span>
@@ -9385,7 +9327,7 @@ v1=1, v2=2, v3=3
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [38]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Use * for extended unpacking (Python3+)</span>
@@ -9420,7 +9362,7 @@ v1=1, v2=2, v3=3
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [39]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
@@ -9452,7 +9394,7 @@ v1=1, v2=2, v3=3
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [40]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># nested unpacking</span>
@@ -9484,7 +9426,7 @@ y: (2, 4, 6)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [41]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># more complex nested list</span>
@@ -9518,7 +9460,7 @@ y: (2, 4, 6)
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="7.-Setattr/Getattr-to-dynamically-set/get-attributes-of-an-object">7. Setattr/Getattr to dynamically set/get attributes of an object<a class="anchor-link" href="#7.-Setattr/Getattr-to-dynamically-set/get-attributes-of-an-object">¶</a></h2><p>Dynamically setting and getting attributes of an object.</p>
+<h2 id="7.-Use-setattr/getattr-to-dynamically-set/get-attributes-of-an-object">7. Use <code>setattr</code>/<code>getattr</code> to dynamically set/get attributes of an object<a class="anchor-link" href="#7.-Use-setattr/getattr-to-dynamically-set/get-attributes-of-an-object">¶</a></h2><p>Setting and getting attributes of an object on the fly.</p>
 </div>
 </div>
 </div>
@@ -9527,7 +9469,7 @@ y: (2, 4, 6)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [42]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Person</span><span class="p">():</span>
@@ -9563,7 +9505,7 @@ y: (2, 4, 6)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [43]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Person</span><span class="p">():</span>
@@ -9602,7 +9544,7 @@ y: (2, 4, 6)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [44]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Person</span><span class="p">():</span>
@@ -9643,7 +9585,7 @@ y: (2, 4, 6)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [45]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Person</span><span class="p">():</span>
@@ -9687,7 +9629,7 @@ Kao
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="8.-Use-getpass-to-solicit-password-from-user">8. Use getpass to solicit password from user<a class="anchor-link" href="#8.-Use-getpass-to-solicit-password-from-user">¶</a></h2><p>Solicitate a password from user, and not showing it on terminal</p>
+<h2 id="8.-Use-getpass-to-solicit-password-from-user">8. Use <code>getpass</code> to solicit password from user<a class="anchor-link" href="#8.-Use-getpass-to-solicit-password-from-user">¶</a></h2><p>Solicitate a password from user, and not showing it on terminal</p>
 </div>
 </div>
 </div>
@@ -9696,7 +9638,7 @@ Kao
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [46]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">username</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">'Username: '</span><span class="p">)</span>
@@ -9715,9 +9657,7 @@ Kao
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Username: Michael
-Password: Kao
-Logging In...
+<pre>Logging In...
 </pre>
 </div>
 </div>
@@ -9728,7 +9668,7 @@ Logging In...
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [47]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">getpass</span><span class="w"> </span><span class="kn">import</span> <span class="n">getpass</span>
@@ -9749,9 +9689,7 @@ Logging In...
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Username: Michael
-Password: ········
-Logging In...
+<pre>Logging In...
 </pre>
 </div>
 </div>
@@ -9764,7 +9702,7 @@ Logging In...
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="9.-Python-dash-m">9. Python dash m<a class="anchor-link" href="#9.-Python-dash-m">¶</a></h2><p>Spawn a process at the cmd prompt with args</p>
+<h2 id="9.-Use-Python-dash-m-to-run-a-module-as-a-script">9. Use <code>Python dash m</code> to run a module as a script<a class="anchor-link" href="#9.-Use-Python-dash-m-to-run-a-module-as-a-script">¶</a></h2><p>Spawn a process at the cmd prompt with args</p>
 <div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>module_name
 </pre></div>
 </div>
@@ -9775,7 +9713,7 @@ Logging In...
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [48]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Run a command line from Jupyter notebook cell</span>
@@ -9968,7 +9906,7 @@ zipp                      3.21.0
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="10.-Help/Dir-for-Docstings-and-Object-Attributes">10. Help/Dir for Docstings and Object Attributes<a class="anchor-link" href="#10.-Help/Dir-for-Docstings-and-Object-Attributes">¶</a></h2>
+<h2 id="10.-Use-help/dir-for-Docstings-and-Object-Attributes">10. Use <code>help</code>/<code>dir</code> for Docstings and Object Attributes<a class="anchor-link" href="#10.-Use-help/dir-for-Docstings-and-Object-Attributes">¶</a></h2>
 </div>
 </div>
 </div>
@@ -9977,7 +9915,7 @@ zipp                      3.21.0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [49]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">uvicorn</span>
@@ -10263,7 +10201,7 @@ FILE
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [50]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">uvicorn</span>
@@ -10279,7 +10217,7 @@ FILE
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[50]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>['Config',
  'Server',
@@ -10313,7 +10251,7 @@ FILE
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [51]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">uvicorn</span>
@@ -10344,7 +10282,7 @@ uvicorn<span class="o">?</span>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [52]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
@@ -10361,7 +10299,7 @@ uvicorn<span class="o">?</span>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[52]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>['__add__',
  '__class__',
@@ -10441,7 +10379,7 @@ uvicorn<span class="o">?</span>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [53]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
@@ -10463,8 +10401,8 @@ uvicorn<span class="o">?</span>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>&lt;built-in method today of type object at 0x1036f48b0&gt;
-2025-11-05 14:39:42.333854
+<pre>&lt;built-in method today of type object at 0x105c588b0&gt;
+2025-11-10 11:29:59.032450
 </pre>
 </div>
 </div>
@@ -10477,22 +10415,19 @@ uvicorn<span class="o">?</span>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="11.-Iterables-for-iteration">11. Iterables for iteration<a class="anchor-link" href="#11.-Iterables-for-iteration">¶</a></h2><pre><code>Iterable is an object, that one can iterate over. It generates an Iterator when passed to iter() method. 
-
-An iterator is an object, which is used to iterate over an iterable object using the __next__() method. 
-
-Iterators have the __next__() method, which returns the next item of the object. Note that every iterator is also an iterable, but not every iterable is an iterator. 
-
-For example, a list is iterable but a list is not an iterator. An iterator can be created from an iterable by using the function iter(). To make this possible, the class of an object needs either a method __iter__, which returns an iterator, or a __getitem__ method with sequential indexes starting with 0. </code></pre>
+<h2 id="11.-Use-Iterables-for-iteration">11. Use <code>Iterables</code> for iteration<a class="anchor-link" href="#11.-Use-Iterables-for-iteration">¶</a></h2><p>Iterable is an object, that one can iterate over. It generates an Iterator when passed to iter() method.</p>
+<p>An iterator is an object, which is used to iterate over an iterable object using the <strong>next</strong>() method.</p>
+<p>Iterators have the <strong>next</strong>() method, which returns the next item of the object. Note that every iterator is also an iterable, but not every iterable is an iterator.</p>
+<p>For example, a list is iterable but a list is not an iterator. An iterator can be created from an iterable by using the function iter(). To make this possible, the class of an object needs either a method <strong>iter</strong>, which returns an iterator, or a <strong>getitem</strong> method with sequential indexes starting with 0.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=127de8df">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=127de8df">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [54]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'c123'</span><span class="p">,</span> <span class="mi">142_857</span><span class="p">,</span> <span class="s1">'Michael'</span><span class="p">,</span> <span class="s1">'Kao'</span><span class="p">]:</span>
@@ -10542,6 +10477,78 @@ For example, a list is iterable but a list is not an iterator. An iterator can b
 <span class="n">hands</span> <span class="o">=</span> <span class="p">[</span><span class="n">hand</span> <span class="k">for</span> <span class="n">hand</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">combinations</span><span class="p">(</span><span class="n">deck</span><span class="p">,</span> <span class="mi">5</span><span class="p">)]</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'The number of 5-card poker has </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">hands</span><span class="p">)</span><span class="si">:</span><span class="s1">,</span><span class="si">}</span><span class="s1"> combinations.'</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>c123 142857 Michael Kao 
+c123 142857 Michael Kao 
+M i c h a e l   K a o 
+66 105 110 97 114 121 
+1 4 2 8 5 7 
+1 4 2 8 5 7 
+Ranks: ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
+1: ('Spades', '2')
+2: ('Spades', '3')
+3: ('Spades', '4')
+4: ('Spades', '5')
+5: ('Spades', '6')
+6: ('Spades', '7')
+7: ('Spades', '8')
+8: ('Spades', '9')
+9: ('Spades', '10')
+10: ('Spades', 'J')
+11: ('Spades', 'Q')
+12: ('Spades', 'K')
+13: ('Spades', 'A')
+14: ('Hearts', '2')
+15: ('Hearts', '3')
+16: ('Hearts', '4')
+17: ('Hearts', '5')
+18: ('Hearts', '6')
+19: ('Hearts', '7')
+20: ('Hearts', '8')
+21: ('Hearts', '9')
+22: ('Hearts', '10')
+23: ('Hearts', 'J')
+24: ('Hearts', 'Q')
+25: ('Hearts', 'K')
+26: ('Hearts', 'A')
+27: ('Dimonds', '2')
+28: ('Dimonds', '3')
+29: ('Dimonds', '4')
+30: ('Dimonds', '5')
+31: ('Dimonds', '6')
+32: ('Dimonds', '7')
+33: ('Dimonds', '8')
+34: ('Dimonds', '9')
+35: ('Dimonds', '10')
+36: ('Dimonds', 'J')
+37: ('Dimonds', 'Q')
+38: ('Dimonds', 'K')
+39: ('Dimonds', 'A')
+40: ('Clubs', '2')
+41: ('Clubs', '3')
+42: ('Clubs', '4')
+43: ('Clubs', '5')
+44: ('Clubs', '6')
+45: ('Clubs', '7')
+46: ('Clubs', '8')
+47: ('Clubs', '9')
+48: ('Clubs', '10')
+49: ('Clubs', 'J')
+50: ('Clubs', 'Q')
+51: ('Clubs', 'K')
+52: ('Clubs', 'A')
+The number of 5-card poker has 2,598,960 combinations.
+</pre>
 </div>
 </div>
 </div>
