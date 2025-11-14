@@ -7724,14 +7724,15 @@ Calling calculate_sub_total() = 2
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="1.2-Use-ternary-conditionals-(%E4%B8%89%E5%85%83%E6%A2%9D%E4%BB%B6%E9%81%8B%E7%AE%97)">1.2 Use ternary conditionals (三元條件運算)<a class="anchor-link" href="#1.2-Use-ternary-conditionals-(%E4%B8%89%E5%85%83%E6%A2%9D%E4%BB%B6%E9%81%8B%E7%AE%97)">¶</a></h3><p>Python 使用三元運算子(ternary conditional operator) 好處是程式碼可以看起來比較簡短，在某些情況 python 使用三元運算子簡化後 code 會變得清爽簡短許多。</p>
-<p>C 的寫法:</p>
+<h3 id="1.2-Use-ternary-conditionals">1.2 Use ternary conditionals<a class="anchor-link" href="#1.2-Use-ternary-conditionals">¶</a></h3><p>1.2 Use Ternary Conditionals
+Python's ternary conditional operator makes code more concise. In many cases, using the ternary operator can make your code cleaner and more readable.</p>
+<p>In C, you would write:</p>
 <div class="highlight"><pre><span></span><span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">condition</span><span class="o">?</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span>
 </pre></div>
-<p>Python 的寫法:</p>
+<p>In Python, the equivalent code is:</p>
 <div class="highlight"><pre><span></span>    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">condition</span> <span class="k">else</span> <span class="mi">0</span>
 </pre></div>
-<p>Python 二元運算的寫法較多行但邏輯相同，如下：</p>
+<p>The Python ternary operation achieves the same logic as the following multi-line if-else statement:</p>
 <div class="highlight"><pre><span></span>    <span class="k">if</span> <span class="n">condition</span><span class="p">:</span>
         <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="k">else</span><span class="p">:</span>
@@ -7978,7 +7979,7 @@ Hello World!
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="1.5-Swap-two-variables-without-using-a-temporary-variable">1.5 Swap two variables without using a temporary variable<a class="anchor-link" href="#1.5-Swap-two-variables-without-using-a-temporary-variable">¶</a></h3><p>C 的寫法:</p>
+<h3 id="1.5-Swap-two-variables-without-using-a-temporary-variable">1.5 Swap two variables without using a temporary variable<a class="anchor-link" href="#1.5-Swap-two-variables-without-using-a-temporary-variable">¶</a></h3><p>In C:</p>
 <div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 
@@ -7986,7 +7987,7 @@ Hello World!
 <span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
 <span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
 </pre></div>
-<p>Python 的寫法:</p>
+<p>In Python:</p>
 <div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
 
@@ -9332,10 +9333,10 @@ v1=1, v2=2, v3=3
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Use * for extended unpacking (Python3+)</span>
 <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">*</span><span class="n">c</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"a: </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"b: </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"c: </span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"d: </span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -9348,10 +9349,10 @@ v1=1, v2=2, v3=3
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>1
-2
-[3, 4, 5]
-6
+<pre>a: 1
+b: 2
+c: [3, 4, 5]
+d: 6
 </pre>
 </div>
 </div>
@@ -9366,9 +9367,9 @@ v1=1, v2=2, v3=3
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"a: </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"b: </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"d: </span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -9381,9 +9382,9 @@ v1=1, v2=2, v3=3
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>1
-2
-6
+<pre>a: 1
+b: 2
+d: 6
 </pre>
 </div>
 </div>
@@ -9481,7 +9482,7 @@ y: (2, 4, 6)
 <span class="n">person</span><span class="o">.</span><span class="n">first</span> <span class="o">=</span> <span class="s2">"Michael"</span>
 <span class="n">person</span><span class="o">.</span><span class="n">last</span> <span class="o">=</span> <span class="s2">"Kao"</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">person</span><span class="o">.</span><span class="n">first</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">person</span><span class="o">.</span><span class="n">last</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'first: </span><span class="si">{</span><span class="n">person</span><span class="o">.</span><span class="n">first</span><span class="si">}</span><span class="s1"> last: </span><span class="si">{</span><span class="n">person</span><span class="o">.</span><span class="n">last</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -9494,7 +9495,7 @@ y: (2, 4, 6)
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Michael Kao
+<pre>first: Michael last: Kao
 </pre>
 </div>
 </div>
@@ -9520,7 +9521,7 @@ y: (2, 4, 6)
 
 <span class="nb">setattr</span><span class="p">(</span><span class="n">person</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">person</span><span class="o">.</span><span class="n">first</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">person</span><span class="o">.</span><span class="n">last</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'first: </span><span class="si">{</span><span class="n">person</span><span class="o">.</span><span class="n">first</span><span class="si">}</span><span class="s1"> last: </span><span class="si">{</span><span class="n">person</span><span class="o">.</span><span class="n">last</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -9533,7 +9534,7 @@ y: (2, 4, 6)
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Michael Kao
+<pre>first: Michael last: Kao
 </pre>
 </div>
 </div>
@@ -9561,7 +9562,7 @@ y: (2, 4, 6)
 
 <span class="c1"># getting an attribute value by the value of a variable</span>
 <span class="n">first</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">person</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">first</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"first: </span><span class="si">{</span><span class="n">first</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -9574,7 +9575,7 @@ y: (2, 4, 6)
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Michael
+<pre>first: Michael
 </pre>
 </div>
 </div>
@@ -10401,8 +10402,8 @@ uvicorn<span class="o">?</span>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>&lt;built-in method today of type object at 0x103f5c8b0&gt;
-2025-11-13 11:30:48.669585
+<pre>&lt;built-in method today of type object at 0x103d608b0&gt;
+2025-11-14 15:11:38.059660
 </pre>
 </div>
 </div>

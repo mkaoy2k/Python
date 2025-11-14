@@ -52,6 +52,10 @@ Python/
 ├── 網路
 │   ├── emailPublisher.py   # 電子郵件
 │   ├── emailOnQuake.py     # 電子郵件地震通知
+│   ├── emailSendAttach.py  # 帶附件的電子郵件發送
+│   ├── emailSendHTML.py    # HTML 格式電子郵件發送
+│   ├── pingSvr.py          # 伺服器連線測試
+│   ├── qrCodeGen.py        # QR Code 生成
 │   ├── smsOnQuake.py       # 簡訊地震通知
 │   └── smsViaHTTP.py       # 簡訊通知 via HTTP
 ├── 遊戲
@@ -68,10 +72,12 @@ Python/
 │   ├── graphEx6.py         # 軟體架構圖
 │   └── graphUSA50.py       # 美國50州相鄰關係圖
 ├── 效能測試
-│   ├── perf_LvsT.py        # 列表與元組
-│   └── perfHeaps.py        # 堆積結構
+│   ├── brAsyncEx.py         # 非同步程式設計示範
+│   ├── brSyncEx.py          # 同步程式設計示範
+│   ├── perf_LvsT.py         # 列表與元組
+│   └── perfHeaps.py         # 堆積結構
 │   ├── process_images_1P.py # 單進程影像處理效能測試
-│   ├── process_images_CP.py # 多核心並行處理影像效能測試
+│   ├── process_images_CP.py # 多進程並行處理影像效能測試
 │   └── process_images_CT.py # 多執行緒並行處理影像效能測試
 └── 配置文件
     ├── .env                # 環境變數
