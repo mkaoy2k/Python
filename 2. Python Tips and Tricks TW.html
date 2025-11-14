@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>2. Python Tips and Tricks</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>2. Python Tips and Tricks TW</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7517,29 +7517,29 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Python-Tips-and-Tricks">Python Tips and Tricks<a class="anchor-link" href="#Python-Tips-and-Tricks">¶</a></h1><p>The following topics as tips and tricks in Python coding are covered in this notebook:</p>
+<h1 id="Python-%E6%8A%80%E5%B7%A7%E5%92%8C%E7%AB%85%E9%96%80">Python 技巧和竅門<a class="anchor-link" href="#Python-%E6%8A%80%E5%B7%A7%E5%92%8C%E7%AB%85%E9%96%80">¶</a></h1><p>本筆記本涵蓋以下 Python 編程技巧：</p>
 <ol>
-<li><p>How to make Python coding more readable</p>
+<li><p>如何讓 Python 代碼更易讀</p>
 </li>
-<li><p>Use <code>Context Manager</code> to manage resources</p>
+<li><p>使用 <code>Context Manager</code> 管理資源</p>
 </li>
-<li><p>Use <code>try-except-else-finally</code> for safe exception handling</p>
+<li><p>使用 <code>try-except-else-finally</code> 進行安全的異常處理</p>
 </li>
-<li><p>Use <code>enumerate</code> for counting</p>
+<li><p>使用 <code>enumerate</code> 進行計數</p>
 </li>
-<li><p>Use <code>zip</code> for parallel iteration</p>
+<li><p>使用 <code>zip</code> 進行平行迭代</p>
 </li>
-<li><p>Use unpacking to assign an object to variables</p>
+<li><p>使用解包(unpacking)將物件賦值給變數</p>
 </li>
-<li><p>Use <code>Setattr</code>/<code>Getattr</code> to dynamically set/get attributes of an object</p>
+<li><p>使用 <code>Setattr</code>/<code>Getattr</code> 動態設定/獲取物件屬性</p>
 </li>
-<li><p>Use <code>getpass</code> to solicit password from user</p>
+<li><p>使用 <code>getpass</code> 從用戶端獲取密碼</p>
 </li>
-<li><p>Use <code>python -m</code> to run a module as a script</p>
+<li><p>使用 <code>python -m</code> 將模組作為腳本執行</p>
 </li>
-<li><p>Use <code>help</code>/<code>dir</code> for Docstings and Object Attributes</p>
+<li><p>使用 <code>help</code>/<code>dir</code> 查看文檔字串和物件屬性</p>
 </li>
-<li><p>Use <code>Iterable</code> for iteration</p>
+<li><p>使用 <code>Iterable</code> 進行迭代</p>
 </li>
 </ol>
 </div>
@@ -7552,7 +7552,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Python-Environment-Staging">Python Environment Staging<a class="anchor-link" href="#Python-Environment-Staging">¶</a></h2>
+<h2 id="Python-%E7%92%B0%E5%A2%83%E8%A8%AD%E5%AE%9A">Python 環境設定<a class="anchor-link" href="#Python-%E7%92%B0%E5%A2%83%E8%A8%AD%E5%AE%9A">¶</a></h2>
 </div>
 </div>
 </div>
@@ -7632,9 +7632,9 @@ Python sys.path:
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="1.-How-to-make-Python-code-more-readable">1. How to make Python code more readable<a class="anchor-link" href="#1.-How-to-make-Python-code-more-readable">¶</a></h2><h3 id="1.1-Use-descriptive-variable-and-function-names">1.1 Use descriptive variable and function names<a class="anchor-link" href="#1.1-Use-descriptive-variable-and-function-names">¶</a></h3><p>Choose variable and function names that describe what they store or do.
-For example, instead of a = 10, write user_age = 10.
-Clear names make your code self-explanatory and reduce the need for comments.</p>
+<h2 id="1.-%E5%A6%82%E4%BD%95%E8%AE%93-Python-%E4%BB%A3%E7%A2%BC%E6%9B%B4%E6%98%93%E8%AE%80">1. 如何讓 Python 代碼更易讀<a class="anchor-link" href="#1.-%E5%A6%82%E4%BD%95%E8%AE%93-Python-%E4%BB%A3%E7%A2%BC%E6%9B%B4%E6%98%93%E8%AE%80">¶</a></h2><h3 id="1.1-%E4%BD%BF%E7%94%A8%E6%8F%8F%E8%BF%B0%E6%80%A7%E7%9A%84%E8%AE%8A%E6%95%B8%E5%92%8C%E5%87%BD%E6%95%B8%E5%90%8D%E7%A8%B1">1.1 使用描述性的變數和函數名稱<a class="anchor-link" href="#1.1-%E4%BD%BF%E7%94%A8%E6%8F%8F%E8%BF%B0%E6%80%A7%E7%9A%84%E8%AE%8A%E6%95%B8%E5%92%8C%E5%87%BD%E6%95%B8%E5%90%8D%E7%A8%B1">¶</a></h3><p>選擇能夠清楚描述其內容或功能的變數和函數名稱。
+例如，與其使用 a = 10，不如使用 user_age = 10。
+清晰的名稱讓您的代碼不言自明，減少註解的需求。</p>
 </div>
 </div>
 </div>
@@ -7646,15 +7646,15 @@ Clear names make your code self-explanatory and reduce the need for comments.</p
 <div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Bad</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 不好的寫法</span>
 <span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
 
-<span class="c1"># Good</span>
+<span class="c1"># 好的寫法</span>
 <span class="n">total</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">sub_total</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Total:   "</span><span class="p">,</span> <span class="n">total</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Subtotal:"</span><span class="p">,</span> <span class="n">sub_total</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"總數:   "</span><span class="p">,</span> <span class="n">total</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"小計:"</span><span class="p">,</span> <span class="n">sub_total</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7667,8 +7667,8 @@ Clear names make your code self-explanatory and reduce the need for comments.</p
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Total:    5
-Subtotal: 2
+<pre>總數:    5
+小計: 2
 </pre>
 </div>
 </div>
@@ -7682,22 +7682,22 @@ Subtotal: 2
 <div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Bad</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 不好的寫法</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">a</span><span class="p">():</span>
     <span class="k">return</span> <span class="mi">5</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">b</span><span class="p">():</span>
     <span class="k">return</span> <span class="mi">2</span>
 
-<span class="c1"># Good</span>
+<span class="c1"># 好的寫法</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">calculate_total</span><span class="p">():</span>
     <span class="k">return</span> <span class="mi">5</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">calculate_sub_total</span><span class="p">():</span>
     <span class="k">return</span> <span class="mi">2</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Calling calculate_total()     ="</span><span class="p">,</span> <span class="n">calculate_total</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Calling calculate_sub_total() ="</span><span class="p">,</span> <span class="n">calculate_sub_total</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"調用 calculate_total()     ="</span><span class="p">,</span> <span class="n">calculate_total</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"調用 calculate_sub_total() ="</span><span class="p">,</span> <span class="n">calculate_sub_total</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -7710,8 +7710,8 @@ Subtotal: 2
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Calling calculate_total()     = 5
-Calling calculate_sub_total() = 2
+<pre>調用 calculate_total()     = 5
+調用 calculate_sub_total() = 2
 </pre>
 </div>
 </div>
@@ -7724,15 +7724,14 @@ Calling calculate_sub_total() = 2
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="1.2-Use-ternary-conditionals">1.2 Use ternary conditionals<a class="anchor-link" href="#1.2-Use-ternary-conditionals">¶</a></h3><p>1.2 Use Ternary Conditionals
-Python's ternary conditional operator makes code more concise. In many cases, using the ternary operator can make your code cleaner and more readable.</p>
-<p>In C, you would write:</p>
+<h3 id="1.2-Use-ternary-conditionals-(%E4%B8%89%E5%85%83%E6%A2%9D%E4%BB%B6%E9%81%8B%E7%AE%97)">1.2 Use ternary conditionals (三元條件運算)<a class="anchor-link" href="#1.2-Use-ternary-conditionals-(%E4%B8%89%E5%85%83%E6%A2%9D%E4%BB%B6%E9%81%8B%E7%AE%97)">¶</a></h3><p>Python 使用三元運算子(ternary conditional operator) 好處是程式碼可以看起來比較簡短，在某些情況 python 使用三元運算子簡化後 code 會變得清爽簡短許多。</p>
+<p>C 的寫法:</p>
 <div class="highlight"><pre><span></span><span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">condition</span><span class="o">?</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span>
 </pre></div>
-<p>In Python, the equivalent code is:</p>
+<p>Python 的寫法:</p>
 <div class="highlight"><pre><span></span>    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">condition</span> <span class="k">else</span> <span class="mi">0</span>
 </pre></div>
-<p>The Python ternary operation achieves the same logic as the following multi-line if-else statement:</p>
+<p>Python 二元運算的寫法較多行但邏輯相同，如下：</p>
 <div class="highlight"><pre><span></span>    <span class="k">if</span> <span class="n">condition</span><span class="p">:</span>
         <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="k">else</span><span class="p">:</span>
@@ -7753,14 +7752,14 @@ Python's ternary conditional operator makes code more concise. In many cases, us
 
 <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">condition</span> <span class="k">else</span> <span class="mi">0</span>
 
-<span class="c1"># f-strings for Formatting</span>
-<span class="c1"># Use f-strings for cleaner, more readable string interpolation.</span>
-<span class="c1"># They’re faster and more elegant than concatenation.</span>
+<span class="c1"># 使用 f-strings 進行格式化</span>
+<span class="c1"># 使用 f-strings 可以讓字串插值更清晰易讀。</span>
+<span class="c1"># 它們比字串連接更快且更優雅。</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"condition = </span><span class="si">{</span><span class="n">condition</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"條件 = </span><span class="si">{</span><span class="n">condition</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"x = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'condition is True'</span><span class="p">)</span> <span class="k">if</span> <span class="n">condition</span> <span class="k">else</span> <span class="nb">print</span><span class="p">(</span><span class="s1">'condition is False'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'條件為真'</span><span class="p">)</span> <span class="k">if</span> <span class="n">condition</span> <span class="k">else</span> <span class="nb">print</span><span class="p">(</span><span class="s1">'條件為假'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7773,9 +7772,9 @@ Python's ternary conditional operator makes code more concise. In many cases, us
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>condition = False
+<pre>條件 = False
 x = 0
-condition is False
+條件為假
 </pre>
 </div>
 </div>
@@ -7788,14 +7787,14 @@ condition is False
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="1.3-Use-_-(Underscore)-for-ignored-variables-or-as-placeholders">1.3 Use _ (Underscore) for ignored variables or as placeholders<a class="anchor-link" href="#1.3-Use-_-(Underscore)-for-ignored-variables-or-as-placeholders">¶</a></h3><p>When you have a numeric variable with values that are not easy to read, you can improve readability by using _ to signal it’s value in thousands.</p>
-<div class="highlight"><pre><span></span><span class="c1"># Bad</span>
+<h3 id="1.3-%E4%BD%BF%E7%94%A8-_%EF%BC%88%E5%BA%95%E7%B7%9A%EF%BC%89%E4%BD%9C%E7%82%BA%E5%BF%BD%E7%95%A5%E7%9A%84%E8%AE%8A%E6%95%B8%E6%88%96%E4%BD%94%E4%BD%8D%E7%AC%A6">1.3 使用 _（底線）作為忽略的變數或佔位符<a class="anchor-link" href="#1.3-%E4%BD%BF%E7%94%A8-_%EF%BC%88%E5%BA%95%E7%B7%9A%EF%BC%89%E4%BD%9C%E7%82%BA%E5%BF%BD%E7%95%A5%E7%9A%84%E8%AE%8A%E6%95%B8%E6%88%96%E4%BD%94%E4%BD%8D%E7%AC%A6">¶</a></h3><p>當您有一個數值變量，其值不容易閱讀時，可以使用 _ 來表示千位分隔，以提高可讀性。</p>
+<div class="highlight"><pre><span></span><span class="c1"># 不好的寫法</span>
 <span class="n">num</span> <span class="o">=</span> <span class="mi">1000000</span>
 
-<span class="c1"># Good</span>
+<span class="c1"># 好的寫法</span>
 <span class="n">num</span> <span class="o">=</span> <span class="mi">1_000_000</span>
 </pre></div>
-<p>Or when you don’t need a loop variable, use _ to signal it’s intentionally ignored. It’s a simple but powerful convention.</p>
+<p>或者當您不需要使用循環變量時，可以使用 _ 來表示這個變量是被故意忽略的。這是一個簡單但強大的約定。</p>
 <div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"Hello, World!"</span><span class="p">)</span>
 </pre></div>
@@ -7814,7 +7813,7 @@ condition is False
 <span class="n">num2</span> <span class="o">=</span> <span class="mi">100000000</span>
 
 <span class="n">total</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"總和 = </span><span class="si">{</span><span class="n">total</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7827,7 +7826,7 @@ condition is False
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>10100000000
+<pre>總和 = 10100000000
 </pre>
 </div>
 </div>
@@ -7841,14 +7840,14 @@ condition is False
 <div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># improving readability via "_" (no-op)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 使用 "_" 提升可讀性（無操作）</span>
 <span class="n">num1</span> <span class="o">=</span> <span class="mi">10_000_000_000</span>
 <span class="n">num2</span> <span class="o">=</span> <span class="mi">100_000_000</span>
 
 <span class="n">total</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"總和 = </span><span class="si">{</span><span class="n">total</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
-<span class="c1"># loop counter not used</span>
+<span class="c1"># 使用 "_" 表示未使用的循環計數器</span>
 <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"Hello World!"</span><span class="p">)</span>
 </pre></div>
@@ -7863,7 +7862,7 @@ condition is False
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>10100000000
+<pre>總和 = 10100000000
 Hello World!
 Hello World!
 Hello World!
@@ -7880,8 +7879,8 @@ Hello World!
 <div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># improving reporting via ',' formatter</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">total</span><span class="si">:</span><span class="s1">,</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 使用 ',' 格式化提升報表可讀性</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'總和 = </span><span class="si">{</span><span class="n">total</span><span class="si">:</span><span class="s1">,</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7894,7 +7893,7 @@ Hello World!
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>10,100,000,000
+<pre>總和 = 10,100,000,000
 </pre>
 </div>
 </div>
@@ -7907,7 +7906,7 @@ Hello World!
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="1.4-List-comprehensions-for-creating-lists">1.4 List comprehensions for creating lists<a class="anchor-link" href="#1.4-List-comprehensions-for-creating-lists">¶</a></h3><p>List comprehensions are a compact way to create lists. They make your code shorter and easier to understand compared to traditional loops.</p>
+<h3 id="1.4-%E4%BD%BF%E7%94%A8%E5%88%97%E8%A1%A8%E6%8E%A8%E5%B0%8E%E5%BC%8F%E5%89%B5%E5%BB%BA%E5%88%97%E8%A1%A8">1.4 使用列表推導式創建列表<a class="anchor-link" href="#1.4-%E4%BD%BF%E7%94%A8%E5%88%97%E8%A1%A8%E6%8E%A8%E5%B0%8E%E5%BC%8F%E5%89%B5%E5%BB%BA%E5%88%97%E8%A1%A8">¶</a></h3><p>列表推導式是一種簡潔的創建列表的方式。與傳統的循環相比，它們使您的代碼更簡短且更易於理解。</p>
 <div class="highlight"><pre><span></span><span class="n">squares</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
 </pre></div>
 </div>
@@ -7921,9 +7920,9 @@ Hello World!
 <div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># populate list with squares of numbers from 0 to 4</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 建立一個包含 0 到 9 的平方數列表</span>
 <span class="n">squares</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"squares: </span><span class="si">{</span><span class="n">squares</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"平方數列表: </span><span class="si">{</span><span class="n">squares</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7936,7 +7935,7 @@ Hello World!
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>squares: [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+<pre>平方數列表: [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 </pre>
 </div>
 </div>
@@ -7950,10 +7949,10 @@ Hello World!
 <div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># find even numbers from a list</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 從列表中找出偶數</span>
 <span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
 <span class="n">evens</span> <span class="o">=</span> <span class="p">[</span><span class="n">num</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">nums</span> <span class="k">if</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"evens: </span><span class="si">{</span><span class="n">evens</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"偶數: </span><span class="si">{</span><span class="n">evens</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7966,7 +7965,7 @@ Hello World!
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>evens: [2, 4, 6]
+<pre>偶數: [2, 4, 6]
 </pre>
 </div>
 </div>
@@ -7979,7 +7978,7 @@ Hello World!
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="1.5-Swap-two-variables-without-using-a-temporary-variable">1.5 Swap two variables without using a temporary variable<a class="anchor-link" href="#1.5-Swap-two-variables-without-using-a-temporary-variable">¶</a></h3><p>In C:</p>
+<h3 id="1.5-%E4%B8%8D%E4%BD%BF%E7%94%A8%E6%9A%AB%E5%AD%98%E8%AE%8A%E6%95%B8%E4%BA%A4%E6%8F%9B%E5%85%A9%E5%80%8B%E8%AE%8A%E6%95%B8">1.5 不使用暫存變數交換兩個變數<a class="anchor-link" href="#1.5-%E4%B8%8D%E4%BD%BF%E7%94%A8%E6%9A%AB%E5%AD%98%E8%AE%8A%E6%95%B8%E4%BA%A4%E6%8F%9B%E5%85%A9%E5%80%8B%E8%AE%8A%E6%95%B8">¶</a></h3><p>C 的寫法:</p>
 <div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 
@@ -7987,7 +7986,7 @@ Hello World!
 <span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
 <span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
 </pre></div>
-<p>In Python:</p>
+<p>Python 的寫法:</p>
 <div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
 
@@ -8004,7 +8003,7 @@ Hello World!
 <div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Swapping vaiables</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 交換變數</span>
 <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span>
@@ -8034,11 +8033,11 @@ Hello World!
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="1.6-String-Processing">1.6 String Processing<a class="anchor-link" href="#1.6-String-Processing">¶</a></h3><ul>
-<li>Reverse a string</li>
-<li>Check if two strings are anagrams</li>
-<li>Count frequency of characters in a string</li>
-<li>Remove duplicates from a string</li>
+<h3 id="1.6-%E5%AD%97%E4%B8%B2%E8%99%95%E7%90%86">1.6 字串處理<a class="anchor-link" href="#1.6-%E5%AD%97%E4%B8%B2%E8%99%95%E7%90%86">¶</a></h3><ul>
+<li>反轉字串</li>
+<li>檢查兩個字串是否為變位詞</li>
+<li>計算字串中字符的出現頻率</li>
+<li>移除字串中的重複字符</li>
 </ul>
 </div>
 </div>
@@ -8051,12 +8050,12 @@ Hello World!
 <div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># reverse a string</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 反轉字串</span>
 <span class="n">god</span> <span class="o">=</span> <span class="s2">"god"</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"reversed god: </span><span class="si">{</span><span class="n">god</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"反轉 god: </span><span class="si">{</span><span class="n">god</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
 <span class="n">stressed</span> <span class="o">=</span> <span class="s2">"stressed"</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"reversed stressed: </span><span class="si">{</span><span class="n">stressed</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"反轉 stressed: </span><span class="si">{</span><span class="n">stressed</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8069,8 +8068,8 @@ Hello World!
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>reversed god: dog
-reversed stressed: desserts
+<pre>反轉 god: dog
+反轉 stressed: desserts
 </pre>
 </div>
 </div>
@@ -8084,7 +8083,7 @@ reversed stressed: desserts
 <div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># check if two strings are anagrams</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 檢查兩個字串是否為變位詞</span>
 <span class="n">str_1</span> <span class="o">=</span> <span class="s2">"listen"</span>
 <span class="n">str_2</span> <span class="o">=</span> <span class="s2">"silent"</span>
 
@@ -8115,7 +8114,7 @@ reversed stressed: desserts
 <div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># count frequency of characters in a string</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 計算字串中字符的出現頻率</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">Counter</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">]))</span>
 </pre></div>
@@ -8144,17 +8143,17 @@ reversed stressed: desserts
 <div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Remove duplicates from a string</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 移除字串中的重複字符</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">remove_duplicates</span><span class="p">(</span><span class="n">input_str</span><span class="p">):</span>
-    <span class="c1"># Each character will be a key in the dictionary, which eliminates duplicates</span>
-    <span class="c1"># The values are not important, so we use None</span>
+    <span class="c1"># 每個字符將成為字典的鍵，這樣可以消除重複</span>
+    <span class="c1"># 值並不重要，所以我們使用 None</span>
     <span class="k">return</span> <span class="s1">''</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">input_str</span><span class="p">))</span>
 
-<span class="c1"># Example usage</span>
+<span class="c1"># 使用範例</span>
 <span class="n">text</span> <span class="o">=</span> <span class="s2">"hello world"</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">remove_duplicates</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>  <span class="c1"># "helo wrd"</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Original: </span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Result: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"原始字串: </span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"移除字串中的重複字符結果: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8167,8 +8166,8 @@ reversed stressed: desserts
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Original: hello world
-Result: helo wrd
+<pre>原始字串: hello world
+移除字串中的重複字符結果: helo wrd
 </pre>
 </div>
 </div>
@@ -8181,11 +8180,11 @@ Result: helo wrd
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="1.7-List-processing">1.7 List processing<a class="anchor-link" href="#1.7-List-processing">¶</a></h3><ul>
-<li>Reverse a list</li>
-<li>Remove duplicates from a list</li>
-<li>Sort a list</li>
-<li>Flatten a list of lists</li>
+<h3 id="1.7-%E5%88%97%E8%A1%A8%E8%99%95%E7%90%86">1.7 列表處理<a class="anchor-link" href="#1.7-%E5%88%97%E8%A1%A8%E8%99%95%E7%90%86">¶</a></h3><ul>
+<li>反轉列表</li>
+<li>移除列表中的重複項</li>
+<li>對列表進行排序</li>
+<li>展平嵌套列表</li>
 </ul>
 </div>
 </div>
@@ -8198,20 +8197,21 @@ Result: helo wrd
 <div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># reverse the list</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 反轉串列</span>
 <span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"原始串列: </span><span class="si">{</span><span class="n">my_list</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="n">reversed_list</span> <span class="o">=</span> <span class="n">my_list</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">"reversed_list: </span><span class="si">{</span><span class="n">reversed_list</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"反轉後的串列: </span><span class="si">{</span><span class="n">reversed_list</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
-<span class="c1"># remove duplicates from the list</span>
+<span class="c1"># 移除串列中的重複元素</span>
 <span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 <span class="n">unique_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">my_list</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">"unique_list: </span><span class="si">{</span><span class="n">unique_list</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"去重複元素後的串列: </span><span class="si">{</span><span class="n">unique_list</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
-<span class="c1"># sort the list</span>
+<span class="c1"># 排序串列</span>
 <span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 <span class="n">sorted_list</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">F</span><span class="s2">"sorted_list: </span><span class="si">{</span><span class="n">sorted_list</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"排序後的串列: </span><span class="si">{</span><span class="n">sorted_list</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8224,9 +8224,10 @@ Result: helo wrd
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>reversed_list: [5, 4, 3, 2, 1]
-unique_list: [1, 2, 3, 4, 5]
-sorted_list: [1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9]
+<pre>原始串列: [1, 2, 3, 4, 5]
+反轉後的串列: [5, 4, 3, 2, 1]
+去重複元素後的串列: [1, 2, 3, 4, 5]
+排序後的串列: [1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9]
 </pre>
 </div>
 </div>
@@ -8240,10 +8241,11 @@ sorted_list: [1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9]
 <div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># flatten a list of lists</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 將多維串列扁平化</span>
 <span class="n">lists</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"原始多維串列: </span><span class="si">{</span><span class="n">lists</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="n">flat_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">lists</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">row</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"flat_list: </span><span class="si">{</span><span class="n">flat_list</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"扁平化後的串列: </span><span class="si">{</span><span class="n">flat_list</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8256,7 +8258,8 @@ sorted_list: [1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9]
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>flat_list: [1, 2, 3, 4, 5, 6, 7, 8]
+<pre>原始多維串列: [[1, 2, 3], [4, 5], [6, 7, 8]]
+扁平化後的串列: [1, 2, 3, 4, 5, 6, 7, 8]
 </pre>
 </div>
 </div>
@@ -8269,9 +8272,9 @@ sorted_list: [1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9]
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="1.8-Dictionary-Processing">1.8 Dictionary Processing<a class="anchor-link" href="#1.8-Dictionary-Processing">¶</a></h3><ul>
-<li>loop through dictionary</li>
-<li>extract sub-dictionary</li>
+<h3 id="1.8-%E5%AD%97%E5%85%B8%E8%99%95%E7%90%86">1.8 字典處理<a class="anchor-link" href="#1.8-%E5%AD%97%E5%85%B8%E8%99%95%E7%90%86">¶</a></h3><ul>
+<li>遍歷字典</li>
+<li>提取子字典</li>
 </ul>
 </div>
 </div>
@@ -8289,18 +8292,18 @@ sorted_list: [1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9]
         <span class="s1">'age'</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span>
         <span class="s1">'courses'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'Math'</span><span class="p">,</span> <span class="s1">'ComSci'</span><span class="p">]</span>
     <span class="p">}</span>
-<span class="c1"># loop via items()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Loop via items() method:"</span><span class="p">)</span>
+<span class="c1"># 使用 items() 方法遍歷</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"使用 items() 方法遍歷:"</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">student</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\t</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
     
 <span class="c1"># 使用 keys() 方法遍歷</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Loop via keys() method:"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">使用 keys() 方法遍歷:"</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">student</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\t</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
     
 <span class="c1"># 使用 values() 方法遍歷</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Loop via values() method:"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">使用 values() 方法遍歷:"</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">student</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\t</span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
@@ -8315,17 +8318,17 @@ sorted_list: [1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9]
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Loop via items() method:
+<pre>使用 items() 方法遍歷:
 	name: John
 	age: 25
 	courses: ['Math', 'ComSci']
 
-Loop via keys() method:
+使用 keys() 方法遍歷:
 	name
 	age
 	courses
 
-Loop via values() method:
+使用 values() 方法遍歷:
 	John
 	25
 	['Math', 'ComSci']
@@ -8342,7 +8345,7 @@ Loop via values() method:
 <div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Using dictionary comprehension to create sub-dictionary</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 使用字典推導式建立子字典</span>
 <span class="n">original_dict</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s1">'name'</span><span class="p">:</span> <span class="s1">'John'</span><span class="p">,</span>
         <span class="s1">'age'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
@@ -8350,12 +8353,12 @@ Loop via values() method:
         <span class="s1">'occupation'</span><span class="p">:</span> <span class="s1">'Engineer'</span><span class="p">,</span>
         <span class="s1">'email'</span><span class="p">:</span> <span class="s1">'john@example.com'</span>
     <span class="p">}</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"original_dict: </span><span class="si">{</span><span class="n">original_dict</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"原始字典: </span><span class="si">{</span><span class="n">original_dict</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
    
-<span class="c1"># Keys we want in the sub-dictionary</span>
+<span class="c1"># 子字典中的鍵</span>
 <span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'name'</span><span class="p">,</span> <span class="s1">'age'</span><span class="p">,</span> <span class="s1">'city'</span><span class="p">]</span>
 <span class="n">sub_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">original_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">keys</span> <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">original_dict</span><span class="p">}</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"sub_dict: </span><span class="si">{</span><span class="n">sub_dict</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"子字典: </span><span class="si">{</span><span class="n">sub_dict</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8368,8 +8371,8 @@ Loop via values() method:
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>original_dict: {'name': 'John', 'age': 30, 'city': 'New York', 'occupation': 'Engineer', 'email': 'john@example.com'}
-sub_dict: {'name': 'John', 'age': 30, 'city': 'New York'}
+<pre>原始字典: {'name': 'John', 'age': 30, 'city': 'New York', 'occupation': 'Engineer', 'email': 'john@example.com'}
+子字典: {'name': 'John', 'age': 30, 'city': 'New York'}
 </pre>
 </div>
 </div>
@@ -8382,9 +8385,9 @@ sub_dict: {'name': 'John', 'age': 30, 'city': 'New York'}
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="2.-Use-Context-Manager-to-manage-resources">2. Use <code>Context Manager</code> to manage resources<a class="anchor-link" href="#2.-Use-Context-Manager-to-manage-resources">¶</a></h2><p>When we read from or write to a file, we sometimes forget to close it at the end. It certainly waste system resources, such as file object and buffer, once allocated and not being able to reuse.</p>
-<p>Python has a context manager via "with" statement to manage the resouces for you once you exit the execution of "with"-bolck. Always use with open() for file operations. It ensures files are closed automatically, preventing leaks or errors.</p>
-<p>Here is the sample file, called "test.txt", containing the following:</p>
+<h2 id="2.-%E4%BD%BF%E7%94%A8-Context-Manager-%E7%AE%A1%E7%90%86%E8%B3%87%E6%BA%90">2. 使用 <code>Context Manager</code> 管理資源<a class="anchor-link" href="#2.-%E4%BD%BF%E7%94%A8-Context-Manager-%E7%AE%A1%E7%90%86%E8%B3%87%E6%BA%90">¶</a></h2><p>當我們讀取或寫入檔案時，有時會忘記在最後關閉它。這無疑會浪費系統資源，例如檔案物件和緩衝區，一旦分配後就無法重複使用。</p>
+<p>Python 通過 "with" 語句提供了一個上下文管理器，當您退出 "with" 區塊的執行時，它會自動為您管理資源。對於檔案操作，請始終使用 with open()。它能確保檔案自動關閉，防止資源洩漏或錯誤。</p>
+<p>以下是名為 "test.txt" 的範例檔案內容：</p>
 <pre><code>1) This is a test file
 2) With multiple lines of data...
 3) Third line
@@ -8406,28 +8409,28 @@ sub_dict: {'name': 'John', 'age': 30, 'city': 'New York'}
 <div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Open File Object Modes:</span>
-<span class="c1"># f = open("test.txt", "r")  # for read</span>
-<span class="c1"># f = open("test.txt", "w") # for write</span>
-<span class="c1"># f = open("test.txt", "a") # for append</span>
-<span class="c1"># f = open("test.txt", "r+") # for read and write</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 開啟檔案的各種模式：</span>
+<span class="c1"># f = open("test.txt", "r")  # 唯讀模式</span>
+<span class="c1"># f = open("test.txt", "w")  # 寫入模式（會覆蓋原有內容）</span>
+<span class="c1"># f = open("test.txt", "a")  # 附加模式（在檔案末尾添加內容）</span>
+<span class="c1"># f = open("test.txt", "r+") # 讀寫模式</span>
 
 <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'sample/test.txt'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'File object:</span><span class="se">\t</span><span class="s1"> </span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'---&gt; Open Mode:</span><span class="se">\t</span><span class="s1"> </span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="n">mode</span><span class="si">}</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'檔案物件:</span><span class="se">\t</span><span class="s1"> </span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'---&gt; 開啟模式:</span><span class="se">\t</span><span class="s1"> </span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="n">mode</span><span class="si">}</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 
 <span class="n">file_contents</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'---&gt; is closed?</span><span class="se">\t</span><span class="s1"> </span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="n">closed</span><span class="si">}</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'---&gt; 檔案已關閉?</span><span class="se">\t</span><span class="s1"> </span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="n">closed</span><span class="si">}</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'read the whole file into a string variable at a time:</span><span class="se">\n</span><span class="si">{</span><span class="n">file_contents</span><span class="si">}</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'將整個檔案讀取到一個字串變數中:</span><span class="se">\n</span><span class="si">{</span><span class="n">file_contents</span><span class="si">}</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 
 <span class="n">words</span> <span class="o">=</span> <span class="n">file_contents</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">' '</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'words in the "test.txt" file:</span><span class="se">\n</span><span class="si">{</span><span class="n">words</span><span class="si">}</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'檔案 "test.txt" 中的單字:</span><span class="se">\n</span><span class="si">{</span><span class="n">words</span><span class="si">}</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 
 <span class="n">word_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'There are </span><span class="si">{</span><span class="n">word_count</span><span class="si">}</span><span class="s1"> words in the "test.txt" file.</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'檔案 "test.txt" 中共有 </span><span class="si">{</span><span class="n">word_count</span><span class="si">}</span><span class="s1"> 個單字。</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8440,12 +8443,12 @@ sub_dict: {'name': 'John', 'age': 30, 'city': 'New York'}
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>File object:	 sample/test.txt
----&gt; Open Mode:	 r
+<pre>檔案物件:	 sample/test.txt
+---&gt; 開啟模式:	 r
 
----&gt; is closed?	 True
+---&gt; 檔案已關閉?	 True
 
-read the whole file into a string variable at a time:
+將整個檔案讀取到一個字串變數中:
 1) Here is a joke
 2) With 6 lines 45 words, it says:
 3) Teacher: How old is your father, Henry?
@@ -8454,10 +8457,10 @@ read the whole file into a string variable at a time:
 6) Henry: He became father only when I was born.
 
 
-words in the "test.txt" file:
+檔案 "test.txt" 中的單字:
 ['1)', 'Here', 'is', 'a', 'joke\n2)', 'With', '6', 'lines', '45', 'words,', 'it', 'says:\n3)', 'Teacher:', 'How', 'old', 'is', 'your', 'father,', 'Henry?\n4)', 'Henry:', 'He', 'is', '6', 'years', 'old.\n5)', 'Teacher:', 'What?', 'How', 'is', 'this', 'possible?\n6)', 'Henry:', 'He', 'became', 'father', 'only', 'when', 'I', 'was', 'born.\n']
 
-There are 40 words in the "test.txt" file.
+檔案 "test.txt" 中共有 40 個單字。
 
 </pre>
 </div>
@@ -8471,13 +8474,13 @@ There are 40 words in the "test.txt" file.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="2.1-Read-a-file-using-Context-Manager">2.1 Read a file using <code>Context Manager</code><a class="anchor-link" href="#2.1-Read-a-file-using-Context-Manager">¶</a></h3><p>The common reading methods are:</p>
+<h3 id="2.1-%E4%BD%BF%E7%94%A8-Context-Manager-%E8%AE%80%E5%8F%96%E6%AA%94%E6%A1%88">2.1 使用 <code>Context Manager</code> 讀取檔案<a class="anchor-link" href="#2.1-%E4%BD%BF%E7%94%A8-Context-Manager-%E8%AE%80%E5%8F%96%E6%AA%94%E6%A1%88">¶</a></h3><p>常見的讀取方法有：</p>
 <pre><code>1. f.read()
 2. f.readlines()
 3. f.readline()
-4. f.seek(position)
+4. f.seek(位置)
 5. f.tell()</code></pre>
-<p>And attributes:</p>
+<p>以及屬性：</p>
 <pre><code>1. f.mode
 2. f.closed</code></pre>
 </div>
@@ -8491,37 +8494,37 @@ There are 40 words in the "test.txt" file.
 <div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Reading Files via 'with' context manager</span>
-<span class="c1"># not only file, but also other resources, like threads</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 使用 'with' 上下文管理器讀取檔案</span>
+<span class="c1"># 不僅適用於檔案，還適用於其他資源，如線程</span>
 
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'sample/test.txt'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'File object:</span><span class="se">\t</span><span class="s1"> </span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'---&gt; Open Mode:</span><span class="se">\t</span><span class="s1"> </span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="n">mode</span><span class="si">}</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'檔案物件:</span><span class="se">\t</span><span class="s1"> </span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'---&gt; 開啟模式:</span><span class="se">\t</span><span class="s1"> </span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="n">mode</span><span class="si">}</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 
-    <span class="c1"># File contents in one string variable:</span>
+    <span class="c1"># 將整個檔案內容讀取到一個字串變數中</span>
     <span class="n">file_contents</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'The whole file was read into a string variable at a time:</span><span class="se">\n</span><span class="si">{</span><span class="n">file_contents</span><span class="si">}</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'已將整個檔案讀取到一個字串變數中:</span><span class="se">\n</span><span class="si">{</span><span class="n">file_contents</span><span class="si">}</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 
 
-<span class="c1"># Context Manager closes the file automatically once out of the with-block</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'---&gt; Context Manager exits. Is the file closed?</span><span class="se">\t</span><span class="s1"> </span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="n">closed</span><span class="si">}</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+<span class="c1"># 上下文管理器在離開 with 區塊後會自動關閉檔案</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'---&gt; 上下文管理器已結束。檔案是否已關閉?</span><span class="se">\t</span><span class="s1"> </span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="n">closed</span><span class="si">}</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 
 <span class="k">try</span><span class="p">:</span>
-    <span class="c1"># read file when closed</span>
+    <span class="c1"># 嘗試在檔案關閉後讀取</span>
     <span class="n">no_contents</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 
 <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span> 
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'f.read(): I/O operation on closed file.</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'f.read(): 在已關閉的檔案上進行 I/O 操作。</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 <span class="k">except</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'Something else went wrong.</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'發生其他錯誤。</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 
     
 <span class="n">words</span> <span class="o">=</span> <span class="n">file_contents</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">' '</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'View words in the "test.txt" file:</span><span class="se">\n</span><span class="si">{</span><span class="n">words</span><span class="si">}</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'查看 "test.txt" 檔案中的單字:</span><span class="se">\n</span><span class="si">{</span><span class="n">words</span><span class="si">}</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 
 <span class="n">word_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'There are </span><span class="si">{</span><span class="n">word_count</span><span class="si">}</span><span class="s1"> words in the "test.txt" file.</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'檔案 "test.txt" 中共有 </span><span class="si">{</span><span class="n">word_count</span><span class="si">}</span><span class="s1"> 個單字。</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8534,10 +8537,10 @@ There are 40 words in the "test.txt" file.
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>File object:	 sample/test.txt
----&gt; Open Mode:	 r
+<pre>檔案物件:	 sample/test.txt
+---&gt; 開啟模式:	 r
 
-The whole file was read into a string variable at a time:
+已將整個檔案讀取到一個字串變數中:
 1) Here is a joke
 2) With 6 lines 45 words, it says:
 3) Teacher: How old is your father, Henry?
@@ -8546,14 +8549,14 @@ The whole file was read into a string variable at a time:
 6) Henry: He became father only when I was born.
 
 
----&gt; Context Manager exits. Is the file closed?	 True
+---&gt; 上下文管理器已結束。檔案是否已關閉?	 True
 
-f.read(): I/O operation on closed file.
+f.read(): 在已關閉的檔案上進行 I/O 操作。
 
-View words in the "test.txt" file:
+查看 "test.txt" 檔案中的單字:
 ['1)', 'Here', 'is', 'a', 'joke\n2)', 'With', '6', 'lines', '45', 'words,', 'it', 'says:\n3)', 'Teacher:', 'How', 'old', 'is', 'your', 'father,', 'Henry?\n4)', 'Henry:', 'He', 'is', '6', 'years', 'old.\n5)', 'Teacher:', 'What?', 'How', 'is', 'this', 'possible?\n6)', 'Henry:', 'He', 'became', 'father', 'only', 'when', 'I', 'was', 'born.\n']
 
-There are 40 words in the "test.txt" file.
+檔案 "test.txt" 中共有 40 個單字。
 
 </pre>
 </div>
@@ -8567,7 +8570,7 @@ There are 40 words in the "test.txt" file.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="2.2-More-examples-about-file-reading-methods">2.2 More examples about file reading methods<a class="anchor-link" href="#2.2-More-examples-about-file-reading-methods">¶</a></h3>
+<h3 id="2.2-%E6%9B%B4%E5%A4%9A%E9%97%9C%E6%96%BC%E6%AA%94%E6%A1%88%E8%AE%80%E5%8F%96%E6%96%B9%E6%B3%95%E7%9A%84%E7%AF%84%E4%BE%8B">2.2 更多關於檔案讀取方法的範例<a class="anchor-link" href="#2.2-%E6%9B%B4%E5%A4%9A%E9%97%9C%E6%96%BC%E6%AA%94%E6%A1%88%E8%AE%80%E5%8F%96%E6%96%B9%E6%B3%95%E7%9A%84%E7%AF%84%E4%BE%8B">¶</a></h3>
 </div>
 </div>
 </div>
@@ -8579,59 +8582,57 @@ There are 40 words in the "test.txt" file.
 <div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># More reading methods</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 更多讀取檔案的方法</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'sample/test.txt'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     
-    <span class="c1"># read file contents in a list of lines:</span>
+    <span class="c1"># 將檔案內容讀取到一個行列表中</span>
     <span class="n">f_contents</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'read lines into a list at a time:</span><span class="se">\n</span><span class="si">{</span><span class="n">f_contents</span><span class="si">}</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'一次讀取所有行到列表中:</span><span class="se">\n</span><span class="si">{</span><span class="n">f_contents</span><span class="si">}</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 
-    <span class="c1"># rewind to the head of the file</span>
+    <span class="c1"># 回到檔案開頭</span>
     <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
-    <span class="c1"># read one line at a time:</span>
+    <span class="c1"># 一次讀取一行</span>
     <span class="n">f_contents</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'read first line into a list at a time:</span><span class="se">\n</span><span class="si">{</span><span class="n">f_contents</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'讀取第一行到列表中:</span><span class="se">\n</span><span class="si">{</span><span class="n">f_contents</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
     <span class="n">f_contents</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'read 2nd line into a list next time:</span><span class="se">\n</span><span class="si">{</span><span class="n">f_contents</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'讀取第二行到列表中:</span><span class="se">\n</span><span class="si">{</span><span class="n">f_contents</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
-    <span class="c1"># mute "\n" effect in the buffer</span>
+    <span class="c1"># 忽略換行符</span>
     <span class="n">f_contents</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'read 3rd line into a list, ignore </span><span class="se">\\</span><span class="s1">n:</span><span class="se">\n</span><span class="si">{</span><span class="n">f_contents</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'讀取第三行到列表中，忽略換行:</span><span class="se">\n</span><span class="si">{</span><span class="n">f_contents</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
     <span class="n">f_contents</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'read 4th line into a list, ignore </span><span class="se">\\</span><span class="s1">n:</span><span class="se">\n</span><span class="si">{</span><span class="n">f_contents</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'讀取第四行到列表中，忽略換行:</span><span class="se">\n</span><span class="si">{</span><span class="n">f_contents</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
 
-    <span class="c1"># Iterating in a for-loop, line by line each loop till the end of file</span>
+    <span class="c1"># 使用 for 迴圈逐行讀取，直到檔案結尾</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Iterating in a for-loop, line by line each loop till the end...</span><span class="se">\n</span><span class="s1">-&gt;</span><span class="si">{</span><span class="n">line</span><span class="si">}</span><span class="s1">&lt;-</span><span class="se">\n</span><span class="s1">'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'使用 for 迴圈逐行讀取，直到檔案結尾...</span><span class="se">\n</span><span class="s1">-&gt;</span><span class="si">{</span><span class="n">line</span><span class="si">}</span><span class="s1">&lt;-</span><span class="se">\n</span><span class="s1">'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
 
-    <span class="c1"># rewind to the begining of file (BOF)</span>
+    <span class="c1"># 回到檔案開頭 (BOF)</span>
     <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
-    <span class="c1"># Iterating in a while-loop in bytes till the end of file (EOF)</span>
+    <span class="c1"># 使用 while 迴圈每次讀取指定字節數，直到檔案結尾 (EOF)</span>
     <span class="n">size_to_read</span> <span class="o">=</span> <span class="mi">100</span>
     <span class="n">f_contents</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">size_to_read</span><span class="p">)</span>
     <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">f_contents</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="se">\n</span><span class="s1">Iterating in a while-loop, </span><span class="si">{</span><span class="n">size_to_read</span><span class="si">}</span><span class="s1"> bytes each loop till the end...</span><span class="se">\n</span><span class="s1">-&gt;</span><span class="si">{</span><span class="n">f_contents</span><span class="si">}</span><span class="s1">&lt;-</span><span class="se">\n</span><span class="s1">'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="se">\n</span><span class="s1">使用 while 迴圈，每次讀取 </span><span class="si">{</span><span class="n">size_to_read</span><span class="si">}</span><span class="s1"> 字節，直到檔案結尾...</span><span class="se">\n</span><span class="s1">-&gt;</span><span class="si">{</span><span class="n">f_contents</span><span class="si">}</span><span class="s1">&lt;-</span><span class="se">\n</span><span class="s1">'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
         <span class="n">f_contents</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">size_to_read</span><span class="p">)</span>
 
-    <span class="c1"># rewind to the head of the file</span>
+    <span class="c1"># 再次回到檔案開頭</span>
     <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
-    <span class="c1"># read in small chunks, 10 characters per chunk:</span>
+    <span class="c1"># 以較小的區塊讀取，每次 10 個字元</span>
     <span class="n">size_to_read</span> <span class="o">=</span> <span class="mi">10</span>
     <span class="n">f_contents</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">size_to_read</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'read </span><span class="si">{</span><span class="n">size_to_read</span><span class="si">}</span><span class="s1"> bytes, ignore </span><span class="se">\\</span><span class="s1">n:</span><span class="se">\n</span><span class="s1">-&gt;</span><span class="si">{</span><span class="n">f_contents</span><span class="si">}</span><span class="s1">&lt;-</span><span class="se">\n</span><span class="s1">'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Current position of the file objet = </span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="n">tell</span><span class="p">()</span><span class="si">}</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
-
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'讀取 </span><span class="si">{</span><span class="n">size_to_read</span><span class="si">}</span><span class="s1"> 字節，忽略換行:</span><span class="se">\n</span><span class="s1">-&gt;</span><span class="si">{</span><span class="n">f_contents</span><span class="si">}</span><span class="s1">&lt;-</span><span class="se">\n</span><span class="s1">'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'當前檔案物件位置 = </span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="n">tell</span><span class="p">()</span><span class="si">}</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 
     <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
     <span class="n">f_contents</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">size_to_read</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'back to BOF, read </span><span class="si">{</span><span class="n">size_to_read</span><span class="si">}</span><span class="s1"> bytes, ignore </span><span class="se">\\</span><span class="s1">n:</span><span class="se">\n</span><span class="s1">-&gt;</span><span class="si">{</span><span class="n">f_contents</span><span class="si">}</span><span class="s1">&lt;-</span><span class="se">\n</span><span class="s1">'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'回到檔案開頭，讀取 </span><span class="si">{</span><span class="n">size_to_read</span><span class="si">}</span><span class="s1"> 字節，忽略換行:</span><span class="se">\n</span><span class="s1">-&gt;</span><span class="si">{</span><span class="n">f_contents</span><span class="si">}</span><span class="s1">&lt;-</span><span class="se">\n</span><span class="s1">'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Current position of the file objet = </span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="n">tell</span><span class="p">()</span><span class="si">}</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'當前檔案物件位置 = </span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="n">tell</span><span class="p">()</span><span class="si">}</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8644,47 +8645,47 @@ There are 40 words in the "test.txt" file.
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>read lines into a list at a time:
+<pre>一次讀取所有行到列表中:
 ['1) Here is a joke\n', '2) With 6 lines 45 words, it says:\n', '3) Teacher: How old is your father, Henry?\n', '4) Henry: He is 6 years old.\n', '5) Teacher: What? How is this possible?\n', '6) Henry: He became father only when I was born.\n']
 
-read first line into a list at a time:
+讀取第一行到列表中:
 1) Here is a joke
 
-read 2nd line into a list next time:
+讀取第二行到列表中:
 2) With 6 lines 45 words, it says:
 
-read 3rd line into a list, ignore \n:
+讀取第三行到列表中，忽略換行:
 3) Teacher: How old is your father, Henry?
-read 4th line into a list, ignore \n:
+讀取第四行到列表中，忽略換行:
 4) Henry: He is 6 years old.
-Iterating in a for-loop, line by line each loop till the end...
+使用 for 迴圈逐行讀取，直到檔案結尾...
 -&gt;5) Teacher: What? How is this possible?
 &lt;-
-Iterating in a for-loop, line by line each loop till the end...
+使用 for 迴圈逐行讀取，直到檔案結尾...
 -&gt;6) Henry: He became father only when I was born.
 &lt;-
 
-Iterating in a while-loop, 100 bytes each loop till the end...
+使用 while 迴圈，每次讀取 100 字節，直到檔案結尾...
 -&gt;1) Here is a joke
 2) With 6 lines 45 words, it says:
 3) Teacher: How old is your father, Henry?
 4) H&lt;-
 
-Iterating in a while-loop, 100 bytes each loop till the end...
+使用 while 迴圈，每次讀取 100 字節，直到檔案結尾...
 -&gt;enry: He is 6 years old.
 5) Teacher: What? How is this possible?
 6) Henry: He became father only whe&lt;-
 
-Iterating in a while-loop, 100 bytes each loop till the end...
+使用 while 迴圈，每次讀取 100 字節，直到檔案結尾...
 -&gt;n I was born.
 &lt;-
-read 10 bytes, ignore \n:
+讀取 10 字節，忽略換行:
 -&gt;1) Here is&lt;-
-Current position of the file objet = 10
+當前檔案物件位置 = 10
 
-back to BOF, read 10 bytes, ignore \n:
+回到檔案開頭，讀取 10 字節，忽略換行:
 -&gt;1) Here is&lt;-
-Current position of the file objet = 10
+當前檔案物件位置 = 10
 
 </pre>
 </div>
@@ -8698,7 +8699,7 @@ Current position of the file objet = 10
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="2.3-Write-a-file-using-Context-Manager">2.3 Write a file using <code>Context Manager</code><a class="anchor-link" href="#2.3-Write-a-file-using-Context-Manager">¶</a></h3>
+<h3 id="2.3-%E4%BD%BF%E7%94%A8-Context-Manager-%E5%AF%AB%E5%85%A5%E6%AA%94%E6%A1%88">2.3 使用 <code>Context Manager</code> 寫入檔案<a class="anchor-link" href="#2.3-%E4%BD%BF%E7%94%A8-Context-Manager-%E5%AF%AB%E5%85%A5%E6%AA%94%E6%A1%88">¶</a></h3>
 </div>
 </div>
 </div>
@@ -8710,16 +8711,16 @@ Current position of the file objet = 10
 <div class="jp-InputPrompt jp-InputArea-prompt">In [23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Write to a file using Context Manager</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 使用上下文管理器寫入檔案</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"sample/test2.txt"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"Testing123"</span><span class="p">)</span>
     <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"Test987</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"sample/test2.txt"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="c1"># Iterating line by line till the end of file:</span>
+    <span class="c1"># 逐行讀取，直到檔案結尾</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Iterating line by line till the end...</span><span class="se">\n</span><span class="s1">-&gt;</span><span class="si">{</span><span class="n">line</span><span class="si">}</span><span class="s1">&lt;-</span><span class="se">\n</span><span class="s1">'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'逐行讀取，直到檔案結尾...</span><span class="se">\n</span><span class="s1">-&gt;</span><span class="si">{</span><span class="n">line</span><span class="si">}</span><span class="s1">&lt;-</span><span class="se">\n</span><span class="s1">'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8732,10 +8733,10 @@ Current position of the file objet = 10
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Iterating line by line till the end...
+<pre>逐行讀取，直到檔案結尾...
 -&gt;Test987
 &lt;-
-Iterating line by line till the end...
+逐行讀取，直到檔案結尾...
 -&gt;23&lt;-
 </pre>
 </div>
@@ -8749,7 +8750,7 @@ Iterating line by line till the end...
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="2.4-Copy-a-file-using-Context-Manager">2.4 Copy a file using <code>Context Manager</code><a class="anchor-link" href="#2.4-Copy-a-file-using-Context-Manager">¶</a></h3>
+<h4 id="2.4-%E4%BD%BF%E7%94%A8-Context-Manager-%E8%A4%87%E8%A3%BD%E6%AA%94%E6%A1%88">2.4 使用 <code>Context Manager</code> 複製檔案<a class="anchor-link" href="#2.4-%E4%BD%BF%E7%94%A8-Context-Manager-%E8%A4%87%E8%A3%BD%E6%AA%94%E6%A1%88">¶</a></h4>
 </div>
 </div>
 </div>
@@ -8761,7 +8762,7 @@ Iterating line by line till the end...
 <div class="jp-InputPrompt jp-InputArea-prompt">In [24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Copy a File to Another:</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 複製檔案到另一個檔案</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"sample/test.txt"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">rf</span><span class="p">:</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"test_copy.txt"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">wf</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">rf</span><span class="p">:</span>
@@ -8769,18 +8770,17 @@ Iterating line by line till the end...
 
 <span class="n">file_read</span> <span class="o">=</span> <span class="s2">"test_copy.txt"</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_read</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">rf</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'opening </span><span class="si">{</span><span class="n">file_read</span><span class="si">}</span><span class="s1"> file:</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'開啟 </span><span class="si">{</span><span class="n">file_read</span><span class="si">}</span><span class="s1"> 檔案:</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">rf</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Iterating line by line till the end...</span><span class="se">\n</span><span class="s1">-&gt;</span><span class="si">{</span><span class="n">line</span><span class="si">}</span><span class="s1">&lt;-</span><span class="se">\n</span><span class="s1">'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'逐行讀取，直到檔案結尾...</span><span class="se">\n</span><span class="s1">-&gt;</span><span class="si">{</span><span class="n">line</span><span class="si">}</span><span class="s1">&lt;-</span><span class="se">\n</span><span class="s1">'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
 
-
-<span class="c1"># Copy an image: read/write in binary</span>
+<span class="c1"># 複製圖片：以二進位模式讀取/寫入</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"sample/Olisan.JPG"</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">rf</span><span class="p">:</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"sample/Olisan_copy.JPG"</span><span class="p">,</span> <span class="s2">"wb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">wf</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">rf</span><span class="p">:</span>
             <span class="n">wf</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
 
-<span class="c1"># Copy an image: in chunks</span>
+<span class="c1"># 以區塊方式複製圖片</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"sample/Olisan.JPG"</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">rf</span><span class="p">:</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"sample/Olisan_copy2.JPG"</span><span class="p">,</span> <span class="s2">"wb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">wf</span><span class="p">:</span>
         <span class="n">chunk_size</span> <span class="o">=</span> <span class="mi">4096</span>
@@ -8790,7 +8790,7 @@ Iterating line by line till the end...
             <span class="n">wf</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">rf_chunk</span><span class="p">)</span>
             <span class="n">rf_chunk</span> <span class="o">=</span> <span class="n">rf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">chunk_size</span><span class="p">)</span>
 
-<span class="c1"># Show all the images</span>
+<span class="c1"># 顯示所有圖片</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
 <span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">'sample/Olisan.JPG'</span><span class="p">)</span>
 <span class="n">img</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -8810,24 +8810,24 @@ Iterating line by line till the end...
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>opening test_copy.txt file:
+<pre>開啟 test_copy.txt 檔案:
 
-Iterating line by line till the end...
+逐行讀取，直到檔案結尾...
 -&gt;1) Here is a joke
 &lt;-
-Iterating line by line till the end...
+逐行讀取，直到檔案結尾...
 -&gt;2) With 6 lines 45 words, it says:
 &lt;-
-Iterating line by line till the end...
+逐行讀取，直到檔案結尾...
 -&gt;3) Teacher: How old is your father, Henry?
 &lt;-
-Iterating line by line till the end...
+逐行讀取，直到檔案結尾...
 -&gt;4) Henry: He is 6 years old.
 &lt;-
-Iterating line by line till the end...
+逐行讀取，直到檔案結尾...
 -&gt;5) Teacher: What? How is this possible?
 &lt;-
-Iterating line by line till the end...
+逐行讀取，直到檔案結尾...
 -&gt;6) Henry: He became father only when I was born.
 &lt;-
 </pre>
@@ -8842,8 +8842,8 @@ Iterating line by line till the end...
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="3.-Use-try-except-else-finally-for-error-handling">3. Use <code>try-except-else-finally</code> for error handling<a class="anchor-link" href="#3.-Use-try-except-else-finally-for-error-handling">¶</a></h2><p>Use <code>try/except</code> to handle runtime errors gracefully.
-It prevents your code from crashing unexpectedly.</p>
+<h2 id="3.-%E4%BD%BF%E7%94%A8-try-except-else-finally-%E9%80%B2%E8%A1%8C%E9%8C%AF%E8%AA%A4%E8%99%95%E7%90%86">3. 使用 <code>try-except-else-finally</code> 進行錯誤處理<a class="anchor-link" href="#3.-%E4%BD%BF%E7%94%A8-try-except-else-finally-%E9%80%B2%E8%A1%8C%E9%8C%AF%E8%AA%A4%E8%99%95%E7%90%86">¶</a></h2><p>使用 <code>try/except</code> 優雅地處理運行時錯誤。
+它可以防止您的代碼意外崩潰。</p>
 </div>
 </div>
 </div>
@@ -8856,17 +8856,17 @@ It prevents your code from crashing unexpectedly.</p>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="c1"># Code that might raise an exception</span>
+    <span class="c1"># 可能會引發異常的代碼</span>
     <span class="n">result</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">/</span> <span class="mi">0</span>
 <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
-    <span class="c1"># Handle the specific exception</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Error: Cannot divide by zero"</span><span class="p">)</span>
+    <span class="c1"># 處理特定的異常</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"錯誤：不能除以零"</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="c1"># Code to run if no exception occurs</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"else: Division successful"</span><span class="p">)</span>
+    <span class="c1"># 如果沒有發生異常，則運行此代碼</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"else: 除法運算成功"</span><span class="p">)</span>
 <span class="k">finally</span><span class="p">:</span>
-    <span class="c1"># Code to run regardless of whether an exception occurred or not</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"finally: This will always execute"</span><span class="p">)</span>
+    <span class="c1"># 無論是否發生異常，此代碼都會執行</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"finally: 這行代碼總會執行"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8879,8 +8879,8 @@ It prevents your code from crashing unexpectedly.</p>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Error: Cannot divide by zero
-finally: This will always execute
+<pre>錯誤：不能除以零
+finally: 這行代碼總會執行
 </pre>
 </div>
 </div>
@@ -8893,7 +8893,7 @@ finally: This will always execute
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="4.-Use-enumerate-for-counting">4. Use <code>enumerate</code> for counting<a class="anchor-link" href="#4.-Use-enumerate-for-counting">¶</a></h2><p>When looping through lists, use enumerate() instead of manual counters. It automatically gives you both index and value, improving clarity.</p>
+<h2 id="4.-%E4%BD%BF%E7%94%A8-enumerate-%E9%80%B2%E8%A1%8C%E8%A8%88%E6%95%B8">4. 使用 <code>enumerate</code> 進行計數<a class="anchor-link" href="#4.-%E4%BD%BF%E7%94%A8-enumerate-%E9%80%B2%E8%A1%8C%E8%A8%88%E6%95%B8">¶</a></h2><p>在遍歷列表時，使用 enumerate() 而不是手動計數器。它會自動提供索引和值，提高代碼清晰度。</p>
 </div>
 </div>
 </div>
@@ -8905,7 +8905,7 @@ finally: This will always execute
 <div class="jp-InputPrompt jp-InputArea-prompt">In [26]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Old way using counter</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 使用計數器的舊方法</span>
 <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Corey'</span><span class="p">,</span> <span class="s1">'Michael'</span><span class="p">,</span> <span class="s1">'Travis'</span><span class="p">,</span> <span class="s1">'Dave'</span><span class="p">]</span>
 
 <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
@@ -8941,7 +8941,7 @@ finally: This will always execute
 <div class="jp-InputPrompt jp-InputArea-prompt">In [27]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># cleaner code with enumerator</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 使用 enumerate 的更簡潔代碼</span>
 <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Corey'</span><span class="p">,</span> <span class="s1">'Michael'</span><span class="p">,</span> <span class="s1">'Travis'</span><span class="p">,</span> <span class="s1">'Dave'</span><span class="p">]</span>
 
 <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">names</span><span class="p">):</span>
@@ -8975,10 +8975,10 @@ finally: This will always execute
 <div class="jp-InputPrompt jp-InputArea-prompt">In [28]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Another cleaner code with enumerator, starting index from 1</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 另一個使用 enumerate 的更簡潔代碼，從 1 開始計數</span>
 <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Corey'</span><span class="p">,</span> <span class="s1">'Michael'</span><span class="p">,</span> <span class="s1">'Travis'</span><span class="p">,</span> <span class="s1">'Dave'</span><span class="p">]</span>
 
-<span class="c1"># changing starting index from 1</span>
+<span class="c1"># 將起始索引設為 1</span>
 <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
 </pre></div>
@@ -9009,7 +9009,7 @@ finally: This will always execute
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="5.-Use-zip-for-multiple-objects">5. Use <code>zip</code> for multiple objects<a class="anchor-link" href="#5.-Use-zip-for-multiple-objects">¶</a></h2><p>Combine multiple lists cleanly with zip(). It’s perfect for looping through related data side by side.</p>
+<h2 id="5.-%E4%BD%BF%E7%94%A8-zip-%E8%99%95%E7%90%86%E5%A4%9A%E5%80%8B%E7%89%A9%E4%BB%B6">5. 使用 <code>zip</code> 處理多個物件<a class="anchor-link" href="#5.-%E4%BD%BF%E7%94%A8-zip-%E8%99%95%E7%90%86%E5%A4%9A%E5%80%8B%E7%89%A9%E4%BB%B6">¶</a></h2><p>使用 zip() 整齊地組合多個列表。非常適合並行遍歷相關數據。</p>
 </div>
 </div>
 </div>
@@ -9025,7 +9025,7 @@ finally: This will always execute
 <span class="n">heroes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Spiderman'</span><span class="p">,</span> <span class="s1">'Superman'</span><span class="p">,</span> <span class="s1">'Deadpool'</span><span class="p">,</span> <span class="s1">'Batman'</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">names</span><span class="p">):</span>
     <span class="n">hero</span> <span class="o">=</span> <span class="n">heroes</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1"> is actually </span><span class="si">{</span><span class="n">hero</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1"> 實際上是 </span><span class="si">{</span><span class="n">hero</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -9038,10 +9038,10 @@ finally: This will always execute
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Corey is actually Spiderman
-Michael is actually Superman
-Travis is actually Deadpool
-Dave is actually Batman
+<pre>Corey 實際上是 Spiderman
+Michael 實際上是 Superman
+Travis 實際上是 Deadpool
+Dave 實際上是 Batman
 </pre>
 </div>
 </div>
@@ -9058,9 +9058,9 @@ Dave is actually Batman
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Corey'</span><span class="p">,</span> <span class="s1">'Michael'</span><span class="p">,</span> <span class="s1">'Travis'</span><span class="p">,</span> <span class="s1">'Dave'</span><span class="p">]</span>
 <span class="n">heroes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Spiderman'</span><span class="p">,</span> <span class="s1">'Superman'</span><span class="p">,</span> <span class="s1">'Deadpool'</span><span class="p">,</span> <span class="s1">'Batman'</span><span class="p">]</span>
 
-<span class="c1"># cleaner code with zip</span>
+<span class="c1"># 使用 zip 的更簡潔代碼</span>
 <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">hero</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">heroes</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1"> is actually </span><span class="si">{</span><span class="n">hero</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1"> 實際上是 </span><span class="si">{</span><span class="n">hero</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -9073,10 +9073,10 @@ Dave is actually Batman
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Corey is actually Spiderman
-Michael is actually Superman
-Travis is actually Deadpool
-Dave is actually Batman
+<pre>Corey 實際上是 Spiderman
+Michael 實際上是 Superman
+Travis 實際上是 Deadpool
+Dave 實際上是 Batman
 </pre>
 </div>
 </div>
@@ -9094,9 +9094,9 @@ Dave is actually Batman
 <span class="n">heroes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Spiderman'</span><span class="p">,</span> <span class="s1">'Superman'</span><span class="p">,</span> <span class="s1">'Deadpool'</span><span class="p">,</span> <span class="s1">'Batman'</span><span class="p">]</span>
 <span class="n">universes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Marvel'</span><span class="p">,</span> <span class="s1">'DC'</span><span class="p">,</span> <span class="s1">'Tokyo'</span><span class="p">,</span> <span class="s1">'Taiwan'</span><span class="p">]</span>
 
-<span class="c1"># cleaner code with zip more than 2 lists</span>
+<span class="c1"># 使用 zip 合併多個列表的更簡潔代碼</span>
 <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">hero</span><span class="p">,</span> <span class="n">universe</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">heroes</span><span class="p">,</span> <span class="n">universes</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1"> is actually </span><span class="si">{</span><span class="n">hero</span><span class="si">}</span><span class="s1"> from </span><span class="si">{</span><span class="n">universe</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1"> 實際上是來自 </span><span class="si">{</span><span class="n">universe</span><span class="si">}</span><span class="s1"> 的 </span><span class="si">{</span><span class="n">hero</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -9109,10 +9109,10 @@ Dave is actually Batman
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Corey is actually Spiderman from Marvel
-Michael is actually Superman from DC
-Travis is actually Deadpool from Tokyo
-Dave is actually Batman from Taiwan
+<pre>Corey 實際上是來自 Marvel 的 Spiderman
+Michael 實際上是來自 DC 的 Superman
+Travis 實際上是來自 Tokyo 的 Deadpool
+Dave 實際上是來自 Taiwan 的 Batman
 </pre>
 </div>
 </div>
@@ -9125,7 +9125,7 @@ Dave is actually Batman from Taiwan
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="6.-Use-unpacking-to-assign-an-object-to-variables">6. Use unpacking to assign an object to variables<a class="anchor-link" href="#6.-Use-unpacking-to-assign-an-object-to-variables">¶</a></h2><p>It allows you to assign values to variables in a single line of code.</p>
+<h2 id="6.-%E4%BD%BF%E7%94%A8%E8%A7%A3%E5%8C%85(unpacking)%E5%B0%87%E7%89%A9%E4%BB%B6%E8%B3%A6%E5%80%BC%E7%B5%A6%E8%AE%8A%E6%95%B8">6. 使用解包(unpacking)將物件賦值給變數<a class="anchor-link" href="#6.-%E4%BD%BF%E7%94%A8%E8%A7%A3%E5%8C%85(unpacking)%E5%B0%87%E7%89%A9%E4%BB%B6%E8%B3%A6%E5%80%BC%E7%B5%A6%E8%AE%8A%E6%95%B8">¶</a></h2><p>它允許您在一行程式碼中將值分配給多個變數。</p>
 </div>
 </div>
 </div>
@@ -9137,7 +9137,7 @@ Dave is actually Batman from Taiwan
 <div class="jp-InputPrompt jp-InputArea-prompt">In [32]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Basic unpacking with tuple</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 元組的基本解包</span>
 <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"a: </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"b: </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
@@ -9168,7 +9168,7 @@ b: 2
 <div class="jp-InputPrompt jp-InputArea-prompt">In [33]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># unpacking a list</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 解包列表</span>
 <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"x: </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, y: </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
@@ -9197,14 +9197,12 @@ b: 2
 <div class="jp-InputPrompt jp-InputArea-prompt">In [34]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Unpack in function arguments</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 在函數參數中進行解包</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span>
 
 <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"add(*args) = </span><span class="si">{</span><span class="n">add</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-
-    
 </pre></div>
 </div>
 </div>
@@ -9231,7 +9229,7 @@ b: 2
 <div class="jp-InputPrompt jp-InputArea-prompt">In [35]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># unpack a string which is an iterable, consisting a sequence of characters</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 解包字串（任何可迭代對象 iterable objects，字串由一系列字符組成）</span>
 <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="s2">"abc"</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"a=</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2">, b=</span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2">, c=</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
@@ -9260,14 +9258,14 @@ b: 2
 <div class="jp-InputPrompt jp-InputArea-prompt">In [36]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Unpacking a dictionary, using ** to unpack key-value pairs</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 解包字典，使用 ** 來解包鍵值對</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">. You are </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2"> years old."</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"你好，</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">。你今年 </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2"> 歲。"</span><span class="p">)</span>
 
 <span class="n">person</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"John"</span><span class="p">,</span> <span class="s2">"age"</span><span class="p">:</span> <span class="mi">30</span><span class="p">}</span>
 <span class="n">greet</span><span class="p">(</span><span class="o">**</span><span class="n">person</span><span class="p">)</span>
 
-<span class="c1"># same as</span>
+<span class="c1"># 等同於</span>
 <span class="n">greet</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"John"</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -9281,8 +9279,8 @@ b: 2
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Hello, John. You are 30 years old.
-Hello, John. You are 30 years old.
+<pre>你好，John。你今年 30 歲。
+你好，John。你今年 30 歲。
 </pre>
 </div>
 </div>
@@ -9296,7 +9294,7 @@ Hello, John. You are 30 years old.
 <div class="jp-InputPrompt jp-InputArea-prompt">In [37]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># unpacking keys or valures from a dictionary</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 從字典中解包鍵或值</span>
 <span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'a'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">'c'</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
 
 <span class="n">k1</span><span class="p">,</span> <span class="n">k2</span><span class="p">,</span> <span class="n">k3</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
@@ -9331,7 +9329,7 @@ v1=1, v2=2, v3=3
 <div class="jp-InputPrompt jp-InputArea-prompt">In [38]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Use * for extended unpacking (Python3+)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 使用 * 進行擴展解包 (Python3+)</span>
 <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">*</span><span class="n">c</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"a: </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"b: </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
@@ -9366,7 +9364,8 @@ d: 6
 <div class="jp-InputPrompt jp-InputArea-prompt">In [39]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 使用 *_ 來忽略多餘的解包元素 (Python3+)</span>
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"a: </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"b: </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"d: </span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
@@ -9398,7 +9397,7 @@ d: 6
 <div class="jp-InputPrompt jp-InputArea-prompt">In [40]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># nested unpacking</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 巢狀解包</span>
 <span class="n">coords</span> <span class="o">=</span><span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">),(</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">)]</span>
 <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">coords</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"x: </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
@@ -9430,12 +9429,12 @@ y: (2, 4, 6)
 <div class="jp-InputPrompt jp-InputArea-prompt">In [41]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># more complex nested list</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 更複雜的巢狀列表</span>
 <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Michael'</span><span class="p">,</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="s1">'Engineer'</span><span class="p">)]</span>
 
-<span class="c1"># unpacking</span>
+<span class="c1"># 解包</span>
 <span class="n">name</span><span class="p">,</span> <span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">profession</span><span class="p">)</span> <span class="o">=</span> <span class="n">data</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"name: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">, age: </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2">, profession: </span><span class="si">{</span><span class="n">profession</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"姓名: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">, 年齡: </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2">, 職業: </span><span class="si">{</span><span class="n">profession</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -9448,7 +9447,7 @@ y: (2, 4, 6)
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>name: Michael, age: 25, profession: Engineer
+<pre>姓名: Michael, 年齡: 25, 職業: Engineer
 </pre>
 </div>
 </div>
@@ -9461,7 +9460,7 @@ y: (2, 4, 6)
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="7.-Use-setattr/getattr-to-dynamically-set/get-attributes-of-an-object">7. Use <code>setattr</code>/<code>getattr</code> to dynamically set/get attributes of an object<a class="anchor-link" href="#7.-Use-setattr/getattr-to-dynamically-set/get-attributes-of-an-object">¶</a></h2><p>Setting and getting attributes of an object on the fly.</p>
+<h2 id="7.-%E4%BD%BF%E7%94%A8-setattr/getattr-%E5%8B%95%E6%85%8B%E8%A8%AD%E5%AE%9A/%E7%8D%B2%E5%8F%96%E7%89%A9%E4%BB%B6%E5%B1%AC%E6%80%A7">7. 使用 <code>setattr</code>/<code>getattr</code> 動態設定/獲取物件屬性<a class="anchor-link" href="#7.-%E4%BD%BF%E7%94%A8-setattr/getattr-%E5%8B%95%E6%85%8B%E8%A8%AD%E5%AE%9A/%E7%8D%B2%E5%8F%96%E7%89%A9%E4%BB%B6%E5%B1%AC%E6%80%A7">¶</a></h2><p>動態設定和獲取物件的屬性。</p>
 </div>
 </div>
 </div>
@@ -9478,11 +9477,11 @@ y: (2, 4, 6)
 
 <span class="n">person</span> <span class="o">=</span> <span class="n">Person</span><span class="p">()</span>
 
-<span class="c1"># setting attributes and values on the fly</span>
+<span class="c1"># 設定屬性和值</span>
 <span class="n">person</span><span class="o">.</span><span class="n">first</span> <span class="o">=</span> <span class="s2">"Michael"</span>
 <span class="n">person</span><span class="o">.</span><span class="n">last</span> <span class="o">=</span> <span class="s2">"Kao"</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'first: </span><span class="si">{</span><span class="n">person</span><span class="o">.</span><span class="n">first</span><span class="si">}</span><span class="s1"> last: </span><span class="si">{</span><span class="n">person</span><span class="o">.</span><span class="n">last</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'first: </span><span class="si">{</span><span class="n">person</span><span class="o">.</span><span class="n">first</span><span class="si">}</span><span class="s1">, last: </span><span class="si">{</span><span class="n">person</span><span class="o">.</span><span class="n">last</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -9495,7 +9494,7 @@ y: (2, 4, 6)
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>first: Michael last: Kao
+<pre>first: Michael, last: Kao
 </pre>
 </div>
 </div>
@@ -9514,14 +9513,14 @@ y: (2, 4, 6)
 
 <span class="n">person</span> <span class="o">=</span> <span class="n">Person</span><span class="p">()</span>
 
-<span class="c1"># setting an attribute with the value of a variable on the fly</span>
+<span class="c1"># 使用變數值動態設定屬性</span>
 <span class="n">key</span> <span class="o">=</span> <span class="s2">"first"</span>
 <span class="n">value</span> <span class="o">=</span> <span class="s2">"Michael"</span>  
 <span class="n">person</span><span class="o">.</span><span class="n">last</span> <span class="o">=</span> <span class="s2">"Kao"</span>
 
 <span class="nb">setattr</span><span class="p">(</span><span class="n">person</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'first: </span><span class="si">{</span><span class="n">person</span><span class="o">.</span><span class="n">first</span><span class="si">}</span><span class="s1"> last: </span><span class="si">{</span><span class="n">person</span><span class="o">.</span><span class="n">last</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'first: </span><span class="si">{</span><span class="n">person</span><span class="o">.</span><span class="n">first</span><span class="si">}</span><span class="s1">, last: </span><span class="si">{</span><span class="n">person</span><span class="o">.</span><span class="n">last</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -9534,7 +9533,7 @@ y: (2, 4, 6)
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>first: Michael last: Kao
+<pre>first: Michael, last: Kao
 </pre>
 </div>
 </div>
@@ -9553,14 +9552,14 @@ y: (2, 4, 6)
 
 <span class="n">person</span> <span class="o">=</span> <span class="n">Person</span><span class="p">()</span>
 
-<span class="c1"># setting an attribute by the value of a variable on the fly</span>
+<span class="c1"># 使用變數值動態設定屬性</span>
 <span class="n">key</span> <span class="o">=</span> <span class="s2">"first"</span>
 <span class="n">value</span> <span class="o">=</span> <span class="s2">"Michael"</span>  
 <span class="n">person</span><span class="o">.</span><span class="n">last</span> <span class="o">=</span> <span class="s2">"Kao"</span>
 
 <span class="nb">setattr</span><span class="p">(</span><span class="n">person</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 
-<span class="c1"># getting an attribute value by the value of a variable</span>
+<span class="c1"># 使用變數值獲取屬性值</span>
 <span class="n">first</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">person</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"first: </span><span class="si">{</span><span class="n">first</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
@@ -9630,7 +9629,7 @@ Kao
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="8.-Use-getpass-to-solicit-password-from-user">8. Use <code>getpass</code> to solicit password from user<a class="anchor-link" href="#8.-Use-getpass-to-solicit-password-from-user">¶</a></h2><p>Solicitate a password from user, and not showing it on terminal</p>
+<h2 id="8.-%E4%BD%BF%E7%94%A8-getpass-%E5%90%91%E7%94%A8%E6%88%B6%E8%AB%8B%E6%B1%82%E5%AF%86%E7%A2%BC">8. 使用 <code>getpass</code> 向用戶請求密碼<a class="anchor-link" href="#8.-%E4%BD%BF%E7%94%A8-getpass-%E5%90%91%E7%94%A8%E6%88%B6%E8%AB%8B%E6%B1%82%E5%AF%86%E7%A2%BC">¶</a></h2><p>向用戶請求密碼，並且不會在終端上顯示輸入內容。</p>
 </div>
 </div>
 </div>
@@ -9642,10 +9641,10 @@ Kao
 <div class="jp-InputPrompt jp-InputArea-prompt">In [46]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">username</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">'Username: '</span><span class="p">)</span>
-<span class="n">password</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">'Password: '</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">'Logging In...'</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'登入中...'</span><span class="p">)</span>
+<span class="n">username</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">'使用者名稱: '</span><span class="p">)</span>
+<span class="n">password</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">'密碼: '</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"使用者名稱: </span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2"> 已登入"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -9658,7 +9657,8 @@ Kao
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Logging In...
+<pre>登入中...
+使用者名稱: test 已登入
 </pre>
 </div>
 </div>
@@ -9673,11 +9673,11 @@ Kao
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">getpass</span><span class="w"> </span><span class="kn">import</span> <span class="n">getpass</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'登入中...'</span><span class="p">)</span>
 
 <span class="n">username</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">'Username: '</span><span class="p">)</span>
 <span class="n">password</span> <span class="o">=</span> <span class="n">getpass</span><span class="p">(</span><span class="s1">'Password: '</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">'Logging In...'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"使用者名稱: </span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2"> 已登入"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -9690,7 +9690,8 @@ Kao
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Logging In...
+<pre>登入中...
+使用者名稱: test 已登入
 </pre>
 </div>
 </div>
@@ -9703,8 +9704,8 @@ Kao
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="9.-Use-Python-dash-m-to-run-a-module-as-a-script">9. Use <code>Python dash m</code> to run a module as a script<a class="anchor-link" href="#9.-Use-Python-dash-m-to-run-a-module-as-a-script">¶</a></h2><p>Spawn a process at the cmd prompt with args</p>
-<div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>module_name
+<h2 id="9.-%E4%BD%BF%E7%94%A8-python--m-%E5%B0%87%E6%A8%A1%E7%B5%84%E4%BD%9C%E7%82%BA%E8%85%B3%E6%9C%AC%E5%9F%B7%E8%A1%8C">9. 使用 <code>python -m</code> 將模組作為腳本執行<a class="anchor-link" href="#9.-%E4%BD%BF%E7%94%A8-python--m-%E5%B0%87%E6%A8%A1%E7%B5%84%E4%BD%9C%E7%82%BA%E8%85%B3%E6%9C%AC%E5%9F%B7%E8%A1%8C">¶</a></h2><p>在命令提示字元中帶參數啟動進程</p>
+<div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>模組名稱
 </pre></div>
 </div>
 </div>
@@ -9717,7 +9718,7 @@ Kao
 <div class="jp-InputPrompt jp-InputArea-prompt">In [48]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Run a command line from Jupyter notebook cell</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 在 Jupyter notebook 單元格中使用 "!" 執行命令列指令</span>
 <span class="o">!</span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>list
 </pre></div>
 </div>
@@ -9907,7 +9908,7 @@ zipp                      3.21.0
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="10.-Use-help/dir-for-Docstings-and-Object-Attributes">10. Use <code>help</code>/<code>dir</code> for Docstings and Object Attributes<a class="anchor-link" href="#10.-Use-help/dir-for-Docstings-and-Object-Attributes">¶</a></h2>
+<h2 id="10.-%E4%BD%BF%E7%94%A8-help/dir-%E6%9F%A5%E7%9C%8B%E6%96%87%E6%AA%94%E5%AD%97%E4%B8%B2%E5%92%8C%E7%89%A9%E4%BB%B6%E5%B1%AC%E6%80%A7">10. 使用 <code>help</code>/<code>dir</code> 查看文檔字串和物件屬性<a class="anchor-link" href="#10.-%E4%BD%BF%E7%94%A8-help/dir-%E6%9F%A5%E7%9C%8B%E6%96%87%E6%AA%94%E5%AD%97%E4%B8%B2%E5%92%8C%E7%89%A9%E4%BB%B6%E5%B1%AC%E6%80%A7">¶</a></h2>
 </div>
 </div>
 </div>
@@ -9921,7 +9922,7 @@ zipp                      3.21.0
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">uvicorn</span>
 
-<span class="c1"># query online document</span>
+<span class="c1"># 查看物件屬性</span>
 <span class="n">help</span><span class="p">(</span><span class="n">uvicorn</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -10206,7 +10207,7 @@ FILE
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">uvicorn</span>
-<span class="c1"># query object info</span>
+<span class="c1"># 查看物件屬性</span>
 <span class="nb">dir</span><span class="p">(</span><span class="n">uvicorn</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -10256,7 +10257,8 @@ FILE
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">uvicorn</span>
-<span class="c1"># simply use a "?" after an object to find the associated file directly</span>
+
+<span class="c1"># 在物件後加上 "?" 可以直接查看相關文件檔案位置</span>
 uvicorn<span class="o">?</span>
 </pre></div>
 </div>
@@ -10288,7 +10290,7 @@ uvicorn<span class="o">?</span>
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
 
-<span class="c1"># finding attributes and methods of an function object</span>
+<span class="c1"># 尋找函數物件的屬性和方法</span>
 <span class="nb">dir</span><span class="p">(</span><span class="n">datetime</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -10385,10 +10387,10 @@ uvicorn<span class="o">?</span>
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
 
-<span class="c1"># what is it?</span>
+<span class="c1"># 這是什麼？</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">)</span>
 
-<span class="c1"># running it</span>
+<span class="c1"># 執行它</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">())</span>
 </pre></div>
 </div>
@@ -10402,8 +10404,8 @@ uvicorn<span class="o">?</span>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>&lt;built-in method today of type object at 0x103d608b0&gt;
-2025-11-14 15:11:38.059660
+<pre>&lt;built-in method today of type object at 0x101fec8b0&gt;
+2025-11-14 14:59:45.728075
 </pre>
 </div>
 </div>
@@ -10416,10 +10418,10 @@ uvicorn<span class="o">?</span>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="11.-Use-Iterables-for-iteration">11. Use <code>Iterables</code> for iteration<a class="anchor-link" href="#11.-Use-Iterables-for-iteration">¶</a></h2><p>Iterable is an object, that one can iterate over. It generates an Iterator when passed to iter() method.</p>
-<p>An iterator is an object, which is used to iterate over an iterable object using the <strong>next</strong>() method.</p>
-<p>Iterators have the <strong>next</strong>() method, which returns the next item of the object. Note that every iterator is also an iterable, but not every iterable is an iterator.</p>
-<p>For example, a list is iterable but a list is not an iterator. An iterator can be created from an iterable by using the function iter(). To make this possible, the class of an object needs either a method <strong>iter</strong>, which returns an iterator, or a <strong>getitem</strong> method with sequential indexes starting with 0.</p>
+<h2 id="11.-%E4%BD%BF%E7%94%A8-Iterables-%E9%80%B2%E8%A1%8C%E8%BF%AD%E4%BB%A3">11. 使用 <code>Iterables</code> 進行迭代<a class="anchor-link" href="#11.-%E4%BD%BF%E7%94%A8-Iterables-%E9%80%B2%E8%A1%8C%E8%BF%AD%E4%BB%A3">¶</a></h2><p>可迭代物件(Iterable)是一個可以進行迭代的物件。當傳遞給 iter() 方法時，它會生成一個迭代器(Iterator)。</p>
+<p>迭代器是一個物件，用於通過 <strong>next</strong>() 方法對可迭代物件進行迭代。</p>
+<p>迭代器具有 <strong>next</strong>() 方法，該方法返回物件的下一個項目。請注意，每個迭代器都是一個可迭代物件，但並非每個可迭代物件都是迭代器。</p>
+<p>例如，列表(list)是可迭代的，但列表本身不是迭代器。可以通過 iter() 函數從可迭代物件創建迭代器。為了實現這一點，物件的類需要一個返回迭代器的 <strong>iter</strong> 方法，或者一個從 0 開始的連續索引的 <strong>getitem</strong> 方法。</p>
 </div>
 </div>
 </div>
@@ -10447,36 +10449,36 @@ uvicorn<span class="o">?</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">byte</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">()</span>
 
-<span class="c1"># All objects, shown above, are iterables</span>
-<span class="c1"># However, the integer type is not literable, as follows</span>
+<span class="c1"># 上面展示的所有物件都是可迭代的</span>
+<span class="c1"># 然而，整數型別是不可迭代的，如下所示</span>
 <span class="n">c</span> <span class="o">=</span> <span class="mi">142_857</span>
 
-<span class="c1"># must convert to a string to make  iteger iterable</span>
+<span class="c1"># 必須轉換為字串才能讓整數可迭代</span>
 <span class="k">for</span> <span class="n">digit</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">digit</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">()</span>
 
-<span class="c1"># or convert to a list to make  iteger iterable</span>
+<span class="c1"># 或者轉換為列表讓整數可迭代</span>
 <span class="n">digits</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">c</span><span class="p">)]</span>
 <span class="k">for</span> <span class="n">digit</span> <span class="ow">in</span> <span class="n">digits</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">digit</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">()</span>
 
-<span class="c1"># make a deck of cards iterable?</span>
+<span class="c1"># 讓一副牌可迭代？</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">itertools</span>
 <span class="n">ranks</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span> <span class="o">+</span> <span class="p">[</span><span class="s2">"J"</span><span class="p">,</span> <span class="s2">"Q"</span><span class="p">,</span> <span class="s2">"K"</span><span class="p">,</span> <span class="s2">"A"</span><span class="p">]</span>
 <span class="n">ranks</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">rank</span><span class="p">)</span> <span class="k">for</span> <span class="n">rank</span> <span class="ow">in</span> <span class="n">ranks</span><span class="p">]</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Ranks: </span><span class="si">{</span><span class="n">ranks</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'牌面數字: </span><span class="si">{</span><span class="n">ranks</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
-<span class="n">suits</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Spades"</span><span class="p">,</span> <span class="s2">"Hearts"</span><span class="p">,</span> <span class="s2">"Dimonds"</span><span class="p">,</span> <span class="s2">"Clubs"</span><span class="p">]</span>
+<span class="n">suits</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"黑桃"</span><span class="p">,</span> <span class="s2">"紅心"</span><span class="p">,</span> <span class="s2">"方塊"</span><span class="p">,</span> <span class="s2">"梅花"</span><span class="p">]</span>
 <span class="n">deck</span> <span class="o">=</span> <span class="p">[</span><span class="n">card</span> <span class="k">for</span> <span class="n">card</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">suits</span><span class="p">,</span> <span class="n">ranks</span><span class="p">)]</span>
 
 <span class="k">for</span> <span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">card</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">deck</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="mi">1</span><span class="o">+</span><span class="n">index</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">card</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
 <span class="n">hands</span> <span class="o">=</span> <span class="p">[</span><span class="n">hand</span> <span class="k">for</span> <span class="n">hand</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">combinations</span><span class="p">(</span><span class="n">deck</span><span class="p">,</span> <span class="mi">5</span><span class="p">)]</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'The number of 5-card poker has </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">hands</span><span class="p">)</span><span class="si">:</span><span class="s1">,</span><span class="si">}</span><span class="s1"> combinations.'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'五張牌的撲克牌組合共有 </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">hands</span><span class="p">)</span><span class="si">:</span><span class="s1">,</span><span class="si">}</span><span class="s1"> 種。'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -10495,60 +10497,60 @@ M i c h a e l   K a o
 66 105 110 97 114 121 
 1 4 2 8 5 7 
 1 4 2 8 5 7 
-Ranks: ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
-1: ('Spades', '2')
-2: ('Spades', '3')
-3: ('Spades', '4')
-4: ('Spades', '5')
-5: ('Spades', '6')
-6: ('Spades', '7')
-7: ('Spades', '8')
-8: ('Spades', '9')
-9: ('Spades', '10')
-10: ('Spades', 'J')
-11: ('Spades', 'Q')
-12: ('Spades', 'K')
-13: ('Spades', 'A')
-14: ('Hearts', '2')
-15: ('Hearts', '3')
-16: ('Hearts', '4')
-17: ('Hearts', '5')
-18: ('Hearts', '6')
-19: ('Hearts', '7')
-20: ('Hearts', '8')
-21: ('Hearts', '9')
-22: ('Hearts', '10')
-23: ('Hearts', 'J')
-24: ('Hearts', 'Q')
-25: ('Hearts', 'K')
-26: ('Hearts', 'A')
-27: ('Dimonds', '2')
-28: ('Dimonds', '3')
-29: ('Dimonds', '4')
-30: ('Dimonds', '5')
-31: ('Dimonds', '6')
-32: ('Dimonds', '7')
-33: ('Dimonds', '8')
-34: ('Dimonds', '9')
-35: ('Dimonds', '10')
-36: ('Dimonds', 'J')
-37: ('Dimonds', 'Q')
-38: ('Dimonds', 'K')
-39: ('Dimonds', 'A')
-40: ('Clubs', '2')
-41: ('Clubs', '3')
-42: ('Clubs', '4')
-43: ('Clubs', '5')
-44: ('Clubs', '6')
-45: ('Clubs', '7')
-46: ('Clubs', '8')
-47: ('Clubs', '9')
-48: ('Clubs', '10')
-49: ('Clubs', 'J')
-50: ('Clubs', 'Q')
-51: ('Clubs', 'K')
-52: ('Clubs', 'A')
-The number of 5-card poker has 2,598,960 combinations.
+牌面數字: ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
+1: ('黑桃', '2')
+2: ('黑桃', '3')
+3: ('黑桃', '4')
+4: ('黑桃', '5')
+5: ('黑桃', '6')
+6: ('黑桃', '7')
+7: ('黑桃', '8')
+8: ('黑桃', '9')
+9: ('黑桃', '10')
+10: ('黑桃', 'J')
+11: ('黑桃', 'Q')
+12: ('黑桃', 'K')
+13: ('黑桃', 'A')
+14: ('紅心', '2')
+15: ('紅心', '3')
+16: ('紅心', '4')
+17: ('紅心', '5')
+18: ('紅心', '6')
+19: ('紅心', '7')
+20: ('紅心', '8')
+21: ('紅心', '9')
+22: ('紅心', '10')
+23: ('紅心', 'J')
+24: ('紅心', 'Q')
+25: ('紅心', 'K')
+26: ('紅心', 'A')
+27: ('方塊', '2')
+28: ('方塊', '3')
+29: ('方塊', '4')
+30: ('方塊', '5')
+31: ('方塊', '6')
+32: ('方塊', '7')
+33: ('方塊', '8')
+34: ('方塊', '9')
+35: ('方塊', '10')
+36: ('方塊', 'J')
+37: ('方塊', 'Q')
+38: ('方塊', 'K')
+39: ('方塊', 'A')
+40: ('梅花', '2')
+41: ('梅花', '3')
+42: ('梅花', '4')
+43: ('梅花', '5')
+44: ('梅花', '6')
+45: ('梅花', '7')
+46: ('梅花', '8')
+47: ('梅花', '9')
+48: ('梅花', '10')
+49: ('梅花', 'J')
+50: ('梅花', 'Q')
+51: ('梅花', 'K')
+52: ('梅花', 'A')
+五張牌的撲克牌組合共有 2,598,960 種。
 </pre>
 </div>
 </div>
