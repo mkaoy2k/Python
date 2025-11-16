@@ -24,6 +24,8 @@ from urllib3.util.retry import Retry
 from requests.adapters import HTTPAdapter
 import webbrowser
 import logging
+import ssl
+import urllib3
 
 # 設置日誌
 logging.basicConfig(
@@ -39,12 +41,25 @@ load_dotenv()
 quake_url = os.getenv('QUAKE_URL')
 quake_magnitude = float(os.getenv('QUAKE_MAGNITUDE', 4.0))
 
-def create_session():
+def create_session(verify_ssl=True):
     """
     建立具有重試機制的 requests 會話
+    
+    Args:
+        verify_ssl (bool): 是否驗證 SSL 憑證，預設為 True
+        
+    Returns:
+        requests.Session: 配置好的 session 物件
     """
-    logger.info("建立具有重試機制的 requests 會話")
+    logger.info(f"建立 requests 會話 (SSL 驗證: {'啟用' if verify_ssl else '停用'})")
+    
+    # 停用 SSL 警告（如果停用 SSL 驗證）
+    if not verify_ssl:
+        urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+    
     session = requests.Session()
+    
+    # 設定重試機制
     retry = Retry(
         total=3,
         backoff_factor=1,
@@ -52,9 +67,23 @@ def create_session():
         allowed_methods=False,
         raise_on_status=False
     )
+    
+    # 設定適配器
     adapter = HTTPAdapter(max_retries=retry)
+    
+    # 掛載適配器
     session.mount("http://", adapter)
     session.mount("https://", adapter)
+    
+    # 設定 SSL 驗證
+    session.verify = verify_ssl
+    
+    # 如果停用 SSL 驗證，設定 verify=False
+    if not verify_ssl:
+        session.verify = False
+        # 停用 SSL 警告
+        requests.packages.urllib3.disable_warnings()
+    
     return session
 
 def get_earthquake_data() -> dict:
@@ -66,11 +95,23 @@ def get_earthquake_data() -> dict:
     """
     try:
         logger.info(f"開始獲取地震資料，URL: {quake_url}")
-        session = create_session()
-        response = session.get(quake_url, timeout=10)
-        response.raise_for_status()
-        logger.info("成功獲取地震資料")
-        return response.json()
+        
+        # 先嘗試使用 SSL 驗證
+        session = create_session(verify_ssl=True)
+        try:
+            response = session.get(quake_url, timeout=10)
+            response.raise_for_status()
+            logger.info("成功使用 SSL 驗證獲取地震資料")
+            return response.json()
+        except (requests.exceptions.SSLError, requests.exceptions.ConnectionError) as ssl_error:
+            logger.warning(f"SSL 驗證失敗，嘗試不驗證 SSL: {str(ssl_error)}")
+            # 如果 SSL 驗證失敗，重試不驗證 SSL
+            session = create_session(verify_ssl=False)
+            response = session.get(quake_url, timeout=10, verify=False)
+            response.raise_for_status()
+            logger.info("成功獲取地震資料 (不驗證 SSL)")
+            return response.json()
+            
     except requests.exceptions.Timeout:
         logger.error(f"API 請求超時：{quake_url}")
         return {}
