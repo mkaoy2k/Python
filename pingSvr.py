@@ -53,6 +53,8 @@ def main(argv) -> None:
                 raise ValueError("請提供要測試的伺服器網址 (使用 --url 參數或直接提供網址)")
         else:
             url = FLAGS.url
+        # log current date time
+        print(f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}")
         print(f"伺服器網址: {url}")
         start = time.perf_counter()
         response = requests.get(url, timeout=10)
