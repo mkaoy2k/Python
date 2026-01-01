@@ -1,4 +1,135 @@
 <html>
+    <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+        <style>
+        h3 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h4 {
+            color: #2980b9;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+        }
+        .author {
+            text-align: right;
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .section {
+            background: #fff;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .image-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .image-row img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            h3 {
+                font-size: 1.5rem;
+            }
+            .image-row {
+                flex-direction: column;
+                align-items: center;
+            }
+            .section {
+                margin: 10px 0;
+                padding: 15px;
+            }
+        }
+        .topic {
+            background-color: #e8f4fc;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #3498db;
+        }
+        .meaning {
+            margin-left: 20px;
+            color: #2c3e50;
+        }
+        .source {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+        .quote {
+            font-style: italic;
+            color: #16a085;
+            margin: 10px 0 10px 20px;
+            padding-left: 10px;
+            border-left: 2px solid #1abc9c;
+        }
+        .conclusion {
+            font-weight: bold;
+            text-align: center;
+            margin: 30px 0;
+            font-size: 1.2em;
+            color: #e74c3c;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .card {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.25rem;
+            background: white;
+        }
+        .sub-topic {
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 1rem;
+        }
+        .highlight {
+            background-color: #fff3cd;
+            padding: 0.5rem;
+            border-radius: 4px;
+            margin: 0.5rem 0;
+        }
+        .item {
+            font-weight: 500;
+            color: #2c3e50;
+        }
+        .cost {
+            font-weight: bold;
+            color: #27ae60;
+        }
+        </style>
+    </head>
     <body>
         <h1>大蟒蛇日誌</h1>
         <h3 id="currentDate"></h3>
@@ -16,39 +147,164 @@
             document.getElementById('currentDate').textContent = chineseDate;
             </script>
            
-            <!-- Include contents in a 2x1 table -->
-            <table style="width: 100%; border-collapse: collapse; table-layout: fixed;">
-                <tr>
-                    <td style="padding: 10px 0; vertical-align: top;">
-                        <h2>今天笑了沒？</h2>
-                        <p>
-                            昨天中午，有個男同事外出，沒把手機帶走。<br>
-                            他老婆不停地打電話來，午睡的女同事被吵煩了，<br>
-                            拿過手機大吼：「我們在睡覺，你煩不煩！」<br>
-                            結果，那位男同事今天到現在都沒來上班！
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="padding: 10px 0; vertical-align: top;">
-                        <h2>今日格言</h2>
-                        <p>
-                            三分醉的女人，會打開話匣子。<br>
-                            七分醉的男人，會打開皮夾子。
-                        </p>
-                    </td>
-                </tr>
-            </table>
-        
-        <h2>免費ython 電腦程式語言入門電子書</h2>
-        <p>Python 程式語言入門電子書，免費相送，<br>
-            適合想學習 Python 的朋友！<br>
-            <a href="https://github.com/mkaoy2k/Kids-Lets-Play-Python" target="_blank" rel="noopener noreferrer">下載電子書</a></p>
-            <br>
-            <img src="https://github.com/mkaoy2k/Images/blob/main/Python_QR_Code.png?raw=true", alt="QR Code">
+<!-- 3x1 Table Layout -->
+<table style="width: 100%; border-collapse: collapse; table-layout: fixed;">
+    <!-- Row 1: 我的臨終願望清單 -->
+    <tr>
+        <td style="padding: 20px 0; vertical-align: top; border-bottom: 1px solid #ddd;">
+            <h3>我的臨終願望清單</h3>
+                            
+            <div class="container mt-4">
+                <section class="mb-5">
+                    <h2 class="h4">生活目標</h2>
+                    <ul>
+                        <li>充足老菩薩公積金</li>
+                        <li>完善老菩薩長照</li>
+                        <li>完善渤海漚汪高氏族譜上線
+                            <ol class="pl-3">
+                                <li><span style="text-decoration: line-through;">✅ Mac-mini 當伺服器</span></li>
+                                <li><span style="text-decoration: line-through;">✅ FamilyTreesPE 上線</span></li>
+                                <li><span style="text-decoration: line-through;">✅ FamilyTreesOPS 上線</span></li>
+                                <li><span style="text-decoration: line-through;">✅ FamilyTrees 上線</span></li>
+                                <li>擴大女成員</li>
+                                <li>完善營運</li>
+                                <li>交棒下去</li>
+                            </ol>
+                        </li>
+                    </ul>
+                </section>
 
-        <p>作者：<a href="https://www.buymeacoffee.com/jkbwvj5y4zl" target="_blank" rel="noopener noreferrer">高嘉祥</a>
-        </p>
+                <section class="mb-5">
+                    <h2 class="h4">旅行目標</h2>
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h3 class="h5">Travel to Mars</h3>
+                            <p class="mb-0">馬斯克說：地球是文明的搖籃，但我們不可能一直都在搖籃裏。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="mb-5">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h3 class="h5">美國房車旅遊 CyberTruck/CyberLandr</h3>
+                            <p>喜歡旅遊的人有了房車就很方便，不用住旅館，有太陽能發電，開車即可自動充電，所以可省下一些費用（旅館與電費）。還有小冰箱可儲存食物，電磁爐可煮熱食。</p>
+                            <p>另外可訓練自身的獨立與應變能力應對偶爾突發事件，可隨處為家，到處遊玩。</p>
+                            <p>開著房車旅遊很方便，雖小巧玲瓏，但應有盡有，樣樣俱全。退休的人，買個房車到處旅行，也算是一個臨終願望之一吧。</p>
+                            <ol class="pl-3">
+                                <li>可能需要一台小型洗衣機可洗衣服。</li>
+                                <li>儲水箱若需加水時，就得尋找有供水的地方。</li>
+                            </ol>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="mb-5">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h3 class="h5">Tour All 63 US National Parks</h3>
+                            <p>親近自然就是一種生活享受。</p>
+                            <p>Visiting all the 63 U.S. National Parks is an epic bucket-list adventure that spans deserts, glaciers, forests, volcanoes, and coastal wonders across the country and territories.</p>
+                            <p class="mb-0">To experience unparalleled biodiversity and diverse ecosystems on Earth is so compelling to me.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <section class="card h-100">
+                            <div class="card-body">
+                                <h2 class="h5">美國西部</h2>
+                                <ol class="pl-3">
+                                    <li><span style="text-decoration: line-through;">✅ Yellow Stone 黃石國家公園, Idaho/Montana/Wyoming, 2025-5</span></li>
+                                    <li><span style="text-decoration: line-through;">✅ Grand Teton 大提頓國家公園, WY, 2025-5</span></li>
+                                    <li><span style="text-decoration: line-through;">✅ Canyonlands 峽谷地國家公園, UT, 2025-5</span></li>
+                                    <li><span style="text-decoration: line-through;">✅ Arches 拱門國家公園, UT, 2025-5</span></li>
+                                    <li><span style="text-decoration: line-through;">✅ Death Valley 死亡谷國家公園, NV/CA, 2025-12</span></li>
+                                    <li>Zion 錫安國家公園, UT</li>
+                                    <li>Bryce 布萊斯峽谷國家公園, UT</li>
+                                </ol>
+                            </div>
+                        </section>
+                    </div>
+
+                    <div class="col-md-4 mb-4">
+                        <section class="card h-100">
+                            <div class="card-body">
+                                <h2 class="h5">美國中部</h2>
+                                <ol class="pl-3">
+                                    <li>View 水月觀音 in Nelson-Atkins Museum, MI</li>
+                                    <li>Visit Amish in 印第安那州 Shipshewana 鎮, IN</li>
+                                </ol>
+                            </div>
+                        </section>
+                    </div>
+
+                    <div class="col-md-4 mb-4">
+                        <section class="card h-100">
+                            <div class="card-body">
+                                <h2 class="h5">美東之旅</h2>
+                                <ol class="pl-3">
+                                    <li>Historic tour in Gettysburg, PA</li>
+                                    <li>Visit Amish in 蘭開斯特縣, PA</li>
+                                    <li>Join 華盛頓渡河重演活動</li>
+                                    <p>	每年聖誕節期間，華盛頓渡口都會重演「華盛頓橫渡德拉瓦河」的歷史場景，緬懷喬治·華盛頓將軍在1776年獨立戰爭期間，帶領大陸軍勇敢地前往新澤西並扭轉了獨立戰爭局勢的歷史。</p>
+                                    <p>	遊客有兩次機會觀看這項活動，活動以華盛頓將軍向士兵們發表慷慨激昂的演講開場，隨後士兵們將乘坐仿製船隻劃過冰冷的河水。 12月14日（週日）將舉行一場需購票入場的活動，聖誕節當天則會舉行免費活動。除了重演外，歷史村還將舉辦特殊殖民時代活動和演示，提供家庭遊樂和學習。現場還將有許多美食攤位。</p>
+                                    <p>時間：12月14日和25日（聖誕節）; 上午11點至下午3點（實際過境時間為下午1點）</p>
+                                    <p>地址：Washington Crossing Historic Park, 1112 River Road, Washington Crossing, PA 18977.</p>
+                                </ol>
+                            </div>
+                        </section>
+                    </div>
+
+                </div>
+    </tr>
+    
+    <!-- Row 2: 今日格言 -->
+    <tr>
+        <td style="padding: 20px 0; vertical-align: top; border-bottom: 1px solid #ddd;">
+            <h3>今日格言</h3>
+            <div class="quote" style="font-style: italic; padding: 20px; background-color: #f9f9f9; border-left: 4px solid #ccc; text-align: center; margin: 0 auto; max-width: 80%;">
+                Do not go where the path may lead you, <br>
+                go instead where there is no path and leave a trail.<br>
+                - Ralph Waldo Emerson
+            </div>
+        </td>
+    </tr>
+    
+    <!-- Row 3: 免費 -->
+    <tr>
+        <td style="padding: 20px 0; vertical-align: top; border-bottom: 1px solid #ddd;">
+            <h3>免費逗相報</h3>
+            <div class="container mt-4">
+                <section class="mb-5">
+                    <h2 class="h4">電子書</h2>
+                    <ol class="pl-3">
+                        <li>免費電子書：Python 入門</li>
+                        <p>適合初學 Python 的朋友！歡迎下載學習。<br>
+                        <a href="https://github.com/mkaoy2k/Kids-Lets-Play-Python" target="_blank" rel="noopener noreferrer">下載電子書</a><br>
+                        <br>
+                        <img src="https://github.com/mkaoy2k/Images/blob/main/Python_QR_Code.png?raw=true" alt="QR Code"><br>
+                        <br>
+                        作者：<a href="https://www.buymeacoffee.com/jkbwvj5y4zl" target="_blank" rel="noopener noreferrer">高嘉祥</a></p>
+                        <li>Interactive Python Notbook: 初級教學</li>
+                        <p>適合互動式的初學 Python 的朋友！<br>
+                        <a href="https://github.com/mkaoy2k/Python" target="_blank" rel="noopener noreferrer">下載電子書</a><br>
+                        <img src="https://github.com/mkaoy2k/Python/blob/main/1.%20Python%20Tutorial%20TW.png?raw=true" alt="QR Code"><br>
+                        作者：<a href="https://www.buymeacoffee.com/jkbwvj5y4zl" target="_blank" rel="noopener noreferrer">高嘉祥</a></p>
+                        <li>Interactive Python Notbook: Python 技巧和竅門</li>
+                        <p>適合互動式的深入學習 Python 的朋友！<br>
+                        <a href="https://github.com/mkaoy2k/Python" target="_blank" rel="noopener noreferrer">下載電子書</a><br>
+                        <img src="https://github.com/mkaoy2k/Python/blob/main/2.%20Python%20Tips%20and%20Tricks%20TW.png?raw=true" alt="QR Code"><br>
+                        作者：<a href="https://www.buymeacoffee.com/jkbwvj5y4zl" target="_blank" rel="noopener noreferrer">高嘉祥</a></p>
+                    </ol>
+                </section>
+            </div>
+        </td>
+    </tr>
+</table>
+        
+
 
     </body>
 </html>
