@@ -38,22 +38,29 @@ def get_earthquake_info(event):
 
 def should_notify(val, eq_time, min_magnitude):
     """
-    判斷是否需要發送通知
+    判斷是否需要發送地震通知
+    
+    根據以下條件判斷是否需要發送通知：
+    1. 地震規模大於等於設定的最小通知規模
+    2. 地震發生在昨天、今天或明天
     
     Args:
-        val (float): 地震規模
-        eq_time (str): 發生時間
-        min_magnitude (float): 最小通知規模
+        val (float): 地震規模（芮氏規模）
+        eq_time (str): 地震發生時間（ISO 8601 格式，例如：'2026-01-04 12:00:00'）
+        min_magnitude (float): 觸發通知的最小地震規模
     
     Returns:
-        bool: 此地震事件是否需要通知
+        bool: 如果符合通知條件則返回 True，否則返回 False
+        
+    Raises:
+        ValueError: 當時間格式不正確時拋出
     """
     try:
         date_occured = date.fromisoformat(eq_time.split(' ')[0])
         logger.debug(f"地震規模: {val}, 最小通知規模: {min_magnitude}, 發生時間: {date_occured}")
         
         return (val >= min_magnitude and 
-                date_occured in [date.today(), date.today() - timedelta(days=1)])
+                date_occured in [date.today(), date.today() - timedelta(days=1), date.today() + timedelta(days=1)])
     except ValueError as e:
         logger.error(f"處理時間格式時發生錯誤：{str(e)}")
         return False
