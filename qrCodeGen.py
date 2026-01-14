@@ -6,14 +6,14 @@ QR Code 生成器
 
 範例:
     1. 使用命令列參數:
-       python qrCodeEx.py --url https://example.com --file qrcode.png
+       python qrCodeGen.py --url "https://github.com/mkaoy2k/Kids-Lets-Play-Python" --file sample/qrCode.png
     
     2. 使用環境變數:
        在 .env 檔案中設定:
-       QR_URL=https://example.com
+       QR_URL=https://github.com/mkaoy2k/Kids-Lets-Play-Python
        QR_FILE=qrcode.png
        然後執行:
-       python qrCodeEx.py
+       python qrCodeGen.py
 
 命令列參數:
     --url: 要編碼成 QR Code 的網址
