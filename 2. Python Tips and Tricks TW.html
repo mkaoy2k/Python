@@ -7781,13 +7781,182 @@ x = 0
 </div>
 </div>
 </div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0c84f7d9">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="1.3-Python-%E7%9A%84-match-%E8%AA%9E%E5%8F%A5%E8%AA%AA%E6%98%8E">1.3 Python 的 match 語句說明<a class="anchor-link" href="#1.3-Python-%E7%9A%84-match-%E8%AA%9E%E5%8F%A5%E8%AA%AA%E6%98%8E">¶</a></h3><p>match 是 Python 3.10 引入的結構化模式匹配語法，它提供了一種更強大、更直觀的方式來進行條件分支處理，特別適合處理複雜的數據結構。</p>
+<p>基本語法:</p>
+<pre><code>match subject:
+    case pattern1:
+        # 處理 pattern1 的情況
+    case pattern2:
+        # 處理 pattern2 的情況
+    case _:
+        # 預設情況（類似於 switch 中的 default）
+</code></pre>
+<p>優點:</p>
+<ul>
+<li>比傳統的 if-elif-else 鏈更簡潔</li>
+<li>支持結構化數據的深度匹配</li>
+<li>更易讀，特別是在處理複雜的數據結構時</li>
+<li>可以與類型提示結合使用，提高代碼的可讀性和可維護性</li>
+</ul>
+<p>注意事項:</p>
+<ul>
+<li>match 是 Python 3.10 的新特性，舊版本不支援</li>
+<li>模式匹配是按順序進行的，第一個匹配的模式會被執行</li>
+<li>"_" 是萬用字元，可以匹配任何值</li>
+<li>模式可以嵌套，允許複雜的數據結構匹配</li>
+<li>match 語句特別適合處理 JSON 數據、解析命令列參數、處理 AST（抽象語法樹）等場景。</li>
+</ul>
+<p>程式碼說明：</p>
+<ol>
+<li>函數功能：</li>
+</ol>
+<ul>
+<li>describe_type() 函數使用 Python 3.10+ 的 match-case 語法來判斷輸入值的類型</li>
+<li>根據不同類型返回對應的中文描述</li>
+</ul>
+<ol start="2">
+<li>支援的類型：</li>
+</ol>
+<ul>
+<li>布林值（bool）：顯示「真」或「假」</li>
+<li>整數（int）：區分正整數和負整數</li>
+<li>字串（str）：顯示長度和內容</li>
+<li>列表（list）：顯示元素數量</li>
+<li>集合（set）：顯示不重複元素的數量</li>
+<li>元組（tuple）：顯示元素數量</li>
+<li>字典（dict）：顯示鍵值對數量</li>
+<li>空值（None）</li>
+<li>其他類型：顯示類型名稱</li>
+</ul>
+<ol start="3">
+<li>測試案例：</li>
+</ol>
+<ul>
+<li>包含各種常見的 Python 數據類型</li>
+<li>每個測試案例都展示了不同的類型判斷情況</li>
+<li>輸出結果會顯示原始值及其對應的類型描述</li>
+</ul>
+<ol start="4">
+<li>輸出格式：</li>
+</ol>
+<ul>
+<li>每行顯示一個測試值及其類型描述</li>
+<li>使用字串格式化對齊輸出，提高可讀性</li>
+</ul>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=cead4095">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">describe_type</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    根據輸入值的類型返回相應的描述字串</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        value: 要檢查類型的值，可以是任何Python對象</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        str: 描述值類型和特性的字串</span>
+<span class="sd">    """</span>
+    <span class="k">match</span> <span class="n">value</span><span class="p">:</span>
+        <span class="k">case</span> <span class="nb">bool</span><span class="p">():</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">"布林值: </span><span class="si">{</span><span class="s1">'真'</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">'假'</span><span class="si">}</span><span class="s2">"</span>
+        <span class="k">case</span> <span class="nb">int</span><span class="p">()</span> <span class="k">if</span> <span class="n">value</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">"非負整數: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span>
+        <span class="k">case</span> <span class="nb">int</span><span class="p">():</span>  <span class="c1"># 負整數</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">"負整數: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span>
+        <span class="k">case</span> <span class="nb">str</span><span class="p">():</span>
+            <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">length</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">return</span> <span class="s2">"空字串"</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">"長度為 </span><span class="si">{</span><span class="n">length</span><span class="si">}</span><span class="s2"> 的字串: '</span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">'"</span>
+        <span class="k">case</span> <span class="nb">list</span><span class="p">():</span>
+            <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">"包含 </span><span class="si">{</span><span class="n">length</span><span class="si">}</span><span class="s2"> 個元素的列表"</span>
+        <span class="k">case</span> <span class="nb">set</span><span class="p">():</span>
+            <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">"包含 </span><span class="si">{</span><span class="n">length</span><span class="si">}</span><span class="s2"> 個不重複元素的集合"</span>
+        <span class="k">case</span> <span class="nb">tuple</span><span class="p">():</span>
+            <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">"包含 </span><span class="si">{</span><span class="n">length</span><span class="si">}</span><span class="s2"> 個元素的元組"</span>
+        <span class="k">case</span> <span class="nb">dict</span><span class="p">():</span>
+            <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">"包含 </span><span class="si">{</span><span class="n">length</span><span class="si">}</span><span class="s2"> 個鍵值對的字典"</span>
+        <span class="k">case</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">"空值 (None)"</span>
+        <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">"其他類型: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">"</span>
+
+<span class="c1"># 測試案例</span>
+<span class="n">test_values</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="mi">42</span><span class="p">,</span>                     <span class="c1"># 正整數</span>
+    <span class="o">-</span><span class="mi">7</span><span class="p">,</span>                     <span class="c1"># 負整數</span>
+    <span class="kc">True</span><span class="p">,</span>                   <span class="c1"># 布林值 True</span>
+    <span class="kc">False</span><span class="p">,</span>                  <span class="c1"># 布林值 False</span>
+    <span class="s2">""</span><span class="p">,</span>                     <span class="c1"># 空字串</span>
+    <span class="s2">"hello"</span><span class="p">,</span>                <span class="c1"># 一般字串</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>              <span class="c1"># 列表</span>
+    <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span>           <span class="c1"># 集合（自動去重）</span>
+    <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span>               <span class="c1"># 元組</span>
+    <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Alice"</span><span class="p">,</span> <span class="s2">"age"</span><span class="p">:</span> <span class="mi">25</span><span class="p">},</span>  <span class="c1"># 字典</span>
+    <span class="kc">None</span><span class="p">,</span>                   <span class="c1"># 空值</span>
+    <span class="mf">3.14</span>                    <span class="c1"># 浮點數（會進入預設情況）</span>
+<span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"類型判斷範例：</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="s2">"="</span><span class="o">*</span><span class="mi">30</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">test_values</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">val</span><span class="si">!r:</span><span class="s2">30</span><span class="si">}</span><span class="s2"> → </span><span class="si">{</span><span class="n">describe_type</span><span class="p">(</span><span class="n">val</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>類型判斷範例：
+==============================
+42                             → 非負整數: 42
+-7                             → 負整數: -7
+True                           → 布林值: 真
+False                          → 布林值: 假
+''                             → 空字串
+'hello'                        → 長度為 5 的字串: 'hello'
+[1, 2, 3]                      → 包含 3 個元素的列表
+{1, 2, 3}                      → 包含 3 個不重複元素的集合
+(10, 20)                       → 包含 2 個元素的元組
+{'name': 'Alice', 'age': 25}   → 包含 2 個鍵值對的字典
+None                           → 空值 (None)
+3.14                           → 其他類型: float
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1a8ecbb8">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="1.3-%E4%BD%BF%E7%94%A8-_%EF%BC%88%E5%BA%95%E7%B7%9A%EF%BC%89%E4%BD%9C%E7%82%BA%E5%BF%BD%E7%95%A5%E7%9A%84%E8%AE%8A%E6%95%B8%E6%88%96%E4%BD%94%E4%BD%8D%E7%AC%A6">1.3 使用 _（底線）作為忽略的變數或佔位符<a class="anchor-link" href="#1.3-%E4%BD%BF%E7%94%A8-_%EF%BC%88%E5%BA%95%E7%B7%9A%EF%BC%89%E4%BD%9C%E7%82%BA%E5%BF%BD%E7%95%A5%E7%9A%84%E8%AE%8A%E6%95%B8%E6%88%96%E4%BD%94%E4%BD%8D%E7%AC%A6">¶</a></h3><p>當您有一個數值變量，其值不容易閱讀時，可以使用 _ 來表示千位分隔，以提高可讀性。</p>
+<h3 id="1.4-%E4%BD%BF%E7%94%A8-_%EF%BC%88%E5%BA%95%E7%B7%9A%EF%BC%89%E4%BD%9C%E7%82%BA%E5%BF%BD%E7%95%A5%E7%9A%84%E8%AE%8A%E6%95%B8%E6%88%96%E4%BD%94%E4%BD%8D%E7%AC%A6">1.4 使用 _（底線）作為忽略的變數或佔位符<a class="anchor-link" href="#1.4-%E4%BD%BF%E7%94%A8-_%EF%BC%88%E5%BA%95%E7%B7%9A%EF%BC%89%E4%BD%9C%E7%82%BA%E5%BF%BD%E7%95%A5%E7%9A%84%E8%AE%8A%E6%95%B8%E6%88%96%E4%BD%94%E4%BD%8D%E7%AC%A6">¶</a></h3><p>當您有一個數值變量，其值不容易閱讀時，可以使用 _ 來表示千位分隔，以提高可讀性。</p>
 <div class="highlight"><pre><span></span><span class="c1"># 不好的寫法</span>
 <span class="n">num</span> <span class="o">=</span> <span class="mi">1000000</span>
 
@@ -7806,7 +7975,7 @@ x = 0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">num1</span> <span class="o">=</span> <span class="mi">10000000000</span>
@@ -7837,7 +8006,7 @@ x = 0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 使用 "_" 提升可讀性（無操作）</span>
@@ -7876,7 +8045,7 @@ Hello World!
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 使用 ',' 格式化提升報表可讀性</span>
@@ -7906,7 +8075,7 @@ Hello World!
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="1.4-%E4%BD%BF%E7%94%A8%E5%88%97%E8%A1%A8%E6%8E%A8%E5%B0%8E%E5%BC%8F%E5%89%B5%E5%BB%BA%E5%88%97%E8%A1%A8">1.4 使用列表推導式創建列表<a class="anchor-link" href="#1.4-%E4%BD%BF%E7%94%A8%E5%88%97%E8%A1%A8%E6%8E%A8%E5%B0%8E%E5%BC%8F%E5%89%B5%E5%BB%BA%E5%88%97%E8%A1%A8">¶</a></h3><p>列表推導式是一種簡潔的創建列表的方式。與傳統的循環相比，它們使您的代碼更簡短且更易於理解。</p>
+<h3 id="1.5-%E4%BD%BF%E7%94%A8%E5%88%97%E8%A1%A8%E6%8E%A8%E5%B0%8E%E5%BC%8F%E5%89%B5%E5%BB%BA%E5%88%97%E8%A1%A8">1.5 使用列表推導式創建列表<a class="anchor-link" href="#1.5-%E4%BD%BF%E7%94%A8%E5%88%97%E8%A1%A8%E6%8E%A8%E5%B0%8E%E5%BC%8F%E5%89%B5%E5%BB%BA%E5%88%97%E8%A1%A8">¶</a></h3><p>列表推導式是一種簡潔的創建列表的方式。與傳統的循環相比，它們使您的代碼更簡短且更易於理解。</p>
 <div class="highlight"><pre><span></span><span class="n">squares</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
 </pre></div>
 </div>
@@ -7917,7 +8086,7 @@ Hello World!
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 建立一個包含 0 到 9 的平方數列表</span>
@@ -7946,7 +8115,7 @@ Hello World!
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 從列表中找出偶數</span>
@@ -7978,7 +8147,7 @@ Hello World!
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="1.5-%E4%B8%8D%E4%BD%BF%E7%94%A8%E6%9A%AB%E5%AD%98%E8%AE%8A%E6%95%B8%E4%BA%A4%E6%8F%9B%E5%85%A9%E5%80%8B%E8%AE%8A%E6%95%B8">1.5 不使用暫存變數交換兩個變數<a class="anchor-link" href="#1.5-%E4%B8%8D%E4%BD%BF%E7%94%A8%E6%9A%AB%E5%AD%98%E8%AE%8A%E6%95%B8%E4%BA%A4%E6%8F%9B%E5%85%A9%E5%80%8B%E8%AE%8A%E6%95%B8">¶</a></h3><p>C 的寫法:</p>
+<h3 id="1.6-%E4%B8%8D%E4%BD%BF%E7%94%A8%E6%9A%AB%E5%AD%98%E8%AE%8A%E6%95%B8%E4%BA%A4%E6%8F%9B%E5%85%A9%E5%80%8B%E8%AE%8A%E6%95%B8">1.6 不使用暫存變數交換兩個變數<a class="anchor-link" href="#1.6-%E4%B8%8D%E4%BD%BF%E7%94%A8%E6%9A%AB%E5%AD%98%E8%AE%8A%E6%95%B8%E4%BA%A4%E6%8F%9B%E5%85%A9%E5%80%8B%E8%AE%8A%E6%95%B8">¶</a></h3><p>C 的寫法:</p>
 <div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 
@@ -8000,7 +8169,7 @@ Hello World!
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 交換變數</span>
@@ -8033,7 +8202,7 @@ Hello World!
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="1.6-%E5%AD%97%E4%B8%B2%E8%99%95%E7%90%86">1.6 字串處理<a class="anchor-link" href="#1.6-%E5%AD%97%E4%B8%B2%E8%99%95%E7%90%86">¶</a></h3><ul>
+<h3 id="1.7-%E5%AD%97%E4%B8%B2%E8%99%95%E7%90%86">1.7 字串處理<a class="anchor-link" href="#1.7-%E5%AD%97%E4%B8%B2%E8%99%95%E7%90%86">¶</a></h3><ul>
 <li>反轉字串</li>
 <li>檢查兩個字串是否為變位詞</li>
 <li>計算字串中字符的出現頻率</li>
@@ -8047,7 +8216,7 @@ Hello World!
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 反轉字串</span>
@@ -8080,7 +8249,7 @@ Hello World!
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 檢查兩個字串是否為變位詞</span>
@@ -8111,7 +8280,7 @@ Hello World!
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 計算字串中字符的出現頻率</span>
@@ -8140,7 +8309,7 @@ Hello World!
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 移除字串中的重複字符</span>
@@ -8180,7 +8349,7 @@ Hello World!
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="1.7-%E5%88%97%E8%A1%A8%E8%99%95%E7%90%86">1.7 列表處理<a class="anchor-link" href="#1.7-%E5%88%97%E8%A1%A8%E8%99%95%E7%90%86">¶</a></h3><ul>
+<h3 id="1.8-%E5%88%97%E8%A1%A8%E8%99%95%E7%90%86">1.8 列表處理<a class="anchor-link" href="#1.8-%E5%88%97%E8%A1%A8%E8%99%95%E7%90%86">¶</a></h3><ul>
 <li>反轉列表</li>
 <li>移除列表中的重複項</li>
 <li>對列表進行排序</li>
@@ -8194,7 +8363,7 @@ Hello World!
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 反轉串列</span>
@@ -8238,7 +8407,7 @@ Hello World!
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 將多維串列扁平化</span>
@@ -8272,7 +8441,7 @@ Hello World!
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="1.8-%E5%AD%97%E5%85%B8%E8%99%95%E7%90%86">1.8 字典處理<a class="anchor-link" href="#1.8-%E5%AD%97%E5%85%B8%E8%99%95%E7%90%86">¶</a></h3><ul>
+<h3 id="1.9-%E5%AD%97%E5%85%B8%E8%99%95%E7%90%86">1.9 字典處理<a class="anchor-link" href="#1.9-%E5%AD%97%E5%85%B8%E8%99%95%E7%90%86">¶</a></h3><ul>
 <li>遍歷字典</li>
 <li>提取子字典</li>
 </ul>
@@ -8284,7 +8453,7 @@ Hello World!
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">student</span> <span class="o">=</span> <span class="p">{</span>
@@ -8342,7 +8511,7 @@ Hello World!
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 使用字典推導式建立子字典</span>
@@ -8406,7 +8575,7 @@ Hello World!
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 開啟檔案的各種模式：</span>
@@ -8491,7 +8660,7 @@ Hello World!
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 使用 'with' 上下文管理器讀取檔案</span>
@@ -8579,7 +8748,7 @@ f.read(): 在已關閉的檔案上進行 I/O 操作。
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 更多讀取檔案的方法</span>
@@ -8708,7 +8877,7 @@ f.read(): 在已關閉的檔案上進行 I/O 操作。
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [23]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 使用上下文管理器寫入檔案</span>
@@ -8759,7 +8928,7 @@ f.read(): 在已關閉的檔案上進行 I/O 操作。
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [24]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [25]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 複製檔案到另一個檔案</span>
@@ -8852,7 +9021,7 @@ f.read(): 在已關閉的檔案上進行 I/O 操作。
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [25]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [26]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
@@ -8902,7 +9071,7 @@ finally: 這行代碼總會執行
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [26]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [27]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 使用計數器的舊方法</span>
@@ -8938,7 +9107,7 @@ finally: 這行代碼總會執行
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [27]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [28]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 使用 enumerate 的更簡潔代碼</span>
@@ -8972,7 +9141,7 @@ finally: 這行代碼總會執行
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [28]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [29]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 另一個使用 enumerate 的更簡潔代碼，從 1 開始計數</span>
@@ -9018,7 +9187,7 @@ finally: 這行代碼總會執行
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [29]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [30]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Corey'</span><span class="p">,</span> <span class="s1">'Michael'</span><span class="p">,</span> <span class="s1">'Travis'</span><span class="p">,</span> <span class="s1">'Dave'</span><span class="p">]</span>
@@ -9052,7 +9221,7 @@ Dave 實際上是 Batman
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [30]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [31]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Corey'</span><span class="p">,</span> <span class="s1">'Michael'</span><span class="p">,</span> <span class="s1">'Travis'</span><span class="p">,</span> <span class="s1">'Dave'</span><span class="p">]</span>
@@ -9087,7 +9256,7 @@ Dave 實際上是 Batman
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [31]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [32]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Corey'</span><span class="p">,</span> <span class="s1">'Michael'</span><span class="p">,</span> <span class="s1">'Travis'</span><span class="p">,</span> <span class="s1">'Dave'</span><span class="p">]</span>
@@ -9134,7 +9303,7 @@ Dave 實際上是來自 Taiwan 的 Batman
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [32]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [33]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 元組的基本解包</span>
@@ -9165,7 +9334,7 @@ b: 2
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [33]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [34]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 解包列表</span>
@@ -9194,7 +9363,7 @@ b: 2
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [34]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [35]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 在函數參數中進行解包</span>
@@ -9226,7 +9395,7 @@ b: 2
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [35]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [36]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 解包字串（任何可迭代對象 iterable objects，字串由一系列字符組成）</span>
@@ -9255,7 +9424,7 @@ b: 2
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [36]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [37]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 解包字典，使用 ** 來解包鍵值對</span>
@@ -9291,7 +9460,7 @@ b: 2
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [37]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [38]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 從字典中解包鍵或值</span>
@@ -9326,7 +9495,7 @@ v1=1, v2=2, v3=3
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [38]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [39]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 使用 * 進行擴展解包 (Python3+)</span>
@@ -9361,7 +9530,7 @@ d: 6
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [39]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [40]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 使用 *_ 來忽略多餘的解包元素 (Python3+)</span>
@@ -9394,7 +9563,7 @@ d: 6
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [40]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [41]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 巢狀解包</span>
@@ -9426,7 +9595,7 @@ y: (2, 4, 6)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [41]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [42]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 更複雜的巢狀列表</span>
@@ -9469,7 +9638,7 @@ y: (2, 4, 6)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [42]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [43]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Person</span><span class="p">():</span>
@@ -9505,7 +9674,7 @@ y: (2, 4, 6)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [43]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [44]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Person</span><span class="p">():</span>
@@ -9544,7 +9713,7 @@ y: (2, 4, 6)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [44]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [45]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Person</span><span class="p">():</span>
@@ -9585,7 +9754,7 @@ y: (2, 4, 6)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [45]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [46]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Person</span><span class="p">():</span>
@@ -9638,7 +9807,7 @@ Kao
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [46]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [47]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'登入中...'</span><span class="p">)</span>
@@ -9658,7 +9827,7 @@ Kao
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>登入中...
-使用者名稱: test 已登入
+使用者名稱: kao 已登入
 </pre>
 </div>
 </div>
@@ -9669,7 +9838,7 @@ Kao
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [47]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [48]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">getpass</span><span class="w"> </span><span class="kn">import</span> <span class="n">getpass</span>
@@ -9691,7 +9860,7 @@ Kao
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>登入中...
-使用者名稱: test 已登入
+使用者名稱: kao 已登入
 </pre>
 </div>
 </div>
@@ -9715,7 +9884,7 @@ Kao
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [48]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [49]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 在 Jupyter notebook 單元格中使用 "!" 執行命令列指令</span>
@@ -9834,7 +10003,7 @@ PyAutoGUI                 0.9.54
 pycparser                 2.22
 pydantic                  2.11.3
 pydantic_core             2.33.1
-pyee                      13.0.0
+pyee                      11.1.1
 pygame                    2.6.1
 PyGetWindow               0.0.9
 Pygments                  2.19.1
@@ -9866,6 +10035,7 @@ rfc3986-validator         0.1.1
 rpds-py                   0.25.1
 rubicon-objc              0.5.0
 schedule                  1.2.2
+scipy                     1.17.0
 Send2Trash                1.8.3
 setuptools                80.9.0
 six                       1.16.0
@@ -9885,7 +10055,7 @@ typing_extensions         4.13.2
 typing-inspection         0.4.0
 tzdata                    2024.2
 uri-template              1.3.0
-urllib3                   2.5.0
+urllib3                   1.26.20
 uv                        0.9.7
 uvicorn                   0.34.1
 wcwidth                   0.2.13
@@ -9917,7 +10087,7 @@ zipp                      3.21.0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [49]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [50]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">uvicorn</span>
@@ -10203,7 +10373,7 @@ FILE
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [50]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [51]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">uvicorn</span>
@@ -10219,7 +10389,7 @@ FILE
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[50]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[51]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>['Config',
  'Server',
@@ -10253,7 +10423,7 @@ FILE
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [51]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [52]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">uvicorn</span>
@@ -10285,7 +10455,7 @@ uvicorn<span class="o">?</span>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [52]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [53]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
@@ -10302,7 +10472,7 @@ uvicorn<span class="o">?</span>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[52]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[53]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>['__add__',
  '__class__',
@@ -10382,7 +10552,7 @@ uvicorn<span class="o">?</span>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [53]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [54]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
@@ -10404,8 +10574,8 @@ uvicorn<span class="o">?</span>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>&lt;built-in method today of type object at 0x101fec8b0&gt;
-2025-11-14 14:59:45.728075
+<pre>&lt;built-in method today of type object at 0x103eac8b0&gt;
+2026-01-17 11:44:56.076643
 </pre>
 </div>
 </div>
@@ -10430,7 +10600,7 @@ uvicorn<span class="o">?</span>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [54]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [55]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'c123'</span><span class="p">,</span> <span class="mi">142_857</span><span class="p">,</span> <span class="s1">'Michael'</span><span class="p">,</span> <span class="s1">'Kao'</span><span class="p">]:</span>
@@ -10464,19 +10634,32 @@ uvicorn<span class="o">?</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">digit</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">()</span>
 
-<span class="c1"># 讓一副牌可迭代？</span>
+<span class="c1"># 導入必要的模組</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">itertools</span>
+
+<span class="c1"># 建立牌面數字清單：2-10 加上 J, Q, K, A</span>
 <span class="n">ranks</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span> <span class="o">+</span> <span class="p">[</span><span class="s2">"J"</span><span class="p">,</span> <span class="s2">"Q"</span><span class="p">,</span> <span class="s2">"K"</span><span class="p">,</span> <span class="s2">"A"</span><span class="p">]</span>
+<span class="c1"># 將所有元素轉換為字串</span>
 <span class="n">ranks</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">rank</span><span class="p">)</span> <span class="k">for</span> <span class="n">rank</span> <span class="ow">in</span> <span class="n">ranks</span><span class="p">]</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'牌面數字: </span><span class="si">{</span><span class="n">ranks</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
-<span class="n">suits</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"黑桃"</span><span class="p">,</span> <span class="s2">"紅心"</span><span class="p">,</span> <span class="s2">"方塊"</span><span class="p">,</span> <span class="s2">"梅花"</span><span class="p">]</span>
+<span class="c1"># 定義四種花色</span>
+<span class="n">suits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'♠'</span><span class="p">,</span> <span class="s1">'♥'</span><span class="p">,</span> <span class="s1">'♦'</span><span class="p">,</span> <span class="s1">'♣'</span><span class="p">]</span>
+
+<span class="c1"># 使用 itertools.product 建立所有可能的牌面組合（花色 + 數字）</span>
 <span class="n">deck</span> <span class="o">=</span> <span class="p">[</span><span class="n">card</span> <span class="k">for</span> <span class="n">card</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">suits</span><span class="p">,</span> <span class="n">ranks</span><span class="p">)]</span>
 
+<span class="c1"># 遍歷並顯示前52張牌</span>
 <span class="k">for</span> <span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">card</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">deck</span><span class="p">):</span>
+    <span class="c1"># 顯示牌組中的每一張牌，編號從1開始</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="mi">1</span><span class="o">+</span><span class="n">index</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">card</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+    <span class="c1"># 安全機制：最多只顯示52張牌</span>
+    <span class="k">if</span> <span class="n">index</span> <span class="o">&gt;=</span> <span class="mi">51</span><span class="p">:</span>  <span class="c1"># 因為索引從0開始，所以51表示第52張牌</span>
+        <span class="k">break</span>
 
+<span class="c1"># 計算從52張牌中選取5張的所有可能組合</span>
+<span class="c1"># 注意：這個計算量非常大（2,598,960種組合）</span>
 <span class="n">hands</span> <span class="o">=</span> <span class="p">[</span><span class="n">hand</span> <span class="k">for</span> <span class="n">hand</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">combinations</span><span class="p">(</span><span class="n">deck</span><span class="p">,</span> <span class="mi">5</span><span class="p">)]</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'五張牌的撲克牌組合共有 </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">hands</span><span class="p">)</span><span class="si">:</span><span class="s1">,</span><span class="si">}</span><span class="s1"> 種。'</span><span class="p">)</span>
 </pre></div>
@@ -10498,58 +10681,58 @@ M i c h a e l   K a o
 1 4 2 8 5 7 
 1 4 2 8 5 7 
 牌面數字: ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
-1: ('黑桃', '2')
-2: ('黑桃', '3')
-3: ('黑桃', '4')
-4: ('黑桃', '5')
-5: ('黑桃', '6')
-6: ('黑桃', '7')
-7: ('黑桃', '8')
-8: ('黑桃', '9')
-9: ('黑桃', '10')
-10: ('黑桃', 'J')
-11: ('黑桃', 'Q')
-12: ('黑桃', 'K')
-13: ('黑桃', 'A')
-14: ('紅心', '2')
-15: ('紅心', '3')
-16: ('紅心', '4')
-17: ('紅心', '5')
-18: ('紅心', '6')
-19: ('紅心', '7')
-20: ('紅心', '8')
-21: ('紅心', '9')
-22: ('紅心', '10')
-23: ('紅心', 'J')
-24: ('紅心', 'Q')
-25: ('紅心', 'K')
-26: ('紅心', 'A')
-27: ('方塊', '2')
-28: ('方塊', '3')
-29: ('方塊', '4')
-30: ('方塊', '5')
-31: ('方塊', '6')
-32: ('方塊', '7')
-33: ('方塊', '8')
-34: ('方塊', '9')
-35: ('方塊', '10')
-36: ('方塊', 'J')
-37: ('方塊', 'Q')
-38: ('方塊', 'K')
-39: ('方塊', 'A')
-40: ('梅花', '2')
-41: ('梅花', '3')
-42: ('梅花', '4')
-43: ('梅花', '5')
-44: ('梅花', '6')
-45: ('梅花', '7')
-46: ('梅花', '8')
-47: ('梅花', '9')
-48: ('梅花', '10')
-49: ('梅花', 'J')
-50: ('梅花', 'Q')
-51: ('梅花', 'K')
-52: ('梅花', 'A')
+1: ('♠', '2')
+2: ('♠', '3')
+3: ('♠', '4')
+4: ('♠', '5')
+5: ('♠', '6')
+6: ('♠', '7')
+7: ('♠', '8')
+8: ('♠', '9')
+9: ('♠', '10')
+10: ('♠', 'J')
+11: ('♠', 'Q')
+12: ('♠', 'K')
+13: ('♠', 'A')
+14: ('♥', '2')
+15: ('♥', '3')
+16: ('♥', '4')
+17: ('♥', '5')
+18: ('♥', '6')
+19: ('♥', '7')
+20: ('♥', '8')
+21: ('♥', '9')
+22: ('♥', '10')
+23: ('♥', 'J')
+24: ('♥', 'Q')
+25: ('♥', 'K')
+26: ('♥', 'A')
+27: ('♦', '2')
+28: ('♦', '3')
+29: ('♦', '4')
+30: ('♦', '5')
+31: ('♦', '6')
+32: ('♦', '7')
+33: ('♦', '8')
+34: ('♦', '9')
+35: ('♦', '10')
+36: ('♦', 'J')
+37: ('♦', 'Q')
+38: ('♦', 'K')
+39: ('♦', 'A')
+40: ('♣', '2')
+41: ('♣', '3')
+42: ('♣', '4')
+43: ('♣', '5')
+44: ('♣', '6')
+45: ('♣', '7')
+46: ('♣', '8')
+47: ('♣', '9')
+48: ('♣', '10')
+49: ('♣', 'J')
+50: ('♣', 'Q')
+51: ('♣', 'K')
+52: ('♣', 'A')
 五張牌的撲克牌組合共有 2,598,960 種。
 </pre>
 </div>
