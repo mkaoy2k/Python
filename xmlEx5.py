@@ -6,7 +6,7 @@
 3. 顯示找到的節點內容
 """
 
-import xml.etree.ElementTree as ET
+import defusedxml.ElementTree as ET
 from pathlib import Path
 
 def find_investor_by_id(xml_file, investor_id):

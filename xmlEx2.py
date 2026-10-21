@@ -7,7 +7,7 @@
 4. 寫入更新後的 XML 檔案
 """
 
-import xml.etree.ElementTree as ET
+import defusedxml.ElementTree as ET
 from pathlib import Path
 
 def main():

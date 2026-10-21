@@ -3,7 +3,7 @@ XML 文件讀取和節點遍歷示例
 這個範例展示了如何讀取 XML 文件並遍歷整個樹結構。
 """
 
-import xml.etree.ElementTree as ET
+import defusedxml.ElementTree as ET
 from pathlib import Path
 
 def load_xml_data(file_path):

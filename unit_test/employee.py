@@ -73,7 +73,10 @@ class Employee:
         logger.debug(f'{get_function_name()}: pay={self.pay}')
 
     def monthly_schedule(self, month):
-        response = requests.get(f'http://company.com/{self.last}/{month}')
+        response = requests.get(
+            f'http://company.com/{self.last}/{month}',
+            timeout=10,
+        )
         if response.ok:
             logger.debug(f'{get_function_name()}:\n{response.text}')   
             return response.text

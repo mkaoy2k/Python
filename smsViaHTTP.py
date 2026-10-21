@@ -25,7 +25,7 @@ def send_sms(msg: str) -> dict:
         'phone': os.getenv('SMS_MOBILE_NUMBER'),
         'message': msg,
         'key': 'textbelt'
-    })
+    }, timeout=10)
     # 回傳 HTTP 服務回應結果
     return resp.json()
 
