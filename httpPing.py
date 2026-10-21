@@ -2,6 +2,7 @@
 藉著訪問 HTTP 伺服器的網址測試其是否正常回應。
 """
 
+from urllib.parse import urlparse
 import urllib.request as ur
 import time
 
@@ -9,11 +10,17 @@ import time
 def ping(url):
     """
     對指定的 URL 發起 HTTP 請求，檢查伺服器是否正常回應。
+    只允許 http 與 https，避免 file:// 等本機協定。
     """
     print("訪問開始...")
 
+    parsed = urlparse(url.strip())
+    if parsed.scheme.lower() not in ("http", "https") or not parsed.netloc:
+        print("===>訪問結果: 只允許帶主機名稱的 http 或 https 網址\n")
+        return
+
     try:
-        response = ur.urlopen(url)
+        response = ur.urlopen(parsed.geturl())
         if response.getcode() == 200:
             print(f'===>訪問結果: {url} 反應正常！\n')
 

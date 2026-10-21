@@ -1,8 +1,12 @@
 # credentials
 /.env
+.env
+template.env.txt
 
 # git environment
 /.git
+# Copied git metadata (reflogs, objects, config). Not the real repository.
+git/
 
 # VS Code environment
 /.vscode

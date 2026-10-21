@@ -8,7 +8,8 @@ XML 文件處理示例
 4. 寫入更新後的 XML 文件
 """
 
-import xml.etree.ElementTree as ET
+import defusedxml.ElementTree as ET
+from xml.etree.ElementTree import Element
 from pathlib import Path
 
 def setup_paths() -> tuple[Path, Path]:
@@ -71,18 +72,18 @@ def process_xml(file_read: Path, file_write: Path) -> None:
         
         # 方法 2: 使用 Element 類別添加投資者節點
         print("\n2. 使用 Element 類別添加投資者節點...")
-        investor2 = ET.Element("investor")
+        investor2 = Element("investor")
         investor2.text = "Christine Kao"
         root.append(investor2)
         
         # 添加購買記錄
-        purchased = ET.Element("purchased")
+        purchased = Element("purchased")
         purchased.text = '1000'
         purchased.set('date', '2021-03-31')
         investor2.append(purchased)
         
         # 添加售出記錄
-        sold = ET.Element("sold")
+        sold = Element("sold")
         sold.text = '500'
         sold.set('date', '2022-04-30')
         investor2.append(sold)

@@ -16,16 +16,16 @@
 3. 執行本程式
 """
 
+import re
 import requests
 from datetime import date, timedelta
 from dotenv import load_dotenv
 import os
+from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 from urllib3.util.retry import Retry
 from requests.adapters import HTTPAdapter
 import webbrowser
 import logging
-import ssl
-import urllib3
 
 # 設置日誌
 logging.basicConfig(
@@ -41,24 +41,35 @@ load_dotenv()
 quake_url = os.getenv('QUAKE_URL')
 quake_magnitude = float(os.getenv('QUAKE_MAGNITUDE', 4.0))
 
-def create_session(verify_ssl=True):
+def redact_sensitive(text: str | None) -> str:
+    """Hide API keys that are embedded in a CWA Authorization query parameter."""
+    if not text:
+        return ""
+
+    def redact_url(match: re.Match) -> str:
+        parts = urlsplit(match.group(0))
+        query = [
+            (key, "REDACTED" if key.lower() == "authorization" else value)
+            for key, value in parse_qsl(parts.query, keep_blank_values=True)
+        ]
+        return urlunsplit(
+            (parts.scheme, parts.netloc, parts.path, urlencode(query), parts.fragment)
+        )
+
+    redacted = re.sub(r"https?://[^\s'\"<>]+", redact_url, text)
+    return re.sub(r"(?i)(Authorization=)[^&\s'\"<>]+", r"\1REDACTED", redacted)
+
+def create_session():
     """
-    建立具有重試機制的 requests 會話
-    
-    Args:
-        verify_ssl (bool): 是否驗證 SSL 憑證，預設為 True
-        
+    建立具有重試機制的 requests 會話。一律驗證 SSL 憑證。
+
     Returns:
         requests.Session: 配置好的 session 物件
     """
-    logger.info(f"建立 requests 會話 (SSL 驗證: {'啟用' if verify_ssl else '停用'})")
-    
-    # 停用 SSL 警告（如果停用 SSL 驗證）
-    if not verify_ssl:
-        urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-    
+    logger.info("建立 requests 會話 (SSL 驗證: 啟用)")
+
     session = requests.Session()
-    
+
     # 設定重試機制
     retry = Retry(
         total=3,
@@ -67,23 +78,15 @@ def create_session(verify_ssl=True):
         allowed_methods=False,
         raise_on_status=False
     )
-    
+
     # 設定適配器
     adapter = HTTPAdapter(max_retries=retry)
-    
+
     # 掛載適配器
     session.mount("http://", adapter)
     session.mount("https://", adapter)
-    
-    # 設定 SSL 驗證
-    session.verify = verify_ssl
-    
-    # 如果停用 SSL 驗證，設定 verify=False
-    if not verify_ssl:
-        session.verify = False
-        # 停用 SSL 警告
-        requests.packages.urllib3.disable_warnings()
-    
+
+    session.verify = True
     return session
 
 def get_earthquake_data() -> dict:
@@ -93,30 +96,25 @@ def get_earthquake_data() -> dict:
     Returns:
         dict: 地震資料的 JSON 格式字典
     """
+    safe_url = redact_sensitive(quake_url)
     try:
-        logger.info(f"開始獲取地震資料，URL: {quake_url}")
-        
-        # 先嘗試使用 SSL 驗證
-        session = create_session(verify_ssl=True)
-        try:
-            response = session.get(quake_url, timeout=10)
-            response.raise_for_status()
-            logger.info("成功使用 SSL 驗證獲取地震資料")
-            return response.json()
-        except (requests.exceptions.SSLError, requests.exceptions.ConnectionError) as ssl_error:
-            logger.warning(f"SSL 驗證失敗，嘗試不驗證 SSL: {str(ssl_error)}")
-            # 如果 SSL 驗證失敗，重試不驗證 SSL
-            session = create_session(verify_ssl=False)
-            response = session.get(quake_url, timeout=10, verify=False)
-            response.raise_for_status()
-            logger.info("成功獲取地震資料 (不驗證 SSL)")
-            return response.json()
-            
+        if not quake_url:
+            logger.error("環境變數 QUAKE_URL 未設定")
+            return {}
+
+        logger.info(f"開始獲取地震資料，URL: {safe_url}")
+
+        session = create_session()
+        response = session.get(quake_url, timeout=10)
+        response.raise_for_status()
+        logger.info("成功使用 SSL 驗證獲取地震資料")
+        return response.json()
+
     except requests.exceptions.Timeout:
-        logger.error(f"API 請求超時：{quake_url}")
+        logger.error(f"API 請求超時：{safe_url}")
         return {}
     except requests.exceptions.RequestException as e:
-        logger.error(f"API 請求失敗：{str(e)}")
+        logger.error(f"API 請求失敗：{redact_sensitive(str(e))}")
         return {}
 
 def process_earthquake_events(data_json: dict) -> None:
