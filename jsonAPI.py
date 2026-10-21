@@ -9,7 +9,16 @@
 注意：本範例使用 Typicode 提供的測試伺服器
 """
 import json
+from urllib.parse import urlparse
 from urllib.request import urlopen
+
+
+def open_http_url(url):
+    """Open a URL only when its scheme is http or https."""
+    parsed = urlparse(url)
+    if parsed.scheme.lower() not in ("http", "https") or not parsed.netloc:
+        raise ValueError("Only http and https URLs with a host are allowed")
+    return urlopen(parsed.geturl())
 
 
 def main():
@@ -21,7 +30,7 @@ def main():
 
     # 開啟 URL 並讀取響應資料
     print(f'訪問網址：{url_path} ...')
-    with urlopen(url_path) as response:
+    with open_http_url(url_path) as response:
         source = response.read()
 
     # 顯示原始資料的類型和內容

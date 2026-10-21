@@ -7,7 +7,7 @@ XML 文件處理範例
 3. 將修改後的 XML 寫入新文件
 """
 
-import xml.etree.ElementTree as ET
+import defusedxml.ElementTree as ET
 from pathlib import Path
 
 def process_xml(file_read: Path, file_write: Path) -> None:
