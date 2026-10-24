@@ -51,37 +51,12 @@
             border: 1px solid #ddd;
             border-radius: 5px;
         }
-        @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
-            h3 {
-                font-size: 1.5rem;
-            }
-            .image-row {
-                flex-direction: column;
-                align-items: center;
-            }
-            .section {
-                margin: 10px 0;
-                padding: 15px;
-            }
-        }
         .topic {
             background-color: #e8f4fc;
             padding: 15px;
             border-radius: 5px;
             margin: 20px 0;
             border-left: 4px solid #3498db;
-        }
-        .meaning {
-            margin-left: 20px;
-            color: #2c3e50;
-        }
-        .source {
-            color: #7f8c8d;
-            font-size: 0.9em;
-            margin-top: 5px;
         }
         .quote {
             font-style: italic;
@@ -96,12 +71,6 @@
             margin: 30px 0;
             font-size: 1.2em;
             color: #e74c3c;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin: 1.5rem 0;
         }
         .card {
             border: 1px solid var(--border-color);
@@ -120,103 +89,126 @@
             border-radius: 4px;
             margin: 0.5rem 0;
         }
-        .item {
-            font-weight: 500;
-            color: #2c3e50;
-        }
-        .cost {
-            font-weight: bold;
-            color: #27ae60;
-        }
         </style>
     </head>
     <body>
         <h1>大蟒蛇日誌</h1>
-        <h3 id="currentDate"></h3>
-        <script>
-            // 創建日期物件
-            const today = new Date();
-            // 格式化日期（年、月、日）
-            const year = today.getFullYear();
-            const month = today.getMonth() + 1; // getMonth() 返回 0-11，所以要加1
-            const day = today.getDate();
-            
-            // 將日期轉換為繁體中文格式
-            const chineseDate = `${year}年${month}月${day}日`;
-            // 將日期顯示在 HTML 中
-            document.getElementById('currentDate').textContent = chineseDate;
-            </script>
-           
+        <h2 id="currentDate"></h2>                           
 <!-- 3x1 Table Layout -->
 <table style="width: 100%; border-collapse: collapse; table-layout: fixed;">
     <!-- Row 1: 我的臨終願望清單 -->
+    <h3>臨終願望清單</h3>
+    <div class="quote" style="font-style: italic; padding: 20px; background-color: #f9f9f9; border-left: 4px solid #ccc; text-align: center; margin: 0 auto; max-width: 80%;">
+        學會和死亡和解，與其增加生命的長度，不如增加生命的厚度，成為今生最後的底氣。<br>    
+    </div>
+
     <tr>
-        <td style="padding: 20px 0; vertical-align: top; border-bottom: 1px solid #ddd;">
-        <h3>我的臨終願望清單</h3>
-                            
-            <div class="container mt-4">
+    <td style="padding: 20px 0; vertical-align: top; border-bottom: 1px solid #ddd;"> 
+        <div class="container mt-4">
             <section class="mb-5">
-                <h2 class="h4">生活目標</h2>
+                <h3>生活願望 2026</h3>
                 <div class="card mb-3">
                     <div class="card-body">
-                        <h3 class="h5">充足老菩薩公積金 2026</h3>
+                        <h3 class="h5">終極活法</h3>
+                        <p>透過<a href="https://youtu.be/ggnkFaVysoY?si=IMBd5ifV4po4lXKh" target="_blank">叔本華的哲學視角</a>，探討晚年真正「高級」的活法。
+                        這不是教自己向外追逐，而是教自己向內回歸。落實以下這 5 件事，晚年將不再是一場慌慌張張的逃離，而是一場從容自在的往生：</p>
+                        <ol class="pl-3">
+                            <li><span>✅ 守住身體與日常秩序：</span></li>
+                            <p>年輕時的身體是來用的，老年時的身體是來養的。<br>
+                            身心健康的基礎，來自於建立日常生活秩序，規律的日常節奏是對抗失落感的避風港。<br>
+                            日常秩序：留下日誌且常反省，環境整齊且不失自然、保持清潔且舒適宜居<br>
+                            堅持走路：今天不常走，明天不好走<br>
+                            跑步折壽：天天勤走路，帶狗溜一溜<br>
+                            </p>
+                            <li><span>✅ 把獨處變成享受：</span></li>
+                            <p>一個人並不等於孤獨，無父曰孤。無子曰獨。<br>
+                            不要為了逃避空虛而假裝合群。<br>
+                            只有在獨處時才能真正瞭解自己，在心裡為自己建一間溫暖而非空虛的房間，讓自己成為最可靠的伴。</p>
+                            <li><span>✅ 收回對外界的期待：</span></li>
+                            <p>不再需要對外在證明自己，<br>
+                            不再用別人的標準折磨自己，<br>
+                            不再向任何人證明自己活得精彩。</p>
+                            <li><span>✅ <a href="https://youtu.be/YL1guNaA9BU?si=TQKudajO_QHfR_gW" target="_blank">斷捨離</a>欲望和關係：</span></li>
+                            <p>放下對多餘物質的慳貪，多出來的東西若還能用，儘早施捨給需要的人。<br>
+                            別讓這些東西在家中堆積如山，還讓後人來幫忙整理。<br>
+                            遠離消耗自己的低質量社交關係，學會拒絕，勇敢說「不」。</p>
+                            <li><span>✅ 把精神世界養厚：</span></li>
+                            <p>求真、向善、賞美讓人心裝得下更大的精神世界。<br>
+                            透過閱聽、思考、止觀來滋養內在，求真、向善。<br>
+                            藝術和自然是精神世界的另一種養份，對其賞美是暫時擺脫自我意志衝動的途徑。</p>
+                        </ol>
+                        <div class="quote" style="font-style: italic; padding: 20px; background-color: #f9f9f9; border-left: 4px solid #ccc; text-align: center; margin: 0 auto; max-width: 80%;">
+                            安享晚年的秘訣，其實在於與孤獨達成一份體面的契約。<br>    
+                            -- 馬奎斯 (1927-2014)<br>
+                            <br>
+                            The secret of a good old age is simply an honorable pact with solitude.<br>
+                            -- Garbriel Garcia Marquez
+                        </div>
+                        <br>
+                        <h3 class="h5">充足老菩薩公積金</h3>
                         <ol class="pl-3">
                             <li><span>✅ 每月嘉祥資助$10,000。</span></li>
                             <li><span>✅ 每月嘉雄資助$10,000。</span></li>
                         </ol>
-
-                        <h3 class="h5">完善老菩薩長照 2026</h3>
+                        <h3 class="h5">完善老菩薩長照</h3>
                         <ol class="pl-3">
                             <li><span>✅ 每週五、六，央請大嫂下午五點到七點來幫忙整理廚房及處理垃圾。</span></li>
                             <li><span>✅ 大嫂服務費週薪$800，由公積金支付。</span></li>
                             <li><span>✅ 每星期一到四，因有便當送餐，家務較少，故不考慮提供幫忙。唯有垃圾處理，由嘉狄負責。</span></li>
                         </ol>
-
-                        <h3 class="h5">完善渤海漚汪高氏族譜上線 2026</h3>
+                        <h3 class="h5">完善渤海漚汪高氏族譜</h3>
                         <ol class="pl-3">
                             <li><span>✅ MacRose 美國矽谷伺服器上線</span></li>
                             <li><span>✅ TwRose 台灣高雄備份伺服器測試上線</span></li>
-                            <li><span>✅ FamilyTrees 上線 via Tunnel</span></li>
-                            <li><span>✅ FamilyTreesOPS 上線 via Tunnel</span></li>
-                            <li>擴大高氏家族女成員</li>
-                            <li><span>✅ 營運渤海漚汪高氏族譜通訊期刊：</span></li>
-                            <p>通訊期刊主頁分：焦點 (News)、講古 (Story)、好康 (Events)三個章節。「焦點」章節為最新消息，「講古」章節為故事分享，「好康」章節為活動資訊。</p>
-                            <p>另外有三個分頁：常見問題、關於族譜、家族投稿。「常見問題」分頁為常見問題解答，「關於族譜」分頁為族譜介紹，「家族投稿」分頁為家族成員投稿，一旦投稿通過審核，就會刊登在通訊期刊上。</p>
-                            <li>傳承：交棒下去</li>
+                            <li><span>✅ FamilyTrees 上線 via ngrok Tunnel</span></li>
+                            <li><span>✅ FamilyTreesAdmin 上線 via ngrok Tunnel</span></li>
+                            <li><span>✅ FamilyTreesOps (渤海漚汪高氏族譜通訊期刊)上線 via ngrok Tunnel</span></li>
+                            <p>通訊期刊主頁分：焦點 (News)、講古 (Story)、好康 (Events)三個章節。<br>
+                            「焦點」章節為最新消息，<br>
+                            「講古」章節為故事分享，<br>
+                            「好康」章節為活動資訊。<br>
+                            另外除主頁外，通訊期刊還有三個分頁：常見問題、關於族譜、及家族投稿。<br>
+                            「常見問題」分頁為常見問題解答，<br>
+                            「關於族譜」分頁為族譜平台設計及開發介紹，<br>
+                            「家族投稿」分頁為家族成員投稿，一旦投稿通過審核，就會投稿之性質歸類在相應章節並刊登在通訊期刊主頁上。</p>
+                            <li><span>擴大高氏家族女成員</span></li>
+                            <li><span>傳承：交棒下去</span></li>
                         </ol>
                     </div>
                 </div>
             </section>
 
             <section class="mb-5">
-                <h2 class="h4">旅行目標</h2>    
+                <h3>旅行願望 2026</h3> 
+                <p>親近自然不只是旅行唯一目的，簡約生活何嘗不是，探索未知亦復如是。<br>
+                    另外訓練獨立與應變能力應對偶發事件，能夠隨遇而安，安身立命。<br>
+                    Staying close to nature isn't the only purpose of travel; yet leading a simpler life is also a good one. And lastly, exploring the unknown is also a thrilling one. In addition, training in independence and adaptability to cope with unexpected events enables one to make a home anywhere and settle down anywhere.</p>
+                    <div class="quote" style="font-style: italic; padding: 20px; background-color: #f9f9f9; border-left: 4px solid #ccc; text-align: center; margin: 0 auto; max-width: 80%;">
+                        不要沿著既定的路徑前進，<br>
+                        而要走向沒有路的地方，並留下自己的足跡。<br>
+                        -- 拉爾夫‧沃爾多‧愛默生 (1803-1882)<br> 
+                        <br>
+                        Do not go where the path may lead you, <br>
+                        go instead where there is no path and leave a trail.<br>
+                        -- Ralph Waldo Emerson
+                    </div>
+                <p>喜歡旅行的人得有房車才方便，不用安排旅館住宿。車上可擴容裝備太陽能發電及上網系統，還有小冰箱可儲存食物，電磁爐或微波爐可煮熱食。最終能省下可觀的旅行成本。
+                    開房車旅遊如今很方便，充電普及，房車輕巧。退休的人，買個房車到處旅行，例如 CyberTruck 訂閱 FSD 和 CyberLandr RV 也算是一個臨終願望之一吧。</p>
+                <img src="https://github.com/mkaoy2k/Images/blob/main/Cyberlandr.png?raw=true" style="max-width: 100%; height: auto;">
+
+                <p>其他旅行所需：</p>
+                    <ol class="pl-3">
+                        <li>需要一台小型洗衣機可洗衣服，或尋找自助洗衣店。</li>
+                        <li>旅途中提供飲食的餐廳或商店。</li>
+                        <li>水箱若需加水時，就需要有供水的地方。</li>
+                    </ol>
                 <div class="card mb-3">
                     <div class="card-body">
-                        <h3 class="h5">旅行者的存在，是認識慢活的過程</h3>
-                        <p>親近自然不只是旅行唯一目的，簡約生活何嘗不是，探索未知亦復如是。</p>
-                            <p>Staying close to nature isn't the only purpose of travel; yet leading a simpler life is also a good one. And lastly, exploring the unknown is also a thrilling one.</p>
-                            <div class="quote" style="font-style: italic; padding: 20px; background-color: #f9f9f9; border-left: 4px solid #ccc; text-align: center; margin: 0 auto; max-width: 80%;">
-                                Do not go where the path may lead you, <br>
-                                go instead where there is no path and leave a trail.<br>
-                                - Ralph Waldo Emerson
-                            </div>
-                            <br>
-                        <p>喜歡旅遊的人得有房車才方便，不用住旅館，可擴容裝備太陽能發電系統，利用綠能自動充電，省下可觀的旅行費用。還有小冰箱可儲存食物，電磁爐或微波爐可煮熱食。</p>
-                        <p>另外訓練獨立與應變能力應對偶發事件，能夠隨處為家，安身立命。</p>
-                        <p>開房車旅遊如今很方便，充電普及，房車輕巧。退休的人，買個房車到處旅行，例如 CyberTruck 訂閱 FSD 和 CyberLandr RV 也算是一個臨終願望之一吧。</p>
-
-                        <p>其他旅行所需：</p>
-                        <ol class="pl-3">
-                            <li>需要一台小型洗衣機可洗衣服，或尋找自助洗衣店。</li>
-                            <li>旅途中提供飲食的餐廳或商店。</li>
-                            <li>水箱若需加水時，就需要有供水的地方。</li>
-                        </ol>
-                        <br>
-                        <h4 class="h5">打卡點：Majority of 63 US National Parks, Monuments, Forests, and Reserves</h4>
+                        <h3 class="h5">旅行者的存在，是在打卡的過程中認識慢活</h3>
                             <div style="display: flex; gap: 24px; align-items: flex-start;">
                                 <!-- Col1: 美國西部 -->
                                 <div style="flex: 1; min-width: 0;">
-                                    <h3 class="h5">美國西部</h3>
+                                    <h3 class="h5">打卡點：美國西部</h3>
                                     <ol class="pl-3">
                                         <li><span>✅ Yellow Stone 黃石國家公園, Idaho/Montana/Wyoming (2025-5)</span></li>
                                         <li><span>✅ Grand Teton 大提頓國家公園, WY (2025-5)</span></li>
@@ -238,7 +230,7 @@
 
                                 <!-- Col2: 美國中部 -->
                                 <div style="flex: 1; min-width: 0;">
-                                    <h3 class="h5">美國中部</h3>
+                                    <h3 class="h5">打卡點：美國中部</h3>
                                     <ol class="pl-3">
                                         <li><span>View 水月觀音 in Nelson-Atkins Museum, MI</span></li>
                                         <li><span>Learn about Amish culture in 印第安那州 Shipshewana 鎮, IN</span></li>
@@ -247,12 +239,14 @@
 
                                 <!-- Col3: 美國東部 -->
                                 <div style="flex: 1; min-width: 0;">
-                                    <h3 class="h5">美國東部</h3>
+                                    <h3 class="h5">打卡點：美國東部</h3>
                                     <ol class="pl-3">
                                         <li><span>Historic tour in Gettysburg, PA</span></li>
                                         <li><span>Learn about Amish culture in 蘭開斯特縣, PA</span></li>
                                         <li><span>Join 華盛頓渡河重演活動, PA</span></li>
                                         <li><span>櫻花季賞櫻, Tidal Basin, 華盛頓 DC</span></li>
+                                        <li><span>櫻花季賞櫻, Tidal Basin, 華盛頓 DC</span></li>
+                                        <li><span>White House, 華盛頓 DC</span></li>
                                     </ol>
                                 </div>
                             </div>
@@ -260,37 +254,42 @@
 
                 <div class="card mb-3">
                     <div class="card-body">
-                        <h3 class="h5">日本桃花源</h3>
-                        <p>當陽光正好，穿透玻璃屋頂灑落在米白色石材地板和牆面上，藉由光影的巧妙折射，更能深刻感受這座建築的對稱與平衡之美。日本京都美秀 (Miho) 美術館絕對是建築迷必訪的聖地！這裡完美體現了貝聿銘的幾何美學，與羅浮宮玻璃金字塔有異曲同工之妙。</p>
-                        <p>大家常說這裡不只是美術館，而是坐落在自然中的現代「桃花源」。整個入館過程充滿儀式感！</p>
-                        <p>穿過優雅弧線的隧道，合金板材鋪設的內壁折射出極具未來感的流動光影，讓人彷彿進入另一個時空。​雖然接待處有電動車接駁，但強烈建議徒步前往，才能有更完整的體驗。</p>
-                        <p>館內展廳分南北兩側，大約 90 分鐘可以參觀完畢。結束後，可以到 B1 咖啡廳享受下午茶，度過悠閒時光。</p>
+                        <h3 class="h5">打卡點：日本桃花源</h3>
+                        <p>當陽光正好，穿透玻璃屋頂灑落在米白色石材地板和牆面上，藉由光影的巧妙折射，更能深刻感受這座建築的對稱與平衡之美。日本京都美秀 (Miho) 美術館絕對是建築迷必訪的聖地！這裡完美體現了貝聿銘的幾何美學，與羅浮宮玻璃金字塔有異曲同工之妙。<br>
+                        大家常說這裡不只是美術館，而是坐落在自然中的現代「桃花源」。整個入館過程充滿儀式感！<br>
+                        穿過優雅弧線的隧道，合金板材鋪設的內壁折射出極具未來感的流動光影，讓人彷彿進入另一個時空。​雖然接待處有電動車接駁，但強烈建議徒步前往，才能有更完整的體驗。<br>
+                        館內展廳分南北兩側，大約 90 分鐘可以參觀完畢。結束後，可以到 B1 咖啡廳享受下午茶，度過悠閒時光。</p>
                     </div>
                 </div>
                 
                 <div class="card mb-3">
                     <div class="card-body">
-                        <h3 class="h5">星際旅行</h3>
-                        <p>地球是文明的搖籠，但我們不可能一直都在搖籠裏。是時候邁步向前，使人類成為多行星物種，成就一個星際文明，自由翱翔並探索於群星之中。</p>
+                        <h3 class="h5">打卡點：星際旅行</h3>
+                        <ol class="pl-3">
+                            <li><span>比鄰星 b (Proxima Centauri b)：距離地球約 4.2 光年（目前已知最近的系外行星，繞半人馬座比鄰星運行）</span></li>
+                            <li><span>羅斯128 b (Ross 128 b)：距離地球約 11.0 光年（繞一顆相對安靜的紅矮星，被視為較佳候選）</span></li>
+                            <li><span>特拉普派-1 (TRAPPIST-1)：距離地球約 39.6 光年（擁有 7 颗類地行星，其中 3 颗位於適居帶）</span></li>
+                            <li><span>開普勒442b (Kepler-442b)：距離地球約 1,200 光年（位於適居帶，類地大小）</span></li>
+                        </ol>
+
                         <div class="quote" style="font-style: italic; padding: 20px; background-color: #f9f9f9; border-left: 4px solid #ccc; text-align: center; margin: 0 auto; max-width: 80%;">
-                            Earth is the cradle of humanity, <br>
-                            but you cannot stay in the cradle forever. <br>
+                            地球是文明的搖籠，但我們不可能一直都在搖籠裏。<br>
+                            是時候邁步向前，使人類成為多行星物種，<br>成就一個星際文明，自由翱翔並探索於群星之中。<br>
+                            Earth is the cradle of humanity, but you cannot stay in the cradle forever. <br>
                             It is time to go forth, become a multi-planetary species, <br>
                             starfaring civilization, be out there among the stars.<br>
-                            - Elon Musk
-                        </div>
-                        <br>
-                        <p>生活不能只是解決一個又一個悲慘的問題，必須有一些能激勵人心的東西，讓你早上醒來，很高興能成為人類的一部份。</p>
-                        <div class="quote" style="font-style: italic; padding: 20px; background-color: #f9f9f9; border-left: 4px solid #ccc; text-align: center; margin: 0 auto; max-width: 80%;">
+                            -- 伊隆．馬斯克 (1971-) <br>
+                            <br>
+                            生活不能只是解決一個又一個悲慘的問題，<br>
+                            必須有一些能激勵人心的東西，讓你早上醒來，很高興能成為人類的一部份。<br>
                             Life cannot be reduced to solving one miserable problem after another. <br>
-                            There must be something inspiring that makes you wake up in the morning <br>
-                            and be glad to be human.<br>
-                            - Elon Musk
-                        </div>
+                            There must be something inspiring that makes you wake up in the morning and be glad to be human.<br>
+                            -- Elon Musk
                     </div>
                 </div>
 
             </section>
+        </div>
         </td>
     </tr>
     
@@ -299,9 +298,7 @@
         <td style="padding: 20px 0; vertical-align: top; border-bottom: 1px solid #ddd;">
         <h3>今日提醒</h3>
             <div class="card-body">
-                <h4>堅持走路：今天不常走，明天不好走</h4>
-                <h4>跑步折壽：天天勤走路，帶狗溜一溜</h4>
-                <h4>養生是「收」不是「耗」精氣神</h4>
+                <h4>養生是「收」不是「耗」精氣神，十項養生法：</h4>
                 <ol>
                     <li>睡子午覺：晚上11點前必睡，養肝膽、藏陽氣</li>
                     <li>金雞獨立：引血下行，降血壓、通經絡</li>
@@ -347,5 +344,22 @@
         </td>
     </tr>
 </table>
+
+<script>
+    // 創建日期物件
+    const today = new Date();
+    // 格式化日期（年、月、日）
+    const year = today.getFullYear();
+    const month = today.getMonth() + 1; // getMonth() 返回 0-11，所以要加1
+    const day = today.getDate();
+    
+    // 將日期轉換為繁體中文格式
+    const chineseDate = `${year}年${month}月${day}日`;
+    // 將日期顯示在 HTML 中
+    document.getElementById('currentDate').textContent = `${chineseDate}`;
+    // 將年份顯示在各個標題中
+    document.getElementById('currentYear').textContent = `${year}`;
+</script>
 </body>
 </html>
+
