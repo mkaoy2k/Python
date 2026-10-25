@@ -122,9 +122,10 @@ class EmailSender:
             msg = self.create_email_message()
             
             with smtplib.SMTP_SSL(
-                self.smtp_server, 
-                self.smtp_port, 
-                context=ssl.create_default_context()
+                self.smtp_server,
+                self.smtp_port,
+                context=ssl.create_default_context(),
+                timeout=30,
             ) as server:
                 server.login(self.config.sender, self.config.password)
                 server.sendmail(

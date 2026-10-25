@@ -1,1 +1,1 @@
-user2@example.com
+receiver@example.com

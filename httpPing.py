@@ -20,7 +20,7 @@ def ping(url):
         return
 
     try:
-        response = ur.urlopen(parsed.geturl())
+        response = ur.urlopen(parsed.geturl(), timeout=10)
         if response.getcode() == 200:
             print(f'===>訪問結果: {url} 反應正常！\n')
 

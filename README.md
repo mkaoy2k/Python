@@ -20,12 +20,9 @@ Python/
 ├── __pycache__/            # Python 編譯快取
 ├── sample/                  # 範例資料檔案
 ├── unit_test/               # 單元測試
-├── img_processed/           # 圖片處理輸出
+├── img_processed/           # 圖片處理輸出（process_images_*.py 產生，已列入 .gitignore）
 ├── logger/                  # 日誌相關
-├── photo/                   # 圖片檔案
-├── video/                   # 影片檔案
-├── video-orig/              # 原始影片檔案
-├── git/                     # Git 相關檔案
+├── photo/                   # 影像處理範例的輸入圖片（process_images_*.py）
 ├── 基礎範例
 │   ├── dates.py            # 日期時間
 │   ├── listEx.py           # 列表操作
@@ -80,7 +77,7 @@ Python/
 │   ├── process_images_CP.py # 多進程並行處理影像效能測試
 │   └── process_images_CT.py # 多執行緒並行處理影像效能測試
 └── 配置文件
-    ├── .env                # 環境變數
+    ├── .env.example        # 環境變數範本（複製成 .env 後再填入自己的金鑰）
     ├── requirements.txt    # Python 套件依賴
     ├── pyproject.toml      # Python 專案配置
     └── environment.yaml    # 環境配置

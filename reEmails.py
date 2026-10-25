@@ -28,8 +28,8 @@ def main():
     """
     # 測試電子郵件地址
     emails = '''
-    user1@example.com
-    student@university.edu
+    ada@example.com
+    ada@university.edu
     ada-321@my-work.net
     '''
     

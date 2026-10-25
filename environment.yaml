@@ -1,3 +1,7 @@
+# osx-64 conda export (see build hashes and the prefix below).
+# openssl 3.0.14 and several other base packages predate published CVEs.
+# The build strings were left as exported so this file still matches that Mac.
+# Re-export from an updated conda env rather than editing the hashes by hand.
 name: pex
 channels:
   - defaults
