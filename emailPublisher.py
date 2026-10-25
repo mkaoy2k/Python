@@ -69,7 +69,7 @@ class EmailPublisher:
             context.minimum_version = ssl.TLSVersion.TLSv1_2
             
             # 發送電子郵件
-            with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as smtp:
+            with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context, timeout=30) as smtp:
                 try:
                     smtp.login(self.email_sender, self.email_password)
                     smtp.sendmail(self.email_sender, recipients, msg.as_string())

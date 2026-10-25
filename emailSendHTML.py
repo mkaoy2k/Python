@@ -89,7 +89,7 @@ def send_email(message: MIMEMultipart, sender: str, password: str, receiver: str
         context = ssl.create_default_context()
         
         # 連接到 Gmail SMTP 伺服器
-        with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as smtp:
+        with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context, timeout=30) as smtp:
             smtp.login(sender, password)
             smtp.sendmail(sender, receiver, message.as_string())
             
