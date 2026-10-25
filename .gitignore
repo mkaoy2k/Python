@@ -33,6 +33,7 @@ peekaboo.tar.gz
 peekaboo-macos-arm64/
 
 # Personal or generated media that no example script reads.
+sample/email_list.txt
 sample/Olisan.mov
 sample/dict.json
 sample/openCVout.avi
