@@ -146,7 +146,7 @@ class Messenger:
         使用 SSL 加密連接到 Gmail SMTP 伺服器
         '''
         context = ssl.create_default_context()
-        self.conn = smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context)
+        self.conn = smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context, timeout=30)
         self.conn.login(self.username, self.password)
 
     def close_conn(self):

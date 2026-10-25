@@ -18,7 +18,7 @@ def open_http_url(url):
     parsed = urlparse(url)
     if parsed.scheme.lower() not in ("http", "https") or not parsed.netloc:
         raise ValueError("Only http and https URLs with a host are allowed")
-    return urlopen(parsed.geturl())
+    return urlopen(parsed.geturl(), timeout=10)
 
 
 def main():

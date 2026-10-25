@@ -28,9 +28,9 @@ def main():
     """
     # 測試電子郵件地址
     emails = '''
-    mkaoy2k@gmail.com
-    mkaoy2k@university.edu
-    mkaoy2k-321@my-work.net
+    ada@example.com
+    ada@university.edu
+    ada-321@my-work.net
     '''
     
     # 第一個模式：允許更多特殊字元
