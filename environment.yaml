@@ -1,7 +1,3 @@
-# osx-64 conda export (see build hashes and the prefix below).
-# openssl 3.0.14 and several other base packages predate published CVEs.
-# The build strings were left as exported so this file still matches that Mac.
-# Re-export from an updated conda env rather than editing the hashes by hand.
 name: pex
 channels:
   - conda-forge
@@ -166,7 +162,7 @@ dependencies:
       - schedule==1.2.2
       - scipy==1.17.0
       - send2trash==1.8.3
-      - setuptools==80.9.0
+      - setuptools==84.0.0
       - six==1.16.0
       - sniffio==1.3.1
       - sortedcollections==2.1.0
