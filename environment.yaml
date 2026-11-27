@@ -121,7 +121,7 @@ dependencies:
       - pandas==2.2.3
       - pandoc==2.4
       - pandocfilters==1.5.1
-      - pillow==12.3.0
+      - pillow==13.0.0
       - pip==26.2.1
       - playwright==1.52.0
       - plumbum==1.9.0
